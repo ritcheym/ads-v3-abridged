@@ -1,4 +1,4 @@
-## Exercises {#exercises-tidy}
+## Exercises {#sec-exercises-tidy}
 
 Let's say you have a [small Excel table](data/widgets_gadgets.xlsx) with 10 customer IDs, and how many widgets and gadgets each purchased in 2020 and 2021. 
 

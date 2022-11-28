@@ -1,0 +1,99 @@
+project:
+  type: book
+  output-dir: docs
+  resources: data
+
+book:
+  title: 'Applied Data Skills'
+  subtitle: "Processing & Presenting Data"
+  author: "Emily Nordmann and Lisa DeBruine"
+  cover-image: images/logos/logo.png
+  image: images/logos/logo.png
+  fav-icon: images/logos/favicon.ico
+  #cookie-consent: true
+  google-analytics: "G-6NP3MF25W3"
+  page-navigation: true
+  search: true
+  # comments:
+  #   hypothesis:
+  #     theme: clean
+  #     openSidebar: false
+  repo-url: https://github.com/psyteachr/ads-v2/
+  repo-branch: master
+  repo-actions: [edit, issue, source]
+#  downloads: [pdf, epub]
+  sharing: [twitter, facebook, linkedin]
+  # sidebar:
+  #   style: docked
+  #   background: light
+  margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
+  page-footer:
+    left: "CC-BY 2022, psyTeachR"
+    right:
+      - icon: github
+        href: https://github.com/psyteachr/ads-v2
+      - icon: twitter
+        href: https://twitter.com/psyteachr
+      - icon: https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg
+        href: https://doi.org/10.5281/zenodo.6365077
+  chapters:
+  - index.qmd
+  - 01-intro.qmd
+  - 02-reports.qmd
+  - 03-viz.qmd
+  - 04-data.qmd
+  - 05-summary.qmd
+  - 06-formative.qmd
+  - 07-joins.qmd
+  - 08-tidy.qmd
+  - 09-wrangle.qmd
+  - 10-custom.qmd
+  - 11-refs.qmd
+  - 12-license.qmd
+  appendices:
+  - appendix-a-installing-r.qmd
+  - appendix-b-updating-r.qmd
+  - appendix-c-symbols.qmd
+  - appendix-d-conventions.qmd
+  - appendix-e-teams.qmd
+  - appendix-f-datatypes.qmd
+  - appendix-g-dates.qmd
+  - appendix-h-styling.qmd
+  - appendix-i-hashtags.qmd
+  - appendix-j-twitter.qmd
+  - appendix-k-spotify.qmd
+  - appendix-l-webpage.qmd
+
+
+bibliography:
+  - include/book.bib
+  - include/packages.bib
+csl: include/apa.csl
+
+format:
+  html:
+    theme:
+      light:
+      - flatly
+      - include/light.scss
+      dark:
+      - darkly
+      - include/dark.scss
+    css:
+    - include/psyteachr.css
+    - include/webex.css
+    - include/style.css
+    df-print: kable
+    code-link: true
+    #code-fold: false
+    # cap-location: margin
+    # reference-location: margin
+    # citation-location: margin
+    code-line-numbers: true
+    code-overflow: wrap
+    code-copy: hover
+    # code-block-border-left: "#4864DB"
+    highlight-style: a11y
+    # monofont: Fira Code
+    # mainfont: Open Sans
+    include-after-body: [include/webex.js, include/script.js]
