@@ -427,7 +427,6 @@ This is quite complicated so let's break it down.
 
 That was an intensive chapter! Take a break and then try one (or more) of the following and post your knitted HTML files on Teams so that other learners on the course can see what you did.
 
-* Work through the further examples in @sec-twitter-hashtags).
 * If you have your own Twitter account, conduct a similar analysis of a different hashtag.
 * Look through the rest of the variables in `tweets`; what other insights can you generate about this data?
 * Read through the [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) vignettes and apply your own preferred table style.

@@ -461,8 +461,8 @@ First, let's make a word cloud for customers who gave a 1-star rating:
 * `label` comes from the `word` column and is the data to plot (i.e., the words).
 * `colour` makes the words red (you could also set this to `word` to give each word a different colour or `n` to vary colour continuously by frequency).
 * `size` makes the size of the word proportional to `n`, the number of times the word appeared.
-* `r hl(ggwordcloud::geom_text_wordcloud_area())` is the word cloud geom. 
-* `r hl(ggwordcloud::scale_size_area())` controls how big the word cloud is (this usually takes some trial-and-error).  
+* `ggwordcloud::geom_text_wordcloud_area()` is the word cloud geom. 
+* `ggwordcloud::scale_size_area()` controls how big the word cloud is (this usually takes some trial-and-error).  
 
 ```{r}
 rating1 <- filter(words, rating == 1) %>%

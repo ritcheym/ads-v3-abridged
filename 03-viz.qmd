@@ -66,13 +66,13 @@ include_graphics("images/appx/excel-format-cells.png")
 
 `r glossary("Continuous")` variables are properties you can measure, like weight. You can use continuous variables in mathematical operations, like calculating the sum total of a column of prices or the average number of social media likes per day. They may be rounded to the nearest whole number, but it should make sense to have a measurement halfway between.
 
-Continuous variables always have a `r glossary("numeric")` data type. They are either `r glossary("integer", "integers")` like `r hl(42)` or `r glossary("double", "doubles")` like `r hl(3.14159)`. 
+Continuous variables always have a `r glossary("numeric")` data type. They are either `r glossary("integer", "integers")` like `42` or `r glossary("double", "doubles")` like `3.14159`. 
 
 ### Categorical
 
 `r glossary("Categorical")` variables are properties you can count, like the species of pet. Categorical variables can be `r glossary("nominal")`, where the categories don't really have an order, like cats, dogs and ferrets (even though ferrets are obviously best), or `r glossary("ordinal")`, where they have a clear order but the distance between the categories isn't something you could exactly equate, like points on a `r glossary("Likert")` rating scale. Even if a data table uses numbers like 1-7 to represent ordinal variables, you shouldn't treat them like continuous variables.
 
-Categorical data can have a `r glossary("character")` data type, also called `r glossary("string", "strings")`. These are made by putting text inside of quotes. That text can be letters, punctuation, or even numbers. For example, `r hl("January")` is a character string, but so is `r hl("1")` if you put it in quotes. The character data type is best for variables that can have a lot of different values that you can't predict ahead of time.
+Categorical data can have a `r glossary("character")` data type, also called `r glossary("string", "strings")`. These are made by putting text inside of quotes. That text can be letters, punctuation, or even numbers. For example, `"January"` is a character string, but so is `"1"` if you put it in quotes. The character data type is best for variables that can have a lot of different values that you can't predict ahead of time.
 
 Categorical data can also be `r glossary("factor", "factors")`, a specific type of integer that lets you specify the category names and their order. This is useful for making plots display with categories in the order you want (otherwise they default to alphabetical order). The factor data type is best for categories that have a specific number of levels.
 

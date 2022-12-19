@@ -87,7 +87,7 @@ There is an important distinction between **installing** a package and **loading
 <div class="small_right"><img src="images/memes/pokemon.gif" /></div>
 -->
 
-This is done using `r hl(install.packages())`. This is like installing an app on your phone: you only have to do it once and the app will remain installed until you remove it. For instance, if you want to use PokemonGo on your phone, you install it once from the App Store or Play Store; you don't have to re-install it each time you want to use it. Once you launch the app, it will run in the background until you close it or restart your phone. Likewise, when you install a package, the package will be available (but not *loaded*) every time you open up R.
+This is done using `install.packages()`. This is like installing an app on your phone: you only have to do it once and the app will remain installed until you remove it. For instance, if you want to use PokemonGo on your phone, you install it once from the App Store or Play Store; you don't have to re-install it each time you want to use it. Once you launch the app, it will run in the background until you close it or restart your phone. Likewise, when you install a package, the package will be available (but not *loaded*) every time you open up R.
 
 Install the `r pkg("tidyverse")` package on your system. This package is the main package we will use throughout this book for data wrangling, summaries, and visualisation.
 
@@ -101,25 +101,8 @@ If you get a message that says something like `package ‘tidyverse’ successfu
 Never install a package from inside a script. Only do this from the console pane.
 :::
 
-You can also install multiple packages at once. Here is the command to install all of the packages we'll be using in the first few chapters of this class. This will take a while, so don't try this in the middle of a tutorial!
 
-```{r install-all-packages, eval = FALSE}
-packages <- c(
-  "tidyverse",  # for everything
-  "kableExtra", # for nice tables
-  "patchwork",  # for multi-part plots
-  "ggthemes",   # for themed plots
-  "rio",        # for data import/export
-  "devtools"    # for installing github packages
-)
-
-# determine which need to be installed
-new_packages <- packages[!packages %in% installed.packages()]
-
-install.packages(new_packages)
-```
-
-Once you have the `r pkg("devtools")` package, you can also install packages from repositories other than CRAN, such as github. The following code installs the development version of a package for making waffle plots.
+Once you've installed the `r pkg("devtools")` package, you can also install packages from repositories other than CRAN, such as github. The following code installs the development version of a package for making waffle plots.
 
 ```{r install-waffle, eval = FALSE, filename = "Run in the console"}
 # install waffle package 
@@ -139,7 +122,7 @@ library(beepr)
 You might get some red text when you load a package, this is normal. It is usually warning you that this package has functions that have the same name as other packages you've already loaded.
 
 ::: {.callout-note}
-You can use the convention `package::function()` to indicate in which add-on package a function resides. For instance, if you see `r hl(readr::read_csv())`, that refers to the function `r hl(read_csv())` in the `r pkg("readr")` add-on package. If the package is loaded using `library()`, you don't have to specify the package name before a function unless there is a `r glossary("conflict")` (e.g., you have two packages loaded that have a function with the same name).
+You can use the convention `package::function()` to indicate in which add-on package a function resides. For instance, if you see `readr::read_csv()`, that refers to the function `read_csv()` in the {readr} add-on package. If the package is loaded using `library()`, you don't have to specify the package name before a function unless there is a `r glossary("conflict")` (e.g., you have two packages loaded that have a function with the same name).
 :::
 
 ### Using a function

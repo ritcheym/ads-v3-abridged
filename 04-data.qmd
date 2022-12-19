@@ -28,7 +28,7 @@ Download the [Data import cheatsheet](https://raw.githubusercontent.com/rstudio/
 
 ## Built-in data {#sec-builtin}
 
-You'll likely want to import you own data to work with, however, Base R also comes with built-in datasets and these can be very useful for learning new functions and packages. Additionally, some packages, like `r pkg("tidyr")`, also contain data. The `r hl(data())` function lists the datasets available.
+You'll likely want to import you own data to work with, however, Base R also comes with built-in datasets and these can be very useful for learning new functions and packages. Additionally, some packages, like `r pkg("tidyr")`, also contain data. The `data()` function lists the datasets available.
 
 ```{r built-in-data, eval = FALSE}
 # list datasets built in to base R
@@ -44,7 +44,7 @@ Type the name of a dataset into the `r glossary("console")` to see the data. For
 ?table1
 ```
 
-You can also use the `r hl(data())` function to load a dataset into your `r glossary("global environment")`.
+You can also use the `data()` function to load a dataset into your `r glossary("global environment")`.
 
 ```{r}
 # loads table1 into the environment
@@ -56,11 +56,11 @@ data("table1")
 
 Now that you've loaded some data, look the upper right hand window of RStudio, under the Environment tab. You will see the object `table1` listed, along with the number of observations (rows) and variables (columns). This is your first check that everything went OK.
 
-**Always, always, always, look at your data once you've created or loaded a table**. Also look at it after each step that transforms your table. There are three main ways to look at your table: `r hl(View())`, `r hl(print())`, `r hl(tibble::glimpse())`. 
+**Always, always, always, look at your data once you've created or loaded a table**. Also look at it after each step that transforms your table. There are three main ways to look at your table: `View()`, `print()`, `tibble::glimpse()`. 
 
 ### View() 
 
-A familiar way to look at the table is given by `r hl(View())` (uppercase 'V'), which opens up a data table in the console pane using a viewer that looks a bit like Excel. This command can be useful in the console, but don't ever put this one in a script because it will create an annoying pop-up window when the user runs it. You can also click on an object in the  `r glossary("panes", "environment pane")` to open it in the same interface. You can close the tab when you're done looking at it; it won't remove the object.
+A familiar way to look at the table is given by `View()` (uppercase 'V'), which opens up a data table in the console pane using a viewer that looks a bit like Excel. This command can be useful in the console, but don't ever put this one in a script because it will create an annoying pop-up window when the user runs it. You can also click on an object in the  `r glossary("panes", "environment pane")` to open it in the same interface. You can close the tab when you're done looking at it; it won't remove the object.
 
 ```{r, eval = FALSE}
 View(table1)
@@ -69,7 +69,7 @@ View(table1)
 
 ### print() 
 
-The `r hl(print())` method can be run explicitly, but is more commonly called by just typing the variable name on a blank line. The default is not to print the entire table, but just the first 10 rows. 
+The `print()` method can be run explicitly, but is more commonly called by just typing the variable name on a blank line. The default is not to print the entire table, but just the first 10 rows. 
 
 Let's look at the `table1` table that we loaded above. Depending on how wide your screen is, you might need to click on an arrow at the right of the table to see the last column. 
 
@@ -88,7 +88,7 @@ table1
 
 ### glimpse() 
 
-The function `r hl(tibble::glimpse())` gives a sideways version of the table. This is useful if the table is very wide and you can't easily see all of the columns. It also tells you the `r glossary("data type")` of each column in angled brackets after each column name. 
+The function `tibble::glimpse()` gives a sideways version of the table. This is useful if the table is very wide and you can't easily see all of the columns. It also tells you the `r glossary("data type")` of each column in angled brackets after each column name. 
 
 ```{r sw_glimpse}
 glimpse(table1)
@@ -96,7 +96,7 @@ glimpse(table1)
 
 ### summary() {#sec-summary-function}
 
-You can get a quick summary of a dataset with the `r hl(summary())` function, which can be useful for spotting things like if the minimum or maximum values are clearly wrong, or if R thinks that a `r glossary("nominal")` variable is `r glossary("numeric")`. For example, if you had labelled gender as 1, 2, and 3 rather than male, female, and non-binary, `summary()` would calculate a mean and median even though this isn't appropriate for the data. This can be a useful flag that you need to take further steps to correct your data. 
+You can get a quick summary of a dataset with the `summary()` function, which can be useful for spotting things like if the minimum or maximum values are clearly wrong, or if R thinks that a `r glossary("nominal")` variable is `r glossary("numeric")`. For example, if you had labelled gender as 1, 2, and 3 rather than male, female, and non-binary, `summary()` would calculate a mean and median even though this isn't appropriate for the data. This can be a useful flag that you need to take further steps to correct your data. 
 
 Note that because `population` is a very, very large number, R will use [scientific notation](https://courses.lumenlearning.com/waymakerintermediatealgebra/chapter/read-writing-scientific-notation-2/). 
 
@@ -132,7 +132,7 @@ export(demo, "data/demo.json")
 
 ### rio::import()  
 
-The type of data files you have to work with will likely depend on the software that you typically use in your workflow. The `r pkg("rio")` package has very straightforward functions for reading and saving data in most common formats: `r hl(rio::import())` and `r hl(rio::export())`. 
+The type of data files you have to work with will likely depend on the software that you typically use in your workflow. The `r pkg("rio")` package has very straightforward functions for reading and saving data in most common formats: `rio::import()` and `rio::export()`. 
 
 ```{r}
 demo_tsv  <- import("data/demo.tsv")  # tab-separated values
@@ -229,7 +229,7 @@ demo <- readr::read_csv("data/demo.csv", col_types = corrected_cols)
 ```
 
 ::: {.callout-note}
-For dates, you might need to set the format your dates are in. See `?strptime` for a list of the codes used to represent different date formats. For example, `r hl("%d-%b-%y")` means that the dates are formatted like `31-Jan-21`. 
+For dates, you might need to set the format your dates are in. See `?strptime` for a list of the codes used to represent different date formats. For example, `"%d-%b-%y"` means that the dates are formatted like `31-Jan-21`. 
 :::
 
 The functions from `r pkg("readxl")` for loading `.xlsx` sheets have a different, more limited way to specify the column types. You will have to convert factor columns and dates using `mutate()`, which you'll learn about in @sec-wrangle, so most people let `read_excel()` guess data types and don't set the `col_types` argument.
@@ -249,9 +249,9 @@ The way you specify column types for `r pkg("googlesheets4")` is a little differ
 
 ## Creating data 
 
-If you need to create a small data table from scratch in R, use the `r hl(tibble::tibble())` function, and type the data right in. The `tibble` package is part of the `r glossary("tidyverse")` package that we loaded at the start of this chapter. 
+If you need to create a small data table from scratch in R, use the `tibble::tibble()` function, and type the data right in. The `tibble` package is part of the `r glossary("tidyverse")` package that we loaded at the start of this chapter. 
 
-Let's create a small table with the names of three [Avatar](https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender) characters and their bending type. The `r hl(tibble())` function takes `r glossary("argument", "arguments")` with the names that you want your columns to have. The values are `r glossary("vector", "vectors")` that list the column values in order.
+Let's create a small table with the names of three [Avatar](https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender) characters and their bending type. The `tibble()` function takes `r glossary("argument", "arguments")` with the names that you want your columns to have. The values are `r glossary("vector", "vectors")` that list the column values in order.
 
 If you don't know the value for one of the cells, you can enter `r glossary("NA")`, which we have to do for Sokka because he doesn't have any bending ability. If all the values in the column are the same, you can just enter one value and it will be copied for each row.
 
@@ -266,7 +266,7 @@ avatar <- tibble(
 avatar
 ```
 
-You can also use the `r hl(tibble::tribble())` function to create a table by row, rather than by column. You start by listing the column names, each preceded by a tilde (`~`), then you list the values for each column, row by row, separated by commas (don't forget a comma at the end of each row).
+You can also use the `tibble::tribble()` function to create a table by row, rather than by column. You start by listing the column names, each preceded by a tilde (`~`), then you list the values for each column, row by row, separated by commas (don't forget a comma at the end of each row).
 
 ```{r tribble-define}
 avatar_by_row <- tribble(
@@ -285,7 +285,7 @@ You may not need to do this very often if you are primarily working with data th
 
 ## Writing data
 
-If you have data that you want to save, use `r hl(rio::export())`, as follows.
+If you have data that you want to save, use `rio::export()`, as follows.
 
 ```{r write_csv, eval = FALSE}
 export(avatar, "data/avatar.csv")
@@ -366,7 +366,7 @@ We'll be working with `r glossary("tabular data")` a lot in this class, but tabu
 
 ## Troubleshooting
 
-What if you import some data and it guesses the wrong column type? The most common reason is that a numeric column has some non-numbers in it somewhere. Maybe someone wrote a note in an otherwise numeric column. Columns have to be all one data type, so if there are any characters, the whole column is converted to character strings, and numbers like `r hl(1.2)` get represented as `r hl("1.2")`, which will cause very weird errors like `"100" < "9" == TRUE`. You can catch this by using `r hl(glimpse())` to check your data.
+What if you import some data and it guesses the wrong column type? The most common reason is that a numeric column has some non-numbers in it somewhere. Maybe someone wrote a note in an otherwise numeric column. Columns have to be all one data type, so if there are any characters, the whole column is converted to character strings, and numbers like `1.2` get represented as `"1.2"`, which will cause very weird errors like `"100" < "9" == TRUE`. You can catch this by using `glimpse()` to check your data.
 
 The data directory you downloaded contains a file called "mess.csv". Let's try loading this dataset.
 
@@ -374,7 +374,7 @@ The data directory you downloaded contains a file called "mess.csv". Let's try l
 mess <- rio::import("data/mess.csv")
 ```
 
-When importing goes wrong, it's often easier to fix it using the  specific importing function for that file type (e.g., use `read_csv()` rather than `rio::import()`. This is because the problems tend to be specific to the file format and you can look up the help for these functions more easily. For CSV files, the import function is `r hl(readr::read_csv)`.
+When importing goes wrong, it's often easier to fix it using the  specific importing function for that file type (e.g., use `read_csv()` rather than `rio::import()`. This is because the problems tend to be specific to the file format and you can look up the help for these functions more easily. For CSV files, the import function is `readr::read_csv`.
 
 ```{r}
 # lazy = FALSE loads the data right away so you can see error messages
@@ -417,7 +417,7 @@ OK, that's a little better, but this table is still a serious mess in several wa
 * `min_max` contains two pieces of numeric information, but is a character column
 * `date` should be a date column
 
-We'll learn how to deal with this mess in @sec-tidy and @sec-wrangle, but we can fix a few things by setting the `col_types` argument in `read_csv()` to specify the column types for our two columns that were guessed wrong and skip the "junk" column. The argument `col_types` takes a list where the name of each item in the list is a column name and the value is from the table below. You can use the function, like `col_double()` or the abbreviation, like `r hl("d")`; for consistency with earlier in this chapter we will use the function names. Omitted column names are guessed.
+We'll learn how to deal with this mess in @sec-tidy and @sec-wrangle, but we can fix a few things by setting the `col_types` argument in `read_csv()` to specify the column types for our two columns that were guessed wrong and skip the "junk" column. The argument `col_types` takes a list where the name of each item in the list is a column name and the value is from the table below. You can use the function, like `col_double()` or the abbreviation, like `"d"`; for consistency with earlier in this chapter we will use the function names. Omitted column names are guessed.
 
 | function | |abbreviation | type |
 |:---------|:--------------|:-----|
@@ -479,7 +479,7 @@ tidiest <- read_csv("data/mess.csv",
 ```
 
 
-Now `order` is an integer variable where any empty cells contain `NA`. The variable `good` is a logical value, where `r hl(0)` and `r hl(F)` are converted to `r hl(FALSE)` and `r hl(1)` and `r hl(T)` are converted to `r hl(TRUE)`. The variable `date` is a date type (adding leading zeros to the day). We'll learn in later chapters how to fix other problems, such as the `min_max` column containing two different types of data.
+Now `order` is an integer variable where any empty cells contain `NA`. The variable `good` is a logical value, where `0` and `F` are converted to `FALSE`, while `1` and `T` are converted to `TRUE`. The variable `date` is a date type (adding leading zeros to the day). We'll learn in later chapters how to fix other problems, such as the `min_max` column containing two different types of data.
 
 ```{r tidiest-table, echo = FALSE}
 head(tidiest)

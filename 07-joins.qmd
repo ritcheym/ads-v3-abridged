@@ -54,7 +54,7 @@ orders <- tibble(
 
 ## Mutating Joins
 
-`r glossary("Mutating joins")` act like the `r hl(dplyr::mutate())` function in that they add new columns to one table based on values in another table. (We'll learn more about the `mutate()` function in @sec-tidy).)
+`r glossary("Mutating joins")` act like the `dplyr::mutate()` function in that they add new columns to one table based on values in another table. (We'll learn more about the `mutate()` function in @sec-tidy).)
 
 All the mutating joins have this basic syntax:
 

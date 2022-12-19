@@ -622,7 +622,7 @@ missing_data <- missing_bad %>%
 ```
 
 ::: {.callout-warning}
-Because `case_when()` is so picky about character types, you need to specify which type of NA you're using (there is a specific NA for each data type). If you change `r hl(NA_character_)` to `r hl(NA)` in the code above, you'll get the following error message:
+Because `case_when()` is so picky about character types, you need to specify which type of NA you're using (there is a specific NA for each data type). If you change `NA_character_` to `NA` in the code above, you'll get the following error message:
 
 ```
 Error: Problem with `mutate()` column `sales`. ℹ `sales = case_when(sales == "missing" ~ NA, TRUE ~ sales)`. x must be a logical vector, not a character vector.

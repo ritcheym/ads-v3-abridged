@@ -323,7 +323,7 @@ We want to get it into the tidy format below where each row is an observation of
 
 The original table has observations from each customer over three years. This is too many observations per row, so first we'll start by making the table long. We need to make 6 rows for each customer, one for each category (item price/total price) and year combination, with columns for the customer ID, year, category, and value.
 
-Because we'll be combining columns with numeric (`totalprice`) and character (`itemsprice`) data, we need to make the new `value` column a character data type using `values_transform`, since numbers can be represented as characters (like `r hl("3.5")`), but character strings can't be represented as numbers.
+Because we'll be combining columns with numeric (`totalprice`) and character (`itemsprice`) data, we need to make the new `value` column a character data type using `values_transform`, since numbers can be represented as characters (like `"3.5"`), but character strings can't be represented as numbers.
 
 The argument `names_sep` is set to the character string used to join names if `names_from` is more than one column. Alternatively, you can use the argument `names_pattern`, which can be more powerful but also a little harder to understand how to set up.
 

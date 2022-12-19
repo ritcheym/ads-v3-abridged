@@ -2,6 +2,8 @@ project:
   type: book
   output-dir: docs
   resources: data
+  preview:
+    port: 4200
 
 book:
   title: 'Applied Data Skills'
@@ -9,7 +11,7 @@ book:
   author: "Emily Nordmann and Lisa DeBruine"
   cover-image: images/logos/logo.png
   image: images/logos/logo.png
-  fav-icon: images/logos/favicon.ico
+  favicon: images/logos/favicon.ico
   #cookie-consent: true
   google-analytics: "G-6NP3MF25W3"
   page-navigation: true
@@ -51,18 +53,19 @@ book:
   - 11-refs.qmd
   - 12-license.qmd
   appendices:
-  - appendix-a-installing-r.qmd
-  - appendix-b-updating-r.qmd
-  - appendix-c-symbols.qmd
-  - appendix-d-conventions.qmd
-  - appendix-e-teams.qmd
-  - appendix-f-datatypes.qmd
-  - appendix-g-dates.qmd
-  - appendix-h-styling.qmd
-  - appendix-i-hashtags.qmd
-  - appendix-j-twitter.qmd
-  - appendix-k-spotify.qmd
-  - appendix-l-webpage.qmd
+  - app-installing-r.qmd
+  - app-updating-r.qmd
+  - app-symbols.qmd
+  - app-conventions.qmd
+  - app-teams.qmd
+  - app-debugging.qmd
+  - app-datatypes.qmd
+  - app-dates.qmd
+  - app-styling.qmd
+#  - app-hashtags.qmd
+#  - app-twitter.qmd
+  - app-spotify.qmd
+  - app-webpage.qmd
 
 
 bibliography:

@@ -40,15 +40,22 @@ To create a new project for the work we'll do in this chapter:
 
 RStudio will restart itself and open with this new project directory as the working directory.
 
-```{r, echo = FALSE, fig.cap="Starting a new project.", fig.show="hold", out.width = "32%"}
-include_graphics(c("images/reports/new_proj_1.png",
-                   "images/reports/new_proj_2.png",
-                   "images/reports/new_proj_3.png"))
-```
+::: {#fig-new-proj layout-ncol=3}
+
+![](images/reports/new_proj_1.png)
+
+![](images/reports/new_proj_2.png)
+
+![](images/reports/new_proj_3.png)
+
+Starting a new project.
+:::
 
 Click on the Files tab in the lower right pane to see the contents of the project directory. You will see a file called `02-reports.Rproj`, which is a file that contains all of the project information. You can double-click on it to open up the project.
 
 ::: {.callout-note}
+## Dot files
+
 Depending on your settings, you may also see a directory called `.Rproj.user`, which contains your specific user settings. You can ignore this and other "invisible" files that start with a full stop.
 :::
 
@@ -102,7 +109,7 @@ Once you've opened a new document be sure to save it by clicking **`File > Save 
 
 When you first open a new R Markdown document you will see a bunch of welcome text that looks like this:
 
-```{r img-markdown-default, echo=FALSE, fig.cap="New R Markdown text"}
+```{r fig-markdown-default, echo=FALSE, fig.cap="New R Markdown text"}
 
 knitr::include_graphics("images/reports/markdown-default.png")
 
@@ -117,7 +124,7 @@ Do the following steps:
 
 Your Markdown document should now look something like this:
 
-```{r img-new-chunk, echo=FALSE, fig.cap="New R chunk"}
+```{r fig-new-chunk, echo=FALSE, fig.cap="New R chunk"}
 
 knitr::include_graphics("images/reports/new-chunk.png")
 
@@ -134,12 +141,20 @@ When you create a new code chunk you should notice that the grey box starts and 
 
 In your code chunk, write the code you created in @sec-objects.
 
-```{r}
+```{r, filename="important_info.Rmd"}
 name <- "Emily"
 age <- 36
 today <- Sys.Date()
 christmas <- as.Date("2022-12-25")
 ```
+
+::: {.callout-note}
+## Console vs Scripts
+
+In @sec-intro, we asked you to type code into the console. Now, we want you to put code into code chunks in R Markdown files to make the code `r glossary("reproducible")`. This way, you can re-run your code any time the data changes to update the report, and you or others can inspect the code to identify and fix any errors. 
+
+However, there will still be times that you need to put code in the console instead of in a script, such as when you install a new package. In this book, code chunks will be labelled with whether you should run them in the console or add the code to a script.
+:::
 
 ### Running code
 
@@ -147,23 +162,24 @@ When you're working in an R Markdown document, there are several ways to run you
 
 First, you can highlight the code you want to run and then click `Run` -> `Run Selected Line(s)`, however this is tedious and can cause problems if you don't highlight *exactly* the code you want to run.
 
-```{r img-run1, echo=FALSE, fig.cap="Tedious method of running code"}
-
-knitr::include_graphics("images/reports/run1.gif")
-
-```
-
 Alternatively, you can press the green "play" button at the top-right of the code chunk and this will run **all** lines of code in that chunk.
 
-```{r img-run2, echo=FALSE, fig.cap="Slightly better method of running code"}
+```{r fig-run-all, echo=FALSE, fig.cap="Click the green arrow to run all the code in the chunk."}
 
-knitr::include_graphics("images/reports/run2.gif")
+knitr::include_graphics("images/reports/run-all.png")
 
 ```
+
 
 Even better is to learn some of the keyboard short cuts for R Studio. To run a single line of code, make sure that the cursor is in the line of code you want to run (it can be anywhere) and press `ctrl + enter` or `Cmd + enter` if you're on a Mac. If you want to run all of the code in the code chunk, press `ctrl/cmd + shift + enter`. Learn these short cuts, they will make your life easier!
 
-Run your code using each of the methods above. You should see the variables `name`, `age`, `today`, and `christmas` appear in the environment pane.
+```{r fig-run3, echo=FALSE, fig.cap="Use the keyboard shortcut to run only highlighted code, or run one line at a time by placing the cursor on a line without highlighting anything."}
+
+knitr::include_graphics("images/reports/run3.gif")
+
+```
+
+Run your code using each of the methods above. You should see the variables `name`, `age`, `today`, and `christmas` appear in the environment pane. (Restart R to reset.)
 
 ### Inline code {#sec-rmd-inline-r }
 
@@ -173,11 +189,15 @@ One important feature of R Markdown is that you can combine text and code to ins
 
 First, copy and paste this text to the **white space underneath** your code chunk. If you used a different variable name than `christmas` you should update this with the name of the object you created, but otherwise don't change anything else.
 
-```{verbatim, lang="md"}
+``` md
 My name is `r name` and I am `r age` years old. 
 It is `r christmas - today` days until Christmas, 
 which is my favourite holiday.
 ```
+
+:::{.callout-caution}
+You cannot display a plot using inline R. Plots should be displayed from code chunks.
+:::
 
 ### Knitting your file {#sec-rmd-knit}
 
@@ -191,7 +211,9 @@ As if by magic, that slightly odd bit of text you copied and pasted now appears 
 
 **My name is `r name` and I am `r age` years old. It is `r christmas - today` days until Christmas, which is my favourite holiday.**
 
-::: {.callout-note}
+::: {.callout-note collapse="true"}
+## Knitting with Code
+
 You can also knit by typing the following code into the console. Never put this in an Rmd script itself, or it will try to knit itself in an infinite loop.
 
 ```{r, eval = FALSE}
@@ -223,13 +245,15 @@ First, let's try loading data that is stored online. Create a code chunk in your
 
 ```{r, message=FALSE}
 # Data from https://www.kaggle.com/kyanyoga/sample-sales-data
-sales_online <- read_csv("https://psyteachr.github.io/ads-v1/data/sales_data_sample.csv")
+sales_online <- read_csv("https://psyteachr.github.io/ads-v2/data/sales_data_sample.csv")
 ```
 
 ::: {.callout-warning}
+## Could not find function
+
 If you get an error message that looks like:
 
-> Error in read_csv("https://psyteachr.github.io/ads-v1/data/sales_data_sample.csv") :  
+> Error in read_csv("https://psyteachr.github.io/ads-v2/data/sales_data_sample.csv") :  
 >  could not find function "read_csv"
 
 This means that you have not loaded tidyverse. Check that `library(tidyverse)` is in the setup chunk and that you have run the setup chunk.
@@ -250,7 +274,7 @@ More commonly, you will be working from data files that are stored locally on yo
 But you can also organise files in subdirectories inside this main project directory, such as putting all raw data files in a directory called `r path("data")` and saving any image files to a directory called `r path("images")`. Using subdirectories helps avoid one single folder becoming too cluttered, which is important if you're working on big projects.
 
 ::: {.callout-note .try}
-In your `r path("02-reports")` directory, create a new folder named `r path("data")`, then, [download a copy of the sales data file](https://psyteachr.github.io/ads-v1/data/sales_data_sample.csv) and save it in this new subdirectory.
+In your `r path("02-reports")` directory, create a new folder named `r path("data")`, then, [download a copy of the sales data file](https://psyteachr.github.io/ads-v2/data/sales_data_sample.csv) and save it in this new subdirectory.
 :::
 
 To load in data from a local file, again we can use the `read_csv()` function but this time rather than specifying a url, give it the subdirectory and file name.
@@ -280,19 +304,18 @@ For this report we're just going to present some simple sales stats for three ty
 Create a new code chunk, then copy, paste and run the following code and then view `sales_counts` by clicking on the object in the environment pane. Note that it doesn't really matter whether you use `sales_local` or `sales_online` in the first line as they're identical.
 
 ```{r sales_counts}
-# start with the sale_online data and then
-sales_counts <- sales_online %>% 
-  # keep only the data from planes, motorcycles, and cars and then
-  filter(PRODUCTLINE %in% c("Planes", "Motorcycles", "Classic Cars")) %>% 
-  # count how many are in each PRODUCTLINE
-  count(PRODUCTLINE)
+# keep only the data from planes, motorcycles, and cars and then
+sales_pmc <- filter(sales_online,
+         PRODUCTLINE %in% c("Planes", "Motorcycles", "Classic Cars"))
+
+# count how many are in each PRODUCTLINE
+sales_counts <-count(sales_pmc, PRODUCTLINE)
 ```
 
 Because each row of the dataset is a sale, this code gives us a nice and easy way of seeing how many sales were made of each type of vehicle; it just counts the number of rows in each group.
 
 ```{r sales_counts_show, echo = FALSE}
-sales_counts %>%
-  knitr::kable(align = "c")
+rmarkdown::paged_table(sales_counts)
 ```
 
 ### Text formatting {#sec-markdown}
@@ -398,7 +421,7 @@ You can also include images that you did not create in R using the markdown synt
 
 Create a new code chunk underneath each of the sales figures for planes, classic cars, and motorcycles and add in an image from Google or Wikipedia for each (right click on an image and select copy image address to get a url). See the section on [chunk defaults](#rmd-setup) to see how to change the display size.
 
-```{r img-example, eval = FALSE}
+```{r fig-example, eval = FALSE}
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/3/3f/P-51_Mustang_edit1.jpg")
 ```
 
@@ -444,8 +467,7 @@ Amend your code to load the `kableExtra` package and apply the `kable()` functio
 ```{r}
 library(kableExtra) # for table display
 
-sales_counts %>% # start with the sales_count table and then
-  kable() # apply the kable function
+kable(sales_counts) # apply the kable function
 ```
 
 It's better, but it's still not amazing. So let's make a few adjustments. We can change the names of the columns, add a caption, and also change the alignment of the cell contents using arguments to `kable()`. 
@@ -455,12 +477,14 @@ We can also add a theme to change the overall style. In this example we've used 
 Finally, we can change the formatting of the first row using `row_spec`. Look up the help documentation for `row_spec` to see what other options are available. Try changing the value of  any of the arguments below to figure out what they do.
 
 ```{r}
-sales_counts %>%
-  kable(col.names = c("Product", "Sales"),
+k <- kable(sales_counts, 
+      col.names = c("Product", "Sales"),
       caption = "Number of sales per product line.", 
-      align = "c") %>% 
-  kable_classic(full_width = FALSE) %>% 
-  row_spec(row = 0, bold = TRUE, color = "red") 
+      align = "c")
+k_style <- kable_classic(k, full_width = FALSE) 
+k_highlighted <- row_spec(k_style, row = 0, bold = TRUE, color = "red") 
+
+k_highlighted
 ```
 
 ::: {.callout-note}
@@ -502,15 +526,15 @@ knitr::opts_chunk$set(
 ::: {.callout-warning}
 Note that `fig.width` and `fig.height` control the original size and aspect ratio of images generated by R, such as plots. This will affect the relative size of text and other elements in plots. It does not affect the size of existing images at all. However, `out.width` controls the **display** size of both existing images and figures generated by R. This is usually set as a percentage  of the page width.
 
-```{r img-full-100, echo = FALSE, fig.width=8, fig.height=5, out.width="100%", fig.cap="A plot with the default values of fig.width = 8, fig.height = 5, out.width = \"100%\""}
+```{r fig-full-100, echo = FALSE, fig.width=8, fig.height=5, out.width="100%", fig.cap="A plot with the default values of fig.width = 8, fig.height = 5, out.width = \"100%\""}
 ggplot(diamonds, aes(color, fill = cut)) + geom_bar()
 ```
 
-```{r img-half-100, echo = FALSE, fig.width=4, fig.height=2.5, out.width="100%", fig.cap="The same plot with half the default width and height: fig.width = 4, fig.height = 2.5, out.width = \"100%\""}
+```{r fig-half-100, echo = FALSE, fig.width=4, fig.height=2.5, out.width="100%", fig.cap="The same plot with half the default width and height: fig.width = 4, fig.height = 2.5, out.width = \"100%\""}
 ggplot(diamonds, aes(color, fill = cut)) + geom_bar()
 ```
 
-```{r img-half-50, echo = FALSE, fig.width=4, fig.height=2.5, out.width="50%", fig.cap="The same plot as above at half the output width: fig.width = 4, fig.height = 2.5, out.width = \"50%\""}
+```{r fig-half-50, echo = FALSE, fig.width=4, fig.height=2.5, out.width="50%", fig.cap="The same plot as above at half the output width: fig.width = 4, fig.height = 2.5, out.width = \"50%\""}
 ggplot(diamonds, aes(color, fill = cut)) + geom_bar()
 ```
 
@@ -550,7 +574,7 @@ ggplot(data = sales_counts,
 
 ### Loading packages
 
-You can also add the packages you need in your setup chunk using `r hl(library())`. Often when you are working on a script, you will realize that you need to load another add-on package. Don't bury the call to `library(package_I_need)` way down in the script. Put it in the top, so the user has an overview of what packages are needed.
+You can also add the packages you need in your setup chunk using `library()`. Often when you are working on a script, you will realize that you need to load another add-on package. Don't bury the call to `library(package_I_need)` way down in the script. Put it in the top, so the user has an overview of what packages are needed.
 
 ::: {.callout-note .try}
 Move the code that loads the `tidyverse` and `kableExtra` to the setup chunk.
@@ -565,7 +589,7 @@ Finally, the `r glossary("YAML")` header is the bit at the very top of your Mark
     author: "Your name"
     output:
       html_document:
-        df_print: kable
+        df_print: paged
         theme: 
           version: 4
           bootswatch: yeti
@@ -581,11 +605,11 @@ Finally, the `r glossary("YAML")` header is the bit at the very top of your Mark
 Try changing the values from `false` to `true` to see what the options do.
 :::
 
-The `df_print: kable` option prints data frames using `knitr::kable` automatically. 
+The `df_print: paged` option prints data frames using `rmarkdown::paged_table()` automatically. 
 
 The built-in bootswatch themes are: default, cerulean, cosmo, darkly, flatly, journal, lumen, paper, readable, sandstone, simplex, spacelab, united, and yeti. You can [view and download more themes](https://bootswatch.com/4/). Try changing the theme to see which one you like best.
 
-```{r img-bootswatch, echo=FALSE, fig.cap="Light themes in versions 3 and 4."}
+```{r fig-bootswatch, echo=FALSE, fig.cap="Light themes in versions 3 and 4."}
 knitr::include_graphics("images/reports/bootswatch.png")
 ```
 
@@ -603,6 +627,8 @@ The error message will tell you exactly where the problem is (the second charact
 ### Summary {#sec-reports-summary}
 
 This chapter has covered a lot but hopefully now you have a much better idea of what Markdown is able to do. Whilst working in Markdown takes longer in the initial set-up stage, once you have a fully reproducible report you can plug in new data each week or month and simply click knit, reducing duplication of effort, and the human error that comes with it.
+
+You can access a [working R Markdown file](demos/important_info.Rmd){download} with the code from the example above to compare to your own code.
 
 As you continue to work through the book you will learn how to wrangle and analyse your data and how to use Markdown to present it. We'll slowly build on the available customisation options so over the course of next few weeks, you'll find your Markdown reports start to look more polished and professional.
 
@@ -682,9 +708,13 @@ To set visibility for a specific code chunk, put `echo = FALSE` inside the curly
 Display the table with purple italic column headers. Try different styles using `r pkg("kableExtra")` [@sec-rmd-tables]
 
 ```{r, webex.hide=T}
-kableExtra::kable(tasks) %>%
-  kableExtra::kable_minimal() %>%
-  kableExtra::row_spec(row = 0, italic = TRUE, color = "purple")
+k <- kableExtra::kable(tasks)
+k_style <- kableExtra::kable_minimal(k)
+k_highlight <- kableExtra::row_spec(k_style,
+                                    row = 0, 
+                                    italic = TRUE, 
+                                    color = "purple")
+k_highlight
 ```
 
 ### Images {#sec-exercises-reports-images}
@@ -718,7 +748,7 @@ Use inline R to include the version of R you are using in the following sentence
 
 `r hide()`
 
-This report was created using `r backtick("r R.version.string")`.
+This report was created using `` `r R.version.string` ``.
 
 `r unhide()`
 
