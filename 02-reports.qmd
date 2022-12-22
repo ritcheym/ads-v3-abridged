@@ -709,6 +709,35 @@ This will use the markdown header structure to create the table of contents. `to
 If your table of contents isn't showing up correctly, this probably means that your headers are not set up right. Make sure that headers have no spaces before the hashes and at least one space after the hashes. For example, `##Analysis` won't display as a header and be added to the table of contents, but `## Analysis` will.
 :::
 
+### Formats
+
+So far we've just knitted to html. To generate PDF reports, you need to install <pkg>tinytex</pkg> [@R-tinytex] and run the following code in the console (do **not** add this to your Rmd file):
+
+```{r eval=FALSE, filname="Run in the console"}
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
+
+Once you've done this, update your YAML heading to replace `html_dcoument` with `pdf_document` and knit a PDF document.
+
+    ---
+    output:
+      pdf_document:
+    ---
+
+As an alternative, you can also knit to a Word document.
+
+    ---
+    output:
+      word_document:
+    ---
+    
+::: {.callout-warning}
+## Knitting errors
+
+If you encounter errors, ask on Teams for help - knitting to PDF or Word can be tricky.
+:::
+
 ### Summary {#sec-reports-summary}
 
 This chapter has covered a lot but hopefully now you have a much better idea of what Markdown is able to do. Whilst working in Markdown takes longer in the initial set-up stage, once you have a fully reproducible report you can plug in new data each week or month and simply click knit, reducing duplication of effort, and the human error that comes with it.

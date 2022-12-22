@@ -80,6 +80,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -363,7 +382,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages"><span class="toc-section-number">2.6.3</span>  Loading packages</a></li>
   <li><a href="#sec-yaml" id="toc-sec-yaml" class="nav-link" data-scroll-target="#sec-yaml"><span class="toc-section-number">2.6.4</span>  YAML header</a></li>
   <li><a href="#sec-toc" id="toc-sec-toc" class="nav-link" data-scroll-target="#sec-toc"><span class="toc-section-number">2.6.5</span>  Table of Contents</a></li>
-  <li><a href="#sec-reports-summary" id="toc-sec-reports-summary" class="nav-link" data-scroll-target="#sec-reports-summary"><span class="toc-section-number">2.6.6</span>  Summary</a></li>
+  <li><a href="#formats" id="toc-formats" class="nav-link" data-scroll-target="#formats"><span class="toc-section-number">2.6.6</span>  Formats</a></li>
+  <li><a href="#sec-reports-summary" id="toc-sec-reports-summary" class="nav-link" data-scroll-target="#sec-reports-summary"><span class="toc-section-number">2.6.7</span>  Summary</a></li>
   </ul>
 </li>
   <li>
@@ -1397,8 +1417,38 @@ Malformated ToC
 <p>If your table of contents isn’t showing up correctly, this probably means that your headers are not set up right. Make sure that headers have no spaces before the hashes and at least one space after the hashes. For example, <code>##Analysis</code> won’t display as a header and be added to the table of contents, but <code>## Analysis</code> will.</p>
 </div>
 </div>
-</section><section id="sec-reports-summary" class="level3" data-number="2.6.6"><h3 data-number="2.6.6" class="anchored" data-anchor-id="sec-reports-summary">
-<span class="header-section-number">2.6.6</span> Summary</h3>
+</section><section id="formats" class="level3" data-number="2.6.6"><h3 data-number="2.6.6" class="anchored" data-anchor-id="formats">
+<span class="header-section-number">2.6.6</span> Formats</h3>
+<p>So far we’ve just knitted to html. To generate PDF reports, you need to install <pkg>tinytex</pkg><span class="citation" data-cites="R-tinytex">(<a href="11-refs.html#ref-R-tinytex" role="doc-biblioref">Xie, 2021</a>)</span> and run the following code in the console (do <strong>not</strong> add this to your Rmd file):</p>
+<div class="cell" data-layout-align="center" data-filname="Run in the console">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">install.packages</span>(<span class="st">"tinytex"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you’ve done this, update your YAML heading to replace <code>html_dcoument</code> with <code>pdf_document</code> and knit a PDF document.</p>
+<pre><code>---
+output:
+  pdf_document:
+---</code></pre>
+<p>As an alternative, you can also knit to a Word document.</p>
+<pre><code>---
+output:
+  word_document:
+---</code></pre>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Knitting errors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you encounter errors, ask on Teams for help - knitting to PDF or Word can be tricky.</p>
+</div>
+</div>
+</section><section id="sec-reports-summary" class="level3" data-number="2.6.7"><h3 data-number="2.6.7" class="anchored" data-anchor-id="sec-reports-summary">
+<span class="header-section-number">2.6.7</span> Summary</h3>
 <p>This chapter has covered a lot but hopefully now you have a much better idea of what Markdown is able to do. Whilst working in Markdown takes longer in the initial set-up stage, once you have a fully reproducible report you can plug in new data each week or month and simply click knit, reducing duplication of effort, and the human error that comes with it.</p>
 <p>You can access a <a href="demos/important_info.Rmd" download="important_info.Rmd">working R Markdown file</a> with the code from the example above to compare to your own code.</p>
 <p>As you continue to work through the book you will learn how to wrangle and analyse your data and how to use Markdown to present it. We’ll slowly build on the available customisation options so over the course of next few weeks, you’ll find your Markdown reports start to look more polished and professional.</p>
@@ -1447,12 +1497,12 @@ and teaching computational skills.
 <div class="code-with-filename-file">
 <pre><strong>job.Rmd</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>tasks <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb30-2"><a href="#cb30-2"></a>  <span class="sc">~</span>task,                   <span class="sc">~</span>category,      <span class="sc">~</span>frequency,</span>
-<span id="cb30-3"><a href="#cb30-3"></a>  <span class="st">"Respond to tweets"</span>,     <span class="st">"social media"</span>, <span class="st">"daily"</span>,</span>
-<span id="cb30-4"><a href="#cb30-4"></a>  <span class="st">"Create a twitter poll"</span>, <span class="st">"social media"</span>, <span class="st">"weekly"</span>,</span>
-<span id="cb30-5"><a href="#cb30-5"></a>  <span class="st">"Make the sales report"</span>, <span class="st">"reporting"</span>,    <span class="st">"montly"</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>tasks <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="sc">~</span>task,                   <span class="sc">~</span>category,      <span class="sc">~</span>frequency,</span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="st">"Respond to tweets"</span>,     <span class="st">"social media"</span>, <span class="st">"daily"</span>,</span>
+<span id="cb33-4"><a href="#cb33-4"></a>  <span class="st">"Create a twitter poll"</span>, <span class="st">"social media"</span>, <span class="st">"weekly"</span>,</span>
+<span id="cb33-5"><a href="#cb33-5"></a>  <span class="st">"Make the sales report"</span>, <span class="st">"reporting"</span>,    <span class="st">"montly"</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Figure out how to make it so that code chunks don’t show in your knitted document (<a href="#sec-rmd-setup"><span>Section&nbsp;2.6.1</span></a>).</p>
@@ -1462,13 +1512,13 @@ Solution
 </button>
 <p>You can set the default to <code>echo = FALSE</code> in the setup chunk at the top of the script.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To set visibility for a specific code chunk, put <code>echo = FALSE</code> inside the curly brackets.</p>
 <div class="cell" data-layout-align="center" data-verbatim="r, echo=FALSE">
 <div class="verbatim">
 <pre class="sourceCode r code-with-copy"><code class="sourceCode R">```{r, echo=FALSE}</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># code to hide</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># code to hide</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre class="sourceCode r code-with-copy"><code class="sourceCode R">```</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
 </div>
 </div>
@@ -1479,13 +1529,13 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>k <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable</span>(tasks)</span>
-<span id="cb33-2"><a href="#cb33-2"></a>k_style <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable_minimal</span>(k)</span>
-<span id="cb33-3"><a href="#cb33-3"></a>k_highlight <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(k_style,</span>
-<span id="cb33-4"><a href="#cb33-4"></a>                                    <span class="at">row =</span> <span class="dv">0</span>, </span>
-<span id="cb33-5"><a href="#cb33-5"></a>                                    <span class="at">italic =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb33-6"><a href="#cb33-6"></a>                                    <span class="at">color =</span> <span class="st">"purple"</span>)</span>
-<span id="cb33-7"><a href="#cb33-7"></a>k_highlight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>k <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable</span>(tasks)</span>
+<span id="cb36-2"><a href="#cb36-2"></a>k_style <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable_minimal</span>(k)</span>
+<span id="cb36-3"><a href="#cb36-3"></a>k_highlight <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(k_style,</span>
+<span id="cb36-4"><a href="#cb36-4"></a>                                    <span class="at">row =</span> <span class="dv">0</span>, </span>
+<span id="cb36-5"><a href="#cb36-5"></a>                                    <span class="at">italic =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb36-6"><a href="#cb36-6"></a>                                    <span class="at">color =</span> <span class="st">"purple"</span>)</span>
+<span id="cb36-7"><a href="#cb36-7"></a>k_highlight</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <table class=" lightable-minimal" style="font-family: &quot;Trebuchet MS&quot;, verdana, sans-serif; margin-left: auto; margin-right: auto;">
@@ -1523,7 +1573,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"https://psyteachr.github.io/ads-v1/images/logos/logo.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"https://psyteachr.github.io/ads-v1/images/logos/logo.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="https://psyteachr.github.io/ads-v1/images/logos/logo.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -1559,7 +1609,7 @@ Solution
 </button>
 <p>Click on the knit button or run the following code in the console. (Do not put it the Rmd script!)</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">"job.Rmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">"job.Rmd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section><section id="sec-glossary-reports" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="sec-glossary-reports">
@@ -1674,6 +1724,11 @@ A structured format for information
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography" style="display: none">
+<div id="ref-R-tinytex" class="csl-entry" role="doc-biblioentry">
+Xie, Y. (2021). <em>Tinytex: Helper functions to install and maintain TeX live, and compile LaTeX documents</em>. <a href="https://github.com/yihui/tinytex">https://github.com/yihui/tinytex</a>
+</div>
+</div>
 </section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */

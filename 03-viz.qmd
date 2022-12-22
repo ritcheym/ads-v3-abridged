@@ -1145,35 +1145,6 @@ Now, pick your two least favourite plots:
 
 Adjust the set-up of your Markdown so that your knitted report does not show any code, messages, or warnings, and all figures are 8 x 5 (see @sec-rmd-setup).
 
-### Change the output
-
-So far we've just knitted to html. To generate PDF reports, you need to install <pkg>tinytex</pkg> [@R-tinytex] and run the following code in the console (do **not** add this to your Rmd file):
-
-```{r eval=FALSE}
-# run this in the console
-install.packages("tinytex")
-tinytex::install_tinytex()
-```
-
-Once you've done this, update your YAML heading to include the following:
-
-    ---
-    title: "Customer Satisfaction Report"
-    author: "Your name"
-    output:
-      pdf_document:
-    ---
-
-This will knit a PDF document. You will likely encounter errors - knitting to pdf really is the seventh circle of hell. If this happens, ask on Teams for help.
-
-As an alternative, you can also knit to a Word document.
-
-    ---
-    title: "Customer Satisfaction Report"
-    author: "Your name"
-    output:
-      word_document:
-    ---
 
 ### Share your work
 
