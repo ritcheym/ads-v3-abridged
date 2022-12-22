@@ -1,12 +1,12 @@
 # Data Wrangling {#sec-wrangle}
 
-## Intended Learning Outcomes {#sec-ilo-wrangle}
+## Intended Learning Outcomes {#sec-ilo-wrangle .unnumbered}
 
 * Be able to select and filter data for relevance
 * Be able to create new columns and edit existing ones
 * Be able to handle missing data
 
-## Walkthrough video {#sec-walkthrough-wrangle}
+## Walkthrough video {#sec-walkthrough-wrangle .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/dc1e2869-a6c2-45d8-ab40-cb85cdb67f43/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
@@ -14,7 +14,7 @@ There is a walkthrough video of this chapter available via [Echo360.](https://ec
 
 First, create a new project for the work we'll do in this chapter named `r path("09-wrangle")`. Second, open and save and new R Markdown document named `wrangle.Rmd`, delete the welcome text and load the required packages for this chapter.
 
-```{r setup-wrangle, message=FALSE}
+```{r setup-wrangle, message=FALSE, filename="Chapter packages"}
 library(tidyverse)   # data wrangling functions
 ```
 
@@ -25,9 +25,9 @@ Download the [Data transformation cheat sheet](https://raw.githubusercontent.com
 
 ## Wrangling functions
 
-Data wrangling refers to the process of cleaning, transforming, and restructuring your data to get it into the format you need for analysis and it's something you will spend an awful lot of time doing. Most `r glossary("data wrangling")` involves the reshaping functions you learned in @sec-tidy and six functions from the `r pkg("dplyr")` package that is loaded as part of the `r pkg("tidyverse")`: `select`, `filter`, `arrange`, `mutate`, `summarise`, and `group_by`. You'll remember the last two from @sec-summary, so we'll only cover them briefly.
+Data wrangling refers to the process of cleaning, transforming, and restructuring your data to get it into the format you need for analysis and it's something you will spend an awful lot of time doing. Most `r glossary("data wrangling")` involves the reshaping functions you learned in @sec-tidy and six functions from the <pkg>dplyr</pkg> package that is loaded as part of the <pkg>tidyverse</pkg>: `select`, `filter`, `arrange`, `mutate`, `summarise`, and `group_by`. You'll remember the last two from @sec-summary, so we'll only cover them briefly.
 
-It's worth highlighting that in this chapter we're going to cover these common functions and common uses of said functions. However, `r pkg("dplyr")` (and packages beyond it) has a huge number of additional wrangling functions and each function has many different arguments. Essentially, if you think you should be able to wrangle your data in a particular way that we haven't explicitly shown you, you almost certainly can, it might just take a bit of Googling to find out how. 
+It's worth highlighting that in this chapter we're going to cover these common functions and common uses of said functions. However, <pkg>dplyr</pkg> (and packages beyond it) has a huge number of additional wrangling functions and each function has many different arguments. Essentially, if you think you should be able to wrangle your data in a particular way that we haven't explicitly shown you, you almost certainly can, it might just take a bit of Googling to find out how. 
 
 ```{r, echo = FALSE, eval = FALSE}
 set.seed(8675309)
@@ -271,7 +271,7 @@ budget %>%
 `A != B`   |not equal 	          |A does not exactly equal B
 `A %in% B` |in 	                  |A is an element of vector B
 
-Finally, you can also pass many other functions to filter. For example, the package `r pkg("stringr")` that is loaded as part of the `r pkg("tidyverse")` contains many different functions for working with `r glossary("string", "strings")` (character data). For example, you you use `str_detect()` to only retain rows where the customer satisfaction rating includes the word "high"
+Finally, you can also pass many other functions to filter. For example, the package <pkg>stringr</pkg> that is loaded as part of the <pkg>tidyverse</pkg> contains many different functions for working with `r glossary("string", "strings")` (character data). For example, you you use `str_detect()` to only retain rows where the customer satisfaction rating includes the word "high"
 
 ```{r eval = TRUE}
 budget %>%
@@ -522,7 +522,7 @@ However, we often don't have control over how the data come to us, so let's run 
 
 #### Bad missing values
 
-What if the South region hadn't returned their expenses (entered as 0) and the North region hadn't returned their sales data for 2020 yet, so someone entered it as "missing"?  We're going to show you two functions that you can use to recode or change values, `ifelse()` and `case_when()`. `ifelse()` is from Base R and can be slightly more intuitive to use initially. `case_when()` is from the `r pkg("dplyr")` and allows you to specify multiple criteria, although is slightly more difficult to use so it's good to be aware of both.
+What if the South region hadn't returned their expenses (entered as 0) and the North region hadn't returned their sales data for 2020 yet, so someone entered it as "missing"?  We're going to show you two functions that you can use to recode or change values, `ifelse()` and `case_when()`. `ifelse()` is from Base R and can be slightly more intuitive to use initially. `case_when()` is from the <pkg>dplyr</pkg> and allows you to specify multiple criteria, although is slightly more difficult to use so it's good to be aware of both.
 
 First, we're going to recode the data to add in the missing values
 

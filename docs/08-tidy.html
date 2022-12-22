@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - 8&nbsp; Data Tidying</title>
 <style>
@@ -126,7 +126,8 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="include/psyteachr.css">
+</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -316,46 +317,46 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#sec-ilo-tidy" id="toc-sec-ilo-tidy" class="nav-link active" data-scroll-target="#sec-ilo-tidy"><span class="toc-section-number">8.1</span>  Intended Learning Outcomes</a></li>
-  <li><a href="#sec-walkthrough-tidy" id="toc-sec-walkthrough-tidy" class="nav-link" data-scroll-target="#sec-walkthrough-tidy"><span class="toc-section-number">8.2</span>  Walkthrough video</a></li>
-  <li><a href="#sec-setup-tidy" id="toc-sec-setup-tidy" class="nav-link" data-scroll-target="#sec-setup-tidy"><span class="toc-section-number">8.3</span>  Set-up</a></li>
+<li><a href="#sec-ilo-tidy" id="toc-sec-ilo-tidy" class="nav-link active" data-scroll-target="#sec-ilo-tidy">Intended Learning Outcomes</a></li>
+  <li><a href="#sec-walkthrough-tidy" id="toc-sec-walkthrough-tidy" class="nav-link" data-scroll-target="#sec-walkthrough-tidy">Walkthrough video</a></li>
+  <li><a href="#sec-setup-tidy" id="toc-sec-setup-tidy" class="nav-link" data-scroll-target="#sec-setup-tidy"><span class="toc-section-number">8.1</span>  Set-up</a></li>
   <li>
-<a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="toc-section-number">8.4</span>  Data Structures</a>
+<a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="toc-section-number">8.2</span>  Data Structures</a>
   <ul class="collapse">
-<li><a href="#untidy-data" id="toc-untidy-data" class="nav-link" data-scroll-target="#untidy-data"><span class="toc-section-number">8.4.1</span>  Untidy data</a></li>
-  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="toc-section-number">8.4.2</span>  Tidy data</a></li>
+<li><a href="#untidy-data" id="toc-untidy-data" class="nav-link" data-scroll-target="#untidy-data"><span class="toc-section-number">8.2.1</span>  Untidy data</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="toc-section-number">8.2.2</span>  Tidy data</a></li>
   </ul>
 </li>
   <li>
-<a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"><span class="toc-section-number">8.5</span>  Reshaping Data</a>
+<a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"><span class="toc-section-number">8.3</span>  Reshaping Data</a>
   <ul class="collapse">
-<li><a href="#wide-to-long" id="toc-wide-to-long" class="nav-link" data-scroll-target="#wide-to-long"><span class="toc-section-number">8.5.1</span>  Wide to long</a></li>
-  <li><a href="#long-to-wide" id="toc-long-to-wide" class="nav-link" data-scroll-target="#long-to-wide"><span class="toc-section-number">8.5.2</span>  Long to wide</a></li>
+<li><a href="#wide-to-long" id="toc-wide-to-long" class="nav-link" data-scroll-target="#wide-to-long"><span class="toc-section-number">8.3.1</span>  Wide to long</a></li>
+  <li><a href="#long-to-wide" id="toc-long-to-wide" class="nav-link" data-scroll-target="#long-to-wide"><span class="toc-section-number">8.3.2</span>  Long to wide</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-multistep" id="toc-sec-multistep" class="nav-link" data-scroll-target="#sec-multistep"><span class="toc-section-number">8.6</span>  Multi-step tidying</a>
+<a href="#sec-multistep" id="toc-sec-multistep" class="nav-link" data-scroll-target="#sec-multistep"><span class="toc-section-number">8.4</span>  Multi-step tidying</a>
   <ul class="collapse">
-<li><a href="#one-observation-per-row" id="toc-one-observation-per-row" class="nav-link" data-scroll-target="#one-observation-per-row"><span class="toc-section-number">8.6.1</span>  One observation per row</a></li>
-  <li><a href="#one-variable-per-column" id="toc-one-variable-per-column" class="nav-link" data-scroll-target="#one-variable-per-column"><span class="toc-section-number">8.6.2</span>  One variable per column</a></li>
-  <li><a href="#one-value-per-cell" id="toc-one-value-per-cell" class="nav-link" data-scroll-target="#one-value-per-cell"><span class="toc-section-number">8.6.3</span>  One value per cell</a></li>
-  <li><a href="#altering-data" id="toc-altering-data" class="nav-link" data-scroll-target="#altering-data"><span class="toc-section-number">8.6.4</span>  Altering data</a></li>
-  <li><a href="#fixing-data-types" id="toc-fixing-data-types" class="nav-link" data-scroll-target="#fixing-data-types"><span class="toc-section-number">8.6.5</span>  Fixing data types</a></li>
+<li><a href="#one-observation-per-row" id="toc-one-observation-per-row" class="nav-link" data-scroll-target="#one-observation-per-row"><span class="toc-section-number">8.4.1</span>  One observation per row</a></li>
+  <li><a href="#one-variable-per-column" id="toc-one-variable-per-column" class="nav-link" data-scroll-target="#one-variable-per-column"><span class="toc-section-number">8.4.2</span>  One variable per column</a></li>
+  <li><a href="#one-value-per-cell" id="toc-one-value-per-cell" class="nav-link" data-scroll-target="#one-value-per-cell"><span class="toc-section-number">8.4.3</span>  One value per cell</a></li>
+  <li><a href="#altering-data" id="toc-altering-data" class="nav-link" data-scroll-target="#altering-data"><span class="toc-section-number">8.4.4</span>  Altering data</a></li>
+  <li><a href="#fixing-data-types" id="toc-fixing-data-types" class="nav-link" data-scroll-target="#fixing-data-types"><span class="toc-section-number">8.4.5</span>  Fixing data types</a></li>
   </ul>
 </li>
-  <li><a href="#sec-pipes" id="toc-sec-pipes" class="nav-link" data-scroll-target="#sec-pipes"><span class="toc-section-number">8.7</span>  Pipes</a></li>
+  <li><a href="#sec-pipes" id="toc-sec-pipes" class="nav-link" data-scroll-target="#sec-pipes"><span class="toc-section-number">8.5</span>  Pipes</a></li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.8</span>  Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.6</span>  Exercises</a>
   <ul class="collapse">
-<li><a href="#survey-1" id="toc-survey-1" class="nav-link" data-scroll-target="#survey-1"><span class="toc-section-number">8.8.1</span>  Survey 1</a></li>
-  <li><a href="#tidy-1" id="toc-tidy-1" class="nav-link" data-scroll-target="#tidy-1"><span class="toc-section-number">8.8.2</span>  Tidy 1</a></li>
-  <li><a href="#survey-2" id="toc-survey-2" class="nav-link" data-scroll-target="#survey-2"><span class="toc-section-number">8.8.3</span>  Survey 2</a></li>
-  <li><a href="#analysis-and-visualisation" id="toc-analysis-and-visualisation" class="nav-link" data-scroll-target="#analysis-and-visualisation"><span class="toc-section-number">8.8.4</span>  Analysis and visualisation</a></li>
-  <li><a href="#your-data" id="toc-your-data" class="nav-link" data-scroll-target="#your-data"><span class="toc-section-number">8.8.5</span>  Your data</a></li>
+<li><a href="#survey-1" id="toc-survey-1" class="nav-link" data-scroll-target="#survey-1"><span class="toc-section-number">8.6.1</span>  Survey 1</a></li>
+  <li><a href="#tidy-1" id="toc-tidy-1" class="nav-link" data-scroll-target="#tidy-1"><span class="toc-section-number">8.6.2</span>  Tidy 1</a></li>
+  <li><a href="#survey-2" id="toc-survey-2" class="nav-link" data-scroll-target="#survey-2"><span class="toc-section-number">8.6.3</span>  Survey 2</a></li>
+  <li><a href="#analysis-and-visualisation" id="toc-analysis-and-visualisation" class="nav-link" data-scroll-target="#analysis-and-visualisation"><span class="toc-section-number">8.6.4</span>  Analysis and visualisation</a></li>
+  <li><a href="#your-data" id="toc-your-data" class="nav-link" data-scroll-target="#your-data"><span class="toc-section-number">8.6.5</span>  Your data</a></li>
   </ul>
 </li>
-  <li><a href="#sec-glossary-tidy" id="toc-sec-glossary-tidy" class="nav-link" data-scroll-target="#sec-glossary-tidy"><span class="toc-section-number">8.9</span>  Glossary</a></li>
-  <li><a href="#sec-resources-tidy" id="toc-sec-resources-tidy" class="nav-link" data-scroll-target="#sec-resources-tidy"><span class="toc-section-number">8.10</span>  Further resources</a></li>
+  <li><a href="#sec-glossary-tidy" id="toc-sec-glossary-tidy" class="nav-link" data-scroll-target="#sec-glossary-tidy"><span class="toc-section-number">8.7</span>  Glossary</a></li>
+  <li><a href="#sec-resources-tidy" id="toc-sec-resources-tidy" class="nav-link" data-scroll-target="#sec-resources-tidy"><span class="toc-section-number">8.8</span>  Further resources</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v2/edit/master/08-tidy.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v2/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v2/blob/master/08-tidy.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -373,17 +374,15 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
   
 
-</header><section id="sec-ilo-tidy" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="sec-ilo-tidy">
-<span class="header-section-number">8.1</span> Intended Learning Outcomes</h2>
+</header><section id="sec-ilo-tidy" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-ilo-tidy">Intended Learning Outcomes</h2>
 <ul>
 <li>Be able to reshape data between long and wide formats</li>
 <li>Separate, change, reorder, and rename columns</li>
 <li>Use pipes to chain together functions</li>
-</ul></section><section id="sec-walkthrough-tidy" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="sec-walkthrough-tidy">
-<span class="header-section-number">8.2</span> Walkthrough video</h2>
+</ul></section><section id="sec-walkthrough-tidy" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-tidy">Walkthrough video</h2>
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/a38a7789-9531-4908-9a0f-4509d638a0ca/public">Echo360.</a> Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
-</section><section id="sec-setup-tidy" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="sec-setup-tidy">
-<span class="header-section-number">8.3</span> Set-up</h2>
+</section><section id="sec-setup-tidy" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="sec-setup-tidy">
+<span class="header-section-number">8.1</span> Set-up</h2>
 <p>First, create a new project for the work we’ll do in this chapter named <code class="path">08-tidy</code>. Second, open and save and new R Markdown document named <code>tidy.Rmd</code>, delete the welcome text and load the required packages for this chapter.</p>
 <div class="cell" data-layout-align="center" data-verbatim="r setup, include=FALSE">
 <div class="verbatim">
@@ -394,8 +393,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 <p>You’ll need to make a folder called “data” and download two data files into it: <a href="https://psyteachr.github.io/ads-v1/data/tidy_data.csv" download="">tidy_data.csv</a> and <a href="https://psyteachr.github.io/ads-v1/data/untidy_data.csv" download="">untidy_data.csv</a>.</p>
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf">Data tidying cheat sheet</a>.</p>
-</section><section id="data-structures" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="data-structures">
-<span class="header-section-number">8.4</span> Data Structures</h2>
+</section><section id="data-structures" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="data-structures">
+<span class="header-section-number">8.2</span> Data Structures</h2>
 <p>The data you work with will likely come in many different formats and structures. Some of these structures may be driven by how the software you use outputs the data, but data structures may also differ because of human intervention or attempts at organisation, some of which may not be particularly helpful.</p>
 <p>Data cleaning and tidying will likely be the most time consuming and difficult task you perform. Whilst you can create code recipes for analyses and visualisations, as Hadley Whickham puts it, <a href="https://vita.had.co.nz/papers/tidy-data.pdf">“every messy dataset is messy in its own way”</a>, which means that you will often have to solve new problems that are specific to the dataset. Additionally, moving between data structures that are intuitive to read by humans and those that are useful for a computer requires a conceptual shift that only comes with practice.</p>
 <p>This is all a verbose way of saying that what lies ahead in this chapter is unlikely to sink in on the first attempt and you will need to practice with different examples (preferably with data you know well) before you truly feel comfortable with it.</p>
@@ -416,89 +415,11 @@ Note
 <p>The following table is data that shows the number of items each customer bought each year.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="kable-table">
 
-<table>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-items
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-8
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-</tbody>
-</table>
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["customer_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["year"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"2018","3":"2"},{"1":"1","2":"2019","3":"8"},{"1":"1","2":"2020","3":"10"},{"1":"2","2":"2018","3":"1"},{"1":"2","2":"2019","3":"6"},{"1":"2","2":"2020","3":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -529,8 +450,8 @@ Explain these answers
 </div>
 </div>
 </div>
-<section id="untidy-data" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="untidy-data">
-<span class="header-section-number">8.4.1</span> Untidy data</h3>
+<section id="untidy-data" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="untidy-data">
+<span class="header-section-number">8.2.1</span> Untidy data</h3>
 <p>First, let’s have a look at an example of a messy, or untidy, dataset. Each row has all of the data relating to one customer.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>untidy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/untidy_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -708,8 +629,8 @@ Note
 <p>Think about how many steps in Excel this would be if there were 10 years in the table, or a different number of years each time you encountered data like this.</p>
 </div>
 </div>
-</section><section id="tidy-data" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="tidy-data">
-<span class="header-section-number">8.4.2</span> Tidy data</h3>
+</section><section id="tidy-data" class="level3" data-number="8.2.2"><h3 data-number="8.2.2" class="anchored" data-anchor-id="tidy-data">
+<span class="header-section-number">8.2.2</span> Tidy data</h3>
 <p>There are three rules for “<a class="glossary" target="_blank" title="A format for data that maps the meaning onto the structure." href="https://psyteachr.github.io/glossary/t#tidy-data">tidy data</a>, which is data in a format that makes it easier to combine data from different tables, create summary tables, and visualise your data.</p>
 <ul>
 <li>Each observation must have its own row</li>
@@ -1019,78 +940,11 @@ totalprice
 <span id="cb4-5"><a href="#cb4-5"></a>    <span class="at">total_price =</span> <span class="fu">sum</span>(totalprice)</span>
 <span id="cb4-6"><a href="#cb4-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
 
-<table>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:right;">
-total_items
-</th>
-<th style="text-align:right;">
-total_price
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-101.48
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-37.82
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-67.19
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-60.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-98.93
-</td>
-</tr>
-</tbody>
-</table>
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["customer_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["total_items"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["total_price"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"20","3":"101.48"},{"1":"2","2":"8","3":"37.82"},{"1":"3","2":"14","3":"67.19"},{"1":"4","2":"14","3":"60.59"},{"1":"5","2":"20","3":"98.93"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -1108,8 +962,8 @@ Note
 </div>
 </div>
 <p>If you have control over how the data are recorded, it will make your life easier to record it in a tidy format from the start. However, we don’t always have control, so this class will also teach you how to convert untidy tables into tidy tables.</p>
-</section></section><section id="reshaping-data" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="reshaping-data">
-<span class="header-section-number">8.5</span> Reshaping Data</h2>
+</section></section><section id="reshaping-data" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="reshaping-data">
+<span class="header-section-number">8.3</span> Reshaping Data</h2>
 <p>Data tables can be in <a class="glossary" target="_blank" title="A data format where all of the observations about one subject are in the same row" href="https://psyteachr.github.io/glossary/w#wide">wide</a> format or <a class="glossary" target="_blank" title="A data format where each observation is on a separate row" href="https://psyteachr.github.io/glossary/l#long">long</a> format (or a mix of the two). Wide data are where all of the observations about one thing are in the same row, while long data are where each observation is on a separate row. You often need to convert between these formats to do different types of summaries or visualisation. You may have done something similar using pivot tables in Excel.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1401,8 +1255,8 @@ Note
 </div>
 </div>
 <p>The pivot functions allow you to transform a data table from wide to long or long to wide.</p>
-<section id="wide-to-long" class="level3" data-number="8.5.1"><h3 data-number="8.5.1" class="anchored" data-anchor-id="wide-to-long">
-<span class="header-section-number">8.5.1</span> Wide to long</h3>
+<section id="wide-to-long" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="wide-to-long">
+<span class="header-section-number">8.3.1</span> Wide to long</h3>
 <p>The function <code>pivot_longer()</code> converts a wide data table to a longer format by converting the headers from specified columns into the values of new columns, and combining the values of those columns into a new condensed column.</p>
 <p>This function has several arguments:</p>
 <ul>
@@ -1424,8 +1278,8 @@ Note
 <span id="cb9-5"><a href="#cb9-5"></a>  <span class="at">values_to =</span> <span class="st">"totalprice"</span> <span class="co"># new column name for values</span></span>
 <span id="cb9-6"><a href="#cb9-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="long-to-wide" class="level3" data-number="8.5.2"><h3 data-number="8.5.2" class="anchored" data-anchor-id="long-to-wide">
-<span class="header-section-number">8.5.2</span> Long to wide</h3>
+</section><section id="long-to-wide" class="level3" data-number="8.3.2"><h3 data-number="8.3.2" class="anchored" data-anchor-id="long-to-wide">
+<span class="header-section-number">8.3.2</span> Long to wide</h3>
 <p>We can also go from long to wide format using the <code>pivot_wider()</code> function. Instead of returning to the original table with a row for each customer and a column for each year, this new wide table will have a row for each year and a column for each customer. It can be awkward to have numbers for column names, so we use <code>names_prefix</code> to add “C_” before each new column name.</p>
 <ul>
 <li>
@@ -1533,437 +1387,25 @@ C_5
 </td>
 </tr>
 </tbody>
-</table></section></section><section id="sec-multistep" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="sec-multistep">
-<span class="header-section-number">8.6</span> Multi-step tidying</h2>
+</table></section></section><section id="sec-multistep" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="sec-multistep">
+<span class="header-section-number">8.4</span> Multi-step tidying</h2>
 <p>You often need to go from wide, to long, to an intermediate shape in order to get your data into a format that is useful for plotting, where there is a column for each variable that you want to represent with an aesthetic.</p>
 <p>Our full <code>untidy_data</code> table has seven columns: a customer ID, three columns for <code>itemsprice</code> and 3 columns for <code>totalprice</code>.</p>
-<div class="kable-table">
+<div data-pagedtable="false">
 
-<table>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:left;">
-itemsprice_2018
-</th>
-<th style="text-align:left;">
-itemsprice_2019
-</th>
-<th style="text-align:left;">
-itemsprice_2020
-</th>
-<th style="text-align:right;">
-totalprice_2018
-</th>
-<th style="text-align:right;">
-totalprice_2019
-</th>
-<th style="text-align:right;">
-totalprice_2020
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-2 (3.91)
-</td>
-<td style="text-align:left;">
-8 (4.72)
-</td>
-<td style="text-align:left;">
-10 (5.59)
-</td>
-<td style="text-align:right;">
-7.82
-</td>
-<td style="text-align:right;">
-37.76
-</td>
-<td style="text-align:right;">
-55.90
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-1 (3.91)
-</td>
-<td style="text-align:left;">
-6 (4.72)
-</td>
-<td style="text-align:left;">
-1 (5.59)
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-28.32
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-4 (3.91)
-</td>
-<td style="text-align:left;">
-5 (4.72)
-</td>
-<td style="text-align:left;">
-5 (5.59)
-</td>
-<td style="text-align:right;">
-15.64
-</td>
-<td style="text-align:right;">
-23.60
-</td>
-<td style="text-align:right;">
-27.95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-10 (3.91)
-</td>
-<td style="text-align:left;">
-1 (4.72)
-</td>
-<td style="text-align:left;">
-3 (5.59)
-</td>
-<td style="text-align:right;">
-39.10
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-16.77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-3 (3.91)
-</td>
-<td style="text-align:left;">
-9 (4.72)
-</td>
-<td style="text-align:left;">
-8 (5.59)
-</td>
-<td style="text-align:right;">
-11.73
-</td>
-<td style="text-align:right;">
-42.48
-</td>
-<td style="text-align:right;">
-44.72
-</td>
-</tr>
-</tbody>
-</table>
+<script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["customer_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["itemsprice_2018"],"name":[2],"type":["chr"],"align":["left"]},{"label":["itemsprice_2019"],"name":[3],"type":["chr"],"align":["left"]},{"label":["itemsprice_2020"],"name":[4],"type":["chr"],"align":["left"]},{"label":["totalprice_2018"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["totalprice_2019"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["totalprice_2020"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"2 (3.91)","3":"8 (4.72)","4":"10 (5.59)","5":"7.82","6":"37.76","7":"55.90"},{"1":"2","2":"1 (3.91)","3":"6 (4.72)","4":"1 (5.59)","5":"3.91","6":"28.32","7":"5.59"},{"1":"3","2":"4 (3.91)","3":"5 (4.72)","4":"5 (5.59)","5":"15.64","6":"23.60","7":"27.95"},{"1":"4","2":"10 (3.91)","3":"1 (4.72)","4":"3 (5.59)","5":"39.10","6":"4.72","7":"16.77"},{"1":"5","2":"3 (3.91)","3":"9 (4.72)","4":"8 (5.59)","5":"11.73","6":"42.48","7":"44.72"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 <p>We want to get it into the tidy format below where each row is an observation of one customer per year, with the columns of <code>customer_id</code>, <code>year</code>, <code>item</code>, <code>price_per_item</code> and <code>totalprice</code>. Before trying to reshape any dataset, you should be able to visualise what it will look like. Sketching out your tables on a piece of paper can really help make these transformations make sense.</p>
-<div class="kable-table">
+<div data-pagedtable="false">
 
-<table>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-items
-</th>
-<th style="text-align:right;">
-price_per_item
-</th>
-<th style="text-align:right;">
-totalprice
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-7.82
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-37.76
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-55.90
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-28.32
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-15.64
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-23.60
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-27.95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-39.10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-16.77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-11.73
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-42.48
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-44.72
-</td>
-</tr>
-</tbody>
-</table>
+<script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["customer_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["year"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["price_per_item"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["totalprice"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"2018","3":"2","4":"3.91","5":"7.82"},{"1":"1","2":"2019","3":"8","4":"4.72","5":"37.76"},{"1":"1","2":"2020","3":"10","4":"5.59","5":"55.90"},{"1":"2","2":"2018","3":"1","4":"3.91","5":"3.91"},{"1":"2","2":"2019","3":"6","4":"4.72","5":"28.32"},{"1":"2","2":"2020","3":"1","4":"5.59","5":"5.59"},{"1":"3","2":"2018","3":"4","4":"3.91","5":"15.64"},{"1":"3","2":"2019","3":"5","4":"4.72","5":"23.60"},{"1":"3","2":"2020","3":"5","4":"5.59","5":"27.95"},{"1":"4","2":"2018","3":"10","4":"3.91","5":"39.10"},{"1":"4","2":"2019","3":"1","4":"4.72","5":"4.72"},{"1":"4","2":"2020","3":"3","4":"5.59","5":"16.77"},{"1":"5","2":"2018","3":"3","4":"3.91","5":"11.73"},{"1":"5","2":"2019","3":"9","4":"4.72","5":"42.48"},{"1":"5","2":"2020","3":"8","4":"5.59","5":"44.72"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<section id="one-observation-per-row" class="level3" data-number="8.6.1"><h3 data-number="8.6.1" class="anchored" data-anchor-id="one-observation-per-row">
-<span class="header-section-number">8.6.1</span> One observation per row</h3>
+<section id="one-observation-per-row" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="one-observation-per-row">
+<span class="header-section-number">8.4.1</span> One observation per row</h3>
 <p>The original table has observations from each customer over three years. This is too many observations per row, so first we’ll start by making the table long. We need to make 6 rows for each customer, one for each category (item price/total price) and year combination, with columns for the customer ID, year, category, and value.</p>
 <p>Because we’ll be combining columns with numeric (<code>totalprice</code>) and character (<code>itemsprice</code>) data, we need to make the new <code>value</code> column a character data type using <code>values_transform</code>, since numbers can be represented as characters (like <code>"3.5"</code>), but character strings can’t be represented as numbers.</p>
 <p>The argument <code>names_sep</code> is set to the character string used to join names if <code>names_from</code> is more than one column. Alternatively, you can use the argument <code>names_pattern</code>, which can be more powerful but also a little harder to understand how to set up.</p>
@@ -2422,8 +1864,8 @@ totalprice
 </td>
 </tr>
 </tbody>
-</table></section><section id="one-variable-per-column" class="level3" data-number="8.6.2"><h3 data-number="8.6.2" class="anchored" data-anchor-id="one-variable-per-column">
-<span class="header-section-number">8.6.2</span> One variable per column</h3>
+</table></section><section id="one-variable-per-column" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="one-variable-per-column">
+<span class="header-section-number">8.4.2</span> One variable per column</h3>
 <p>Now this table is long, but not tidy. The <code>value</code> column contains data from two different variables. We need to make the table wider, but not as wide as before. We want to keep the <code>year</code> column and make new columns called <code>itemsprice</code> and <code>totalprice</code> with the relevant customer’s <code>value</code> for that variable and year.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>wider_data <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(</span>
@@ -2678,8 +2120,8 @@ Note
 <p>Techinically, you can skip setting the <code>id_cols</code> argument, because all of the columns apart from the <code>names_from</code> column and the <code>values_from</code> column identify the observation (e.g., each observation is identified by the unique combination of <code>customer_id</code> and <code>year</code>). You only have to set the <code>id_cols</code> argument when this is not the case.</p>
 </div>
 </div>
-</section><section id="one-value-per-cell" class="level3" data-number="8.6.3"><h3 data-number="8.6.3" class="anchored" data-anchor-id="one-value-per-cell">
-<span class="header-section-number">8.6.3</span> One value per cell</h3>
+</section><section id="one-value-per-cell" class="level3" data-number="8.4.3"><h3 data-number="8.4.3" class="anchored" data-anchor-id="one-value-per-cell">
+<span class="header-section-number">8.4.3</span> One value per cell</h3>
 <p>The cells in the <code>itemsprice</code> column actually contain two different values. We need to split it into two columns for the variables <code>items</code>, and <code>price_per_item</code>. You can split a column into parts with the function <code><a href="https://tidyr.tidyverse.org/reference/separate.html">tidyr::separate()</a></code>. There is a space between the number of items and the brackets, so we can split it along this space – if you are in charge of how data is stored, ensuring data is entered consistently makes this much easier.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>split_data <span class="ot">&lt;-</span> <span class="fu">separate</span>(</span>
@@ -2984,8 +2426,8 @@ Warning
 <p>If the new columns should have a different <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">data type</a> from the old column, set <code>convert = TRUE</code> to automatically fix them. This is common when you have columns that contain multiple numbers, separated by commas or semicolons. These are character types before they are separated, but should be numeric types after so that you can do mathematical operations like sum them.</p>
 </div>
 </div>
-</section><section id="altering-data" class="level3" data-number="8.6.4"><h3 data-number="8.6.4" class="anchored" data-anchor-id="altering-data">
-<span class="header-section-number">8.6.4</span> Altering data</h3>
+</section><section id="altering-data" class="level3" data-number="8.4.4"><h3 data-number="8.4.4" class="anchored" data-anchor-id="altering-data">
+<span class="header-section-number">8.4.4</span> Altering data</h3>
 <p>The column <code>price_per_item</code> is still a character column because it has parentheses. There are a few ways to fix this. You can use the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate()</a></code> function to change a column or add a new one.</p>
 <p>Here, we’ll use <code><a href="https://stringr.tidyverse.org/reference/str_replace.html">stringr::str_replace_all()</a></code> to replace all of the “(” and “)” with ““.</p>
 <div class="cell" data-layout-align="center">
@@ -3277,8 +2719,8 @@ totalprice
 </td>
 </tr>
 </tbody>
-</table></section><section id="fixing-data-types" class="level3" data-number="8.6.5"><h3 data-number="8.6.5" class="anchored" data-anchor-id="fixing-data-types">
-<span class="header-section-number">8.6.5</span> Fixing data types</h3>
+</table></section><section id="fixing-data-types" class="level3" data-number="8.4.5"><h3 data-number="8.4.5" class="anchored" data-anchor-id="fixing-data-types">
+<span class="header-section-number">8.4.5</span> Fixing data types</h3>
 <p>The <code>price_per_item</code> and <code>totalprice</code> columns are still characters, so you can’t do things like calculate the sum of <code>totalprice</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># check the data types</span></span>
@@ -3312,12 +2754,12 @@ $ price_per_item &lt;dbl&gt; 3.91, 4.72, 5.59, 3.91, 4.72, 5.59, 3.91, 4.72, 5.5
 $ totalprice     &lt;dbl&gt; 7.82, 37.76, 55.90, 3.91, 28.32, 5.59, 15.64, 23.60, 27…</code></pre>
 </div>
 </div>
-</section></section><section id="sec-pipes" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="sec-pipes">
-<span class="header-section-number">8.7</span> Pipes</h2>
+</section></section><section id="sec-pipes" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="sec-pipes">
+<span class="header-section-number">8.5</span> Pipes</h2>
 <div style="width: 200px; float: right;">
 <p><img src="images/tidy/pipe_sticker.png" style="width: 100%"></p>
 </div>
-<p>We’ve already introduced pipes in <a href="05-summary.html#sec-pipes-first"><span>Section&nbsp;5.5.2</span></a> but this type of data processing is where they really start to shine, as they can significantly reduce the amount of code you write.</p>
+<p>We’ve already introduced pipes in <a href="05-summary.html#sec-pipes-first"><span>Section&nbsp;5.3.2</span></a> but this type of data processing is where they really start to shine, as they can significantly reduce the amount of code you write.</p>
 <p>As a recap, a pipe takes the result of the previous function and sends it to the next function as its first argument, which means that you do not need to create intermediate objects. Below is all the code we’ve used in this chapter, and in the process we created five objects. This can get very confusing in longer scripts.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>untidy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/untidy_data.csv"</span>, </span>
@@ -3507,13 +2949,13 @@ Note
 <p>You can debug a pipe by highlighting from the beginning to just before the pipe you want to stop at. Try this by highlighting from <code>data &lt;-</code> to the end of the <code>separate</code> function and typing command-enter (mac) or control-enter (PC). What does <code>data</code> look like now?</p>
 </div>
 </div>
-</section><section id="exercises" class="level2" data-number="8.8"><h2 data-number="8.8" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">8.8</span> Exercises</h2>
+</section><section id="exercises" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">8.6</span> Exercises</h2>
 <p>Let’s try a couple of examples.</p>
 <ul>
 <li>Save your current Markdown, close it, and open a new Rmd named “Patient_survey”.</li>
 <li>Download a copy of <a href="https://psyteachr.github.io/ads-v1/data/wide_exercise-1.csv">wide_exercise-1.csv</a> and <a href="https://psyteachr.github.io/ads-v1/data/wide_exercise-2.csv">wide_exercise-2.csv</a> into your data folder.</li>
-<li>In the set-up code chunk, load the <code class="package">tidyverse</code> then load the two data files in using <code>read_csv()</code> and name the objects <code>wide1</code> and <code>wide2</code>
+<li>In the set-up code chunk, load the <pkg>tidyverse</pkg> then load the two data files in using <code>read_csv()</code> and name the objects <code>wide1</code> and <code>wide2</code>
 </li>
 </ul>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
@@ -3527,8 +2969,8 @@ Solution
 </div>
 </div>
 <p>The two datasets represent simulated data from a patient satisfaction survey. We’ll do them one at a time, as they differ in complexity.</p>
-<section id="survey-1" class="level3" data-number="8.8.1"><h3 data-number="8.8.1" class="anchored" data-anchor-id="survey-1">
-<span class="header-section-number">8.8.1</span> Survey 1</h3>
+<section id="survey-1" class="level3" data-number="8.6.1"><h3 data-number="8.6.1" class="anchored" data-anchor-id="survey-1">
+<span class="header-section-number">8.6.1</span> Survey 1</h3>
 <p><code>wide1</code> has data from 50 patients who were asked five questions about their most recent experience at a health centre. The results from this questionnaire are typically reported as a single overall satisfaction score, which is calculated by taking the mean of the five responses. Additionally, the survey also records whether the patient was attending the clinic for the first time, or as a repeat patient.</p>
 <ul>
 <li>Use your method of choice to look at the dataset and familiarise yourself with its structure and data.</li>
@@ -3549,8 +2991,8 @@ Explain these answers
 <li>There will be 250 observations or rows of data because each patient will have 5 rows of data (one per question) and there are 50 patients (50 * 5 = 250).</li>
 </ol>
 </div>
-</section><section id="tidy-1" class="level3" data-number="8.8.2"><h3 data-number="8.8.2" class="anchored" data-anchor-id="tidy-1">
-<span class="header-section-number">8.8.2</span> Tidy 1</h3>
+</section><section id="tidy-1" class="level3" data-number="8.6.2"><h3 data-number="8.6.2" class="anchored" data-anchor-id="tidy-1">
+<span class="header-section-number">8.6.2</span> Tidy 1</h3>
 <p>Transform <code>wide1</code> to long-form using <code>pivot_longer()</code> and store it in an object named <code>tidy1</code></p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
 <div class="webex-solution">
@@ -3563,15 +3005,14 @@ Solution
 <span id="cb22-4"><a href="#cb22-4"></a>               <span class="at">values_to =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section><section id="survey-2" class="level3" data-number="8.8.3"><h3 data-number="8.8.3" class="anchored" data-anchor-id="survey-2">
-<span class="header-section-number">8.8.3</span> Survey 2</h3>
+</section><section id="survey-2" class="level3" data-number="8.6.3"><h3 data-number="8.6.3" class="anchored" data-anchor-id="survey-2">
+<span class="header-section-number">8.6.3</span> Survey 2</h3>
 <p><code>wide2</code> also has data from 50 patients, however, there are now two measures included in the questionnaire. There are still five questions that relate to satisfaction, but there are also five questions that relate to whether the patient would recommend the medical practice to a friend. Both measures are typically reported by calculating an overall mean for each of the five items.</p>
 <ul>
 <li>Use your method of choice to look at the dataset and familiarise yourself with its structure and data.</li>
 </ul>
 <p>This is not as simple as the first exercise because there’s actually two potential ways you might tidy this data, depending on what you want to do with it and how you conceptualise the two different measurements. It’s important to recognise that many of your coding problems will not have just one solution.</p>
-<section id="tidy-2a" class="level4" data-number="8.8.3.1"><h4 data-number="8.8.3.1" class="anchored" data-anchor-id="tidy-2a">
-<span class="header-section-number">8.8.3.1</span> Tidy 2a</h4>
+<section id="tidy-2a" class="level4"><h4 class="anchored" data-anchor-id="tidy-2a">Tidy 2a</h4>
 <p>For the first option, we’re going to treat the “satisfaction” and “recommendation” measurements as two categories of the same variable. This will be a fully long-form data set with five variables <code>id</code>, <code>repeat_patient</code>, <code>question</code> (the question number), <code>category</code> (whether it’s <code>sat</code> or <code>rec</code>), and <code>response</code> (the numerical rating).</p>
 <ul>
 <li>How many <strong>observations</strong> should the fully long-form version of <code>wide2</code> have? <input class="webex-solveme nospaces" size="3" data-answer="[&quot;500&quot;]">
@@ -3623,8 +3064,7 @@ Alternative solution
 <span id="cb24-7"><a href="#cb24-7"></a>               <span class="at">values_to =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section><section id="tidy-2b" class="level4" data-number="8.8.3.2"><h4 data-number="8.8.3.2" class="anchored" data-anchor-id="tidy-2b">
-<span class="header-section-number">8.8.3.2</span> Tidy 2b</h4>
+</section><section id="tidy-2b" class="level4"><h4 class="anchored" data-anchor-id="tidy-2b">Tidy 2b</h4>
 <p>The second option is to treat the satisfaction and recommendation scores as two distinct variables. This only makes sense if the satisfaction and recommendation scores for each question number are related to each other (e.g., q1 is about the same thing for both questions), making them part of the same observation.</p>
 <p>This version should also have five variables, but it won’t be fully long-form, it’ll be a slight mix of the two that we’re going to call “semi-long”. The variables in the semi-long version will be <code>id</code>, <code>repeat</code>, <code>question</code> (the question number), <code>sat</code> (the response for the satisfaction question), and <code>rec</code> (the response for the recommendation question).</p>
 <ul>
@@ -3663,8 +3103,8 @@ Solution
 <span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"category"</span>, <span class="at">values_from =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section></section><section id="analysis-and-visualisation" class="level3" data-number="8.8.4"><h3 data-number="8.8.4" class="anchored" data-anchor-id="analysis-and-visualisation">
-<span class="header-section-number">8.8.4</span> Analysis and visualisation</h3>
+</section></section><section id="analysis-and-visualisation" class="level3" data-number="8.6.4"><h3 data-number="8.6.4" class="anchored" data-anchor-id="analysis-and-visualisation">
+<span class="header-section-number">8.6.4</span> Analysis and visualisation</h3>
 <p>Using <code>group_by()</code> and <code>summarise()</code>, calculate the mean score for each participant for both satisfaction and recommendation. Do this for both versions of the dataset so that you can see how the structure of the dataset changes the approach you need to take.</p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
 <div class="webex-solution">
@@ -3683,8 +3123,7 @@ Solution
 </div>
 </div>
 <p>Replicate the following:</p>
-<section id="plot-1" class="level4" data-number="8.8.4.1"><h4 data-number="8.8.4.1" class="anchored" data-anchor-id="plot-1">
-<span class="header-section-number">8.8.4.1</span> Plot 1</h4>
+<section id="plot-1" class="level4"><h4 class="anchored" data-anchor-id="plot-1">Plot 1</h4>
 <p>Scatterplot showing the relationship between satisfaction and recommendation scores, by whether the patient is a repeat patient.</p>
 <div class="webex-solution">
 <button>
@@ -3712,8 +3151,7 @@ Solution
 <span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section><section id="plot-2" class="level4" data-number="8.8.4.2"><h4 data-number="8.8.4.2" class="anchored" data-anchor-id="plot-2">
-<span class="header-section-number">8.8.4.2</span> Plot 2</h4>
+</section><section id="plot-2" class="level4"><h4 class="anchored" data-anchor-id="plot-2">Plot 2</h4>
 <p>Boxplots showing satisfaction and recommends scores for new and repeat patients separately.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -3735,8 +3173,7 @@ Solution
 <span id="cb28-5"><a href="#cb28-5"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section><section id="plot-3" class="level4" data-number="8.8.4.3"><h4 data-number="8.8.4.3" class="anchored" data-anchor-id="plot-3">
-<span class="header-section-number">8.8.4.3</span> Plot 3</h4>
+</section><section id="plot-3" class="level4"><h4 class="anchored" data-anchor-id="plot-3">Plot 3</h4>
 <p>Histogram showing the distribution of all responses, across questions and categories.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -3757,12 +3194,12 @@ Solution
 <span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section></section><section id="your-data" class="level3" data-number="8.8.5"><h3 data-number="8.8.5" class="anchored" data-anchor-id="your-data">
-<span class="header-section-number">8.8.5</span> Your data</h3>
+</section></section><section id="your-data" class="level3" data-number="8.6.5"><h3 data-number="8.6.5" class="anchored" data-anchor-id="your-data">
+<span class="header-section-number">8.6.5</span> Your data</h3>
 <p>Finally, find a wide-form dataset of your own and try and tidy it into long-form. If you get stuck or you just want to check your solution, post it on Teams - just remember to be careful about sharing confidential data if it’s your own dataset.</p>
 <p>If your head hurts a bit at this point, rest assured it’s absolutely normal. As we said at the start, reshaping and tidying data is a conceptual leap and there’s no shortcut to the fact it just takes a bit of time and practice with different datasets - you will get there eventually!</p>
-</section></section><section id="sec-glossary-tidy" class="level2" data-number="8.9"><h2 data-number="8.9" class="anchored" data-anchor-id="sec-glossary-tidy">
-<span class="header-section-number">8.9</span> Glossary</h2>
+</section></section><section id="sec-glossary-tidy" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="sec-glossary-tidy">
+<span class="header-section-number">8.7</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
 
 <table>
@@ -3842,8 +3279,8 @@ A data format where all of the observations about one subject are in the same ro
 </tbody>
 </table>
 </div>
-</section><section id="sec-resources-tidy" class="level2" data-number="8.10"><h2 data-number="8.10" class="anchored" data-anchor-id="sec-resources-tidy">
-<span class="header-section-number">8.10</span> Further resources</h2>
+</section><section id="sec-resources-tidy" class="level2" data-number="8.8"><h2 data-number="8.8" class="anchored" data-anchor-id="sec-resources-tidy">
+<span class="header-section-number">8.8</span> Further resources</h2>
 <ul>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf">Data tidying cheat sheet</a></li>
 <li><a href="http://vita.had.co.nz/papers/tidy-data.html">Tidy Data</a></li>

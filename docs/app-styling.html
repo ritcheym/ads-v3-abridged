@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - Appendix I — Styling Plots</title>
 <style>
@@ -126,7 +126,8 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="include/psyteachr.css">
+</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -1945,8 +1946,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <section id="viridis-palettes" class="level3" data-number="I.2.1"><h3 data-number="I.2.1" class="anchored" data-anchor-id="viridis-palettes">
 <span class="header-section-number">I.2.1</span> Viridis Palettes</h3>
 <p>Viridis palettes are very good for colourblind-safe and greyscale-safe plots. The work with any number of categories, but are best for larger numbers of categories or continuous colours.</p>
-<section id="discrete-viridis-palettes" class="level4" data-number="I.2.1.1"><h4 data-number="I.2.1.1" class="anchored" data-anchor-id="discrete-viridis-palettes">
-<span class="header-section-number">I.2.1.1</span> Discrete Viridis Palettes</h4>
+<section id="discrete-viridis-palettes" class="level4"><h4 class="anchored" data-anchor-id="discrete-viridis-palettes">Discrete Viridis Palettes</h4>
 <p>Set <a class="glossary" target="_blank" title="Data that can only take certain values, such as integers." href="https://psyteachr.github.io/glossary/d#discrete">discrete</a> viridis colours with <code>scale_colour_viridis_d()</code> or <code>scale_fill_viridis_d()</code> and set the <code>option</code> argument to one of the options below. Set <code>direction = -1</code> to reverse the order of colours.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1970,8 +1970,7 @@ Note
 <p>If the end colour is too light for your plot or the start colour too dark, you can set the <code>begin</code> and <code>end</code> arguments to values between 0 and 1, such as <code>scale_colour_viridis_c(begin = .1, end = .9)</code>.</p>
 </div>
 </div>
-</section><section id="continuous-viridis-palettes" class="level4" data-number="I.2.1.2"><h4 data-number="I.2.1.2" class="anchored" data-anchor-id="continuous-viridis-palettes">
-<span class="header-section-number">I.2.1.2</span> Continuous Viridis Palettes</h4>
+</section><section id="continuous-viridis-palettes" class="level4"><h4 class="anchored" data-anchor-id="continuous-viridis-palettes">Continuous Viridis Palettes</h4>
 <p>Set <a class="glossary" target="_blank" title="Data that can take on any values between other existing values." href="https://psyteachr.github.io/glossary/c#continuous">continuous</a> viridis colours with <code>scale_colour_viridis_c()</code> or <code>scale_fill_viridis_c()</code> and set the <code>option</code> argument to one of the options below. Set <code>direction = -1</code> to reverse the order of colours.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1985,8 +1984,7 @@ Note
 </section></section><section id="brewer-palettes" class="level3" data-number="I.2.2"><h3 data-number="I.2.2" class="anchored" data-anchor-id="brewer-palettes">
 <span class="header-section-number">I.2.2</span> Brewer Palettes</h3>
 <p>Brewer palettes give you a lot of control over plot colour and fill. You set them with <code>scale_color_brewer()</code> or <code>scale_fill_brewer()</code> and set the <code>palette</code> argument to one of the palettes below. Set <code>direction = -1</code> to reverse the order of colours.</p>
-<section id="qualitative-brewer-palettes" class="level4" data-number="I.2.2.1"><h4 data-number="I.2.2.1" class="anchored" data-anchor-id="qualitative-brewer-palettes">
-<span class="header-section-number">I.2.2.1</span> Qualitative Brewer Palettes</h4>
+<section id="qualitative-brewer-palettes" class="level4"><h4 class="anchored" data-anchor-id="qualitative-brewer-palettes">Qualitative Brewer Palettes</h4>
 <p>These palettes are good for <a class="glossary" target="_blank" title="Data that can only take certain values, such as types of pet." href="https://psyteachr.github.io/glossary/c#categorical">categorical</a> data with up to 8 categories (some palettes can handle up to 12). The “Paired” palette is useful if your categories are arranged in pairs.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1997,8 +1995,7 @@ Note
 </div>
 </div>
 </div>
-</section><section id="sequential-brewer-palettes" class="level4" data-number="I.2.2.2"><h4 data-number="I.2.2.2" class="anchored" data-anchor-id="sequential-brewer-palettes">
-<span class="header-section-number">I.2.2.2</span> Sequential Brewer Palettes</h4>
+</section><section id="sequential-brewer-palettes" class="level4"><h4 class="anchored" data-anchor-id="sequential-brewer-palettes">Sequential Brewer Palettes</h4>
 <p>These palettes are good for up to 9 <a class="glossary" target="_blank" title="Discrete variables that have an inherent order, such as level of education or dislike/like." href="https://psyteachr.github.io/glossary/o#ordinal">ordinal</a> categories with a lot of categories.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2009,8 +2006,7 @@ Note
 </div>
 </div>
 </div>
-</section><section id="diverging-brewer-palettes" class="level4" data-number="I.2.2.3"><h4 data-number="I.2.2.3" class="anchored" data-anchor-id="diverging-brewer-palettes">
-<span class="header-section-number">I.2.2.3</span> Diverging Brewer Palettes</h4>
+</section><section id="diverging-brewer-palettes" class="level4"><h4 class="anchored" data-anchor-id="diverging-brewer-palettes">Diverging Brewer Palettes</h4>
 <p>These palettes are good for <a class="glossary" target="_blank" title="Discrete variables that have an inherent order, such as level of education or dislike/like." href="https://psyteachr.github.io/glossary/o#ordinal">ordinal</a> categories with up to 11 levels where the centre level is a neutral or baseline category and the levels above and below it differ in an important way, such as agree versus disagree options.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2023,7 +2019,7 @@ Note
 </div>
 </section></section></section><section id="sec-themes-appendix" class="level2" data-number="I.3"><h2 data-number="I.3" class="anchored" data-anchor-id="sec-themes-appendix">
 <span class="header-section-number">I.3</span> Themes</h2>
-<p><code class="package">ggplot2</code> has 8 built-in themes that you can add to a plot like <code>plot + theme_bw()</code> or set as the default theme at the top of your script like <code>theme_set(theme_bw())</code>.</p>
+<p><pkg>ggplot2</pkg> has 8 built-in themes that you can add to a plot like <code>plot + theme_bw()</code> or set as the default theme at the top of your script like <code>theme_set(theme_bw())</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2035,7 +2031,7 @@ Note
 </div>
 <section id="ggthemes" class="level3" data-number="I.3.1"><h3 data-number="I.3.1" class="anchored" data-anchor-id="ggthemes">
 <span class="header-section-number">I.3.1</span> ggthemes</h3>
-<p>You can get more themes from add-on packages, like <code class="package"><a href="https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/" target="_blank">ggthemes</a></code>. Most of the themes also have custom <code>scale_</code> functions like <code>scale_colour_economist()</code>. Their website has extensive examples and instructions for alternate or dark versions of these themes.</p>
+<p>You can get more themes from add-on packages, like <pkg>ggthemes”, “https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/”)<code>. Most of the themes also have custom</code>scale_<code>functions like</code>scale_colour_economist()`. Their website has extensive examples and instructions for alternate or dark versions of these themes.</pkg></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2083,7 +2079,7 @@ Warning
 </div>
 </div>
 </div>
-<p>The <code class="package">showtext</code> package is a flexible way to add fonts.</p>
+<p>The <pkg>showtext</pkg> package is a flexible way to add fonts.</p>
 <p>If you have a .ttf file from a font site, like <a href="https://www.fontsquirrel.com" target="_blank">Font Squirrel</a>, you can load the file directly using <code>font_add()</code>. Set <code>regular</code> as the path to the file for the regular version of the font, and optionally add other versions. Set the <code>family</code> to the name you want to use for the font. You will need to include any local font files if you are sharing your script with others.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(showtext)</span>

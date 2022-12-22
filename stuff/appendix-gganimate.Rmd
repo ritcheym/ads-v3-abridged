@@ -8,7 +8,7 @@ library(gganimate)
 
 ### Animated Plots
 
-You can make animated plots with `r pkg("gganimate", "https://gganimate.com/")`. Their website has great learning materials, so we'll just give you a quick taste of what it can do.
+You can make animated plots with <pkg>gganimate", "https://gganimate.com/")`. Their website has great learning materials, so we'll just give you a quick taste of what it can do.
 
 The code below uses the [ncod_tweets.rds](data/ncod_tweets.rds){download} data. It's complex, but it's all functions you've learned how to use. 
 

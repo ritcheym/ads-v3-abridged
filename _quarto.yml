@@ -5,6 +5,9 @@ project:
   preview:
     port: 4200
 
+execute:
+  freeze: auto
+
 book:
   title: 'Applied Data Skills'
   subtitle: "Processing & Presenting Data"
@@ -86,9 +89,10 @@ format:
     - include/psyteachr.css
     - include/webex.css
     - include/style.css
-    df-print: kable
+    number-depth: 3
     code-link: true
-    #code-fold: false
+    code-fold: false
+    df-print: kable
     # cap-location: margin
     # reference-location: margin
     # citation-location: margin

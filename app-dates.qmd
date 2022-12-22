@@ -1,6 +1,6 @@
 # Dates and Times {#sec-dates-times}
 
-Working with dates and times can be a little tricky, but the `r pkg("lubridate", "https://lubridate.tidyverse.org/")` package is there to help. Their website has a helpful [cheatsheet](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf) and you can view a tutorial by typing `vignette("lubridate")` in the console pane. The [Dates and Times](https://r4ds.had.co.nz/dates-and-times.html){target="_blank"} in R for Data Science also gives a helpful overview.
+Working with dates and times can be a little tricky, but the <pkg>lubridate", "https://lubridate.tidyverse.org/")` package is there to help. Their website has a helpful [cheatsheet](https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf) and you can view a tutorial by typing `vignette("lubridate")` in the console pane. The [Dates and Times](https://r4ds.had.co.nz/dates-and-times.html){target="_blank"} in R for Data Science also gives a helpful overview.
 
 This appendix is a quick intro to some of the most useful functions for making reproducible reports.
 

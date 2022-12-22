@@ -5,7 +5,8 @@ This book will use the following conventions:
 * Generic code: `list(number = 1, letter = "A")`
 * Highlighted code: `r hl(list(number = 1, letter = "A"))`
 * File paths: `r path("data/sales.csv")`
-* R Packages: `r pkg("tidyverse")`
+* Menu/interface options: <if>Tools > Global Options... > Pane Layout</if>
+* R Packages: <pkg>tidyverse</pkg>
 * Functions: `r hl(paste())`
 * Strings: `r hl("Lisa")`, `r hl("Emily")`
 * Numbers: `r hl(100)`, `r hl(3.14)`
@@ -14,7 +15,11 @@ This book will use the following conventions:
 * Citations: @R-tidyverse
 * Internal links: @sec-viz
 * External links: [Mastering Shiny](https://mastering-shiny.org/){target="_blank"}
-* Menu/interface options: **`New File...`**
+* Mac-specific: <mac>Cmd-Shift-F10</mac> 
+* Windows-specific: <pc>Ctl-Shift-F10</pc>
+
+A list of mac and windows [keyboard shortcuts](https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE).
+
 
 ## Test Yourself
 

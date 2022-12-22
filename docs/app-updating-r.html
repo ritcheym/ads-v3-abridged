@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - Appendix B — Updating R, RStudio, and packages</title>
 <style>
@@ -126,7 +126,8 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="include/psyteachr.css">
+</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -379,7 +380,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 </section><section id="mac" class="level3" data-number="B.2.2"><h3 data-number="B.2.2" class="anchored" data-anchor-id="mac">
 <span class="header-section-number">B.2.2</span> Mac</h3>
-<p>For a Mac, you can use the <code class="package"><a href="https://github.com/AndreaCirilloAC/updateR" target="_blank">updateR</a></code> package. You’ll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.</p>
+<p>For a Mac, you can use the <pkg>updateR”, “https://github.com/AndreaCirilloAC/updateR”)` package. You’ll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.</pkg></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install from github</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"AndreaCirilloAC/updateR"</span>)</span>
@@ -436,7 +437,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 <p>If that works and you can install packages, set this library path permanently:</p>
 <ol type="1">
-<li>Install the <code class="package">usethis</code> package</li>
+<li>Install the <pkg>usethis</pkg> package</li>
 <li>Run <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code> in the console; it will open up a blank file</li>
 <li>Paste into the file (your version of): <code>.libPaths(c("C:/Program Files/R/R-3.5.2/library"))</code>
 </li>

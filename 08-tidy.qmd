@@ -29,13 +29,13 @@ write_csv(untidy_data, "data/untidy_data.csv")
 ```
 
 
-## Intended Learning Outcomes {#sec-ilo-tidy}
+## Intended Learning Outcomes {#sec-ilo-tidy .unnumbered}
 
 -   Be able to reshape data between long and wide formats
 -   Separate, change, reorder, and rename columns
 -   Use pipes to chain together functions
 
-## Walkthrough video {#sec-walkthrough-tidy}
+## Walkthrough video {#sec-walkthrough-tidy .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/a38a7789-9531-4908-9a0f-4509d638a0ca/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
@@ -574,7 +574,7 @@ Let's try a couple of examples.
 
 * Save your current Markdown, close it, and open a new Rmd named "Patient_survey".
 * Download a copy of [wide_exercise-1.csv](https://psyteachr.github.io/ads-v1/data/wide_exercise-1.csv) and [wide_exercise-2.csv](https://psyteachr.github.io/ads-v1/data/wide_exercise-2.csv) into your data folder.
-* In the set-up code chunk, load the `r pkg("tidyverse")` then load the two data files in using `read_csv()` and name the objects `wide1` and `wide2`
+* In the set-up code chunk, load the <pkg>tidyverse</pkg> then load the two data files in using `read_csv()` and name the objects `wide1` and `wide2`
 
 ```{r, message = FALSE,  webex.hide = TRUE}
 library(tidyverse)

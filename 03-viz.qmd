@@ -1,12 +1,12 @@
 # Data Visualisation {#sec-viz}
 
-## Intended Learning Outcomes {#sec-ilo-viz}
+## Intended Learning Outcomes {#sec-ilo-viz .unnumbered}
 
 * Be able to identify categorical versus continuous data
 * Be able to create plots in layers using ggplot
 * Be able to choose appropriate plots for data
 
-## Walkthrough video {#sec-walkthrough-viz}
+## Walkthrough video {#sec-walkthrough-viz .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/d22c9f57-3ed5-44ce-ac60-246b7099eb9e/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
@@ -14,7 +14,7 @@ There is a walkthrough video of this chapter available via [Echo360.](https://ec
 
 Create a new project for the work we'll do in this chapter:
 
--   **`File > New Project...`**
+-   <if>File > New Project...</if>
 -   Name the project `r path("03-visualisation")`
 -   Save it inside your ADS directory.
 
@@ -76,11 +76,25 @@ Categorical data can have a `r glossary("character")` data type, also called `r 
 
 Categorical data can also be `r glossary("factor", "factors")`, a specific type of integer that lets you specify the category names and their order. This is useful for making plots display with categories in the order you want (otherwise they default to alphabetical order). The factor data type is best for categories that have a specific number of levels.
 
+::: {.callout-caution}
+## Do not factor numbers
+
+If you factor numeric data, it gets converted to the integers 1 to the number of unique values, no matter what the values are. Additionally, you can no longer use the values as numbers, such as calculating the mean.
+
+```{r, warning=TRUE, filename="Example"}
+x <- c(-3, 0, .5)  # numeric vector
+f <- factor(x)     # convert to factor
+x == as.numeric(f) # does not convert back to numeric 
+m <- mean(f)       # you cannot average a factor
+```
+
+:::
+
 Sometimes people represent categorical variables with numbers that correspond to names, like 0 = "no" and 1 = "yes", but values in between don't have a clear interpretation. If you have control over how the data are recorded, it's better to use the character names for clarity. You'll learn how to recode columns in @sec-wrangle.
 
 ### Dates and times
 
-Dates and times are a special case of variable. They can act like categorical or continuous variables, and there are special ways to plot them. Dates and times can be hard to work with, but the `r pkg("lubridate", "https://lubridate.tidyverse.org/")` package provides functions to help you with this.
+Dates and times are a special case of variable. They can act like categorical or continuous variables, and there are special ways to plot them. Dates and times can be hard to work with, but the <pkg>lubridate", "https://lubridate.tidyverse.org/</pkg> package provides functions to help you with this.
 
 ```{r}
 # the current date
@@ -178,7 +192,7 @@ survey_data <- add_random(employee_id = 10) %>%
 write_csv(survey_data, "data/survey_data.csv")
 ```
 
-There are multiple approaches to data visualisation in R; in this course we will use the popular package `r pkg("ggplot2")`, which is part of the larger `tidyverse` collection of packages. A grammar of graphics (the "gg" in "ggplot") is a standardised way to describe the components of a graphic. `r pkg("ggplot2")` uses a layered grammar of graphics, in which plots are built up in a series of layers. It may be helpful to think about any picture as having multiple elements that sit semi-transparently over each other. A good analogy is old Disney movies where artists would create a background and then add moveable elements on top of the background via transparencies.
+There are multiple approaches to data visualisation in R; in this course we will use the popular package <pkg>ggplot2</pkg>, which is part of the larger `tidyverse` collection of packages. A grammar of graphics (the "gg" in "ggplot") is a standardised way to describe the components of a graphic. <pkg>ggplot2</pkg> uses a layered grammar of graphics, in which plots are built up in a series of layers. It may be helpful to think about any picture as having multiple elements that sit semi-transparently over each other. A good analogy is old Disney movies where artists would create a background and then add moveable elements on top of the background via transparencies.
 
 @fig-layers) displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a `geom`) that is desired for these variables is specified (layer 3) - in this case `geom_point()` is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).
 
@@ -333,7 +347,7 @@ ggplot(survey_data, aes(x = wait_time, y = call_time))
 
 #### Multiple geoms
 
-Part of the power of `r pkg("ggplot2")` is that you can add more than one geom to a plot by adding on extra layers and so it quickly becomes possible to make complex and informative visualisation. Importantly, the layers display in the order you set them up. The code below uses the same geoms to produce a scatterplot with a line of best fit but orders them differently.
+Part of the power of <pkg>ggplot2</pkg> is that you can add more than one geom to a plot by adding on extra layers and so it quickly becomes possible to make complex and informative visualisation. Importantly, the layers display in the order you set them up. The code below uses the same geoms to produce a scatterplot with a line of best fit but orders them differently.
 
 ```{r fig-build-plot-geom2-code, eval = FALSE}
 
@@ -470,9 +484,9 @@ You can also set the `limits` argument inside  the `scale_` functions, but this 
 
 #### Themes {#sec-themes}
 
-`r pkg("ggplot2")` comes with several built-in themes, such as `theme_minimal()` and `theme_bw()`, but the `r pkg("ggthemes", "https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/")` package provides even more themes to match different software, such as GoogleDocs or Stata, or publications, such as the Economist or the Wall Street Journal. Let's add the GoogleDocs theme, but change the font size to 20 with the `base_size` argument.
+<pkg>ggplot2</pkg> comes with several built-in themes, such as `theme_minimal()` and `theme_bw()`, but the [<pkg>ggthemes</pkg>](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package provides even more themes to match different software, such as GoogleDocs or Stata, or publications, such as the Economist or the Wall Street Journal. Let's add the GoogleDocs theme, but change the font size to 20 with the `base_size` argument.
 
-It's also worth highlighting that this code is starting to look quite complicated because of the number of layers, but because we've built it up slowly it should (hopefully!) make sense. If you see examples of `r pkg("ggplot2")` code online that you'd like to adapt, build the plot up layer by layer and it will make it easier to understand what each layer adds.
+It's also worth highlighting that this code is starting to look quite complicated because of the number of layers, but because we've built it up slowly it should (hopefully!) make sense. If you see examples of <pkg>ggplot2</pkg>` code online that you'd like to adapt, build the plot up layer by layer and it will make it easier to understand what each layer adds.
 
 ```{r fig-build-plot-theme, fig.cap="Changing the theme."}
 ggplot(survey_data, aes(x = wait_time, y = call_time)) +
@@ -1002,7 +1016,7 @@ If there isn't much data at the extremes of the x-axis, the curve can be very un
 
 #### Dates
 
-The `call_start` column contains both a date and a time, so use the `date()` function from `r pkg("lubridate")` to convert it to just a date. We'll need it in this format to be able to transform the x-axis below.
+The `call_start` column contains both a date and a time, so use the `date()` function from <pkg>lubridate</pkg>` to convert it to just a date. We'll need it in this format to be able to transform the x-axis below.
 
 ```{r}
 ggplot(survey_data, aes(x = lubridate::date(call_start), 
@@ -1133,7 +1147,7 @@ Adjust the set-up of your Markdown so that your knitted report does not show any
 
 ### Change the output
 
-So far we've just knitted to html. To generate PDF reports, you need to install `r pkg("tinytex")` [@R-tinytex] and run the following code in the console (do **not** add this to your Rmd file):
+So far we've just knitted to html. To generate PDF reports, you need to install <pkg>tinytex</pkg> [@R-tinytex] and run the following code in the console (do **not** add this to your Rmd file):
 
 ```{r eval=FALSE}
 # run this in the console

@@ -1,6 +1,6 @@
 # Customising Visualisations & Reports {#sec-custom}
 
-## Intended Learning Outcomes {#sec-ilo-custom}
+## Intended Learning Outcomes {#sec-ilo-custom .unnumbered}
 
 The final chapter of ADS moves beyond the core skills needed to complete the course. Our aim in this chapter is to give you a sense of what is now available to you with your new-found R skills. There's a lot in this chapter, as we wanted to present an overview of the possibilities, although there are no exercises at the end. If you're enrolled on ADS, you may wish to prioritise the summative assessment this week and come back to this chapter at a later date.
 
@@ -8,7 +8,7 @@ The final chapter of ADS moves beyond the core skills needed to complete the cou
 * Structure data in report, presentation, and dashboard formats
 * Include linked figures, tables, and references
 
-## Walkthrough video {#sec-walkthrough-custom}
+## Walkthrough video {#sec-walkthrough-custom .unnumbered}
 
 There is a walkthrough video of this chapter available via Echo360 (coming soon). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
@@ -18,7 +18,7 @@ There is a walkthrough video of this chapter available via Echo360 (coming soon)
 
 First, create a new project for the work we'll do in this chapter named `r path("10-advanced")`. Second, open and save a new R Markdown document named `visualisations.Rmd`, delete the welcome text and load the required packages for this section. You will probably need to install several new packages.
 
-```{r setup-custom, message=FALSE, warning = FALSE}
+```{r setup-custom, message=FALSE, warning = FALSE, filename="Chapter packages"}
 library(tidyverse)   # data wrangling functions
 library(ggthemes)    # for themes
 library(patchwork)   # for combining plots
@@ -85,7 +85,7 @@ point <- ggplot(data = survey_data,
        title = "Wait Time by Call Time")
 ```
 
-Finally, combine the two plots using the `+` from `r pkg("patchwork")` to see the default styles for these plots.
+Finally, combine the two plots using the `+` from <pkg>patchwork</pkg> to see the default styles for these plots.
 
 ```{r, fig.cap="Default plot styles."}
 bar + point
@@ -227,13 +227,13 @@ point +
           arrow = arrow(length = unit(0.5, "lines")))
 ```
 
-See the `r pkg("ggforce", "https://ggforce.data-imaginist.com/")` package for more sophisticated options, such as highlighting a group of points with an ellipse. 
+See the <pkg>ggforce", "https://ggforce.data-imaginist.com/")` package for more sophisticated options, such as highlighting a group of points with an ellipse. 
 
 ### Other Plots {#sec-other-plots}
 
 #### Interactive Plots
 
-The `r pkg("plotly")` package can be used to make interactive graphs. Assign your ggplot to a variable and then use the function `ggplotly()` on the plot object. Note that interactive plots only work in HTML files, not PDFs or Word files.
+The <pkg>plotly</pkg> package can be used to make interactive graphs. Assign your ggplot to a variable and then use the function `ggplotly()` on the plot object. Note that interactive plots only work in HTML files, not PDFs or Word files.
 
 ```{r plotly, message = FALSE, fig.cap="Interactive graph using plotly"}
 ggplotly(point)
@@ -248,7 +248,7 @@ Hover over the data points above and click on the legend items.
 In @sec-viz, we mentioned that pie charts are such a poor way to visualise proportions that we refused to even show you how to make one. Waffle plots are a delicious alternative. 
 
 ::: {.callout-warning}
-Use `r pkg("waffle")` by [hrbrmstr on GitHub](https://github.com/hrbrmstr/waffle/) using the `install_github()` function below, rather than the one on CRAN you get from using `install.packages()`.
+Use <pkg>waffle</pkg> by [hrbrmstr on GitHub](https://github.com/hrbrmstr/waffle/) using the `install_github()` function below, rather than the one on CRAN you get from using `install.packages()`.
 
 ```{r, eval = FALSE}
 devtools::install_github("hrbrmstr/waffle")
@@ -495,9 +495,9 @@ It's worth highlighting that whilst word clouds are very common, they're really 
 
 #### Maps
 
-Working with maps can be tricky. The `r pkg("sf")` package provides functions that work with `r pkg("ggplot2")`, such as `geom_sf()`. The `r pkg("rnaturalearth")` package (and associated data packages that you may be prompted to download) provide high-quality mapping coordinates.
+Working with maps can be tricky. The <pkg>sf</pkg> package provides functions that work with <pkg>ggplot2</pkg>, such as `geom_sf()`. The <pkg>rnaturalearth</pkg> package (and associated data packages that you may be prompted to download) provide high-quality mapping coordinates.
 
-* `ne_countries()` returns world country polygons (i.e., a world map). We specify the object should be returned as a "simple feature" class `sf` so that it will work with `geom_sf()`. If you would like a deep dive on simple feature objects, check out a [vignette](https://r-spatial.github.io/sf/articles/sf1.html) from the `r pkg("sf")` package.
+* `ne_countries()` returns world country polygons (i.e., a world map). We specify the object should be returned as a "simple feature" class `sf` so that it will work with `geom_sf()`. If you would like a deep dive on simple feature objects, check out a [vignette](https://r-spatial.github.io/sf/articles/sf1.html) from the <pkg>sf</pkg> package.
 * It's worth checking out what the object `ne_countries()` returns to see just how much information is available.
 * Try changing the values and colours below to get a sense of how the code works.
 
@@ -563,7 +563,7 @@ scotmap_pop <- scotland_sf %>%
 ```
 
 ::: {.callout-warning}
-There is a typo in the data from `r pkg("rnaturalearth")`, so you need to change "North Ayshire" to "North Ayrshire" before you join the population data.
+There is a typo in the data from <pkg>rnaturalearth</pkg>, so you need to change "North Ayshire" to "North Ayrshire" before you join the population data.
 :::
 
 * Setting the fill to population in `geom_sf()` gives each region a colour based on its population. 
@@ -588,7 +588,7 @@ ggplot() +
 
 #### Animated Plots
 
-Animated plots are a great way to add a wow factor to your reports, but they can be complex to make, distracting, and not very accessible, so use them sparingly and only for data visualisation where the animation really adds something. The package `r pkg("gganimate", "https://gganimate.com/")` has many functions for animating ggplots.
+Animated plots are a great way to add a wow factor to your reports, but they can be complex to make, distracting, and not very accessible, so use them sparingly and only for data visualisation where the animation really adds something. The package <pkg>gganimate", "https://gganimate.com/")` has many functions for animating ggplots.
 
 Here, we'll load some population data from the United Nations. <a href="data/WPP2019_POP_F01_1_TOTAL_POPULATION_BOTH_SEXES.xlsx" download>Download the file</a> into your data folder and open it in Excel first to see what it looks like. The code below gets the data from the first tab, filters it to just the 6 world regions, makes the data long, and makes sure the `year` column is numeric and the `pop` column shows population in whole numbers (the original data is in 1000s).
 
@@ -772,7 +772,7 @@ There are several ways to do in-text references and automatically generate a [bi
 
 Most reference software like EndNote, Zotero or Mendeley have exporting options that can export to BibTeX format. You just need to check the shortnames in the resulting file.
 
-You can also make a BibTeX file and add references manually. In RStudio, go to **`File`** > **`New File...`** > **`Text File`** and save the file as "bibliography.bib".
+You can also make a BibTeX file and add references manually. In RStudio, go to <if>File > New File... > Text File</if> and save the file as "bibliography.bib".
 
 Next, add the line `bibliography: bibliography.bib` to your YAML header.
 
@@ -944,7 +944,7 @@ The code below shows how to load some packages and display text, a table, and a 
 
 #### Dashboards
 
-Dashboards are a way to display text, tables, and plots with dynamic formatting. After you install `r pkg("flexdashboard")`, you can choose a flexdashboard template when you create a new R Markdown document. 
+Dashboards are a way to display text, tables, and plots with dynamic formatting. After you install <pkg>flexdashboard</pkg>, you can choose a flexdashboard template when you create a new R Markdown document. 
 
 ```{r img-flx-template, echo=FALSE, fig.cap="Flexdashboard RMarkdown template."}
 knitr::include_graphics("images/present/flexdashboard-template.png")
@@ -969,7 +969,7 @@ The best way to figure out how to format a dashboard is trial and error, but you
 
 #### Books
 
-You can create online books with `r pkg("bookdown")`. In fact, the book you're reading was created using bookdown. After you download the package, start a new project and choose "Book project using bookdown" from the list of project templates. 
+You can create online books with <pkg>bookdown</pkg>. In fact, the book you're reading was created using bookdown. After you download the package, start a new project and choose "Book project using bookdown" from the list of project templates. 
 
 ```{r img-bookdown-template, echo=FALSE, fig.cap="Bookdown project template."}
 knitr::include_graphics("images/present/bookdown.png")
@@ -981,7 +981,7 @@ Each chapter is written in a separate .Rmd file and the general book settings ca
 
 You can create a simple website the same way you create any R Markdown document. Choose "Simple R Markdown Website" from the project templates to get started. See @sec-webpages for a step-by-step tutorial.
 
-For more complex, blog-style websites, you can investigate [`r pkg("blogdown")`](https://bookdown.org/yihui/blogdown/). After you install this package, you will also be able to create template blogdown projects to get you started.
+For more complex, blog-style websites, you can investigate [<pkg>blogdown</pkg>](https://bookdown.org/yihui/blogdown/). After you install this package, you will also be able to create template blogdown projects to get you started.
 
 #### Shiny
 

@@ -51,7 +51,7 @@ In the upper right "Build" pane, click on the "Build website" hammer icon. This 
 browseURL(rmarkdown::render_site(encoding = 'UTF-8'))
 ```
 
-If you accidentally close the website and want to look at it again, you don't have to re-render it. Click on the `docs` directory in the `Files` tab of the lower right pane, then click on `index.html` and choose **`View in Web Browser`**
+If you accidentally close the website and want to look at it again, you don't have to re-render it. Click on the `docs` directory in the `Files` tab of the lower right pane, then click on `index.html` and choose <if>View in Web Browser</if>.
 
 ## Add pages {#sec-webpage-pages}
 

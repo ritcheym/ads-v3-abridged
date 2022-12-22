@@ -1,12 +1,12 @@
 # Data Summaries {#sec-summary}
 
-## Intended Learning Outcomes {#sec-ilo-summary}
+## Intended Learning Outcomes {#sec-ilo-summary .unnumbered}
 
 * Be able to summarise data by groups
 * Be able to produce well-formatted tables
 * Use pipes to chain together functions
 
-## Walkthrough video {#sec-walkthrough-summary}
+## Walkthrough video {#sec-walkthrough-summary .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/6783dc21-2603-4579-bc19-5ae971638e85/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
@@ -16,7 +16,7 @@ First, create a new project for the work we'll do in this chapter named `r path(
 
 ```{r setup-summary, message=FALSE, verbatim="r setup, include=FALSE"}
 library(tidyverse)   # data wrangling functions
-library(rtweet) # for searching tweets
+library(rtweet)      # for searching tweets
 library(kableExtra)  # for nice tables
 ```
 
@@ -24,11 +24,11 @@ Download the [Data transformation cheat sheet](https://raw.githubusercontent.com
 
 ## Social media data
 
-In this chapter we're going to analyse social media data, specifically data from Twitter. There are two broad types of data you can obtain from Twitter; data scraped from Twitter using purpose-built packages such as `r pkg("rtweet")`, and data provided via [Twitter Analytics](https://analytics.twitter.com/) for any accounts for which you have access. 
+In this chapter we're going to analyse social media data, specifically data from Twitter. There are two broad types of data you can obtain from Twitter; data scraped from Twitter using purpose-built packages such as <pkg>rtweet</pkg>, and data provided via [Twitter Analytics](https://analytics.twitter.com/) for any accounts for which you have access. 
 
-For this chapter, we'll use data scraped from Twitter using `r pkg("rtweet")`. In order to use these functions, you need to have a Twitter account. Don't worry if you don't have one; we'll provide the data in the examples below for you.
+For this chapter, we'll use data scraped from Twitter using <pkg>rtweet</pkg>. In order to use these functions, you need to have a Twitter account. Don't worry if you don't have one; we'll provide the data in the examples below for you.
 
-`r pkg("rtweet")` has a lot of flexibility, for example, you can search for tweets that contain a certain hashtag or word, tweets by a specific user, or tweets that meet certain conditions like location or whether the user is verified. 
+<pkg>rtweet</pkg> has a lot of flexibility, for example, you can search for tweets that contain a certain hashtag or word, tweets by a specific user, or tweets that meet certain conditions like location or whether the user is verified. 
 
 For the dataset for this chapter, we used the `search_tweets()` function  to find the last 30K tweets with the hashtag [#NationalComingOutDay](https://en.wikipedia.org/wiki/National_Coming_Out_Day). This is mainly interesting around October 11th (the date of National Coming Out Day), so we've provided the relevant data for you that we scraped at that time. 
 
@@ -61,7 +61,7 @@ First, run `glimpse(tweets)` or click on the object in the environment to find o
 
 ## Summarise {#sec-summary-summarise}
 
-The `summarise()` function from the `r pkg("dplyr")` package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions. Check the [Data Transformation Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf) for various summary functions. Some common ones are: `n()`, `min()`, `max()`, `sum()`, `mean()`, and `quantile()`.
+The `summarise()` function from the <pkg>dplyr</pkg> package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions. Check the [Data Transformation Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf) for various summary functions. Some common ones are: `n()`, `min()`, `max()`, `sum()`, `mean()`, and `quantile()`.
 
 ::: {.callout-warning}
 If you get the answer `NA` from a summary function, that usually means that there are missing values in the columns you were summarising. We'll discuss this more in @sec-missing-values, but you can ignore missing values for many functions by adding the argument `na.rm = TRUE`.

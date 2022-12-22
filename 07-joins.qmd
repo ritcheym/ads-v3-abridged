@@ -1,11 +1,11 @@
 # Data Relations {#sec-joins}
 
-## Intended Learning Outcomes {#sec-ilo-joins}
+## Intended Learning Outcomes {#sec-ilo-joins .unnumbered}
 
 -   Be able to match related data across multiple tables
 -   Be able to combine data from multiple files
 
-## Walkthrough video {#sec-walkthrough-joins}
+## Walkthrough video {#sec-walkthrough-joins .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/154a2d81-466d-4bfa-9307-df3f125ebfac/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
@@ -308,7 +308,7 @@ files
 
 Next, we'll iterate over this list to read in the data from each file. Whilst this won't be something we cover in detail in the core resources of this course, `r glossary("iteration")` is an important concept to know about. Iteration is where you perform the same task on multiple different inputs. As a general rule of thumb, if you find yourself copying and pasting the same thing more than twice, there's a more efficient and less error-prone way to do it, although these functions do typically require a stronger grasp of programming.
 
-The `r pkg("purrr")` package contains functions to help with iteration. `purrr::map_df()` maps a function to a list and returns a data frame (table) of the results.
+The <pkg>purrr</pkg> package contains functions to help with iteration. `purrr::map_df()` maps a function to a list and returns a data frame (table) of the results.
 
 * `.x` is the list of file paths 
 * `.f` specifies the function to map to each of those file paths.

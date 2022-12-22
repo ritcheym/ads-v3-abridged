@@ -1,19 +1,30 @@
 /* (edit style.css for your own book styles) */
 
-.apple::before {
-  margin: 0 5px 0 3px;
-  font-weight: 900;
-  color: #a3aaae;
-  font-family:"Font Awesome 5 Brands";
-  content:"\f179";
+mac, pc {
+  display: inline;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem 0;
+  font-family: monospace;
+  font-size: 90%;
+  white-space: nowrap;
 }
 
-.windows::before {
-  margin: 0 5px 0 3px;
-  font-weight: 900;
+mac { border-color: #a3aaae; }
+pc { border-color: #46A7E2; }
+
+mac::before, pc::before {
+  margin-right: 0.25rem;
+  font-family:"bootstrap-icons";
+}
+mac::before {
+  color: #a3aaae;
+  content:"\F65B";
+}
+
+pc::before {
   color: #46A7E2;
-  font-family:"Font Awesome 5 Brands";
-  content:"\f17a";
+  content:"\F65E";
 }
 
 .join {
@@ -110,5 +121,14 @@ pre > code.sourceCode > span {
   border: 5px solid #D6DADC;
   padding: 0.5em 1em 0 1em;
   margin-bottom: 0.5em;
+}
+
+if {
+  display: inline;
+  font-weight: 900;
+  font-size: 90%;
+  background-color: #00FF0011;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
 }
 

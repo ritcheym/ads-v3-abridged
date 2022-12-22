@@ -2,7 +2,7 @@
 
 The package [spotifyr](https://www.rcharlie.com/spotifyr){target="_blank"} has instructions for setting up a developer account with Spotify and setting up an "app" so you can get authorisation codes.
 
-Once you've set up the app, you can copy the client ID and secret to your R environment file. The easiest way to do this is with `edit_r_environ()` from `r pkg("usethis")`. Setting scope to "user" maKes your spotify login details available to any R project on your computer. Setting it to "project" makes it only available to this project.
+Once you've set up the app, you can copy the client ID and secret to your R environment file. The easiest way to do this is with `edit_r_environ()` from <pkg>usethis</pkg>. Setting scope to "user" maKes your spotify login details available to any R project on your computer. Setting it to "project" makes it only available to this project.
 
 ```{r, eval = FALSE}
 usethis::edit_r_environ(scope = "user")

@@ -160,9 +160,9 @@ top5
 
 ## Make it prettier
 
-Whilst this table now has all the information we want, it isn't great aesthetically. The `r pkg("kableExtra")` package has functions that will improve the presentation of tables. We're going to show you two examples of how you could format this table. 
+Whilst this table now has all the information we want, it isn't great aesthetically. The <pkg>kableExtra</pkg> package has functions that will improve the presentation of tables. We're going to show you two examples of how you could format this table. 
 
-The first is (relatively) simple and stays within the R programming language using functionality from `r pkg("kableExtra")`. The main aesthetic feature of the table is the incorporation of the pride flag colours for each row. Each row is set to a different colour of the pride flag and the text is set to be black and bold to improve the contrast. We've also removed the `image` column, as it just contains a URL.
+The first is (relatively) simple and stays within the R programming language using functionality from <pkg>kableExtra</pkg>. The main aesthetic feature of the table is the incorporation of the pride flag colours for each row. Each row is set to a different colour of the pride flag and the text is set to be black and bold to improve the contrast. We've also removed the `image` column, as it just contains a URL.
 
 ```{r}
 # the hex codes of the pride flag colours, obtained from https://www.schemecolor.com/lgbt-flag-colors.php
@@ -196,7 +196,7 @@ top5 %>%
 
 ## Customise with HTML
 
-An alternative approach incorporates `r glossary("HTML")` and also uses the package `r pkg("glue")` to combine information from multiple columns. 
+An alternative approach incorporates `r glossary("HTML")` and also uses the package <pkg>glue</pkg> to combine information from multiple columns. 
 
 First, we use `mutate()` to create a new column `col1` that combines the first three columns into a single column and adds some formatting to make the hashtag bold (`<strong>`) and insert line breaks (`<br>`). We'll also change the image column to display the image using html if there is an image.
 

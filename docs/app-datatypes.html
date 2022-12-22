@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - Appendix G — Data Types</title>
 <style>
@@ -126,7 +126,8 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="include/psyteachr.css">
+</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -476,7 +477,7 @@ Levels: A B C</code></pre>
 [1] "POSIXct" "POSIXt" </code></pre>
 </div>
 </div>
-<p>See <a href="app-dates.html"><span>Appendix&nbsp;H</span></a> for how to use <code class="package">lubridate</code> to work with dates and times.</p>
+<p>See <a href="app-dates.html"><span>Appendix&nbsp;H</span></a> for how to use <pkg>lubridate</pkg> to work with dates and times.</p>
 <div class="callout-note try callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -629,8 +630,7 @@ Warning
 <p>You can’t mix data types in a vector; all elements of the vector must be the same data type. If you mix them, R will <a class="glossary" target="_blank" title="Changing the data type of values in a vector to a single compatible type." href="https://psyteachr.github.io/glossary/c#coercion">coerce</a> them so that they are all the same. If you mix doubles and integers, the integers will be changed to doubles. If you mix characters and numeric types, the numbers will be coerced to characters, so <code>10</code> would turn into <code>"10"</code>.</p>
 </div>
 </div>
-<section id="selecting-values-from-a-vector" class="level4" data-number="G.2.1.1"><h4 data-number="G.2.1.1" class="anchored" data-anchor-id="selecting-values-from-a-vector">
-<span class="header-section-number">G.2.1.1</span> Selecting values from a vector</h4>
+<section id="selecting-values-from-a-vector" class="level4"><h4 class="anchored" data-anchor-id="selecting-values-from-a-vector">Selecting values from a vector</h4>
 <p>If we wanted to pick specific values out of a vector by position, we can use square brackets (an <a class="glossary" target="_blank" title="A symbol used to get values from a container object, such as [, [[, or $" href="https://psyteachr.github.io/glossary/e#extract-operator">extract operator</a>, or <code>[]</code>) after the vector.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
@@ -713,8 +713,7 @@ Note
  [1] "A" "C" "E" "G" "I" "K" "M" "O" "Q" "S" "U" "W" "Y"</code></pre>
 </div>
 </div>
-</section><section id="sec-rep_seq" class="level4" data-number="G.2.1.2"><h4 data-number="G.2.1.2" class="anchored" data-anchor-id="sec-rep_seq">
-<span class="header-section-number">G.2.1.2</span> Repeating Sequences</h4>
+</section><section id="sec-rep_seq" class="level4"><h4 class="anchored" data-anchor-id="sec-rep_seq">Repeating Sequences</h4>
 <p>Here are some useful tricks to save typing when creating vectors.</p>
 <p>In the command <code>x:y</code> the <code>:</code> operator would give you the sequence of number starting at <code>x</code>, and going to <code>y</code> in increments of 1.</p>
 <div class="cell" data-layout-align="center">
@@ -838,8 +837,7 @@ Note
 <span id="cb51-5"><a href="#cb51-5"></a>avatar <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/avatar.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Tabular data becomes especially important for when we talk about <a class="glossary" target="_blank" title="A format for data that maps the meaning onto the structure." href="https://psyteachr.github.io/glossary/t#tidy-data">tidy data</a> in <a href="08-tidy.html"><span>Chapter&nbsp;8</span></a>, which consists of a set of simple principles for structuring data.</p>
-<section id="table-info" class="level4" data-number="G.2.3.1"><h4 data-number="G.2.3.1" class="anchored" data-anchor-id="table-info">
-<span class="header-section-number">G.2.3.1</span> Table info</h4>
+<section id="table-info" class="level4"><h4 class="anchored" data-anchor-id="table-info">Table info</h4>
 <p>We can get information about the table using the following functions.</p>
 <ul>
 <li>
@@ -871,8 +869,7 @@ $ bends    &lt;chr&gt; "water", "earth", NA
 $ friendly &lt;lgl&gt; TRUE, TRUE, TRUE</code></pre>
 </div>
 </div>
-</section><section id="sec-row-col-access" class="level4" data-number="G.2.3.2"><h4 data-number="G.2.3.2" class="anchored" data-anchor-id="sec-row-col-access">
-<span class="header-section-number">G.2.3.2</span> Accessing rows and columns</h4>
+</section><section id="sec-row-col-access" class="level4"><h4 class="anchored" data-anchor-id="sec-row-col-access">Accessing rows and columns</h4>
 <p>There are various ways of accessing specific columns or rows from a table. You’ll be learning more about this in <a href="08-tidy.html"><span>Chapter&nbsp;8</span></a> and <a href="09-wrangle.html"><span>Chapter&nbsp;9</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>siblings   <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="co"># rows (by number)</span></span>

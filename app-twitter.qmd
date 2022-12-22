@@ -151,7 +151,7 @@ ggplot(likes_by_month, aes(x = month, y = total_likes, fill = month)) +
 ::: {.callout-note .try}
 How would you change the code in this section to plot the number of tweets published per week? 
 
-Hint: if the `r pkg("lubridate")` function for the month is `month()`, what is the function for getting the week likely to be?
+Hint: if the <pkg>lubridate</pkg> function for the month is `month()`, what is the function for getting the week likely to be?
 
 ```{r, webex.hide="Summarise Data"}
 tweets_by_week <- all_daily_tweets %>%

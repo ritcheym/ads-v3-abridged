@@ -18,30 +18,18 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo       = FALSE,     # whether to show code chunks
-  message    = FALSE,     # whether to show messages from your code
-  warning    = FALSE,     # whether to show warnings from your code
-  fig.width  = 8,         # figure width in inches (at 96 dpi)
-  fig.height = 5,         # figure height in inches (at 96 dpi)
-  out.width = "50%"      # figures/images span 50% of the page width
+  echo       = FALSE, # whether to show code chunks
+  message    = FALSE, # whether to show messages from your code
+  warning    = FALSE, # whether to show warnings from your code
+  fig.width  = 8,     # figure width in inches (at 96 dpi)
+  fig.height = 5,     # figure height in inches (at 96 dpi)
+  out.width = "50%"   # figures/images span 50% of the page width
 )
 
 library(tidyverse)
 library(kableExtra) # for table formatting
 ```
 
-## My Info
-
-```{r}
-name <- "Emily"
-age <- 36
-today <- Sys.Date()
-christmas <- as.Date("2023-12-25")
-```
-
-My name is `r name` and I am `r age` years old. 
-It is `r christmas - today` days until Christmas, 
-which is my favourite holiday.
 
 ```{r, message=FALSE}
 # Data from https://www.kaggle.com/kyanyoga/sample-sales-data
@@ -62,15 +50,13 @@ sales_counts <-count(sales_pmc, PRODUCTLINE)
 
 This report summarises the sales data for different types of vehicles sold between 2003 and 2005. This data is from [Kaggle](https://www.kaggle.com/kyanyoga/sample-sales-data).
 
-```{r sales_counts_show}
-rmarkdown::paged_table(sales_counts)
-```
-
 ### Sales by type
 
 The *total* number of **planes** sold was `r sales_counts$n[3]`
 
 The *total* number of **classic cars** sold was `r sales_counts$n[1]`.
+
+The *total* number of **motorcycles** sold was `r sales_counts$n[2]`.
 
 ```{r}
 # important numbers
@@ -82,8 +68,10 @@ last <- max(sales_online$YEAR_ID) # the last (maximum) year
 
 ```{r fig-vehicle-sales}
 ggplot(data = sales_counts, 
-       mapping = aes(x = PRODUCTLINE, y = n, fill = PRODUCTLINE)) +
-  geom_bar(stat = "identity", show.legend = FALSE) +
+       mapping = aes(x = PRODUCTLINE, 
+                     y = n, 
+                     fill = PRODUCTLINE)) +
+  geom_col(show.legend = FALSE) +
   labs(x = "Type of vehicle",
        y = "Number of sales",
        title = "Sales by vehicle type",
@@ -95,6 +83,12 @@ ggplot(data = sales_counts,
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/3/3f/P-51_Mustang_edit1.jpg")
 ```
 
+
+## Data in Table Form
+
+```{r}
+sales_counts
+```
 
 ```{r}
 k <- kable(sales_counts, 

@@ -5,6 +5,7 @@ suppressPackageStartupMessages({
   library(stats) # stops dplyr filter being masked
   library(glossary)
   library(patchwork)
+  library(knitr)
 })
 
 # default knitr options
@@ -79,8 +80,8 @@ path <- function(txt) {
 
 pkg <- function(txt, url = NULL) {
   if (is.null(url)) {
-    sprintf("<code class='package'>%s</code>", txt)
+    sprintf("<pkg>%s</pkg>", txt)
   } else {
-    sprintf("<code class='package'><a href='%s' target='_blank'>%s</a></code>", url, txt)
+    sprintf("<pkg><a href='%s' target='_blank'>%s</a></pkg>", url, txt)
   }
 }

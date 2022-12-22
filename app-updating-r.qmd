@@ -32,7 +32,7 @@ installR::updateR()
 
 ### Mac
 
-For a Mac, you can use the `r pkg("updateR", "https://github.com/AndreaCirilloAC/updateR")` package. You'll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.
+For a Mac, you can use the <pkg>updateR", "https://github.com/AndreaCirilloAC/updateR")` package. You'll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.
 
 ```{r, eval = FALSE}
 # install from github
@@ -100,7 +100,7 @@ One other fix may be to change the library location using the following code (ch
 
 If that works and you can install packages, set this library path permanently:
 
-1. Install the `r pkg("usethis")` package
+1. Install the <pkg>usethis</pkg> package
 2. Run `usethis::edit_r_profile()` in the console; it will open up a blank file
 3. Paste into the file (your version of): `.libPaths(c("C:/Program Files/R/R-3.5.2/library"))`
 4. Save and close the file

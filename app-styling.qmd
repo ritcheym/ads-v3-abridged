@@ -273,7 +273,7 @@ wrap_plots(plots, ncol = 2)
 
 ## Themes {#sec-themes-appendix}
 
-`r pkg("ggplot2")` has 8 built-in themes that you can add to a plot like `plot + theme_bw()` or set as the default theme at the top of your script like `theme_set(theme_bw())`.
+<pkg>ggplot2</pkg> has 8 built-in themes that you can add to a plot like `plot + theme_bw()` or set as the default theme at the top of your script like `theme_set(theme_bw())`.
 
 ```{r, fig.width = 8, fig.height = 8, fig.cap="{ggplot2} themes."}
 g <- palette_demo(2) + facet_wrap(~condition)
@@ -288,7 +288,7 @@ wrap_plots(plots, ncol = 2)
 
 ### ggthemes
 
-You can get more themes from add-on packages, like `r pkg("ggthemes", "https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/")`. Most of the themes also have custom `scale_` functions like `scale_colour_economist()`. Their website has extensive examples and instructions for alternate or dark versions of these themes.
+You can get more themes from add-on packages, like <pkg>ggthemes", "https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/")`. Most of the themes also have custom `scale_` functions like `scale_colour_economist()`. Their website has extensive examples and instructions for alternate or dark versions of these themes.
 
 ```{r, fig.width = 8, fig.height = 18, fig.cap="{ggthemes} themes."}
 g <- palette_demo(2) + facet_wrap(~condition)
@@ -351,7 +351,7 @@ windowsFonts("Comic Sans MS" = windowsFont("Comic Sans MS"))
 :::
 
 
-The `r pkg("showtext")` package is a flexible way to add fonts.
+The <pkg>showtext</pkg> package is a flexible way to add fonts.
 
 If you have a .ttf file from a font site, like [Font Squirrel](https://www.fontsquirrel.com){target="_blank"}, you can load the file directly using `font_add()`. Set `regular` as the path to the file for the regular version of the font, and optionally add other versions. Set the `family` to the name you want to use for the font. You will need to include any local font files if you are sharing your script with others.
 

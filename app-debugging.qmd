@@ -204,7 +204,7 @@ mtcars$newcol <- 1:3
 
 It's very useful to be able to run code interactively, but this can sometimes lead to confusion about what objects are available in your code. You might have made a data table called `profits`, and then decided to edit the code to make it slightly differently. If you forgot to re-run the code, you'll be using the old table in your interactive code, but the new table when you knit. 
 
-Restart R (under the **`Session`** menu) and run the code in order up to the chunk where you're having a problem. You can use the Run menu in the upper right of the source pane to run all chunks above your cursor position.
+Restart R (under the <if>Session</if> menu) and run the code in order up to the chunk where you're having a problem. You can use the Run menu in the upper right of the source pane to run all chunks above your cursor position.
 
 ### Comment out
 
@@ -229,7 +229,7 @@ dat <- starwars #%>%
 ```
 
 :::{.callout-tip}
-You can comment out multiple lines by selecting them with your cursor and choosing **`Comment/Uncomment Lines`** from the **`Code`** menu (or using the keyboard shortcut).
+You can comment out multiple lines by selecting them with your cursor and choosing <if>Code > Comment/Uncomment Lines</if> (or using the keyboard shortcut).
 :::
 
 Select more code or delete the comments until you locate the error.

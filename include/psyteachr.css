@@ -44,9 +44,12 @@
   text-indent: -2em ;
 }
 
-.package { font-weight: 600; }
-.package::before { content: "{"; }
-.package::after { content: "}"; }
+pkg {
+  font-weight: 400;
+  font-family: monospace;
+}
+pkg::before { content: "{"; }
+pkg::after { content: "}"; }
 
 .inline-figure { border: none; }
 
@@ -123,12 +126,22 @@ div.verbatim pre.sourceCode {
   padding: 0 1em !important;
 }
 
+
 /* external link icons */
-a[target="_blank"]::after {
+a[target="_blank"]::after, a[download]::after {
   margin: 0 3px 0 5px;
-  font-weight: 900;
-  font-family:"Font Awesome 5 Free";
-  content:"\f360"; /* f35d or  f360*/
+  font-weight: 400;
+  font-family: "bootstrap-icons";
+  font-size: 70%;
+  text-decoration: none !important;
+}
+
+a[download]::after {
+  content: "\f30a";
+}
+
+a[target="_blank"]::after {
+  content:"\f1c5";
 }
 
 a.glossary::after, code a::after {

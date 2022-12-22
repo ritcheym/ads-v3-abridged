@@ -1,7 +1,7 @@
 # Sparklines
 
 
-This tutorial is inspired by https://cranky-chandrasekhar-cfefcd.netlify.app/. In it, we're going to visualise the distributions of a few names over the years covered by the `r pkg("ukbabnames")` package using a function from the `r pkg("sparkline")` package and display the results in a table.
+This tutorial is inspired by https://cranky-chandrasekhar-cfefcd.netlify.app/. In it, we're going to visualise the distributions of a few names over the years covered by the <pkg>ukbabnames</pkg> package using a function from the <pkg>sparkline</pkg> package and display the results in a table.
 
 ## Setup
 

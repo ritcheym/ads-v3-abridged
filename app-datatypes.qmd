@@ -95,7 +95,7 @@ class(date)
 class(datetime)
 ```
 
-See @sec-dates-times for how to use `r pkg("lubridate")` to work with dates and times.
+See @sec-dates-times for how to use <pkg>lubridate</pkg> to work with dates and times.
 
 
 ```{r, include = FALSE}
