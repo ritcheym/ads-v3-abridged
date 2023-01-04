@@ -22,7 +22,7 @@ library(lubridate)
 library(knitr)
 library(kableExtra)
 
-survey_data <- read_csv("https://raw.githubusercontent.com/PsyTeachR/ads-v1/master/book/data/survey_data.csv")
+survey_data <- read_csv("https://raw.githubusercontent.com/PsyTeachR/ads-v2/master/book/data/survey_data.csv")
 ```
 
 # Overview

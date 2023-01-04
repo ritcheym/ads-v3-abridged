@@ -38,7 +38,7 @@ theme_set(theme_light())
 ```
 
 You'll need to make a folder called "data" and download data files into it: 
-<a href="https://psyteachr.github.io/ads-v1/data/survey_data.csv" download>survey_data.csv</a> and <a href="https://psyteachr.github.io/ads-v1/data/scottish_population.csv" download>scottish_population.csv</a>.
+<a href="https://psyteachr.github.io/ads-v2/data/survey_data.csv" download>survey_data.csv</a> and <a href="https://psyteachr.github.io/ads-v2/data/scottish_population.csv" download>scottish_population.csv</a>.
 
 Download the [ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf).
 
@@ -231,6 +231,85 @@ See the <pkg>ggforce", "https://ggforce.data-imaginist.com/")` package for more 
 
 ### Other Plots {#sec-other-plots}
 
+#### Frequency and density plots
+
+In @sec-histogram, we showed you how to use a histogram to show the distribution of one continuous variable. You can also use frequency or density plots.
+
+```{r histogram-example, fig.cap="Histogram of wait times."}
+
+survey_data <- read_csv(file = "data/survey_data.csv",
+                        show_col_types = FALSE)
+
+ggplot(survey_data, aes(x = wait_time)) +
+  geom_histogram()
+```
+
+##### Frequency plot {#sec-freqpoly}
+
+Rather than plotting each bin as a bar, you can connect a line across the top of each bin using a frequency plot. The function `geom_freqpoly()` works the same as `geom_histogram()`, except it can't take a `fill` argument because it's just a line. 
+
+```{r freqpoly-example, fig.cap="Frequency plot of wait times."}
+ggplot(survey_data, aes(x = wait_time)) +
+  scale_x_continuous(name = "Wait time (seconds)",
+                     breaks = seq(0, 600, 60)) +
+  geom_freqpoly(boundary = 0, binwidth = 15, 
+                color = "black")
+```
+
+
+##### Density plot
+
+If the distribution is smooth, a density plot is often a better way to show the distribution. A density plot doesn't need the `binwidth` or `boundary` arguments because it doesn't split the data into bins, but it can have `fill`.
+
+```{r density-example, fig.cap="Density plot of wait times."}
+ggplot(survey_data, aes(x = wait_time)) +
+  scale_x_continuous(name = "Wait time (seconds)",
+                     breaks = seq(0, 600, 60)) +
+  geom_density(fill = "purple", color = "black")
+```
+
+##### Test your understanding
+
+Imagine you have a table of the [population for each country in the world](https://population.un.org/wpp/Download/Standard/Population/){target="_blank"} with the columns `country` and `population`. We'll just look at the 76 countries with populations of less than a million.
+
+```{r test-one-continuous, echo = FALSE}
+# set up quiz answers
+hist <- c(answer = "geom_histogram", x = "geom_freqpoly", x = "geom_density")
+freq <- c(x = "geom_histogram", answer = "geom_freqpoly", x = "geom_density")
+dens <- c(x = "geom_histogram", x = "geom_freqpoly", answer = "geom_density")
+
+# load data
+pop_data <- readxl::read_excel("data/WPP2019_POP_F01_1_TOTAL_POPULATION_BOTH_SEXES.xlsx", skip = 16) %>%
+  filter(Type == "Country/Area") %>%
+  select(country = 3, population = `2020`) %>%
+  mutate(population = round(as.numeric(population) * 1000)) %>%
+  filter(population < 1e6)
+  
+# make plots
+g <- ggplot(pop_data, aes(x = population)) +
+  scale_x_continuous(breaks = seq(0, 1e6, 1e5),
+                     labels = c(paste0(0:9*100, "K"), "1M")) +
+  scale_y_continuous(name = "")
+
+hist_plot <- g + geom_histogram(binwidth = 1e5, boundary = 0, fill = "white", color = "black")
+freq_plot <- g + geom_freqpoly(binwidth = 1e5, boundary = 0, color = "black") +
+  coord_cartesian(xlim = c(0, 1e6))
+dens_plot <- g + geom_density(color = "black", fill = "white")
+
+dens_plot + hist_plot + freq_plot + 
+  plot_layout(nrow = 3) +
+  plot_annotation(tag_levels = "A")
+
+```
+
+::: {.callout-note .try}
+
+* What kind of plot is A? `r mcq(dens)`
+* What kind of plot is B? `r mcq(hist)`
+* What kind of plot is C? `r mcq(freq)`
+:::
+
+
 #### Interactive Plots
 
 The <pkg>plotly</pkg> package can be used to make interactive graphs. Assign your ggplot to a variable and then use the function `ggplotly()` on the plot object. Note that interactive plots only work in HTML files, not PDFs or Word files.
@@ -407,7 +486,7 @@ ggplot(data = rank_data,
 
 #### Word Clouds {#sec-word-clouds}
 
-Word clouds are a common way to summarise text data. First, download <a href="https://psyteachr.github.io/ads-v1/data/amazon_alexa.csv" download>amazon_alexa.csv</a> into your data folder and then load it into an object. This dataset contains  text reviews as well as the 1-5 rating from customers who bought an Alexa device on Amazon.
+Word clouds are a common way to summarise text data. First, download <a href="https://psyteachr.github.io/ads-v2/data/amazon_alexa.csv" download>amazon_alexa.csv</a> into your data folder and then load it into an object. This dataset contains  text reviews as well as the 1-5 rating from customers who bought an Alexa device on Amazon.
 
 ```{r}
 # https://www.kaggle.com/sid321axn/amazon-alexa-reviews
@@ -541,7 +620,7 @@ ggplot() +
 ```
 
 
-You can join <a href="https://psyteachr.github.io/ads-v1/data/scottish_population.csv" download>Scottish population data</a> to the map table to visualise data on the map using colours or labels.
+You can join <a href="https://psyteachr.github.io/ads-v2/data/scottish_population.csv" download>Scottish population data</a> to the map table to visualise data on the map using colours or labels.
 
 ```{r}
 # load map data
@@ -711,7 +790,7 @@ library(DT)            # for interactive tables
 ```
 
 You'll need to make a folder called "data" and download data files into it: 
-<a href="https://psyteachr.github.io/ads-v1/data/amazon_alexa.csv" download>amazon_alexa.csv</a> and <a href="https://psyteachr.github.io/ads-v1/data/scottish_population.csv" download>scottish_population.csv</a>.
+<a href="https://psyteachr.github.io/ads-v2/data/amazon_alexa.csv" download>amazon_alexa.csv</a> and <a href="https://psyteachr.github.io/ads-v2/data/scottish_population.csv" download>scottish_population.csv</a>.
 
 ### Linked documents
 

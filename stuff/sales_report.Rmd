@@ -31,7 +31,7 @@ library(kableExtra)
 
 ```{r}
 # Data from https://www.kaggle.com/kyanyoga/sample-sales-data
-sales_online <- readr::read_csv("https://psyteachr.github.io/ads-v1/data/sales_data_sample.csv")
+sales_online <- readr::read_csv("https://psyteachr.github.io/ads-v2/data/sales_data_sample.csv")
 ```
 
 ```{r}

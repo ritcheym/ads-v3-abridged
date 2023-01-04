@@ -19,7 +19,7 @@ library(tidyverse)   # data wrangling functions
 ```
 
 You'll need to make a folder called "data" and download a data file into it: 
-<a href="https://psyteachr.github.io/ads-v1/data/budget.csv" download>budget.csv</a>.
+<a href="https://psyteachr.github.io/ads-v2/data/budget.csv" download>budget.csv</a>.
 
 Download the [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf).
 
@@ -697,13 +697,13 @@ Missing data can be quite difficult to deal with depending on how it is represen
 Let's try some exercises using a dataset you already encountered in @sec-viz so that you can see how much more you're able to do with the data now.
 
 * Save your current Markdown, close it, and open a new Rmd named "survey_data_mad_skillz".
-* In the set-up code chunk, load the tidyverse, then load the dataset from https://psyteachr.github.io/ads-v1/data/survey_data.csv into an object named `survey_data`.
+* In the set-up code chunk, load the tidyverse, then load the dataset from https://psyteachr.github.io/ads-v2/data/survey_data.csv into an object named `survey_data`.
 * Use your method of choice to review the dataset and familiarise yourself with its structure.
 
 ```{r webex.hide = TRUE}
 # from https://www.kaggle.com/kyanyoga/sample-sales-data
 library(tidyverse)
-survey_data <- read_csv("https://psyteachr.github.io/ads-v1/data/survey_data.csv")
+survey_data <- read_csv("https://psyteachr.github.io/ads-v2/data/survey_data.csv")
 
 ```
 

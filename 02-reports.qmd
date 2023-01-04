@@ -836,7 +836,7 @@ k_highlight
 Add an image of anything relevant ([@sec-rmd-images]).
 
 ```{r, webex.hide= TRUE}
-knitr::include_graphics("https://psyteachr.github.io/ads-v1/images/logos/logo.png")
+knitr::include_graphics("https://psyteachr.github.io/ads-v2/images/logos/logo.png")
 ```
 
 
@@ -845,7 +845,7 @@ knitr::include_graphics("https://psyteachr.github.io/ads-v1/images/logos/logo.pn
 You can add an image from the web using its URL:
 
 ```
-![Applied Data Skills](https://psyteachr.github.io/ads-v1/images/logos/logo.png)
+![Applied Data Skills](https://psyteachr.github.io/ads-v2/images/logos/logo.png)
 ```
     
 Or save an image into your project directory (e.g., in the images folder) and add it using the relative path:

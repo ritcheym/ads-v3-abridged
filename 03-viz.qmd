@@ -106,7 +106,8 @@ lubridate::today()
 lubridate::now(tzone = "GMT")
 ```
 
-### Test your understanding
+::: {.callout-info .try}
+## Test your understanding
 
 Coming back to the pets dataset, what type of variable is in each column? You can use the function `glimpse()` to show a list of the column names, their data types, and the first few values in each column - here is the output of running `glimpse()` on the pets dataset.
 
@@ -114,7 +115,6 @@ Coming back to the pets dataset, what type of variable is in each column? You ca
 glimpse(pets)
 ```
 
-::: {.callout-note .try}
 
 ```{r, include = FALSE}
 num <- c(answer = "numeric", x = "character", x = "factor", x = "date")
@@ -194,9 +194,9 @@ write_csv(survey_data, "data/survey_data.csv")
 
 There are multiple approaches to data visualisation in R; in this course we will use the popular package <pkg>ggplot2</pkg>, which is part of the larger `tidyverse` collection of packages. A grammar of graphics (the "gg" in "ggplot") is a standardised way to describe the components of a graphic. <pkg>ggplot2</pkg> uses a layered grammar of graphics, in which plots are built up in a series of layers. It may be helpful to think about any picture as having multiple elements that sit semi-transparently over each other. A good analogy is old Disney movies where artists would create a background and then add moveable elements on top of the background via transparencies.
 
-@fig-layers) displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a `geom`) that is desired for these variables is specified (layer 3) - in this case `geom_point()` is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).
+@fig-layers displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a `geom`) that is desired for these variables is specified (layer 3) - in this case `geom_point()` is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).
 
-```{r layers, fig.cap="Evolution of a layered plot", echo = FALSE, message=FALSE}
+```{r fig-layers, fig.cap="Evolution of a layered plot", echo = FALSE, message=FALSE}
 survey_data <- read_csv(file = "data/survey_data.csv",
                         show_col_types = FALSE)
 
@@ -214,7 +214,7 @@ e <- d + scale_x_continuous(name = "Wait Time (seconds)", breaks = x_breaks) +
   scale_y_continuous(name = "Call time (seconds)", breaks = y_breaks) + 
   coord_cartesian(xlim = c(0, 360), ylim = c(0, 180)) +
   labs(subtitle = "Layer 5")
-f <- e + ggthemes::theme_gdocs(base_size = 11) + 
+f <- e + ggthemes::theme_gdocs(base_size = 10) + 
   theme(axis.line.x = element_blank(),
         plot.background = element_blank()) +
   labs(subtitle = "Layer 6") +
@@ -246,7 +246,7 @@ Let's build up the plot above, layer by layer. First we need to get the data. We
 When you load the data, `read_csv()` will produce a message that gives you information about the data it has imported and what assumptions it has made. The "column specification" tells you what each column is named and what type of data R has categorised each variable as. The abbreviation "chr" is for `r glossary("character")` columns, "dbl" is for `r glossary("double")` columns, and "dttm" is a date/time column.
 
 ```{r}
-survey_data <- read_csv("https://psyteachr.github.io/ads-v1/data/survey_data.csv")
+survey_data <- read_csv("https://psyteachr.github.io/ads-v2/data/survey_data.csv")
 ```
 
 This data is simulated data for a call centre customer satisfaction survey. The first thing you should do when you need to plot data is to get familiar with what all of the rows (observations) and columns (variables) mean. Sometimes this is obvious, and sometimes it requires help from the data provider. Here, each row represents one call to the centre.
@@ -267,7 +267,11 @@ spec(survey_data)
 
 Let's set `issue_category` as a factor and set the order of the levels. By default, R will order the levels of a factor alphanumerically, however in many cases you will want or need to set your own order. For example, in this data, it makes most sense for the category "other" to come at the end of the list. After you update the column types, you have to re-import the data by adjusting the `read_csv()` code to set the `col_types` argument to the new column types.
 
-Note that because `read_csv()` is going to use the object `survey_col_types`, you must create `survey_col_types` before you run the adjusted `read_csv()` code. If you ever need to adjust your code, try to think about the order that the code will run in if you start from scratch and make sure it's organised appropriately.
+::: {.callout-note}
+## Define objects before you use them
+
+Because `read_csv()` is going to use the object `survey_col_types`, you must create `survey_col_types` before you run the adjusted `read_csv()` code. If you ever need to adjust your code, try to think about the order that the code will run in if you start from scratch and make sure it's organised appropriately.
+:::
 
 ```{r}
 # updated column types
@@ -282,7 +286,7 @@ survey_col_types <- cols(
 )
 
 # re-import data with correct column  types
-survey_data <- read_csv("https://psyteachr.github.io/ads-v1/data/survey_data.csv",
+survey_data <- read_csv("https://psyteachr.github.io/ads-v2/data/survey_data.csv",
                         col_types = survey_col_types)
 ```
 
@@ -301,13 +305,13 @@ theme_set(theme_bw()) # set the default theme
 
 Every plot starts with the `ggplot()` function and a data table. If your data are not loaded or you have a typo in your code, this will give you an error message. It's best to check your plot after each step, so that you can figure out where errors are more easily.
 
-```{r build-plot-setup, fig.cap = "A blank ggplot."}
+```{r fig-build-plot-setup, fig.cap = "A blank ggplot."}
 ggplot(data = survey_data)
 ```
 
 #### Mapping
 
-The next `r glossary("argument")` to `ggplot()` is the `mapping`. This tells the plot which columns in the data should be represented by, or "mapped" to, different aspects of the plot, such as the x-axis, y-axis, line colour, object fill, or line style. These aspects, or "aesthetics", are listing inside the `aes()` function.
+The next `r glossary("argument")` to `ggplot()` is the `mapping`. This tells the plot which columns in the data should be represented by, or "mapped" to, different aspects of the plot, such as the x-axis, y-axis, line colour, object fill, or line style. These aspects, or "aesthetics", are listed inside the `aes()` function.
 
 Set the arguments `x` and `y` to the names of the columns you want to be plotted on those axes. Here, we want to plot the wait time on the x-axis and the call time on the y-axis.
 
@@ -320,6 +324,8 @@ ggplot(
 ```
 
 ::: {.callout-note}
+## Argument Names
+
 In the example above, we wrote out the names of the `r glossary("argument", "arguments")` `data` and `mapping`, but in practice, almost everyone omits them. Just make sure you put the data and mapping in the right order.
 
 ```{r, eval = FALSE}
@@ -336,7 +342,9 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
   geom_point() # scatterplot
 ```
 
-::: {.callout-warning}
+::: {.callout-warning collapse="true"}
+## Location of the +
+
 Somewhat annoyingly, the plus has to be on the end of the previous line, not at the start of the next line. If you do make this mistake, it will run the first line of code to produce the base layer but then you will get the following error message rather than adding on `geom_point()`.
 
 ```{r, error = TRUE}
@@ -347,7 +355,7 @@ ggplot(survey_data, aes(x = wait_time, y = call_time))
 
 #### Multiple geoms
 
-Part of the power of <pkg>ggplot2</pkg> is that you can add more than one geom to a plot by adding on extra layers and so it quickly becomes possible to make complex and informative visualisation. Importantly, the layers display in the order you set them up. The code below uses the same geoms to produce a scatterplot with a line of best fit but orders them differently.
+Part of the power of <pkg>ggplot2</pkg> is that you can add more than one geom to a plot by adding on extra layers and so it quickly becomes possible to make complex and informative visualisation. Importantly, the layers display in the order you set them up. The code below uses the same geoms to produce a scatterplot with a line of best fit, but orders them differently.
 
 ```{r fig-build-plot-geom2-code, eval = FALSE}
 
@@ -407,11 +415,17 @@ line_first # view second plot
 One of the reasons to save your plots to objects is so that you can combine multiple plots using functions from the `patchwork` package. The below code produces the above plot by combining the two plots with `+` and then specifying that we want the plots produced on a single row with the `nrow` argument in `plot_layout()`. 
 
 ```{r, fig-build-plot-geom2b, fig.cap="Combining plots with patchwork.", message = FALSE}
-# add plots together in 1 row; try changing nrow to 2
+# add plots together in 1 row
 point_first + line_first + plot_layout(nrow = 1)
 ```
 
+::: {.callout-note .try}
+## Try changing nrow to 2
+:::
+
 ### Customising plots
+
+There are nearly endless ways to customise ggplots. We'll cover a few of the basic customisations here.
 
 #### Styling geoms
 
@@ -425,12 +439,14 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
              size = 2) + 
   geom_smooth(method = lm, 
               formula = y~x, # formula used to draw line, 
-              # setting the default formula avoids an annoying message
+              # setting the formula avoids an annoying message
               colour = rgb(0, .5, .8),
               linetype = 3) 
 ```
 
 ::: {.callout-warning}
+## Setting aesthetics overall versus by category
+
 This method is only for changing the style of *all* the shapes made with that geom. If you want, for example, points to have different colours depending on which issue category they are from, you set the argument `colour = issue_category` inside the `aes()` function for the mapping. You can customise the colours used with `scale_` functions, which you will learn about below and in @sec-plotstyle).
 :::
 
@@ -438,16 +454,21 @@ This method is only for changing the style of *all* the shapes made with that ge
 
 Now we need to make the axes look neater. There are several functions you can use to change the axis labels, but the most powerful ones are the `scale_` functions. You need to use a scale function that matches the data you're plotting on that axis and this is where it becomes particularly important to know what type of data you're working with. Both of the axes here are `r glossary("continuous")`, so we'll use `scale_x_continuous()` and `scale_y_continuous()`.
 
-The `name` argument changes the axis label. The `breaks` argument sets the major units and needs a `r glossary("vector")` of possible values, which can extend beyond the range of the data (e.g., `wait time` only goes up to 350, but we can specify breaks up to 600 to make the maths easier). The `seq()` function creates a sequence of numbers `from` one `to` another `by` specified steps.
+The `name` argument changes the axis label. The `breaks` argument sets the major units and needs a `r glossary("vector")` of possible values, which can extend beyond the range of the data (e.g., `wait time` only goes up to 350, but we can specify breaks up to 600 to make the maths easier or anticipate updates to the data). The `seq()` function creates a sequence of numbers `from` one `to` another `by` specified steps.
+
+```{r}
+seq(from = 0, to = 600, by = 60)
+```
+
 
 ```{r fig-build-plot-axes, fig.cap="Formatting plot axes with scale_ functions."}
-
 ggplot(survey_data, aes(x = wait_time, y = call_time)) +
   geom_point(colour = "dodgerblue", 
              alpha = 0.2) + 
   geom_smooth(method = lm, 
               formula = y~x, 
               colour = rgb(0, .5, .8)) +
+  # customise axis labels and breaks
   scale_x_continuous(name = "Wait Time (seconds)", 
                      breaks = seq(from = 0, to = 600, by = 60)) +
   scale_y_continuous(name = "Call time (seconds)",
@@ -455,6 +476,8 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
 ```
 
 ::: {.callout-note .try}
+## Minor breaks
+
 Check the help for `?scale_x_continuous` to see how you would set the minor units or specify how many breaks you want instead.
 :::
 
@@ -474,11 +497,14 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
                      breaks = seq(from = 0, to = 600, by = 60)) +
   scale_y_continuous(name = "Call time (seconds)",
                      breaks = seq(from = 0, to = 600, by = 30)) +
+  # set axis limits
   coord_cartesian(xlim = c(0, 360), 
                   ylim = c(0, 180))
 ```
 
 ::: {.callout-caution}
+## Setting limits with the scale_ function
+
 You can also set the `limits` argument inside  the `scale_` functions, but this actually removes any data that falls outside these limits, rather than cropping your plot, and this can change the appearance of certain types of plots like violin plots and density plots.
 :::
 
@@ -486,7 +512,7 @@ You can also set the `limits` argument inside  the `scale_` functions, but this 
 
 <pkg>ggplot2</pkg> comes with several built-in themes, such as `theme_minimal()` and `theme_bw()`, but the [<pkg>ggthemes</pkg>](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package provides even more themes to match different software, such as GoogleDocs or Stata, or publications, such as the Economist or the Wall Street Journal. Let's add the GoogleDocs theme, but change the font size to 20 with the `base_size` argument.
 
-It's also worth highlighting that this code is starting to look quite complicated because of the number of layers, but because we've built it up slowly it should (hopefully!) make sense. If you see examples of <pkg>ggplot2</pkg>` code online that you'd like to adapt, build the plot up layer by layer and it will make it easier to understand what each layer adds.
+It's also worth highlighting that this code is starting to look quite complicated because of the number of layers, but because we've built it up slowly it should (hopefully!) make sense. If you see examples of <pkg>ggplot2</pkg> code online that you'd like to adapt, build the plot up layer by layer and it will make it easier to understand what each layer adds.
 
 ```{r fig-build-plot-theme, fig.cap="Changing the theme."}
 ggplot(survey_data, aes(x = wait_time, y = call_time)) +
@@ -501,6 +527,7 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
                      breaks = seq(from = 0, to = 600, by = 30)) +
   coord_cartesian(xlim = c(0, 360), 
                   ylim = c(0, 180)) +
+  # change the theme
   ggthemes::theme_gdocs(base_size = 20)
 ```
 
@@ -510,7 +537,7 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
 
 If you're still not quite happy with a theme, you can customise it even further with the `themes()` function. Check the help for this function to see all of the possible options. The most common thing you'll want to do is to remove an element entirely. You do this by setting the relevant argument to `element_blank()`. Below, we're getting rid of the x-axis line and the plot background, which removes the line around the plot.
 
-```{r fig-build-plot-custom-theme, fig.cap="Customising the theme."}
+```{r fig-build-plot-custom-theme, fig.cap="Customising the theme to remove the x-axis line and background outline."}
 ggplot(survey_data, aes(x = wait_time, y = call_time)) +
   geom_point(colour = "dodgerblue", 
              alpha = 0.2) + 
@@ -524,6 +551,7 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
   coord_cartesian(xlim = c(0, 360), 
                   ylim = c(0, 180)) +
   theme_gdocs(base_size = 11) +
+  # customise theme elements
   theme(axis.line.x = element_blank(),
         plot.background = element_blank())
 ```
@@ -543,16 +571,17 @@ We don't expect you to memorise all of the plot types or the methods for customi
 
 If you want to count the number of things per category, you can use `geom_bar()`. You only need to provide a `x` mapping to `geom_bar()` because by default `geom_bar()` uses the number of observations in each group of `x` and the value for `y`, so you don't need to tell it what to put on the y-axis.
 
-```{r}
+```{r fig-bar, fig.cap="A basic bar plot."}
 ggplot(survey_data, aes(x = issue_category)) +
   geom_bar()
 ```
 
 ::: {.callout-note .try}
+## Customising bar plot appearance
 
 You probably want to customise some things, like the colours, order of the columns, and their labels. Inspect the code below and try running it layer by layer to figure out where these things change. The functions `scale_fill_manual()` and `scale_x_discrete()` are new, but work in the same way as the other `scale_` functions. You'll learn more about this in @sec-custom-viz.
 
-```{r fig-custom-bar, webex.hide = "Code"}
+```{r custom-bar, webex.hide = "Code"}
 
 ggplot(survey_data, aes(x = issue_category, 
                         fill = issue_category)) +
@@ -590,14 +619,14 @@ ggplot(survey_data, aes(x = issue_category,
 If your data already have a column with the number you want to plot, you can use `geom_col()` to plot it. We can use the `count()` function to make a table with a row for each `issue_category` and a column called `n` with the number of observations in that category.
 
 ```{r}
-count_data <- count(x = survey_data, issue_category)
+count_data <- count(survey_data, issue_category)
 ```
 
-`r count_data`
+`r kable(count_data)`
 
 The mapping for `geom_col()` requires you to set both the `x` and `y` aesthetics. Set `y = n` because we want to plot the number of issues in each category, and that information is in the column called `n`.
 
-```{r}
+```{r fig-col, fig.cap="A basic column plot."}
 ggplot(count_data, aes(x = issue_category, y = n)) +
   geom_col()
 ```
@@ -605,9 +634,10 @@ ggplot(count_data, aes(x = issue_category, y = n)) +
 
 #### Pie chart
 
-Pie charts are a [misleading form of data visualisation](https://www.data-to-viz.com/caveat/pie.html){target="_blank"}, so we won't cover them. We'll cover options for visualising proportions, like waffle, lollipop and treemap plots, in @sec-other-plots).
+Pie charts are a [misleading form of data visualisation](https://www.data-to-viz.com/caveat/pie.html){target="_blank"}, so we won't cover them. We'll cover options for visualising proportions, like waffle, lollipop and treemap plots, in @sec-other-plots.
 
-#### Test your understanding
+::: {.callout-info .try}
+## Test your understanding
 
 ```{r, include = FALSE}
 bar <- c(answer = "geom_bar", x = "geom_col")
@@ -625,7 +655,6 @@ Republic of Ireland | 4,937,786       | Ireland
 Scotland            | 5,466,000       | Great Britain
 England             | 56,550,138      | Great Britain
 
-::: {.callout-note .try}
 
 * What geom would you use to plot the population for each of the 5 countries? `r mcq(col)`
 ```{r test-counting-categories, echo = FALSE, results='asis'}
@@ -647,15 +676,13 @@ cat("* What mapping would you use? ", longmcq(opt))
 ```
 :::
 
-### One continuous variable
+### One continuous variable {#sec-histogram}
 
-If you have a continuous variable, like the number of seconds callers have to wait, you can use `geom_histogram()` or `geom_density()` to show the distribution. Just like `geom_bar()` you are only required to specify the `x` variable.
-
-#### Histogram
+If you have a continuous variable, like the number of seconds callers have to wait, you can use `geom_histogram()` to show the distribution. Just like `geom_bar()` you are only required to specify the `x` variable. 
 
 A histogram splits the data into "bins" along the x-axis and shows the count of how many observations are in each bin along the y-axis.
 
-```{r, fig.cap="Histogram of wait times."}
+```{r fig-histogram, fig.cap="Histogram of wait times."}
 ggplot(survey_data, aes(x = wait_time)) +
   geom_histogram()
 ```
@@ -675,7 +702,7 @@ ggplot(survey_data, aes(x = wait_time)) +
 
 By default, the bars start *centered* on 0, so if `binwidth` is set to 15, the first bar would include -7.5 to 7.5 seconds, which doesn't make much sense. We can set `boundary = 0` so that each bar represents increments of 15 seconds *starting* from 0. 
 
-```{r}
+```{r fig-histogram-boundary0, fig.cap="A histogram with the boundary set to 0."}
 ggplot(survey_data, aes(x = wait_time)) +
   geom_histogram(binwidth = 15, boundary = 0)
 ```
@@ -683,7 +710,7 @@ ggplot(survey_data, aes(x = wait_time)) +
 
 Finally, the default style of grey bars is ugly, so you can change that by setting the `fill` and `colour`, as well as using `scale_x_continuous()` to update the axis labels. 
 
-```{r, fig.cap="Histogram with custom styles."}
+```{r fig-histogram-custom, fig.cap="Histogram with custom styles."}
 ggplot(survey_data, aes(x = wait_time)) +
   geom_histogram(binwidth = 15, 
                  boundary = 0, 
@@ -693,40 +720,12 @@ ggplot(survey_data, aes(x = wait_time)) +
                      breaks = seq(0, 600, 60))
 ```
 
-#### Frequency plot
-
-Rather than plotting each bin as a bar, you can connect a line across the top of each bin using a frequency plot. The function `geom_freqpoly()` works the same as `geom_histogram()`, except it can't take a `fill` argument because it's just a line. 
-
-```{r}
-ggplot(survey_data, aes(x = wait_time)) +
-  scale_x_continuous(name = "Wait time (seconds)",
-                     breaks = seq(0, 600, 60)) +
-  geom_freqpoly(boundary = 0, binwidth = 15, 
-                color = "black")
-```
-
-
-#### Density plot
-
-If the distribution is smooth, a density plot is often a better way to show the distribution. A density plot doesn't need the `binwidth` or `boundary` arguments because it doesn't split the data into bins, but it can have `fill`.
-
-```{r}
-ggplot(survey_data, aes(x = wait_time)) +
-  scale_x_continuous(name = "Wait time (seconds)",
-                     breaks = seq(0, 600, 60)) +
-  geom_density(fill = "purple", color = "black")
-```
-
-#### Test your understanding
+::: {.callout-info .try}
+## Test your understanding
 
 Imagine you have a table of the [population for each country in the world](https://population.un.org/wpp/Download/Standard/Population/){target="_blank"} with the columns `country` and `population`. We'll just look at the 76 countries with populations of less than a million.
 
 ```{r test-one-continuous, echo = FALSE}
-# set up quiz answers
-hist <- c(answer = "geom_histogram", x = "geom_freqpoly", x = "geom_density")
-freq <- c(x = "geom_histogram", answer = "geom_freqpoly", x = "geom_density")
-dens <- c(x = "geom_histogram", x = "geom_freqpoly", answer = "geom_density")
-
 # load data
 pop_data <- readxl::read_excel("data/WPP2019_POP_F01_1_TOTAL_POPULATION_BOTH_SEXES.xlsx", skip = 16) %>%
   filter(Type == "Country/Area") %>%
@@ -735,42 +734,40 @@ pop_data <- readxl::read_excel("data/WPP2019_POP_F01_1_TOTAL_POPULATION_BOTH_SEX
   filter(population < 1e6)
   
 # make plots
-g <- ggplot(pop_data, aes(x = population)) +
+ggplot(pop_data, aes(x = population)) +
   scale_x_continuous(breaks = seq(0, 1e6, 1e5),
                      labels = c(paste0(0:9*100, "K"), "1M")) +
-  scale_y_continuous(name = "")
-
-hist_plot <- g + geom_histogram(binwidth = 1e5, boundary = 0, fill = "white", color = "black")
-freq_plot <- g + geom_freqpoly(binwidth = 1e5, boundary = 0, color = "black") +
-  coord_cartesian(xlim = c(0, 1e6))
-dens_plot <- g + geom_density(color = "black", fill = "white")
-
-dens_plot + hist_plot + freq_plot + 
-  plot_layout(nrow = 3) +
-  plot_annotation(tag_levels = "A")
-
+  scale_y_continuous(name = "Number of countries") + 
+  geom_histogram(binwidth = 1e5, boundary = 0, fill = "white", color = "black")
 ```
 
-::: {.callout-note .try}
 
-* What kind of plot is A? `r mcq(dens)`
-* What kind of plot is B? `r mcq(hist)`
-* What kind of plot is C? `r mcq(freq)`
 ```{r, echo = FALSE, results='asis'}
 opts <- c(x = "aes(x = country, y = population)",
           x = "aes(x = population, y = country)",
           answer = "aes(x = population)",
           x = "aes(x = population, y = count)")
-cat("* How would you set the mapping for these plots? ", longmcq(opts))
+cat("* How would you set the mapping for this plot? ", longmcq(opts))
 ```
 * What is the `binwidth` of the histogram? `r mcq(c("1", "100", answer = "100K", "1M"))`
+:::
+
+::: {.callout-tip collapse="true"}
+## Axis label customisation
+
+If you're curious how we got the x-axis labels to read "100K" instead of "100000", you just need to add a vector of `labels` the same length as `breaks`.
+
+```{r, eval = FALSE}
+  scale_x_continuous(breaks = seq(0, 1e6, 1e5),
+                     labels = c(paste0(0:9*100, "K"), "1M"))
+```
 :::
 
 ### Grouped continuous variables
 
 There are several ways to compare continuous data across groups. Which you choose depends on what point you are trying to make with the plot.
 
-#### Subdividing distributions
+#### Stacked histogram
 
 In previous plots, we have used `fill` purely for visual reasons, e.g., we have changed the colour of the histogram bars to make them look nicer. However, you can also use `fill` to represent another variable so that the colours become meaningful. 
 
@@ -785,6 +782,8 @@ ggplot(survey_data, aes(x = wait_time, fill = issue_category)) +
 
 
 ::: {.callout-warning}
+## Arguments inside aes()
+
 When you set an aspect to represent the data, you do this inside the `aes()` function for the mapping, not as an argument to the geom. If you try to set this in a geom, you'll get the following error (unless you coincidentally have an object named `issue_category` that is a colour word).
 
 ```{r, error = TRUE}
@@ -797,7 +796,10 @@ ggplot(survey_data, aes(x = wait_time)) +
 
 :::
 
-By default, the categories are positioned stacked on top of each other. The function `geom_area()` gives a similar effect when `stat = "bin"`. 
+::: {.callout-tip collapse="true"}
+## Area plots
+
+The function `geom_area()` gives a similar effect when `stat = "bin"`. 
 
 ```{r, fig.cap="Stacked area plot."}
 # area plot
@@ -808,40 +810,43 @@ ggplot(survey_data, mapping = aes(x = wait_time, fill = issue_category)) +
             color = "black")
 ```
 
-#### Comparing distributions
+:::
 
-If you want to compare more than one distribution, you can set the `position` argument of `geom_histogram()` to "dodge" to put the bars for each group next to each other instead of stacking them. However, this can look confusing with several categories. Instead, use`geom_freqpoly()` to plot a line connecting the top of each bin. 
+#### Dodged histogram
 
-```{r fig-dist-multi-groups, fig.height = 3, fig.width = 8, fig.cap = "Different ways to plot the distribution of a continuous variable for multiple groups."}
+By default, the categories are positioned stacked on top of each other. If you want to compare more than one distribution, you can set the `position` argument of `geom_histogram()` to "dodge" to put the bars for each group next to each other instead of stacking them. However, this can look confusing with several categories. 
+
+```{r fig-histogram-dodge, fig.cap = "A histogram with multiple groups."}
 
 # dodged histogram
-histogram_dodge <- 
-  ggplot(survey_data, aes(x = wait_time, 
-                          fill = issue_category,
-                          colour = issue_category))+
+ggplot(survey_data, aes(x = wait_time, 
+                        fill = issue_category,
+                        colour = issue_category))+
   geom_histogram(boundary = 0, 
                  binwidth = 15, 
                  position = "dodge") +
   scale_x_continuous(name = "Wait time (seconds)",
-                     breaks = seq(0, 600, 60)) +
-  ggtitle("Dodged Histogram")
+                     breaks = seq(0, 600, 60))
+```
 
+
+::: {.callout-tip collapse="true"}
+## Frequency plot
+
+Alternatively, you can use `geom_freqpoly()` to plot a line connecting the top of each bin (see @sec-freqpoly).
+
+```{r fig-groups-freqpoly, fig.cap = "A frequency plot with multiple groups."}
 # frequency plot
-freqpoly_plot <- 
-  ggplot(survey_data, aes(x = wait_time,
-                          fill = issue_category,
-                          colour = issue_category)) +
+ggplot(survey_data, aes(x = wait_time,
+                        colour = issue_category)) +
   geom_freqpoly(binwidth = 15, 
                 boundary = 0,
                 size = 1) +
   scale_x_continuous(name = "Wait time (seconds)",
-                     breaks = seq(0, 600, 60)) +
-  ggtitle("Frequency")
-
-# put plots together
-histogram_dodge + freqpoly_plot + 
-  plot_layout(nrow = 1, guides = "collect") # collects the legends together, try removing this
+                     breaks = seq(0, 600, 60))
 ```
+
+:::
 
 #### Violin plot
 
@@ -873,7 +878,7 @@ ggplot(survey_data, aes(x = issue_category, y = wait_time)) +
 
 #### Combo plots
 
-Violin plots are frequently layered with other geoms that represent the mean or median values in the data. This is a lot of code, to help your understanding a) run it layer by layer to see how it builds up and b) change the values throughout the code
+Violin plots are frequently layered with other geoms that represent the mean or median values in the data. This is a lot of code; to help your understanding,  run it layer by layer to see how it builds up and change the values throughout the code.
 
 ```{r fig-violin-combos, fig.cap="Violin plots combined with different methods to represent means and medians."}
 # add fill and colour to the mapping
@@ -887,13 +892,14 @@ ggplot(survey_data,  aes(x = issue_category,
                      breaks = seq(0, 600, 60)) +
   coord_cartesian(ylim = c(0, 360)) +
   guides(fill = "none", colour = "none") + 
-  # add a line at median (50%) score
+  # draw_quantiles adds a line at median (50%) score
   geom_violin(alpha = 0.4, 
               draw_quantiles = 0.5) + 
   # add a boxplot
   geom_boxplot(width = 0.25, 
                fill = "white", 
                alpha = 0.75, 
+               fatten = 0, # removes the median line
                outlier.alpha = 0) + 
   # add a point that represents the mean
   stat_summary(fun = mean, 
@@ -903,6 +909,7 @@ ggplot(survey_data,  aes(x = issue_category,
 ```
 
 ::: {.callout-caution}
+## Bar Bar Charts
 
 A very common type of plot is to produce a bar chart of means, however, the example below demonstrates just how misleading this is. It communicates the mean value for each category, but the bars hide the distribution of the actual data. You can't tell if most wait times are close to 3 minutes, or spread from 0 to 6 minutes, or if the vast majority are less than 2 minutes, but the mean is pulled up by some very high outliers.
 
@@ -928,9 +935,10 @@ tall_col + short_col
 Column plots can also be very misleading. The plot on the left starts the y-axis at 0, which makes the bar heights proportional, showing almost no difference in average wait times. Since the differences are hard to see, you may be tempted to start the y-axis higher, but that makes it look like the average wait time for returns is double that for tech.
 :::
 
-#### Test your understanding
+::: {.callout-info .try}
+## Test your understanding
 
-```{r fig-test-grouped-continuous, echo=FALSE, fig.height = 2.5}
+```{r test-grouped-continuous, echo=FALSE, fig.height = 2.5}
 box <- c(x = "geom_box()",
          answer = "geom_boxplot()",
          x = "geom_violin()",
@@ -966,7 +974,6 @@ b <- g + geom_boxplot()
 v + b + plot_annotation(tag_levels = "A")
 ```
 
-::: {.callout-note .try}
 * How would you create plot A? `r mcq(violin)`
 * How would you create plot B? `r mcq(box)`
 * What does the mapping look like for both plots? `r longmcq(aes)`
@@ -990,7 +997,7 @@ ggplot(survey_data, aes(x = wait_time, y = call_time)) +
 
 #### Trendlines
 
-In @fig-layers, we emphasised the relationship between wait time and call time with a trendline created by `geom_smooth()` using the argument `method = lm` ("lm" stands for "linear model" or a straight line relationship). You can also set `method = loess` to visualise a non-linear relationship.
+In Figure @fig-layers, we emphasised the relationship between wait time and call time with a trendline created by `geom_smooth()` using the argument `method = lm` ("lm" stands for "linear model" or a straight line relationship). You can also set `method = loess` to visualise a non-linear relationship.
 
 ```{r fig-2-continuous, fig.cap="Different ways to show the relationship between two continuous variables."}
 
@@ -1010,15 +1017,17 @@ lm_plot + loess_plot
 ```
 
 ::: {.callout-warning}
+## Error shading
+
 If there isn't much data at the extremes of the x-axis, the curve can be very uncertain. This is represented by the wider shaded area, which means that the true relationship might be anywhere within that area. Add the argument `se = FALSE` to `geom_smooth()` to remove this "standard error" shading.
 :::
 
 
 #### Dates
 
-The `call_start` column contains both a date and a time, so use the `date()` function from <pkg>lubridate</pkg>` to convert it to just a date. We'll need it in this format to be able to transform the x-axis below.
+The `call_start` column contains both a date and a time, so use the `date()` function from <pkg>lubridate</pkg> to convert it to just a date. We'll need it in this format to be able to transform the x-axis below.
 
-```{r}
+```{r fig-date-x, fig.cap="Plotting dates."}
 ggplot(survey_data, aes(x = lubridate::date(call_start), 
                         y = satisfaction)) + 
   geom_smooth(method = lm, formula = y~x)
@@ -1026,7 +1035,7 @@ ggplot(survey_data, aes(x = lubridate::date(call_start),
 
 We can use `scale_x_date()` to set the `date_breaks` to be "1 month" apart. The `date_labels` argument uses a code for different date formats; you can see the full list of possibilities in the help for `?strptime`. For example, `%b` means "Abbreviated month name", whilst if you wanted to use a format like "2020/01/31" you could try `"%Y/%m/%d"`.
 
-```{r}
+```{r fig-date-month, fig.cap="Plotting dates with breaks one month apart."}
 ggplot(survey_data, aes(x = lubridate::date(call_start), 
                         y = satisfaction)) +
   geom_smooth(method = lm, formula = y~x) +
@@ -1038,6 +1047,8 @@ ggplot(survey_data, aes(x = lubridate::date(call_start),
 ```
 
 ::: {.callout-note .try}
+## Test yourself
+
 It looks like customer satisfaction declined across the year, but is this change meaningful? See what the plot looks like when the y-axis spans the full range of possible satisfaction values from 1 to 5. You can also plot the individual data points to emphasise the range of values. 
 
 ```{r, webex.hide = TRUE}
@@ -1064,7 +1075,7 @@ When you have a limited range of numeric values, such as an ordinal rating scale
 
 In this section, we'll explore a few options for dealing with this.
 
-```{r fig-over-plot, fig.cap="Overlapping data."}
+```{r fig-over-plot, fig.cap="Overlapping data makes plots hard to understand."}
 ggplot(survey_data, aes(x = call_time, y = satisfaction)) + 
   geom_point()
 ```
@@ -1096,7 +1107,9 @@ ggplot(survey_data, aes(x = call_time)) +
 ```
 
 ::: {.callout-note}
-These are not, by any means, all the plot types that you can make in R. This chapter just gave you a basic overview, and we will go into more detail in @sec-custom-viz). The [further resources](#resources-viz) section at the end of this chapter lists many resources, but the [R Graph Gallery](http://www.r-graph-gallery.com/){target="_blank"} is an especially useful one to get inspiration for the kinds of beautiful plots you can make in R. 
+## More plots styles
+
+These are not, by any means, all the plot types that you can make in R. This chapter just gave you a basic overview, and we will go into more detail in @sec-custom-viz). The [further resources](#resources-viz) section at the end of this chapter lists many resources, but the [R Graph Gallery](http://www.r-graph-gallery.com/){target="_blank"} is especially useful to get inspiration for the kinds of beautiful plots you can make in R. 
 :::
 
 ## Exercises
@@ -1115,7 +1128,7 @@ library(lubridate)
 library(knitr)
 library(kableExtra)
 
-survey_data <- read_csv("https://psyteachr.github.io/ads-v1/data/survey_data.csv")
+survey_data <- read_csv("https://psyteachr.github.io/ads-v2/data/survey_data.csv")
 ```
 
 ### Summary {#sec-exercises-summary}

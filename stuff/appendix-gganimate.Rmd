@@ -84,7 +84,7 @@ ct <- cols(
   SetTime = col_double()
 )
 
-sun <- read_csv("https://psyteachr.github.io/ads-v1/data/sunfact2021.csv", col_types = ct)
+sun <- read_csv("https://psyteachr.github.io/ads-v2/data/sunfact2021.csv", col_types = ct)
 ```
 
 

@@ -29,7 +29,7 @@ This chapter describes a formative exercise for this class. If you are not part 
 
 ## Details and files
 
--   There are two files you need to download. The first is the dataset: <a href="https://psyteachr.github.io/ads-v1/data/review_data.csv" download>review_data.csv</a>. The second is the finished report that you need to backwards engineer from the data: [formative_report_output.html](https://psyteachr.github.io/ads-v1/data/formative_report_output.html).
+-   There are two files you need to download. The first is the dataset: <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download>review_data.csv</a>. The second is the finished report that you need to backwards engineer from the data: [formative_report_output.html](https://psyteachr.github.io/ads-v2/data/formative_report_output.html).
 
 -   There are multiple ways to achieve the same outcome when coding. You do not have to use the same solutions that we did; what matters is that the output is the same.
 
