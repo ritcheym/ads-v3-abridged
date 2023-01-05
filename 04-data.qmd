@@ -557,18 +557,20 @@ Produce the following plots and one plot of your own choosing. Write a brief sum
 
 ```{r echo  = FALSE, warning = FALSE}
 ggplot(starwars, aes(height)) +
-  geom_density(colour = "black", alpha = .3) +
+  geom_histogram(binwidth = 25, colour = "black", alpha = .3) +
   labs(title = "Height (cm) distribution of Star Wars Characters") +
   theme_classic() +
   scale_x_continuous(breaks = seq(from = 50, to = 300, by = 25))
 ```
 
 ```{r echo = FALSE, warning = FALSE}
-ggplot(starwars, aes(mass)) +
-  geom_histogram(colour = "black", binwidth = 10) +
-  labs(title = "Weight (kg) distribution of Star Wars Characters") +
+ggplot(starwars, aes(height, mass)) +
+  geom_point() +
+  labs(title = "Mass (kg) by height (cm) distribution of Star Wars Characters") +
   theme_classic() +
-  scale_x_continuous(breaks = seq(from = 0, to = 2000, by = 100))
+  scale_x_continuous(breaks = seq(from = 0, to = 300, by = 50)) +
+  scale_y_continuous(breaks = seq(from = 0, to = 2000, by = 100)) +
+  coord_cartesian(xlim = c(0, 300))
 ```
 
 ```{r echo  = FALSE}
@@ -583,18 +585,20 @@ ggplot(starwars, aes(x = gender, fill = gender)) +
 `r hide()`
 ```{r eval  = FALSE}
 ggplot(starwars, aes(height)) +
-  geom_density(colour = "black", alpha = .3) +
+  geom_histogram(binwidth = 25, colour = "black", alpha = .3) +
   scale_x_continuous(breaks = seq(from = 50, to = 300, by = 25)) +
   labs(title = "Height (cm) distribution of Star Wars Characters") +
   theme_classic()
 ```
 
 ```{r eval = FALSE}
-ggplot(starwars, aes(mass)) +
-  geom_histogram(colour = "black", binwidth = 10) +
-  scale_x_continuous(breaks = seq(from = 0, to = 2000, by = 100)) +
-  labs(title = "Weight (kg) distribution of Star Wars Characters") +
-  theme_classic()
+ggplot(starwars, aes(height, mass)) +
+  geom_point() +
+  labs(title = "Mass (kg) by height (cm) distribution of Star Wars Characters") +
+  theme_classic() +
+  scale_x_continuous(breaks = seq(from = 0, to = 300, by = 50)) +
+  scale_y_continuous(breaks = seq(from = 0, to = 2000, by = 100)) +
+  coord_cartesian(xlim = c(0, 300))
 ```
 
 ```{r eval  = FALSE}

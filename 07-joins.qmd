@@ -572,16 +572,6 @@ no_exam <- anti_join(essay_grades, exam_grades, by = "id")
 -   How many students have a grade for the exam but not the essay? `r fitb(nrow(no_exam))`
 
 
-### Report
-
-For the final exercise in this chapter, create a report in R Markdown titled `Assessment Report`. Assume that you need to present this report at an exam board and you're likely to be asked for the following information:
-
--   How many students submitted each assessment (essay and exam)?
--   What was the average performance in each assessment?
--   What was the distribution of grades for each assessment?
-
-In preparation for the summative assessment, how you do this and what information you present is up to you. You can use plots or tables to present data, as well as inline code to make sure values reported in the text match the data, even after the underlying data files get updated with late grades. When you're done, post your code and knitted html document in the week 6 Teams channel.
-
 ## Glossary {#sec-glossary-joins}
 
 ```{r, echo = FALSE, results='asis'}

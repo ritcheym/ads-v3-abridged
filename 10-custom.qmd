@@ -10,7 +10,7 @@ The final chapter of ADS moves beyond the core skills needed to complete the cou
 
 ## Walkthrough video {#sec-walkthrough-custom .unnumbered}
 
-There is a walkthrough video of this chapter available via Echo360 (coming soon). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is no walkthrough video of this chapter because it is not core content.
 
 ## Visualisation {#sec-custom-viz}
 

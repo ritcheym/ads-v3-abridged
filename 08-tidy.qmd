@@ -225,7 +225,7 @@ kable(long_totalprice, caption = "Long data")
 
 
 
-It also makes it very easy to use with `ggplot()`. Run the following plot, and consider how you'd make it with the wide version.
+It also makes it very easy to use with `ggplot()`. Run the following plot, and consider how you'd make it with the wide version (it is likely impossible).
 
 ```{r long-ggplot-demo, fig.cap = "Most plots are easier to make with data in a long format."}
 ggplot(long_totalprice, aes(x = totalprice, fill = year)) +

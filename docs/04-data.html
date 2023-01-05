@@ -126,8 +126,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><link rel="stylesheet" href="include/psyteachr.css">
+</script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -437,11 +436,110 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["cases"],"name":[3],"type":["int"],"align":["right"]},{"label":["population"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"Afghanistan","2":"1999","3":"745","4":"19987071"},{"1":"Afghanistan","2":"2000","3":"2666","4":"20595360"},{"1":"Brazil","2":"1999","3":"37737","4":"172006362"},{"1":"Brazil","2":"2000","3":"80488","4":"174504898"},{"1":"China","2":"1999","3":"212258","4":"1272915272"},{"1":"China","2":"2000","3":"213766","4":"1280428583"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+cases
+</th>
+<th style="text-align:right;">
+population
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+1999
+</td>
+<td style="text-align:right;">
+745
+</td>
+<td style="text-align:right;">
+19987071
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+2666
+</td>
+<td style="text-align:right;">
+20595360
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brazil
+</td>
+<td style="text-align:right;">
+1999
+</td>
+<td style="text-align:right;">
+37737
+</td>
+<td style="text-align:right;">
+172006362
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brazil
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+80488
+</td>
+<td style="text-align:right;">
+174504898
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+<td style="text-align:right;">
+1999
+</td>
+<td style="text-align:right;">
+212258
+</td>
+<td style="text-align:right;">
+1272915272
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+213766
+</td>
+<td style="text-align:right;">
+1280428583
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -531,7 +629,7 @@ $ factor    &lt;chr&gt; "high", "low", "med", "high", "low", "med"
 $ integer   &lt;dbl&gt; 1, 2, 3, 4, 5, 6
 $ double    &lt;dbl&gt; 1.5, 2.5, 3.5, 4.5, 5.5, 6.5
 $ logical   &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, NA, TRUE
-$ date      &lt;date&gt; 2022-12-21, 2022-12-20, 2022-12-19, 2022-12-18, 2022-12-17, …</code></pre>
+$ date      &lt;date&gt; 2023-01-05, 2023-01-04, 2023-01-03, 2023-01-02, 2023-01-01, …</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -544,7 +642,7 @@ $ factor    &lt;chr&gt; "high", "low", "med", "high", "low", "med"
 $ integer   &lt;dbl&gt; 1, 2, 3, 4, 5, 6
 $ double    &lt;dbl&gt; 1.5, 2.5, 3.5, 4.5, 5.5, 6.5
 $ logical   &lt;lgl&gt; TRUE, TRUE, FALSE, FALSE, NA, TRUE
-$ date      &lt;dttm&gt; 2022-12-21, 2022-12-20, 2022-12-19, 2022-12-18, 2022-12-17, …</code></pre>
+$ date      &lt;dttm&gt; 2023-01-05, 2023-01-04, 2023-01-03, 2023-01-02, 2023-01-01, …</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -557,7 +655,7 @@ $ factor    &lt;dbl+lbl&gt; 3, 1, 2, 3, 1, 2
 $ integer   &lt;dbl&gt; 1, 2, 3, 4, 5, 6
 $ double    &lt;dbl&gt; 1.5, 2.5, 3.5, 4.5, 5.5, 6.5
 $ logical   &lt;dbl&gt; 1, 1, 0, 0, NA, 1
-$ date      &lt;date&gt; 2022-12-21, 2022-12-20, 2022-12-19, 2022-12-18, 2022-12-17, …</code></pre>
+$ date      &lt;date&gt; 2023-01-05, 2023-01-04, 2023-01-03, 2023-01-02, 2023-01-01, …</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -664,7 +762,7 @@ $ factor    &lt;fct&gt; high, low, med, high, low, med
 $ integer   &lt;dbl&gt; 1, 2, 3, 4, 5, 6
 $ double    &lt;dbl&gt; 1.5, 2.5, 3.5, 4.5, 5.5, 6.5
 $ logical   &lt;dbl&gt; 1, 1, 0, 0, NA, 1
-$ date      &lt;date&gt; 2022-12-21, 2022-12-20, 2022-12-19, 2022-12-18, 2022-12-17, …</code></pre>
+$ date      &lt;date&gt; 2023-01-05, 2023-01-04, 2023-01-03, 2023-01-02, 2023-01-01, …</code></pre>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -695,11 +793,56 @@ Note
 <span id="cb29-7"><a href="#cb29-7"></a><span class="co"># print it</span></span>
 <span id="cb29-8"><a href="#cb29-8"></a>avatar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["bends"],"name":[2],"type":["chr"],"align":["left"]},{"label":["friendly"],"name":[3],"type":["lgl"],"align":["right"]}],"data":[{"1":"Katara","2":"water","3":"TRUE"},{"1":"Toph","2":"earth","3":"TRUE"},{"1":"Sokka","2":"NA","3":"TRUE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:left;">
+bends
+</th>
+<th style="text-align:left;">
+friendly
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Katara
+</td>
+<td style="text-align:left;">
+water
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Toph
+</td>
+<td style="text-align:left;">
+earth
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sokka
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -789,10 +932,18 @@ Note
 <li>Load the data back in and view it.</li>
 </ul>
 <div class="cell" data-layout-align="center" data-webex.hide="Solution">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># create the table</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>family <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
 <span id="cb33-3"><a href="#cb33-3"></a>  <span class="sc">~</span>first_name, <span class="sc">~</span>last_name, <span class="sc">~</span>age,</span>
@@ -808,6 +959,8 @@ Solution
 <span id="cb33-13"><a href="#cb33-13"></a></span>
 <span id="cb33-14"><a href="#cb33-14"></a><span class="co"># load the data</span></span>
 <span id="cb33-15"><a href="#cb33-15"></a>family <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data/family.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -847,11 +1000,47 @@ chr (1): This is my messy dataset
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<div data-pagedtable="false">
+<div class="kable-table">
 
-<script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["This is my messy dataset"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"junk,order,score,letter,good,min_max,date"},{"1":"junk,1,-1,a,1,1 - 2,2020-01-1"},{"1":"junk,missing,0.72,b,1,2 - 3,2020-01-2"},{"1":"junk,3,-0.62,c,FALSE,3 - 4,2020-01-3"},{"1":"junk,4,2.03,d,T,4 - 5,2020-01-4"},{"1":"junk,5,NA,e,1,5 - 6,2020-01-5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:left;">
+This is my messy dataset
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+junk,order,score,letter,good,min_max,date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+junk,1,-1,a,1,1 - 2,2020-01-1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+junk,missing,0.72,b,1,2 - 3,2020-01-2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+junk,3,-0.62,c,FALSE,3 - 4,2020-01-3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+junk,4,2.03,d,T,4 - 5,2020-01-4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+junk,5,NA,e,1,5 - 6,2020-01-5
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>You’ll get a warning about parsing issues and the data table is just a single column. View the file <code>data/mess.csv</code> by clicking on it in the File pane, and choosing “View File”. Here are the first 10 lines. What went wrong?</p>
 <pre><code>This is my messy dataset
@@ -999,11 +1188,44 @@ e.g.:
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["row"],"name":[1],"type":["int"],"align":["right"]},{"label":["col"],"name":[2],"type":["int"],"align":["right"]},{"label":["expected"],"name":[3],"type":["chr"],"align":["left"]},{"label":["actual"],"name":[4],"type":["chr"],"align":["left"]},{"label":["file"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"3","2":"2","3":"an integer","4":"missing","5":"data/mess.csv"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+row
+</th>
+<th style="text-align:right;">
+col
+</th>
+<th style="text-align:left;">
+expected
+</th>
+<th style="text-align:left;">
+actual
+</th>
+<th style="text-align:left;">
+file
+</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+an integer
+</td>
+<td style="text-align:left;">
+missing
+</td>
+<td style="text-align:left;">
+data/mess.csv
+</td>
+</tr></tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1018,11 +1240,152 @@ e.g.:
 <p>Now <code>order</code> is an integer variable where any empty cells contain <code>NA</code>. The variable <code>good</code> is a logical value, where <code>0</code> and <code>F</code> are converted to <code>FALSE</code>, while <code>1</code> and <code>T</code> are converted to <code>TRUE</code>. The variable <code>date</code> is a date type (adding leading zeros to the day). We’ll learn in later chapters how to fix other problems, such as the <code>min_max</code> column containing two different types of data.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["order"],"name":[1],"type":["int"],"align":["right"]},{"label":["score"],"name":[2],"type":["chr"],"align":["left"]},{"label":["letter"],"name":[3],"type":["chr"],"align":["left"]},{"label":["good"],"name":[4],"type":["lgl"],"align":["right"]},{"label":["min_max"],"name":[5],"type":["chr"],"align":["left"]},{"label":["date"],"name":[6],"type":["date"],"align":["right"]}],"data":[{"1":"1","2":"-1","3":"a","4":"TRUE","5":"1 - 2","6":"2020-01-01"},{"1":"NA","2":"0.72","3":"b","4":"TRUE","5":"2 - 3","6":"2020-01-02"},{"1":"3","2":"-0.62","3":"c","4":"FALSE","5":"3 - 4","6":"2020-01-03"},{"1":"4","2":"2.03","3":"d","4":"TRUE","5":"4 - 5","6":"2020-01-04"},{"1":"5","2":"__NA__","3":"e","4":"TRUE","5":"5 - 6","6":"2020-01-05"},{"1":"6","2":"0.99","3":"f","4":"FALSE","5":"6 - 7","6":"2020-01-06"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+order
+</th>
+<th style="text-align:left;">
+score
+</th>
+<th style="text-align:left;">
+letter
+</th>
+<th style="text-align:left;">
+good
+</th>
+<th style="text-align:left;">
+min_max
+</th>
+<th style="text-align:left;">
+date
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+-1
+</td>
+<td style="text-align:left;">
+a
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+1 - 2
+</td>
+<td style="text-align:left;">
+2020-01-01
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+0.72
+</td>
+<td style="text-align:left;">
+b
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+2 - 3
+</td>
+<td style="text-align:left;">
+2020-01-02
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+-0.62
+</td>
+<td style="text-align:left;">
+c
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+3 - 4
+</td>
+<td style="text-align:left;">
+2020-01-03
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+2.03
+</td>
+<td style="text-align:left;">
+d
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+4 - 5
+</td>
+<td style="text-align:left;">
+2020-01-04
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+e
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+5 - 6
+</td>
+<td style="text-align:left;">
+2020-01-05
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+0.99
+</td>
+<td style="text-align:left;">
+f
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+6 - 7
+</td>
+<td style="text-align:left;">
+2020-01-06
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1121,17 +1484,19 @@ Solution
 </button>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(height)) <span class="sc">+</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">geom_density</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">25</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">50</span>, <span class="at">to =</span> <span class="dv">300</span>, <span class="at">by =</span> <span class="dv">25</span>)) <span class="sc">+</span></span>
 <span id="cb50-4"><a href="#cb50-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Height (cm) distribution of Star Wars Characters"</span>) <span class="sc">+</span></span>
 <span id="cb50-5"><a href="#cb50-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(mass)) <span class="sc">+</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">binwidth =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">2000</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span></span>
-<span id="cb51-4"><a href="#cb51-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Weight (kg) distribution of Star Wars Characters"</span>) <span class="sc">+</span></span>
-<span id="cb51-5"><a href="#cb51-5"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(height, mass)) <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Mass (kg) by height (cm) distribution of Star Wars Characters"</span>) <span class="sc">+</span></span>
+<span id="cb51-4"><a href="#cb51-4"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">300</span>, <span class="at">by =</span> <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb51-6"><a href="#cb51-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">2000</span>, <span class="at">by =</span> <span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb51-7"><a href="#cb51-7"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">300</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>

@@ -126,8 +126,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><link rel="stylesheet" href="include/psyteachr.css">
+</script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -362,7 +361,6 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   <li><a href="#matching-the-variable-types" id="toc-matching-the-variable-types" class="nav-link" data-scroll-target="#matching-the-variable-types"><span class="toc-section-number">7.9.2</span>  Matching the variable types</a></li>
   <li><a href="#complete-records" id="toc-complete-records" class="nav-link" data-scroll-target="#complete-records"><span class="toc-section-number">7.9.3</span>  Complete records</a></li>
   <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data"><span class="toc-section-number">7.9.4</span>  Missing data</a></li>
-  <li><a href="#report" id="toc-report" class="nav-link" data-scroll-target="#report"><span class="toc-section-number">7.9.5</span>  Report</a></li>
   </ul>
 </li>
   <li><a href="#sec-glossary-joins" id="toc-sec-glossary-joins" class="nav-link" data-scroll-target="#sec-glossary-joins"><span class="toc-section-number">7.10</span>  Glossary</a></li>
@@ -626,11 +624,124 @@ Note
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>left_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(customers, orders, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>left_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]},{"label":["items"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU","4":"NA"},{"1":"2","2":"Dufftown","3":"AB55 4DH","4":"10"},{"1":"3","2":"NA","3":"NA","4":"18"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"21"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"23"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"9"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"11"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:right;">
+items
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -642,11 +753,152 @@ Note
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>left2_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(orders, customers, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a>left2_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["city"],"name":[3],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"2","2":"10","3":"Dufftown","4":"AB55 4DH"},{"1":"3","2":"18","3":"NA","4":"NA"},{"1":"4","2":"21","3":"Aberlour","4":"AB38 7RY"},{"1":"4","2":"23","3":"Aberlour","4":"AB38 7RY"},{"1":"5","2":"9","3":"Tobermory","4":"PA75 6NR"},{"1":"5","2":"11","3":"Tobermory","4":"PA75 6NR"},{"1":"6","2":"11","3":"NA","4":"NA"},{"1":"6","2":"12","3":"NA","4":"NA"},{"1":"7","2":"3","3":"NA","4":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+items
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -660,11 +912,152 @@ Note
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>right_data <span class="ot">&lt;-</span> <span class="fu">right_join</span>(customers, orders, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>right_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]},{"label":["items"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"Dufftown","3":"AB55 4DH","4":"10"},{"1":"3","2":"NA","3":"NA","4":"18"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"21"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"23"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"9"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"11"},{"1":"6","2":"NA","3":"NA","4":"11"},{"1":"6","2":"NA","3":"NA","4":"12"},{"1":"7","2":"NA","3":"NA","4":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:right;">
+items
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -691,11 +1084,110 @@ Note
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>inner_data <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(customers, orders, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>inner_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]},{"label":["items"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"Dufftown","3":"AB55 4DH","4":"10"},{"1":"3","2":"NA","3":"NA","4":"18"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"21"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"23"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"9"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"11"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:right;">
+items
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -709,11 +1201,166 @@ Note
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>full_data <span class="ot">&lt;-</span> <span class="fu">full_join</span>(customers, orders, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a>full_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]},{"label":["items"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU","4":"NA"},{"1":"2","2":"Dufftown","3":"AB55 4DH","4":"10"},{"1":"3","2":"NA","3":"NA","4":"18"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"21"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"23"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"9"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"11"},{"1":"6","2":"NA","3":"NA","4":"11"},{"1":"6","2":"NA","3":"NA","4":"12"},{"1":"7","2":"NA","3":"NA","4":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:right;">
+items
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -730,11 +1377,67 @@ Note
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>semi_data <span class="ot">&lt;-</span> <span class="fu">semi_join</span>(customers, orders, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a>semi_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"2","2":"Dufftown","3":"AB55 4DH"},{"1":"3","2":"NA","3":"NA"},{"1":"4","2":"Aberlour","3":"AB38 7RY"},{"1":"5","2":"Tobermory","3":"PA75 6NR"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -759,11 +1462,68 @@ Note
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>semi2_data <span class="ot">&lt;-</span> <span class="fu">semi_join</span>(orders, customers, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>semi2_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"10"},{"1":"3","2":"18"},{"1":"4","2":"21"},{"1":"4","2":"23"},{"1":"5","2":"9"},{"1":"5","2":"11"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+items
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -777,11 +1537,32 @@ Note
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>anti_data <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(customers, orders, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2"></a>anti_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+</tr></tbody>
+</table>
 </div>
 </div>
 </div>
@@ -793,11 +1574,44 @@ Note
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>anti2_data <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(orders, customers, <span class="at">by =</span> <span class="st">"id"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>anti2_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"6","2":"11"},{"1":"6","2":"12"},{"1":"7","2":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+items
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -855,11 +1669,122 @@ Warning
 <span id="cb15-7"><a href="#cb15-7"></a>bindr_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(customers, new_customers)</span>
 <span id="cb15-8"><a href="#cb15-8"></a>bindr_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU"},{"1":"2","2":"Dufftown","3":"AB55 4DH"},{"1":"3","2":"NA","3":"NA"},{"1":"4","2":"Aberlour","3":"AB38 7RY"},{"1":"5","2":"Tobermory","3":"PA75 6NR"},{"1":"6","2":"Falkirk","3":"FK1 4RS"},{"1":"7","2":"Ardbeg","3":"PA42 7EA"},{"1":"8","2":"Doogal","3":"G81 4SJ"},{"1":"9","2":"Kirkwall","3":"KW15 1SE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Falkirk
+</td>
+<td style="text-align:left;">
+FK1 4RS
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+Ardbeg
+</td>
+<td style="text-align:left;">
+PA42 7EA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Doogal
+</td>
+<td style="text-align:left;">
+G81 4SJ
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Kirkwall
+</td>
+<td style="text-align:left;">
+KW15 1SE
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -876,11 +1801,166 @@ Warning
 <span id="cb16-8"><a href="#cb16-8"></a>bindr2_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(customers, new_customers)</span>
 <span id="cb16-9"><a href="#cb16-9"></a>bindr2_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]},{"label":["new"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU","4":"NA"},{"1":"2","2":"Dufftown","3":"AB55 4DH","4":"NA"},{"1":"3","2":"NA","3":"NA","4":"NA"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"NA"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"NA"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"1"},{"1":"6","2":"Falkirk","3":"FK1 4RS","4":"2"},{"1":"7","2":"Ardbeg","3":"PA42 7EA","4":"3"},{"1":"8","2":"Doogal","3":"G81 4SJ","4":"4"},{"1":"9","2":"Kirkwall","3":"KW15 1SE","4":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:right;">
+new
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Falkirk
+</td>
+<td style="text-align:left;">
+FK1 4RS
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+Ardbeg
+</td>
+<td style="text-align:left;">
+PA42 7EA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Doogal
+</td>
+<td style="text-align:left;">
+G81 4SJ
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Kirkwall
+</td>
+<td style="text-align:left;">
+KW15 1SE
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -895,11 +1975,96 @@ Warning
 <span id="cb17-5"><a href="#cb17-5"></a>bindc_data <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(customers, new_info)</span>
 <span id="cb17-6"><a href="#cb17-6"></a>bindc_data </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]},{"label":["colour"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU","4":"red"},{"1":"2","2":"Dufftown","3":"AB55 4DH","4":"orange"},{"1":"3","2":"NA","3":"NA","4":"yellow"},{"1":"4","2":"Aberlour","3":"AB38 7RY","4":"green"},{"1":"5","2":"Tobermory","3":"PA75 6NR","4":"blue"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:left;">
+colour
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+<td style="text-align:left;">
+red
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+<td style="text-align:left;">
+orange
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+yellow
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+<td style="text-align:left;">
+green
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:left;">
+blue
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -970,11 +2135,32 @@ Note
 <span id="cb22-7"><a href="#cb22-7"></a>intersect_data <span class="ot">&lt;-</span> <span class="fu">intersect</span>(customers, new_customers)</span>
 <span id="cb22-8"><a href="#cb22-8"></a>intersect_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"5","2":"Tobermory","3":"PA75 6NR"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+</tr></tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1004,11 +2190,122 @@ Warning
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>union_data <span class="ot">&lt;-</span> <span class="fu">union</span>(customers, new_customers)</span>
 <span id="cb25-2"><a href="#cb25-2"></a>union_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU"},{"1":"2","2":"Dufftown","3":"AB55 4DH"},{"1":"3","2":"NA","3":"NA"},{"1":"4","2":"Aberlour","3":"AB38 7RY"},{"1":"5","2":"Tobermory","3":"PA75 6NR"},{"1":"6","2":"Falkirk","3":"FK1 4RS"},{"1":"7","2":"Ardbeg","3":"PA42 7EA"},{"1":"8","2":"Doogal","3":"G81 4SJ"},{"1":"9","2":"Kirkwall","3":"KW15 1SE"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Falkirk
+</td>
+<td style="text-align:left;">
+FK1 4RS
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+Ardbeg
+</td>
+<td style="text-align:left;">
+PA42 7EA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Doogal
+</td>
+<td style="text-align:left;">
+G81 4SJ
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+Kirkwall
+</td>
+<td style="text-align:left;">
+KW15 1SE
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1054,11 +2351,67 @@ Warning
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>setdiff_data <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(customers, new_customers)</span>
 <span id="cb28-2"><a href="#cb28-2"></a>setdiff_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["city"],"name":[2],"type":["chr"],"align":["left"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"Port Ellen","3":"PA42 7DU"},{"1":"2","2":"Dufftown","3":"AB55 4DH"},{"1":"3","2":"NA","3":"NA"},{"1":"4","2":"Aberlour","3":"AB38 7RY"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+city
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Port Ellen
+</td>
+<td style="text-align:left;">
+PA42 7DU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Dufftown
+</td>
+<td style="text-align:left;">
+AB55 4DH
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Aberlour
+</td>
+<td style="text-align:left;">
+AB38 7RY
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1067,11 +2420,67 @@ Warning
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>setdiff2_data <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(new_customers, customers)</span>
 <span id="cb29-2"><a href="#cb29-2"></a>setdiff2_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["postcode"],"name":[2],"type":["chr"],"align":["left"]},{"label":["city"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"6","2":"FK1 4RS","3":"Falkirk"},{"1":"7","2":"PA42 7EA","3":"Ardbeg"},{"1":"8","2":"G81 4SJ","3":"Doogal"},{"1":"9","2":"KW15 1SE","3":"Kirkwall"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:left;">
+city
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+FK1 4RS
+</td>
+<td style="text-align:left;">
+Falkirk
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+PA42 7EA
+</td>
+<td style="text-align:left;">
+Ardbeg
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+G81 4SJ
+</td>
+<td style="text-align:left;">
+Doogal
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+KW15 1SE
+</td>
+<td style="text-align:left;">
+Kirkwall
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1163,11 +2572,96 @@ $postcode
 <pre><code>Joining, by = "id"</code></pre>
 </div>
 <div class="cell-output-display">
+<div class="kable-table">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["items"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["postcode"],"name":[3],"type":["chr"],"align":["left"]},{"label":["city"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"5","2":"9","3":"PA75 6NR","4":"Tobermory"},{"1":"5","2":"11","3":"PA75 6NR","4":"Tobermory"},{"1":"6","2":"11","3":"FK1 4RS","4":"Falkirk"},{"1":"6","2":"12","3":"FK1 4RS","4":"Falkirk"},{"1":"7","2":"3","3":"PA42 7EA","4":"Ardbeg"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:right;">
+items
+</th>
+<th style="text-align:left;">
+postcode
+</th>
+<th style="text-align:left;">
+city
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+PA75 6NR
+</td>
+<td style="text-align:left;">
+Tobermory
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+FK1 4RS
+</td>
+<td style="text-align:left;">
+Falkirk
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+FK1 4RS
+</td>
+<td style="text-align:left;">
+Falkirk
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+PA42 7EA
+</td>
+<td style="text-align:left;">
+Ardbeg
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -1185,13 +2679,23 @@ $postcode
 <li><p>Read in <code>grade_data2.csv</code> and save it to an object named <code>grades2</code>.</p></li>
 </ul>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>schedule <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/scheduleA.csv"</span>)</span>
 <span id="cb42-2"><a href="#cb42-2"></a>grades1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/grade_data1.csv"</span>) </span>
 <span id="cb42-3"><a href="#cb42-3"></a>grades2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/grade_data2.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 </section><section id="matching-the-variable-types" class="level3" data-number="7.9.2"><h3 data-number="7.9.2" class="anchored" data-anchor-id="matching-the-variable-types">
@@ -1208,16 +2712,26 @@ Solution
 </div>
 <p>Now, transform the data type of <code>id</code> so that it matches the data type in <code>grades2</code>.</p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># check variable types</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="fu">glimpse</span>(grades1)</span>
 <span id="cb44-3"><a href="#cb44-3"></a><span class="fu">glimpse</span>(grades2) </span>
 <span id="cb44-4"><a href="#cb44-4"></a></span>
 <span id="cb44-5"><a href="#cb44-5"></a>grades1 <span class="ot">&lt;-</span> grades1 <span class="sc">%&gt;%</span></span>
 <span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">as.numeric</span>(id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 </section><section id="complete-records" class="level3" data-number="7.9.3"><h3 data-number="7.9.3" class="anchored" data-anchor-id="complete-records">
@@ -1235,12 +2749,22 @@ Hint
 <p>You want to keep all of the data from <code>grade_data1</code> and <code>grade_data2</code>, but you only want the alphanumeric grades from <code>schedule</code> for the Grade Point values that exist in <code>grades</code>. E.g., if no-one was awarded an F1, your final dataset shouldn’t have that in it.</p>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>exam_all <span class="ot">&lt;-</span> <span class="fu">left_join</span>(grades1, schedule, <span class="at">by =</span> <span class="st">"Points"</span>)</span>
 <span id="cb45-2"><a href="#cb45-2"></a>essay_all <span class="ot">&lt;-</span> <span class="fu">left_join</span>(grades2, schedule, <span class="at">by =</span> <span class="st">"Points"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 </section><section id="missing-data" class="level3" data-number="7.9.4"><h3 data-number="7.9.4" class="anchored" data-anchor-id="missing-data">
@@ -1261,12 +2785,22 @@ Solution
 </li>
 </ul>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>exam_grades <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(grades1, schedule, <span class="at">by =</span> <span class="st">"Points"</span>)</span>
 <span id="cb46-2"><a href="#cb46-2"></a>essay_grades <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(grades2, schedule, <span class="at">by =</span> <span class="st">"Points"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="webex-solution">
@@ -1282,14 +2816,24 @@ Alternative solution
 </li>
 </ul>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>completes <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(exam_grades, essay_grades, </span>
 <span id="cb47-2"><a href="#cb47-2"></a>                        <span class="at">by =</span> <span class="st">"id"</span>, </span>
 <span id="cb47-3"><a href="#cb47-3"></a>                        <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">"_exam"</span>, <span class="st">"_essay"</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">select</span>(id, Grade_exam, Grade_essay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 <ul>
@@ -1298,11 +2842,21 @@ Solution
 </ul>
 <p>Now create a dataset <code>no_essay</code> that contains students that have a grade for the exam, but not the essay.</p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>no_essay <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(exam_grades, essay_grades, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 <ul>
@@ -1311,26 +2865,27 @@ Solution
 </ul>
 <p>Finally, now make a dataset <code>no_exam</code> that contains students have have a grade for the essay but not the exam</p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>no_exam <span class="ot">&lt;-</span> <span class="fu">anti_join</span>(essay_grades, exam_grades, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 <ul>
 <li>How many students have a grade for the exam but not the essay? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;15&quot;]">
 </li>
-</ul></section><section id="report" class="level3" data-number="7.9.5"><h3 data-number="7.9.5" class="anchored" data-anchor-id="report">
-<span class="header-section-number">7.9.5</span> Report</h3>
-<p>For the final exercise in this chapter, create a report in R Markdown titled <code>Assessment Report</code>. Assume that you need to present this report at an exam board and you’re likely to be asked for the following information:</p>
-<ul>
-<li>How many students submitted each assessment (essay and exam)?</li>
-<li>What was the average performance in each assessment?</li>
-<li>What was the distribution of grades for each assessment?</li>
-</ul>
-<p>In preparation for the summative assessment, how you do this and what information you present is up to you. You can use plots or tables to present data, as well as inline code to make sure values reported in the text match the data, even after the underlying data files get updated with late grades. When you’re done, post your code and knitted html document in the week 6 Teams channel.</p>
-</section></section><section id="sec-glossary-joins" class="level2" data-number="7.10"><h2 data-number="7.10" class="anchored" data-anchor-id="sec-glossary-joins">
+</ul></section></section><section id="sec-glossary-joins" class="level2" data-number="7.10"><h2 data-number="7.10" class="anchored" data-anchor-id="sec-glossary-joins">
 <span class="header-section-number">7.10</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
 
