@@ -792,7 +792,7 @@ library(DT)            # for interactive tables
 You'll need to make a folder called "data" and download data files into it: 
 <a href="https://psyteachr.github.io/ads-v2/data/amazon_alexa.csv" download>amazon_alexa.csv</a> and <a href="https://psyteachr.github.io/ads-v2/data/scottish_population.csv" download>scottish_population.csv</a>.
 
-### Linked documents
+### Linked documents {#sec-linked-docs}
 
 If you need to create longer reports with links between sections, you can edit the YAML to use a bookdown format. `bookdown::html_document2` is a useful one that adds figure and table numbers automatically to any figures or tables with a caption and allows you to link to these by reference.
 

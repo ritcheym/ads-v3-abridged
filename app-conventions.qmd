@@ -64,7 +64,7 @@ Notes about things that could cause serious errors.
 Notes about things that are important.
 :::
 
-::: {.callout-note .callout-note .try collapse="true"}
+::: {.callout-note .try collapse="true"}
 ## Try (click to expand)
 Try it yourself.
 :::
