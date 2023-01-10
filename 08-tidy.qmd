@@ -313,11 +313,15 @@ You often need to go from wide, to long, to an intermediate shape in order to ge
 
 Our full `untidy_data` table has seven columns: a customer ID, three columns for `itemsprice` and 3 columns for `totalprice`.
 
-`r untidy_data`
+```{r, echo = FALSE}
+untidy_data
+```
 
 We want to get it into the tidy format below where each row is an observation of one customer per year, with the columns of `customer_id`, `year`, `item`, `price_per_item` and `totalprice`. Before trying to reshape any dataset, you should be able to visualise what it will look like. Sketching out your tables on a piece of paper can really help make these transformations make sense.
 
-`r tidy_data`
+```{r, echo = FALSE}
+tidy_data
+```
 
 ### One observation per row
 
