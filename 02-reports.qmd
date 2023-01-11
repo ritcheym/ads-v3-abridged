@@ -14,7 +14,7 @@ There is a walkthrough video of this chapter available via [Echo360.](https://ec
 
 ## Setup {#sec-setup-reports}
 
-For reference, here are the packages we will use in this chapter. You may need to install them, as explained in @sec-install-package, if running the code below in the console pane gives you an error. 
+For reference, here are the packages we will use in this chapter. You may need to install them, as explained in @sec-install-package, if running the code below in the console pane gives you the error `Error in library(package_name) : there is no package called ‘packagename’`. 
 
 ```{r setup-reports, message=FALSE, filename="Chapter packages"}
 library(tidyverse)  # various data manipulation functions
@@ -34,7 +34,7 @@ First, make a new `r glossary("directory")` (i.e., folder) on your computer wher
 ::: {.callout-caution}
 ## Avoid networked drives
 
-If possible, don't use a network or cloud drive (e.g., OneDrive or Dropbox), as this can sometimes cause problems. 
+If possible, don't use a network or cloud drive (e.g., OneDrive or Dropbox), as this can sometimes cause problems. If you're working from a networked drive and you are having issues, a helpful test is to try moving your project folder to the desktop to see if that solves the problem.
 :::
 
 Next, open <if>Tools > Global Options...</if>, navigate to the <if>General</if> pane, and set the "Default working directory (when not in a project)" to this directory. Now, if you're not working in a project, any files or images you make will be saved in this `r glossary("working directory")`. 
@@ -42,7 +42,7 @@ Next, open <if>Tools > Global Options...</if>, navigate to the <if>General</if> 
 ::: {.callout-caution}
 ## Avoid long path names
 
-On some versions of Windows 10 and 11, it can cause problems if path names are longer than 260 characters. Set your default working directory to a path with a length well below that to avoid problems when R creates temporary files while rendering a report.
+On some versions of Windows 10 and 11, it can cause problems if path names are longer than 260 characters. Set your default working directory to a path with a length well below that to avoid problems when R creates temporary files while rendering a report. If you are having issues, a helpful test is to try moving your project folder to the desktop to see if that solves the problem as this will likely have a much short path name than most other folders on your computer.
 :::
 
 You can set the working directory to another location manually with menu commands: <if>Session > Set Working Directory > Choose Directory...</if> However, there's a better way of organising your files by using Projects in RStudio.
@@ -224,7 +224,7 @@ which is my favourite holiday.
 :::{.callout-caution}
 ## Displaying Plots
 
-You cannot display a plot using inline R. Plots should be displayed from code chunks.
+You cannot display a plot using inline R. Plots should be displayed from code chunks. We'll come back to how to do this soon.
 :::
 
 ### Knitting your file {#sec-rmd-knit}

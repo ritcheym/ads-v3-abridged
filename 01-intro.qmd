@@ -312,7 +312,7 @@ Run the following code in the console, but change the values of `name` and `age`
 
 ```{r objects, filename = "Run in the console"}
 name <- "Emily"
-age <- 37
+age <- 36
 today <- Sys.Date()
 christmas <- as.Date("2023-12-25")
 ```
