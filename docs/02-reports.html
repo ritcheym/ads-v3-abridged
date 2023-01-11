@@ -428,7 +428,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/a8bb45d0-483c-437d-9ea0-c9aa3bd8d7a1/public">Echo360.</a> Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
 </section><section id="sec-setup-reports" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="sec-setup-reports">
 <span class="header-section-number">2.1</span> Setup</h2>
-<p>For reference, here are the packages we will use in this chapter. You may need to install them, as explained in <a href="01-intro.html#sec-install-package"><span>Section&nbsp;1.3.1</span></a>, if running the code below in the console pane gives you an error.</p>
+<p>For reference, here are the packages we will use in this chapter. You may need to install them, as explained in <a href="01-intro.html#sec-install-package"><span>Section&nbsp;1.3.1</span></a>, if running the code below in the console pane gives you the error <code>Error in library(package_name) : there is no package called ‘packagename’</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -456,7 +456,7 @@ Avoid networked drives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If possible, don’t use a network or cloud drive (e.g., OneDrive or Dropbox), as this can sometimes cause problems.</p>
+<p>If possible, don’t use a network or cloud drive (e.g., OneDrive or Dropbox), as this can sometimes cause problems. If you’re working from a networked drive and you are having issues, a helpful test is to try moving your project folder to the desktop to see if that solves the problem.</p>
 </div>
 </div>
 <p>Next, open <if>Tools &gt; Global Options…</if>, navigate to the <if>General</if> pane, and set the “Default working directory (when not in a project)” to this directory. Now, if you’re not working in a project, any files or images you make will be saved in this <a class="glossary" target="_blank" title="The filepath where R is currently reading and writing files." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a>.</p>
@@ -470,7 +470,7 @@ Avoid long path names
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On some versions of Windows 10 and 11, it can cause problems if path names are longer than 260 characters. Set your default working directory to a path with a length well below that to avoid problems when R creates temporary files while rendering a report.</p>
+<p>On some versions of Windows 10 and 11, it can cause problems if path names are longer than 260 characters. Set your default working directory to a path with a length well below that to avoid problems when R creates temporary files while rendering a report. If you are having issues, a helpful test is to try moving your project folder to the desktop to see if that solves the problem as this will likely have a much short path name than most other folders on your computer.</p>
 </div>
 </div>
 <p>You can set the working directory to another location manually with menu commands: <if>Session &gt; Set Working Directory &gt; Choose Directory…</if> However, there’s a better way of organising your files by using Projects in RStudio.</p>
@@ -694,7 +694,7 @@ Displaying Plots
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You cannot display a plot using inline R. Plots should be displayed from code chunks.</p>
+<p>You cannot display a plot using inline R. Plots should be displayed from code chunks. We’ll come back to how to do this soon.</p>
 </div>
 </div>
 </section><section id="sec-rmd-knit" class="level3" data-number="2.3.5"><h3 data-number="2.3.5" class="anchored" data-anchor-id="sec-rmd-knit">
@@ -703,7 +703,7 @@ Displaying Plots
 <p>R Markdown will create and display a new HTML document, but it will also automatically save this file in your working directory.</p>
 <p>As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.</p>
 <blockquote class="blockquote">
-<p>My name is Emily and I am 36 years old. It is 355 days until Christmas, which is my favourite holiday.</p>
+<p>My name is Emily and I am 36 years old. It is 348 days until Christmas, which is my favourite holiday.</p>
 </blockquote>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -856,7 +856,7 @@ View sales_local
 <div class="cell-output-display">
 <div class="kable-table">
 
-<table>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
 PRODUCTLINE
@@ -1525,10 +1525,18 @@ Solution
 </div>
 <p>Display the table with purple italic column headers. Try different styles using <pkg>kableExtra</pkg> (<a href="#sec-rmd-tables"><span>Section&nbsp;2.5.5</span></a>).</p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>k <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable</span>(tasks)</span>
 <span id="cb36-2"><a href="#cb36-2"></a>k_style <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">kable_minimal</span>(k)</span>
 <span id="cb36-3"><a href="#cb36-3"></a>k_highlight <span class="ot">&lt;-</span> kableExtra<span class="sc">::</span><span class="fu">row_spec</span>(k_style,</span>
@@ -1565,19 +1573,31 @@ Solution
 </div>
 </div>
 </div>
+</div>
+</div>
 </section><section id="sec-exercises-reports-images" class="level3" data-number="2.7.5"><h3 data-number="2.7.5" class="anchored" data-anchor-id="sec-exercises-reports-images">
 <span class="header-section-number">2.7.5</span> Images</h3>
 <p>Add an image of anything relevant (<a href="#sec-rmd-images"><span>Section&nbsp;2.5.4</span></a>).</p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="webex-solution">
-<button>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"https://psyteachr.github.io/ads-v2/images/logos/logo.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="https://psyteachr.github.io/ads-v2/images/logos/logo.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
+</div>
+</div>
 </div>
 </div>
 </div>
