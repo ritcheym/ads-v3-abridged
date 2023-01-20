@@ -10,7 +10,7 @@ Download the [R Markdown Cheat Sheet](https://www.rstudio.org/links/r_markdown_c
 
 ## Walkthrough video {#sec-walkthrough-reports .unnumbered}
 
-There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/a8bb45d0-483c-437d-9ea0-c9aa3bd8d7a1/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/6b6c1c8f-c24f-44c1-9e43-988fe577ce5b/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
 ## Setup {#sec-setup-reports}
 
