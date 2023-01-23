@@ -355,7 +355,7 @@ Just putting an object by itself on a line "prints" it. @sec-rmd-tables will sho
 
 ### Text formatting {#sec-markdown}
 
-You can use the visual `r glossary("markdown")` editor if you have RStudio version 1.4 or higher. This will be a button at the top of the source pane with a pen tip and the menu options should be very familiar to anyone who has worked with software like Microsoft Word.
+You can use the visual `r glossary("markdown")` editor if you have RStudio version 1.4 or higher. This will be a button at the top of the source pane and the menu options should be very familiar to anyone who has worked with software like Microsoft Word.
 
 ```{r fig-visual-editor, echo = FALSE, fig.cap="The visual editor."}
 include_graphics("images/reports/visual-editor.png")
