@@ -157,7 +157,7 @@ demo_sav <- haven::read_sav("data/demo.sav")
 Look at the help for each function above and read through the Arguments section to see how you can customise import.
 :::
 
-If you keep data in Google Sheets, you can access it directly from R using <pkg>googlesheets4", "https://googlesheets4.tidyverse.org/")`. The code below imports data from a [public sheet](https://docs.google.com/spreadsheets/d/16dkq0YL0J7fyAwT1pdgj1bNNrheckAU_2-DKuuM6aGI){target="_blank"}. You can set the `ss` argument to the entire `r glossary("URL")` for the target sheet, or just the section after "https://docs.google.com/spreadsheets/d/".
+If you keep data in Google Sheets, you can access it directly from R using `<pkg>googlesheets4", "https://googlesheets4.tidyverse.org/")`. The code below imports data from a [public sheet](https://docs.google.com/spreadsheets/d/16dkq0YL0J7fyAwT1pdgj1bNNrheckAU_2-DKuuM6aGI){target="_blank"}. You can set the `ss` argument to the entire `r glossary("URL")` for the target sheet, or just the section after "https://docs.google.com/spreadsheets/d/".
 
 ```{r, message = FALSE}
 gs4_deauth() # skip authorisation for public data
@@ -382,22 +382,9 @@ When importing goes wrong, it's often easier to fix it using the  specific impor
 mess <- read_csv("data/mess.csv", lazy = FALSE)
 ```
 
-`r head(mess)`
-
 You'll get a warning about parsing issues and the data table is just a single column. View the file `data/mess.csv` by clicking on it in the File pane, and choosing "View File". Here are the first 10 lines. What went wrong?
 
-```
-This is my messy dataset
-
-junk,order,score,letter,good,min_max,date
-junk,1,-1,a,1,1 - 2,2020-01-1
-
-junk,missing,0.72,b,1,2 - 3,2020-01-2
-
-junk,3,-0.62,c,FALSE,3 - 4,2020-01-3
-
-junk,4,2.03,d,T,4 - 5,2020-01-4
-```
+`r head(mess)`
 
 First, the file starts with a note: "This is my messy dataset" and then a blank line. The first line of data should be the column headings, so we want to skip the first two lines. You can do this with the argument `skip` in `read_csv()`.
 
