@@ -26,6 +26,8 @@ Download the [Data transformation cheat sheet](https://raw.githubusercontent.com
 
 In this chapter we're going to analyse social media data, specifically data from Twitter. There are two broad types of data you can obtain from Twitter; data scraped from Twitter using purpose-built packages such as <pkg>rtweet</pkg>, and data provided via [Twitter Analytics](https://analytics.twitter.com/) for any accounts for which you have access. 
 
+**This chapter was written in late 2020 and a lot of things have changed at Twitter since then. Importantly, starting 9th February 2023, Twitter have announced that access to their API will no longer be free, which means that the search functions below will not work unless you have a paid account. We have provided the data you need for this chapter so it is not a problem for your learning and in version 3 of ADS, we will remove any reliance on Twitter data.**
+
 For this chapter, we'll use data scraped from Twitter using <pkg>rtweet</pkg>. In order to use these functions, you need to have a Twitter account. Don't worry if you don't have one; we'll provide the data in the examples below for you.
 
 <pkg>rtweet</pkg> has a lot of flexibility, for example, you can search for tweets that contain a certain hashtag or word, tweets by a specific user, or tweets that meet certain conditions like location or whether the user is verified. 
