@@ -718,18 +718,28 @@ install.packages("tinytex")
 tinytex::install_tinytex()
 ```
 
-Once you've done this, update your YAML heading to replace `html_dcoument` with `pdf_document` and knit a PDF document.
+Once you've done this, update your YAML heading to add a `pdf_document` section and knit a PDF document. The options for PDFs are more limited than for HTML documents, so if you just replace `html_document` with `pdf_document`, you may need to remove some options, such as `toc_float` if you get an error that looks like "Functions that produce HTML output found in document targeting PDF output."
 
     ---
     output:
       pdf_document:
+        toc: TRUE
+      html_document:
+        toc: TRUE
+        toc_float: TRUE
     ---
 
-As an alternative, you can also knit to a Word document.
+As an alternative, you can also knit to a Word document. When you click the **`Knit`** button, the first format will knit by default, but you can use the drop-down menu under the Knit button to choose another format.
 
     ---
     output:
+      pdf_document:
+        toc: TRUE
+      html_document:
+        toc: TRUE
+        toc_float: TRUE
       word_document:
+        toc: TRUE
     ---
     
 ::: {.callout-warning}
