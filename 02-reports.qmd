@@ -742,7 +742,7 @@ If you encounter errors, ask on Teams for help - knitting to PDF or Word can be 
 
 This chapter has covered a lot but hopefully now you have a much better idea of what Markdown is able to do. Whilst working in Markdown takes longer in the initial set-up stage, once you have a fully reproducible report you can plug in new data each week or month and simply click knit, reducing duplication of effort, and the human error that comes with it.
 
-You can access a [working R Markdown file](demos/important_info.Rmd){download="important_info.Rmd"} with the code from the example above to compare to your own code.
+You can access a [working R Markdown file](demos/sales_data.Rmd){download="important_info.Rmd"} with the code from the example above to compare to your own code.
 
 As you continue to work through the book you will learn how to wrangle and analyse your data and how to use Markdown to present it. We'll slowly build on the available customisation options so over the course of next few weeks, you'll find your Markdown reports start to look more polished and professional.
 
