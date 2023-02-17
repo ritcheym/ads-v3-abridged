@@ -497,7 +497,7 @@ We're going to use the built-in `starwars` dataset that contains data about Star
 
 `r hide()`
 
-```{r eval = FALSE}
+```{r eval = TRUE}
 data(starwars)
 export(starwars, "data/starwars.csv")
 starwars <- read_csv("data/starwars.csv")
@@ -513,7 +513,7 @@ starwars <- read_csv("data/starwars.csv")
 
 `r hide()`
 
-```{r eval = FALSE}
+```{r eval = TRUE}
 spec(starwars)
 corrected_cols <- cols(
   name = col_character(),
@@ -563,7 +563,7 @@ ggplot(starwars, aes(height, mass)) +
 ```{r echo  = FALSE}
 ggplot(starwars, aes(x = gender, fill = gender)) +
   geom_bar(show.legend = FALSE, colour = "black") +
-  scale_x_discrete(name = "Gender of character", labels = (c("Feminine", "Masculine", "Missing"))) +
+  scale_x_discrete(name = "Gender of character", labels = (c("Masculine", "Feminine", "Missing"))) +
   scale_fill_brewer(palette = 2) +
   theme_bw() +
   labs(title = "Number of Star Wars characters of each gender")
