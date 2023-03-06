@@ -7,7 +7,7 @@
 
 ## Walkthrough video {#sec-walkthrough-joins .unnumbered}
 
-There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/154a2d81-466d-4bfa-9307-df3f125ebfac/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/519bb538-58b3-4710-85df-d71c56001a5d/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
 ## Set-up {#sec-setup-joins}
 
