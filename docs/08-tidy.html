@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.269">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - 8&nbsp; Data Tidying</title>
 <style>
@@ -383,7 +383,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <li>Separate, change, reorder, and rename columns</li>
 <li>Use pipes to chain together functions</li>
 </ul></section><section id="sec-walkthrough-tidy" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-tidy">Walkthrough video</h2>
-<p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/a38a7789-9531-4908-9a0f-4509d638a0ca/public">Echo360.</a> Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
+<p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/3f9cbd60-622e-4128-95e7-d825e5fa922c/public">Echo360</a>. Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
 </section><section id="sec-setup-tidy" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="sec-setup-tidy">
 <span class="header-section-number">8.1</span> Set-up</h2>
 <p>First, create a new project for the work we’ll do in this chapter named <code class="path">08-tidy</code>. Second, open and save and new R Markdown document named <code>tidy.Rmd</code>, delete the welcome text and load the required packages for this chapter.</p>
@@ -537,11 +537,15 @@ Explain these answers
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>untidy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/untidy_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="tbl-untidy-data" class="cell tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Untidy table</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="kable-table">
 
-<table>
-<caption>
-Untidy table
-</caption>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:right;">
 customer_id
@@ -683,6 +687,10 @@ totalprice_2020
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
 <ul>
 <li>The <code>itemsprice_{year}</code> columns contain two values (number of items and price per item)</li>
 <li>The <code>totalprice_{year}</code> columns contain the total amount spent by that customer that year, i.e., items * price.</li>
@@ -722,286 +730,13 @@ Note
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/tidy_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 
-<table>
-<caption>
-Tidy table
-</caption>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-items
-</th>
-<th style="text-align:right;">
-price_per_item
-</th>
-<th style="text-align:right;">
-totalprice
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-7.82
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-37.76
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-55.90
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-28.32
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-15.64
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-23.60
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-27.95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-39.10
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-16.77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3.91
-</td>
-<td style="text-align:right;">
-11.73
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-42.48
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-5.59
-</td>
-<td style="text-align:right;">
-44.72
-</td>
-</tr>
-</tbody>
-</table>
+<div id="htmlwidget-068bb33ee6c648c062f3" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-068bb33ee6c648c062f3">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],[3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59],[7.82,37.76,55.9,3.91,28.32,5.59,15.64,23.6,27.95,39.1,4.72,16.77,11.73,42.48,44.72]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render"],"jsHooks":[]}</script>
+</div>
+</div>
 <ul>
 <li>There are now five variables (columns) because there are five different types of information we have for each observation: the customer id, the year, number of items bought, price per item, and total price.</li>
 <li>Each row is a customer’s orders in a particular year.</li>
@@ -1150,50 +885,104 @@ Warning
 <span id="cb6-7"><a href="#cb6-7"></a>  <span class="st">`</span><span class="at">2020</span><span class="st">`</span> <span class="ot">=</span> totalprice_2020</span>
 <span id="cb6-8"><a href="#cb6-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="tbl-wide-data" class="cell tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Wide table</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="kable-table">
 
-<table>
-<caption>Wide data</caption>
- <thead><tr>
-<th style="text-align:right;"> customer_id </th>
-   <th style="text-align:right;"> 2018 </th>
-   <th style="text-align:right;"> 2019 </th>
-   <th style="text-align:right;"> 2020 </th>
-  </tr></thead>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<thead><tr>
+<th style="text-align:right;">
+customer_id
+</th>
+<th style="text-align:right;">
+2018
+</th>
+<th style="text-align:right;">
+2019
+</th>
+<th style="text-align:right;">
+2020
+</th>
+</tr></thead>
 <tbody>
 <tr>
-<td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 7.82 </td>
-   <td style="text-align:right;"> 37.76 </td>
-   <td style="text-align:right;"> 55.90 </td>
-  </tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7.82
+</td>
+<td style="text-align:right;">
+37.76
+</td>
+<td style="text-align:right;">
+55.90
+</td>
+</tr>
 <tr>
-<td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 3.91 </td>
-   <td style="text-align:right;"> 28.32 </td>
-   <td style="text-align:right;"> 5.59 </td>
-  </tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3.91
+</td>
+<td style="text-align:right;">
+28.32
+</td>
+<td style="text-align:right;">
+5.59
+</td>
+</tr>
 <tr>
-<td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 15.64 </td>
-   <td style="text-align:right;"> 23.60 </td>
-   <td style="text-align:right;"> 27.95 </td>
-  </tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+15.64
+</td>
+<td style="text-align:right;">
+23.60
+</td>
+<td style="text-align:right;">
+27.95
+</td>
+</tr>
 <tr>
-<td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 39.10 </td>
-   <td style="text-align:right;"> 4.72 </td>
-   <td style="text-align:right;"> 16.77 </td>
-  </tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+39.10
+</td>
+<td style="text-align:right;">
+4.72
+</td>
+<td style="text-align:right;">
+16.77
+</td>
+</tr>
 <tr>
-<td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 11.73 </td>
-   <td style="text-align:right;"> 42.48 </td>
-   <td style="text-align:right;"> 44.72 </td>
-  </tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+11.73
+</td>
+<td style="text-align:right;">
+42.48
+</td>
+<td style="text-align:right;">
+44.72
+</td>
+</tr>
 </tbody>
 </table>
+</div>
+</div>
 </div>
 </div>
 <p>This is in wide format, where each row is a customer, and represents the data from several years. This is a really intuitive way for humans to read a table, but it’s not as easy to process with code.</p>
@@ -1208,91 +997,8 @@ Warning
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<table>
-<caption>Long data</caption>
- <thead><tr>
-<th style="text-align:right;"> customer_id </th>
-   <th style="text-align:left;"> year </th>
-   <th style="text-align:right;"> totalprice </th>
-  </tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 2018 </td>
-   <td style="text-align:right;"> 7.82 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 2019 </td>
-   <td style="text-align:right;"> 37.76 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> 2020 </td>
-   <td style="text-align:right;"> 55.90 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 2018 </td>
-   <td style="text-align:right;"> 3.91 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 2019 </td>
-   <td style="text-align:right;"> 28.32 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> 2020 </td>
-   <td style="text-align:right;"> 5.59 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> 2018 </td>
-   <td style="text-align:right;"> 15.64 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> 2019 </td>
-   <td style="text-align:right;"> 23.60 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> 2020 </td>
-   <td style="text-align:right;"> 27.95 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 2018 </td>
-   <td style="text-align:right;"> 39.10 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 2019 </td>
-   <td style="text-align:right;"> 4.72 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> 2020 </td>
-   <td style="text-align:right;"> 16.77 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> 2018 </td>
-   <td style="text-align:right;"> 11.73 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> 2019 </td>
-   <td style="text-align:right;"> 42.48 </td>
-  </tr>
-<tr>
-<td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> 2020 </td>
-   <td style="text-align:right;"> 44.72 </td>
-  </tr>
-</tbody>
-</table>
+<div id="htmlwidget-f3e0ab314bd8f55b1313" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f3e0ab314bd8f55b1313">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],["2018","2019","2020","2018","2019","2020","2018","2019","2020","2018","2019","2020","2018","2019","2020"],[7.82,37.76,55.9,3.91,28.32,5.59,15.64,23.6,27.95,39.1,4.72,16.77,11.73,42.48,44.72]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
 </div>
 </div>
 <p>It also makes it very easy to use with <code>ggplot()</code>. Run the following plot, and consider how you’d make it with the wide version (it is likely impossible).</p>
@@ -1448,11 +1154,15 @@ Note
 <span id="cb10-6"><a href="#cb10-6"></a>  <span class="at">values_from =</span> totalprice <span class="co"># the new column values</span></span>
 <span id="cb10-7"><a href="#cb10-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="tbl-wide-pivot" class="cell tbl-parent quarto-layout-panel anchored">
+<div class="panel-caption table-caption">
+<p>Data made wider with pivot_wider()</p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="kable-table">
 
-<table>
-<caption>
-Data made wider with pivot_wider()
-</caption>
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
 <th style="text-align:left;">
 year
@@ -1535,7 +1245,12 @@ C_5
 </td>
 </tr>
 </tbody>
-</table></section></section><section id="sec-multistep" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="sec-multistep">
+</table>
+</div>
+</div>
+</div>
+</div>
+</section></section><section id="sec-multistep" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="sec-multistep">
 <span class="header-section-number">8.4</span> Multi-step tidying</h2>
 <p>You often need to go from wide, to long, to an intermediate shape in order to get your data into a format that is useful for plotting, where there is a column for each variable that you want to represent with an aesthetic.</p>
 <p>Our full <code>untidy_data</code> table has seven columns: a customer ID, three columns for <code>itemsprice</code> and 3 columns for <code>totalprice</code>.</p>
@@ -1692,8 +1407,8 @@ totalprice_2020
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 
-<div id="htmlwidget-8c67a176d3acbf8a3884" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8c67a176d3acbf8a3884">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],[3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59],[7.82,37.76,55.9,3.91,28.32,5.59,15.64,23.6,27.95,39.1,4.72,16.77,11.73,42.48,44.72]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render"],"jsHooks":[]}</script>
+<div id="htmlwidget-a6cfeedb08eaafeca5d7" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a6cfeedb08eaafeca5d7">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],[3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59],[7.82,37.76,55.9,3.91,28.32,5.59,15.64,23.6,27.95,39.1,4.72,16.77,11.73,42.48,44.72]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render"],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="one-observation-per-row" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="one-observation-per-row">
@@ -1715,448 +1430,14 @@ totalprice_2020
 <span id="cb11-11"><a href="#cb11-11"></a>  <span class="at">values_transform =</span> <span class="fu">list</span>(<span class="at">value =</span> as.character) </span>
 <span id="cb11-12"><a href="#cb11-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 
-<table>
-<caption>
-Untidy data converted from wide to long.
-</caption>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:left;">
-category
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:left;">
-value
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-2 (3.91)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-8 (4.72)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-10 (5.59)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-7.82
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-37.76
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-55.9
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-1 (3.91)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-6 (4.72)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-1 (5.59)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-28.32
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-4 (3.91)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-5 (4.72)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-5 (5.59)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-15.64
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-23.6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-27.95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-10 (3.91)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-1 (4.72)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-3 (5.59)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-39.1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-16.77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-3 (3.91)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-9 (4.72)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-itemsprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-8 (5.59)
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-11.73
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-42.48
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-totalprice
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-44.72
-</td>
-</tr>
-</tbody>
-</table></section><section id="one-variable-per-column" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="one-variable-per-column">
+<div id="htmlwidget-bdf75e25f5de97246f84" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bdf75e25f5de97246f84">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5],["itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice"],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],["2 (3.91)","8 (4.72)","10 (5.59)","7.82","37.76","55.9","1 (3.91)","6 (4.72)","1 (5.59)","3.91","28.32","5.59","4 (3.91)","5 (4.72)","5 (5.59)","15.64","23.6","27.95","10 (3.91)","1 (4.72)","3 (5.59)","39.1","4.72","16.77","3 (3.91)","9 (4.72)","8 (5.59)","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>category<\/th>\n      <th>year<\/th>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</section><section id="one-variable-per-column" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="one-variable-per-column">
 <span class="header-section-number">8.4.2</span> One variable per column</h3>
 <p>Now this table is long, but not tidy. The <code>value</code> column contains data from two different variables. We need to make the table wider, but not as wide as before. We want to keep the <code>year</code> column and make new columns called <code>itemsprice</code> and <code>totalprice</code> with the relevant customer’s <code>value</code> for that variable and year.</p>
 <div class="cell" data-layout-align="center">
@@ -2167,238 +1448,13 @@ totalprice
 <span id="cb12-5"><a href="#cb12-5"></a>  <span class="at">values_from =</span> value</span>
 <span id="cb12-6"><a href="#cb12-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 
-<table>
-<caption>
-Data converted from long to an intermediate shape.
-</caption>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:left;">
-itemsprice
-</th>
-<th style="text-align:left;">
-totalprice
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-2 (3.91)
-</td>
-<td style="text-align:left;">
-7.82
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-8 (4.72)
-</td>
-<td style="text-align:left;">
-37.76
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-10 (5.59)
-</td>
-<td style="text-align:left;">
-55.9
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-1 (3.91)
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-6 (4.72)
-</td>
-<td style="text-align:left;">
-28.32
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-1 (5.59)
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-4 (3.91)
-</td>
-<td style="text-align:left;">
-15.64
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-5 (4.72)
-</td>
-<td style="text-align:left;">
-23.6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-5 (5.59)
-</td>
-<td style="text-align:left;">
-27.95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-10 (3.91)
-</td>
-<td style="text-align:left;">
-39.1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-1 (4.72)
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-3 (5.59)
-</td>
-<td style="text-align:left;">
-16.77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:left;">
-3 (3.91)
-</td>
-<td style="text-align:left;">
-11.73
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:left;">
-9 (4.72)
-</td>
-<td style="text-align:left;">
-42.48
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:left;">
-8 (5.59)
-</td>
-<td style="text-align:left;">
-44.72
-</td>
-</tr>
-</tbody>
-</table>
+<div id="htmlwidget-1a016b97394491d87468" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1a016b97394491d87468">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],["2 (3.91)","8 (4.72)","10 (5.59)","1 (3.91)","6 (4.72)","1 (5.59)","4 (3.91)","5 (4.72)","5 (5.59)","10 (3.91)","1 (4.72)","3 (5.59)","3 (3.91)","9 (4.72)","8 (5.59)"],["7.82","37.76","55.9","3.91","28.32","5.59","15.64","23.6","27.95","39.1","4.72","16.77","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>itemsprice<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
+</div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2425,286 +1481,13 @@ Note
 <span id="cb13-7"><a href="#cb13-7"></a>  <span class="at">convert =</span> <span class="cn">TRUE</span> <span class="co"># whether to fix the data type of the new columns</span></span>
 <span id="cb13-8"><a href="#cb13-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 
-<table>
-<caption>
-The itemsprice column split into items and price_per_item using separate()
-</caption>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-items
-</th>
-<th style="text-align:left;">
-price_per_item
-</th>
-<th style="text-align:left;">
-totalprice
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-(3.91)
-</td>
-<td style="text-align:left;">
-7.82
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:left;">
-(4.72)
-</td>
-<td style="text-align:left;">
-37.76
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:left;">
-(5.59)
-</td>
-<td style="text-align:left;">
-55.9
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-(3.91)
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-(4.72)
-</td>
-<td style="text-align:left;">
-28.32
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-(5.59)
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-(3.91)
-</td>
-<td style="text-align:left;">
-15.64
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-(4.72)
-</td>
-<td style="text-align:left;">
-23.6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-(5.59)
-</td>
-<td style="text-align:left;">
-27.95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:left;">
-(3.91)
-</td>
-<td style="text-align:left;">
-39.1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-(4.72)
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-(5.59)
-</td>
-<td style="text-align:left;">
-16.77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-(3.91)
-</td>
-<td style="text-align:left;">
-11.73
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:left;">
-(4.72)
-</td>
-<td style="text-align:left;">
-42.48
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:left;">
-(5.59)
-</td>
-<td style="text-align:left;">
-44.72
-</td>
-</tr>
-</tbody>
-</table>
+<div id="htmlwidget-f5cbe9e99727bd83c54e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f5cbe9e99727bd83c54e">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],["(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)"],["7.82","37.76","55.9","3.91","28.32","5.59","15.64","23.6","27.95","39.1","4.72","16.77","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
+</div>
+</div>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2732,286 +1515,14 @@ Warning
 <span id="cb14-7"><a href="#cb14-7"></a>  )</span>
 <span id="cb14-8"><a href="#cb14-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 
-<table>
-<caption>
-Mutating data to remove the parentheses from price_per_item.
-</caption>
-<thead><tr>
-<th style="text-align:right;">
-customer_id
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-items
-</th>
-<th style="text-align:left;">
-price_per_item
-</th>
-<th style="text-align:left;">
-totalprice
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-<td style="text-align:left;">
-7.82
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-<td style="text-align:left;">
-37.76
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-<td style="text-align:left;">
-55.9
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-<td style="text-align:left;">
-28.32
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-<td style="text-align:left;">
-15.64
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-<td style="text-align:left;">
-23.6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-<td style="text-align:left;">
-27.95
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-<td style="text-align:left;">
-39.1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-<td style="text-align:left;">
-16.77
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2018
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-3.91
-</td>
-<td style="text-align:left;">
-11.73
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2019
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:left;">
-4.72
-</td>
-<td style="text-align:left;">
-42.48
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:left;">
-5.59
-</td>
-<td style="text-align:left;">
-44.72
-</td>
-</tr>
-</tbody>
-</table></section><section id="fixing-data-types" class="level3" data-number="8.4.5"><h3 data-number="8.4.5" class="anchored" data-anchor-id="fixing-data-types">
+<div id="htmlwidget-5b9cc4bc14e909363de6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5b9cc4bc14e909363de6">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],["3.91","4.72","5.59","3.91","4.72","5.59","3.91","4.72","5.59","3.91","4.72","5.59","3.91","4.72","5.59"],["7.82","37.76","55.9","3.91","28.32","5.59","15.64","23.6","27.95","39.1","4.72","16.77","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</section><section id="fixing-data-types" class="level3" data-number="8.4.5"><h3 data-number="8.4.5" class="anchored" data-anchor-id="fixing-data-types">
 <span class="header-section-number">8.4.5</span> Fixing data types</h3>
 <p>The <code>price_per_item</code> and <code>totalprice</code> columns are still characters, so you can’t do things like calculate the sum of <code>totalprice</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -3486,7 +1997,7 @@ Hint
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="08-tidy_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="08-tidy_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -3518,7 +2029,7 @@ Solution
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="08-tidy_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="08-tidy_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -3550,7 +2061,7 @@ Solution
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="08-tidy_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="08-tidy_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>

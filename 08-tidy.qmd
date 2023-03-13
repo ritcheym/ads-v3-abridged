@@ -37,7 +37,7 @@ write_csv(untidy_data, "data/untidy_data.csv")
 
 ## Walkthrough video {#sec-walkthrough-tidy .unnumbered}
 
-There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/a38a7789-9531-4908-9a0f-4509d638a0ca/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is a walkthrough video of this chapter available via [Echo360](https://echo360.org.uk/media/3f9cbd60-622e-4128-95e7-d825e5fa922c/public). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
 ## Set-up {#sec-setup-tidy}
 
@@ -106,7 +106,10 @@ First, let's have a look at an example of a messy, or untidy, dataset. Each row 
 untidy_data <- read_csv("data/untidy_data.csv", show_col_types = FALSE)
 ```
 
-`r kable(untidy_data, caption = "Untidy table")`
+```{r tbl-untidy-data, echo = FALSE}
+#| tbl-cap: Untidy table
+untidy_data
+```
 
 * The `itemsprice_{year}` columns contain two values (number of items and price per item)
 * The `totalprice_{year}` columns contain the total amount spent by that customer that year, i.e., items * price.
@@ -140,7 +143,10 @@ This is the tidy version:
 tidy_data <- read_csv("data/tidy_data.csv", show_col_types = FALSE)
 ```
 
-`r kable(tidy_data, caption = "Tidy table")`
+```{r tbl-tidy-data, echo = FALSE}
+#| tbl-cap: Tidy table
+tidy_data
+```
 
 * There are now five variables (columns) because there are five different types of information we have for each observation: the customer id, the year, number of items bought, price per item, and total price. 
 * Each row is a customer's orders in a particular year. 
@@ -203,8 +209,9 @@ wide_totalprice <- select(
 ```
 
 
-```{r wide-data, echo = FALSE}
-kable(wide_totalprice, caption = "Wide data")
+```{r tbl-wide-data, echo = FALSE}
+#| tbl-cap: Wide table
+wide_totalprice
 ```
 
 This is in wide format, where each row is a customer, and represents the data from several years. This is a really intuitive way for humans to read a table, but it's not as easy to process with code.
@@ -219,10 +226,11 @@ long_totalprice <- pivot_longer(
   values_to = "totalprice")
 ```
 
-```{r, echo = FALSE}
-kable(long_totalprice, caption = "Long data")
-```
 
+```{r tbl-long-data, echo = FALSE}
+#| tbl-cap: Long table
+long_totalprice
+```
 
 
 It also makes it very easy to use with `ggplot()`. Run the following plot, and consider how you'd make it with the wide version (it is likely impossible).
@@ -305,7 +313,11 @@ wide_by_customer <- pivot_wider(
 )
 ```
 
-`r kable(wide_by_customer, caption = "Data made wider with pivot_wider()")`
+```{r tbl-wide-pivot, echo = FALSE}
+#| tbl-cap: Data made wider with pivot_wider()
+wide_by_customer
+```
+
 
 ## Multi-step tidying {#sec-multistep}
 
@@ -346,7 +358,11 @@ longer_data <- pivot_longer(
 )
 ```
 
-`r kable(longer_data, caption = "Untidy data converted from wide to long.")`
+```{r tbl-wide-to-long, echo = FALSE}
+#| tbl-cap: Untidy data converted from wide to long.
+longer_data
+```
+
 
 ### One variable per column
 
@@ -361,7 +377,12 @@ wider_data <- pivot_wider(
 )
 ```
 
-`r kable(wider_data, caption = "Data converted from long to an intermediate shape.")`
+
+```{r tbl-intermediate, echo = FALSE}
+#| tbl-cap: Data converted from long to an intermediate shape.
+wider_data
+```
+
 
 ::: {.callout-note}
 Techinically, you can skip setting the `id_cols` argument, because all of the columns apart from the `names_from` column and the `values_from` column identify the observation (e.g., each observation is identified by the unique combination of `customer_id` and `year`). You only have to set the `id_cols` argument when this is not the case.
@@ -382,7 +403,11 @@ split_data <- separate(
 )
 ```
 
-`r kable(split_data, caption = "The itemsprice column split into items and price_per_item using separate()")`
+
+```{r tbl-split, echo = FALSE}
+#| tbl-cap: The itemsprice column split into items and price_per_item using separate().
+split_data
+```
 
 ::: {.callout-warning}
 If the new columns should have a different `r glossary("data type")` from the old column, set `convert = TRUE` to automatically fix them. This is common when you have columns that contain multiple numbers, separated by commas or semicolons. These are character types before they are separated, but should be numeric types after so that you can do mathematical operations like sum them.
@@ -405,7 +430,11 @@ mutated_data <- mutate(
 )
 ```
 
-`r kable(mutated_data, caption = "Mutating data to remove the parentheses from price_per_item.")`
+```{r tbl-mutate, echo = FALSE}
+#| tbl-cap: Mutating data to remove the parentheses from price_per_item.
+mutated_data
+```
+
 
 ### Fixing data types
 
