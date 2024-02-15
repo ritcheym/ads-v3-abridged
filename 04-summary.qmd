@@ -1,5 +1,7 @@
 # Data Summaries {#sec-summary}
 
+THIS CHAPTER IS CURRENTLY UNDERGOING REVISION
+
 ## Intended Learning Outcomes {#sec-ilo-summary .unnumbered}
 
 * Be able to summarise data by groups
@@ -8,51 +10,19 @@
 
 ## Walkthrough video {#sec-walkthrough-summary .unnumbered}
 
-There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/6783dc21-2603-4579-bc19-5ae971638e85/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is a walkthrough video of this chapter available via [Echo360](). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
 ## Set-up {#sec-setup-summary}
 
-First, create a new project for the work we'll do in this chapter named `r path("05-summary")`. Second, download the data for this chapter (<a href="data/ncod_tweets.rds" download>ncod_tweets.rds</a>) and save it in your project data folder. Finally, open and save and new R Markdown document named `summary.Rmd`, delete the welcome text and load the required packages for this chapter.
+First, create a new project for the work we'll do in this chapter named `r path("04-summary")`. Second, download the data for this chapter (<a href="data/ncod_tweets.rds" download>ncod_tweets.rds</a>) and save it in your project data folder. Finally, open and save and new R Markdown document named `summary.Rmd`, delete the welcome text and load the required packages for this chapter.
 
 ```{r setup-summary, message=FALSE, verbatim="r setup, include=FALSE"}
 library(tidyverse)   # data wrangling functions
-library(rtweet)      # for searching tweets
 library(kableExtra)  # for nice tables
 ```
 
 Download the [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf).
 
-## Social media data
-
-In this chapter we're going to analyse social media data, specifically data from Twitter. There are two broad types of data you can obtain from Twitter; data scraped from Twitter using purpose-built packages such as <pkg>rtweet</pkg>, and data provided via [Twitter Analytics](https://analytics.twitter.com/) for any accounts for which you have access. 
-
-**This chapter was written in late 2021 and a lot of things have changed at Twitter since then. Importantly, starting 9th February 2023, Twitter have announced that access to their API will no longer be free, which means that the search functions below will not work unless you have a paid account. We have provided the data you need for this chapter so it is not a problem for your learning and in version 3 of ADS, we will remove any reliance on Twitter data.**
-
-For this chapter, we'll use data scraped from Twitter using <pkg>rtweet</pkg>. In order to use these functions, you need to have a Twitter account. Don't worry if you don't have one; we'll provide the data in the examples below for you.
-
-<pkg>rtweet</pkg> has a lot of flexibility, for example, you can search for tweets that contain a certain hashtag or word, tweets by a specific user, or tweets that meet certain conditions like location or whether the user is verified. 
-
-For the dataset for this chapter, we used the `search_tweets()` function  to find the last 30K tweets with the hashtag [#NationalComingOutDay](https://en.wikipedia.org/wiki/National_Coming_Out_Day). This is mainly interesting around October 11th (the date of National Coming Out Day), so we've provided the relevant data for you that we scraped at that time. 
-
-If you have a Twitter account, you can complete this chapter using your own data and any hashtag that interests you. When you run the `search_tweets()` function, you will be asked to sign in to your Twitter account.
-
-```{r, eval = FALSE}
-tweets <- search_tweets(q = "#NationalComingOutDay", 
-                        n = 30000, 
-                        include_rts = FALSE)
-```
-
-### R objects
-
-If you're working with live social media data, every time you run a query it's highly likely you will get a different set of data as new tweets are added. Additionally, the Twitter API places limits on how much data you can download and searches are limited to data from the last 6-9 days. Consequently, it can be useful to save the results of your initial search. `saveRDS` is a useful function that allows you to save any object in your environment to disk.
-
-```{r eval = FALSE}
-saveRDS(tweets, file = "data/ncod_tweets.rds")
-```
-
-After you run `search_tweets()` and save the results, set that code chunk to `eval = FALSE` or comment out that code so your script doesn't run the search and overwrite your saved data every time you knit it.
-
-To load an `.rds` file, you can use the `readRDS()` function. If you don't have access to a Twitter account, or to ensure that you get the same output as the rest of this chapter, you can download <a href="data/ncod_tweets.rds" download>ncod_tweets.rds</a> and load it using this function.
 
 ```{r}
 tweets <- readRDS("data/ncod_tweets.rds")
@@ -180,28 +150,6 @@ tweet_summary <- tweets %>% # start with the object tweets and then
 
 Notice that `summarise()` no longer needs the first argument to be the data table, it is pulled in from the pipe. The power of the pipe may not be obvious now, but it will soon prove its worth. 
 
-### Inline coding
-
-To insert those values into the text of a report you can use inline coding. First. we'll create another set of objects that contain the first and last date of the tweets in our dataset. `format()` formats the dates to day/month/year.
-
-```{r}
-date_from <- tweet_summary$min_date %>% 
-  format("%d %B, %Y")
-date_to <- tweet_summary$max_date %>% 
-  format("%d %B, %Y")
-```
-
-Then you can insert values from these objects and the tables you created with `summarise()` using inline R (note the dollar sign notation to get the value of the `n` column from the table `tweet_summary`). 
-
-```{verbatim, lang="md"}
-There were `r tweet_summary$n` tweets between `r date_from` and `r date_to`.
-```
-
-Knit your Markdown to see how the variables inside the inline code get replaced by their values. 
-
-> There were `r tweet_summary$n` tweets between `r date_from` and `r date_to`.
-
-Ok, let's get back on track.
 
 ## Counting
 
@@ -236,32 +184,6 @@ tweets %>% count(is_quote, is_retweet)
 `r mcq1`
 :::
 
-### Inline coding 2
-
-Let's do another example of inline coding that writes up a summary of the most prolific tweeters to demonstrate a few additional functions. First, we need to create some additional objects to use with inline R:
-
-* `nrow()` simply counts the number of rows in a dataset so if you have one user/participant/customer per row, this is an easy way to do a head count.
-* `slice()` chooses a particular row of data, in this case the first row. Because we sorted our data, this will therefore be the user with the most tweets.
-* `pull()` pulls out a single variable. 
-* The combination of `slice()` and `pull()` allows you to choose a single observation from a single variable.
-
-```{r}
-unique_users <- nrow(tweets_per_user)
-most_prolific <- slice(tweets_per_user, 1) %>% 
-  pull(screen_name)
-most_prolific_n <- slice(tweets_per_user, 1) %>% 
-  pull(n)
-```
-
-Then add the inline code to your report...
-
-```{verbatim, lang="md"}
-There were `r unique_users` unique accounts tweeting about #NationalComingOutDay. `r most_prolific` was the most prolific tweeter, with `r most_prolific_n` tweets.
-```
-
-...and knit your Markdown to see the output:
-
-There were `r unique_users` unique accounts tweeting about #NationalComingOutDay. `r most_prolific` was the most prolific tweeter, with `r most_prolific_n` tweets.
 
 ## Grouping {#sec-grouping}
 
@@ -376,54 +298,6 @@ mcq1 <- c(answer = "`tweets %>% group_by(source) %>% filter(n() >= 10)`",
     `r mcq1`
 :::
 
-### Inline coding 3
-
-There's a huge amount of data reported for each tweet, including things like the URLs of the tweets and any media attached to  them. This means we can produce output like the below reproducibly and using inline coding.
-
-```{r echo = FALSE}
-orig <- filter(most_fav, !is_quote)
-quote <- filter(most_fav, is_quote)
-```
-
-The most favourited `r orig$favorite_count` original tweet was by [`r orig$screen_name`](`r orig$status_url`):
-
---------------------------------------------------
-
-> `r orig$text`
-
-![](`r orig$ext_media_url`)
-
-------------------------------------------------
-
-To produce this, first we split `most_fav`, so that we have one object that contains the data from the original tweet and one object that contains the data from the quote tweet.
-
-```{r, echo = TRUE}
-orig <- filter(most_fav,is_quote == FALSE)
-quote <- filter(most_fav,is_quote == TRUE)
-```
-
-The inline code is then as follows:
-
-```{verbatim, lang="md"}
-The most favourited `r orig$favorite_count` original tweet was by [`r orig$screen_name`](`r orig$status_url`):
-
---------------------------------------------------
-  
-> `r orig$text`
-
-![](`r orig$ext_media_url`)
-
---------------------------------------------------
-```
-
-This is quite complicated so let's break it down. 
-
-* The first bit of inline coding is fairly standard and is what you have used before.
-* The second bit of inline coding inserts a URL. The content of the `[]` is the text that will be displayed. The content of `()` is the underlying URL. In both cases, the content is being pulled from the dataset. In this case, the text is `screen_name` and `status_url` links to the tweet.
-* The line of dashes creates the solid line in the knitted output.
-* The `>` symbol changes the format to a block quote.
-* The image is then included using the format `![](url)`, which is an alternative method of including images in Markdown. 
-
 
 ## Exercises
 
@@ -445,7 +319,5 @@ glossary_table(as_kable = FALSE) |>
 ## Further resources {#sec-resources-summary}
 
 * [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
-* [Chapter 5: Data Transformation ](http://r4ds.had.co.nz/transform.html) in *R for Data Science*
-* [Intro to rtweet](https://docs.ropensci.org/rtweet/articles/rtweet.html)
-* [Tidy Text](https://www.tidytextmining.com/index.html)
+* [Chapter 5: Data Transformation ](https://r4ds.hadley.nz/data-transform.html) in *R for Data Science*
 * [kableExtra vignettes](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)

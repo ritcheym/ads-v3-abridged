@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - 1&nbsp; Intro to R and RStudio</title>
 <style>
@@ -14,9 +14,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -43,43 +44,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -133,184 +104,218 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/psyteachr/ads-v2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+    <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
 <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-    </ul>
-<a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+</div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></a>
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reports with R Markdown</span></a>
+  <a href="./02-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reports with R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-viz.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></a>
+  <a href="./03-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Import</span></a>
+  <a href="./04-summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summaries</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Summaries</span></a>
+  <a href="./05-formative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-formative.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practice Report</span></a>
+  <a href="./06-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-joins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></a>
+  <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></a>
+  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-custom.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></a>
+  <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-license.html" class="sidebar-item-text sidebar-link">License/Citation</a>
+  <a href="./12-license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">License/Citation</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></a>
+  <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-updating-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Updating R, RStudio, and packages</span></a>
+  <a href="./app-updating-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Updating R, RStudio, and packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-symbols.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></a>
+  <a href="./app-symbols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></a>
+  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-teams.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></a>
+  <a href="./app-teams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-debugging.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Debugging</span></a>
+  <a href="./app-debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-datatypes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Types</span></a>
+  <a href="./app-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Import</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-dates.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Dates and Times</span></a>
+  <a href="./app-datatypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-styling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Styling Plots</span></a>
+  <a href="./app-dates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Dates and Times</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-spotify.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Spotify Data</span></a>
+  <a href="./app-styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Styling Plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-webpage.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Webpages</span></a>
+  <a href="./app-webpage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Webpages</span></span></a>
   </div>
 </li>
       </ul>
 </li>
     </ul>
 </div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><a href="https://doi.org/10.5281/zenodo.6365077"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg" alt="DOI"></a></p>
 </div></div>
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -319,43 +324,43 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <li><a href="#sec-ilo-intro" id="toc-sec-ilo-intro" class="nav-link active" data-scroll-target="#sec-ilo-intro">Intended Learning Outcomes</a></li>
   <li><a href="#sec-walkthrough-intro" id="toc-sec-walkthrough-intro" class="nav-link" data-scroll-target="#sec-walkthrough-intro">Walkthrough video</a></li>
   <li>
-<a href="#sec-intro-installing-r" id="toc-sec-intro-installing-r" class="nav-link" data-scroll-target="#sec-intro-installing-r"><span class="toc-section-number">1.1</span>  Installing R and RStudio</a>
+<a href="#sec-intro-installing-r" id="toc-sec-intro-installing-r" class="nav-link" data-scroll-target="#sec-intro-installing-r"><span class="header-section-number">1.1</span> Installing R and RStudio</a>
   <ul class="collapse">
-<li><a href="#sec-rstudio_ide" id="toc-sec-rstudio_ide" class="nav-link" data-scroll-target="#sec-rstudio_ide"><span class="toc-section-number">1.1.1</span>  RStudio</a></li>
-  <li><a href="#sec-intro-reproducibility" id="toc-sec-intro-reproducibility" class="nav-link" data-scroll-target="#sec-intro-reproducibility"><span class="toc-section-number">1.1.2</span>  Reproducibility</a></li>
-  <li><a href="#themes-and-accessiblilty" id="toc-themes-and-accessiblilty" class="nav-link" data-scroll-target="#themes-and-accessiblilty"><span class="toc-section-number">1.1.3</span>  Themes and accessiblilty</a></li>
+<li><a href="#sec-rstudio_ide" id="toc-sec-rstudio_ide" class="nav-link" data-scroll-target="#sec-rstudio_ide"><span class="header-section-number">1.1.1</span> RStudio</a></li>
+  <li><a href="#sec-intro-reproducibility" id="toc-sec-intro-reproducibility" class="nav-link" data-scroll-target="#sec-intro-reproducibility"><span class="header-section-number">1.1.2</span> Reproducibility</a></li>
+  <li><a href="#themes-and-accessiblilty" id="toc-themes-and-accessiblilty" class="nav-link" data-scroll-target="#themes-and-accessiblilty"><span class="header-section-number">1.1.3</span> Themes and accessiblilty</a></li>
   </ul>
 </li>
-  <li><a href="#sec-intro-sessions" id="toc-sec-intro-sessions" class="nav-link" data-scroll-target="#sec-intro-sessions"><span class="toc-section-number">1.2</span>  Sessions</a></li>
+  <li><a href="#sec-intro-sessions" id="toc-sec-intro-sessions" class="nav-link" data-scroll-target="#sec-intro-sessions"><span class="header-section-number">1.2</span> Sessions</a></li>
   <li>
-<a href="#sec-packages" id="toc-sec-packages" class="nav-link" data-scroll-target="#sec-packages"><span class="toc-section-number">1.3</span>  Packages and functions</a>
+<a href="#sec-packages" id="toc-sec-packages" class="nav-link" data-scroll-target="#sec-packages"><span class="header-section-number">1.3</span> Packages and functions</a>
   <ul class="collapse">
-<li><a href="#sec-install-package" id="toc-sec-install-package" class="nav-link" data-scroll-target="#sec-install-package"><span class="toc-section-number">1.3.1</span>  Installing a package</a></li>
-  <li><a href="#loading-a-package" id="toc-loading-a-package" class="nav-link" data-scroll-target="#loading-a-package"><span class="toc-section-number">1.3.2</span>  Loading a package</a></li>
-  <li><a href="#using-a-function" id="toc-using-a-function" class="nav-link" data-scroll-target="#using-a-function"><span class="toc-section-number">1.3.3</span>  Using a function</a></li>
-  <li><a href="#sec-tidyverse" id="toc-sec-tidyverse" class="nav-link" data-scroll-target="#sec-tidyverse"><span class="toc-section-number">1.3.4</span>  Tidyverse</a></li>
-  <li><a href="#sec-function-help" id="toc-sec-function-help" class="nav-link" data-scroll-target="#sec-function-help"><span class="toc-section-number">1.3.5</span>  Function Help</a></li>
-  <li><a href="#arguments" id="toc-arguments" class="nav-link" data-scroll-target="#arguments"><span class="toc-section-number">1.3.6</span>  Arguments</a></li>
-  <li><a href="#argument-names" id="toc-argument-names" class="nav-link" data-scroll-target="#argument-names"><span class="toc-section-number">1.3.7</span>  Argument names</a></li>
-  <li><a href="#tab-auto-complete" id="toc-tab-auto-complete" class="nav-link" data-scroll-target="#tab-auto-complete"><span class="toc-section-number">1.3.8</span>  Tab auto-complete</a></li>
+<li><a href="#sec-install-package" id="toc-sec-install-package" class="nav-link" data-scroll-target="#sec-install-package"><span class="header-section-number">1.3.1</span> Installing a package</a></li>
+  <li><a href="#loading-a-package" id="toc-loading-a-package" class="nav-link" data-scroll-target="#loading-a-package"><span class="header-section-number">1.3.2</span> Loading a package</a></li>
+  <li><a href="#using-a-function" id="toc-using-a-function" class="nav-link" data-scroll-target="#using-a-function"><span class="header-section-number">1.3.3</span> Using a function</a></li>
+  <li><a href="#sec-tidyverse" id="toc-sec-tidyverse" class="nav-link" data-scroll-target="#sec-tidyverse"><span class="header-section-number">1.3.4</span> Tidyverse</a></li>
+  <li><a href="#sec-function-help" id="toc-sec-function-help" class="nav-link" data-scroll-target="#sec-function-help"><span class="header-section-number">1.3.5</span> Function Help</a></li>
+  <li><a href="#arguments" id="toc-arguments" class="nav-link" data-scroll-target="#arguments"><span class="header-section-number">1.3.6</span> Arguments</a></li>
+  <li><a href="#argument-names" id="toc-argument-names" class="nav-link" data-scroll-target="#argument-names"><span class="header-section-number">1.3.7</span> Argument names</a></li>
+  <li><a href="#tab-auto-complete" id="toc-tab-auto-complete" class="nav-link" data-scroll-target="#tab-auto-complete"><span class="header-section-number">1.3.8</span> Tab auto-complete</a></li>
   </ul>
 </li>
-  <li><a href="#sec-objects" id="toc-sec-objects" class="nav-link" data-scroll-target="#sec-objects"><span class="toc-section-number">1.4</span>  Objects</a></li>
+  <li><a href="#sec-objects" id="toc-sec-objects" class="nav-link" data-scroll-target="#sec-objects"><span class="header-section-number">1.4</span> Objects</a></li>
   <li>
-<a href="#sec-help" id="toc-sec-help" class="nav-link" data-scroll-target="#sec-help"><span class="toc-section-number">1.5</span>  Getting help</a>
+<a href="#sec-help" id="toc-sec-help" class="nav-link" data-scroll-target="#sec-help"><span class="header-section-number">1.5</span> Getting help</a>
   <ul class="collapse">
-<li><a href="#package-reference-manuals" id="toc-package-reference-manuals" class="nav-link" data-scroll-target="#package-reference-manuals"><span class="toc-section-number">1.5.1</span>  Package reference manuals</a></li>
-  <li><a href="#googling" id="toc-googling" class="nav-link" data-scroll-target="#googling"><span class="toc-section-number">1.5.2</span>  Googling</a></li>
-  <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="toc-section-number">1.5.3</span>  Vignettes</a></li>
+<li><a href="#package-reference-manuals" id="toc-package-reference-manuals" class="nav-link" data-scroll-target="#package-reference-manuals"><span class="header-section-number">1.5.1</span> Package reference manuals</a></li>
+  <li><a href="#googling" id="toc-googling" class="nav-link" data-scroll-target="#googling"><span class="header-section-number">1.5.2</span> Googling</a></li>
+  <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">1.5.3</span> Vignettes</a></li>
   </ul>
 </li>
-  <li><a href="#sec-glossary-intro" id="toc-sec-glossary-intro" class="nav-link" data-scroll-target="#sec-glossary-intro"><span class="toc-section-number">1.6</span>  Glossary</a></li>
-  <li><a href="#sec-resources-intro" id="toc-sec-resources-intro" class="nav-link" data-scroll-target="#sec-resources-intro"><span class="toc-section-number">1.7</span>  Further Resources</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v2/edit/master/01-intro.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v2/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v2/blob/master/01-intro.qmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#sec-glossary-intro" id="toc-sec-glossary-intro" class="nav-link" data-scroll-target="#sec-glossary-intro"><span class="header-section-number">1.6</span> Glossary</a></li>
+  <li><a href="#sec-resources-intro" id="toc-sec-resources-intro" class="nav-link" data-scroll-target="#sec-resources-intro"><span class="header-section-number">1.7</span> Further Resources</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v3/edit/master/01-intro.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v3/blob/master/01-intro.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></span></h1>
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></span></h1>
 </div>
 
 
@@ -368,10 +373,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
   
 
-</header><div class="cell" data-layout-align="center">
-
-</div>
-<section id="sec-ilo-intro" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-ilo-intro">Intended Learning Outcomes</h2>
+</header><section id="sec-ilo-intro" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-ilo-intro">Intended Learning Outcomes</h2>
 <ul>
 <li>Install R and RStudio</li>
 <li>Be able to install add-on packages</li>
@@ -384,19 +386,16 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <span class="header-section-number">1.1</span> Installing R and RStudio</h2>
 <p>R is a programming language that you will write code in and RStudio is a program that makes working in R easier.</p>
 <p><a href="app-installing-r.html"><span>Appendix&nbsp;A</span></a> has technical details on installing R and RStudio on your computer. If you need any help installing R, please ask on Teams or attend office hours. Once you have installed R and RStudio, come back to this chapter. If you already had R and/or RStudio installed, we recommend updating to the latest version before you work through this course. <a href="app-updating-r.html"><span>Appendix&nbsp;B</span></a> has more details on how to do that. Here, we’ll concentrate on introducing you to RStudio’s interface and getting it configured.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Book version
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-
-</div>
 <p>This book was created using R version 4.2.1 (2022-06-23) (Funny-Looking Kid) and RStudio version 2022.12.0.353 (Elsbeth Geranium). Most of the content of this book will work fine in versions of R above 4.0 and earlier versions of RStudio, although there may be some small differences in the interface.</p>
 </div>
 </div>
@@ -410,8 +409,7 @@ Book version
 <div class="cell-output-display">
 <div id="fig-rstudio" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/intro/rstudio.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: The RStudio IDE</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Figure&nbsp;1.1: The RStudio IDE</figcaption></figure>
 </div>
 </div>
 </div>
@@ -423,12 +421,12 @@ Book version
 <span class="header-section-number">1.1.2</span> Reproducibility</h3>
 <p>In this class, you will be learning how to make reproducible reports. This involves writing scripts that transform data, create summaries and visualisations, and embed them in a report in a way that always gives you the same results.</p>
 <p>When you do things reproducibly, others (and future you) can understand and check your work. You can also reuse your work more easily. For example, if you need to create a report every month with the social media analytics for your company, a reproducible report allows you to download a new month’s data and create the report within seconds. It might take a little longer to set up the report in the first instance with reproducible methods, but the time it saves you in the long run is invaluable.</p>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Settings for Reproducibility
 </div>
 </div>
@@ -484,12 +482,12 @@ Settings for Reproducibility
 </div>
 </div>
 <p>If you get a message that says something like <code>package ‘tidyverse’ successfully unpacked and MD5 sums checked</code>, the installation was successful. If you get an error and the package wasn’t installed, check the troubleshooting section of <a href="app-updating-r.html#sec-package-install-troubleshooting"><span>Section&nbsp;B.4</span></a>.</p>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Install packages from the console only
 </div>
 </div>
@@ -531,12 +529,12 @@ Install packages from the console only
 </div>
 </div>
 <p>You might get some red text when you load a package, this is normal. It is usually warning you that this package has functions that have the same name as other packages you’ve already loaded.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -572,9 +570,9 @@ Note
 <li>
 <pkg>ggplot2</pkg>, for data visualisation (<a href="03-viz.html"><span>Chapter&nbsp;3</span></a>)</li>
 <li>
-<pkg>readr</pkg>, for data import (<a href="04-data.html"><span>Chapter&nbsp;4</span></a>)</li>
+<pkg>readr</pkg>, for data import (<a href="app-import.html"><span>Appendix&nbsp;G</span></a>)</li>
 <li>
-<pkg>tibble</pkg>, for tables (<a href="04-data.html"><span>Chapter&nbsp;4</span></a>)</li>
+<pkg>tibble</pkg>, for tables (<a href="app-import.html"><span>Appendix&nbsp;G</span></a>)</li>
 <li>
 <pkg>tidyr</pkg>, for data tidying (<a href="08-tidy.html"><span>Chapter&nbsp;8</span></a>)</li>
 <li>
@@ -625,16 +623,16 @@ Note
 <img src="images/intro/function_help.png">
 </div>
 <p>Function help is always organised in the same way. For example, look at the help for <code><a href="https://rdrr.io/pkg/beepr/man/beep.html">?beepr::beep</a></code>. At the top, it tells you the name of the function and its package in curly brackets, then a short description of the function, followed by a longer description. The <strong>Usage</strong> section shows the function with all of its <a class="glossary" target="_blank" title="A variable that provides input to a function." href="https://psyteachr.github.io/glossary/a#argument">arguments</a>. If any of those arguments have default values, they will be shown like <code>function(arg = default)</code>. The <strong>Arguments</strong> section lists each argument with an explanation. There may be a <strong>Details</strong> section after this with even more detail about the functions. The <strong>Examples</strong> section is last, and shows examples that you can run in your console window to see how the function works.</p>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled" style="clear: both;">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Function Help
 </div>
 </div>
-<div class="callout-body-container callout-body" style="clear: both;">
+<div class="callout-body-container callout-body">
 <ul>
 <li>What is the first argument to the <code>mean</code> function? <select class="webex-select"><option value="blank"></option>
 <option value="">trim</option>
@@ -670,20 +668,17 @@ Function Help
 <p>In the arguments section, there are explanations for each of the arguments. <code>x</code> is the list of items we want to choose from, <code>size</code> is the number of items we want to choose, <code>replace</code> is whether or not each item may be selected more than once, and <code>prob</code> gives the probability that each item is chosen. In the details section it notes that if no values are entered for <code>replace</code> or <code>prob</code> it will use defaults of <code>FALSE</code> (each item can only be chosen once) and <code>NULL</code> (all items will have equal probability of being chosen). Because there is no default value for <code>x</code> or <code>size</code>, they must be specified otherwise the code won’t run.</p>
 <p>Let’s try an example and just change the required arguments to <code>x</code> and <code>size</code> to ask R to choose 5 random letters (<code>letters</code> is a built-in <a class="glossary" target="_blank" title="A type of data structure that collects values with the same data type, like T/F values, numbers, or strings." href="https://psyteachr.github.io/glossary/v#vector">vector</a> of the 26 lower-case Latin letters).</p>
 <div class="cell" data-layout-align="center">
-
-</div>
-<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">sample</span>(<span class="at">x =</span> letters, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "z" "v" "y" "w" "j"</code></pre>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Why are my letters different to your letters?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -724,8 +719,7 @@ Why are my letters different to your letters?
 <div class="cell-output-display">
 <div id="fig-autocomplete" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/intro/autocomplete.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Tab auto-complete</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Figure&nbsp;1.2: Tab auto-complete</figcaption></figure>
 </div>
 </div>
 </div>
@@ -755,12 +749,12 @@ Why are my letters different to your letters?
 <li>
 <code>christmas</code> is also a date but it’s hard-coded as a specific date. It’s wrapped within the <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code> function that tells R to interpret the character string you provide as a date rather than text.</li>
 </ul>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -1325,9 +1319,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1392,6 +1400,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1443,11 +1537,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">CC-BY 2022, psyTeachR</div>   
+    <div class="nav-footer-left">CC-BY 2024, psyTeachR</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/psyteachr/ads-v2">
+    <a class="nav-link" href="https://github.com/psyteachr/ads-v3">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

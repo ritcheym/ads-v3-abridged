@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Applied Data Skills - Appendix G — Data Types</title>
+<title>Applied Data Skills - Appendix H — Data Types</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -14,9 +14,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -43,43 +44,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -90,7 +61,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./app-dates.html" rel="next">
-<link href="./app-debugging.html" rel="prev">
+<link href="./app-import.html" rel="prev">
 <link href="./images/logos/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -134,213 +105,247 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Appendix G — Data Types</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-datatypes.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Data Types</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/psyteachr/ads-v2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+    <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
 <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-    </ul>
-<a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+</div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></a>
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reports with R Markdown</span></a>
+  <a href="./02-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reports with R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-viz.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></a>
+  <a href="./03-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Import</span></a>
+  <a href="./04-summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summaries</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Summaries</span></a>
+  <a href="./05-formative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-formative.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practice Report</span></a>
+  <a href="./06-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-joins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></a>
+  <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></a>
+  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-custom.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></a>
+  <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-license.html" class="sidebar-item-text sidebar-link">License/Citation</a>
+  <a href="./12-license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">License/Citation</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></a>
+  <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-updating-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Updating R, RStudio, and packages</span></a>
+  <a href="./app-updating-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Updating R, RStudio, and packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-symbols.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></a>
+  <a href="./app-symbols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></a>
+  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-teams.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></a>
+  <a href="./app-teams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-debugging.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Debugging</span></a>
+  <a href="./app-debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-datatypes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Types</span></a>
+  <a href="./app-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Import</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-dates.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Dates and Times</span></a>
+  <a href="./app-datatypes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-styling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Styling Plots</span></a>
+  <a href="./app-dates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Dates and Times</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-spotify.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Spotify Data</span></a>
+  <a href="./app-styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Styling Plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-webpage.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Webpages</span></a>
+  <a href="./app-webpage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Webpages</span></span></a>
   </div>
 </li>
       </ul>
 </li>
     </ul>
 </div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><a href="https://doi.org/10.5281/zenodo.6365077"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg" alt="DOI"></a></p>
 </div></div>
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
 <li>
-<a href="#basic-data-types" id="toc-basic-data-types" class="nav-link active" data-scroll-target="#basic-data-types"><span class="toc-section-number">G.1</span>  Basic data types</a>
+<a href="#basic-data-types" id="toc-basic-data-types" class="nav-link active" data-scroll-target="#basic-data-types"><span class="header-section-number">H.1</span> Basic data types</a>
   <ul class="collapse">
-<li><a href="#numeric-data" id="toc-numeric-data" class="nav-link" data-scroll-target="#numeric-data"><span class="toc-section-number">G.1.1</span>  Numeric data</a></li>
-  <li><a href="#character-data" id="toc-character-data" class="nav-link" data-scroll-target="#character-data"><span class="toc-section-number">G.1.2</span>  Character data</a></li>
-  <li><a href="#logical-data" id="toc-logical-data" class="nav-link" data-scroll-target="#logical-data"><span class="toc-section-number">G.1.3</span>  Logical Data</a></li>
-  <li><a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors"><span class="toc-section-number">G.1.4</span>  Factors</a></li>
-  <li><a href="#dates-and-times" id="toc-dates-and-times" class="nav-link" data-scroll-target="#dates-and-times"><span class="toc-section-number">G.1.5</span>  Dates and Times</a></li>
+<li><a href="#numeric-data" id="toc-numeric-data" class="nav-link" data-scroll-target="#numeric-data"><span class="header-section-number">H.1.1</span> Numeric data</a></li>
+  <li><a href="#character-data" id="toc-character-data" class="nav-link" data-scroll-target="#character-data"><span class="header-section-number">H.1.2</span> Character data</a></li>
+  <li><a href="#logical-data" id="toc-logical-data" class="nav-link" data-scroll-target="#logical-data"><span class="header-section-number">H.1.3</span> Logical Data</a></li>
+  <li><a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors"><span class="header-section-number">H.1.4</span> Factors</a></li>
+  <li><a href="#dates-and-times" id="toc-dates-and-times" class="nav-link" data-scroll-target="#dates-and-times"><span class="header-section-number">H.1.5</span> Dates and Times</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-containers" id="toc-sec-containers" class="nav-link" data-scroll-target="#sec-containers"><span class="toc-section-number">G.2</span>  Basic container types</a>
+<a href="#sec-containers" id="toc-sec-containers" class="nav-link" data-scroll-target="#sec-containers"><span class="header-section-number">H.2</span> Basic container types</a>
   <ul class="collapse">
-<li><a href="#sec-vectors" id="toc-sec-vectors" class="nav-link" data-scroll-target="#sec-vectors"><span class="toc-section-number">G.2.1</span>  Vectors</a></li>
-  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="toc-section-number">G.2.2</span>  Lists</a></li>
-  <li><a href="#sec-tables-data" id="toc-sec-tables-data" class="nav-link" data-scroll-target="#sec-tables-data"><span class="toc-section-number">G.2.3</span>  Tables</a></li>
+<li><a href="#sec-vectors" id="toc-sec-vectors" class="nav-link" data-scroll-target="#sec-vectors"><span class="header-section-number">H.2.1</span> Vectors</a></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"><span class="header-section-number">H.2.2</span> Lists</a></li>
+  <li><a href="#sec-tables-data" id="toc-sec-tables-data" class="nav-link" data-scroll-target="#sec-tables-data"><span class="header-section-number">H.2.3</span> Tables</a></li>
   </ul>
 </li>
-  <li><a href="#sec-glossary-datatypes" id="toc-sec-glossary-datatypes" class="nav-link" data-scroll-target="#sec-glossary-datatypes"><span class="toc-section-number">G.3</span>  Glossary</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v2/edit/master/app-datatypes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v2/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v2/blob/master/app-datatypes.qmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#sec-glossary-datatypes" id="toc-sec-glossary-datatypes" class="nav-link" data-scroll-target="#sec-glossary-datatypes"><span class="header-section-number">H.3</span> Glossary</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v3/edit/master/app-datatypes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v3/blob/master/app-datatypes.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-data-types" class="quarto-section-identifier d-none d-lg-block">Appendix G — Data Types</span></h1>
+<h1 class="title"><span id="sec-data-types" class="quarto-section-identifier">Appendix H — Data Types</span></h1>
 </div>
 
 
@@ -353,20 +358,19 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
   
 
-</header><section id="basic-data-types" class="level2" data-number="G.1"><h2 data-number="G.1" class="anchored" data-anchor-id="basic-data-types">
-<span class="header-section-number">G.1</span> Basic data types</h2>
+</header><section id="basic-data-types" class="level2" data-number="H.1"><h2 data-number="H.1" class="anchored" data-anchor-id="basic-data-types">
+<span class="header-section-number">H.1</span> Basic data types</h2>
 <p>Data can be numbers, words, true/false values or combinations of these. The basic <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">data types</a> in R are: <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a>, <a class="glossary" target="_blank" title="A data type representing strings of text." href="https://psyteachr.github.io/glossary/c#character">character</a>, and <a class="glossary" target="_blank" title="A data type representing TRUE or FALSE values." href="https://psyteachr.github.io/glossary/l#logical">logical</a>, as well as the special classes of <a class="glossary" target="_blank" title="A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter" href="https://psyteachr.github.io/glossary/f#factor">factor</a> and date/times.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/appx/excel-format-cells.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Data types are like the categories when you format cells in Excel.</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Data types are like the categories when you format cells in Excel.</figcaption></figure>
 </div>
 </div>
 </div>
-<section id="numeric-data" class="level3" data-number="G.1.1"><h3 data-number="G.1.1" class="anchored" data-anchor-id="numeric-data">
-<span class="header-section-number">G.1.1</span> Numeric data</h3>
+<section id="numeric-data" class="level3" data-number="H.1.1"><h3 data-number="H.1.1" class="anchored" data-anchor-id="numeric-data">
+<span class="header-section-number">H.1.1</span> Numeric data</h3>
 <p>All of the numbers are <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a> data types. There are two types of numeric data, <a class="glossary" target="_blank" title="A data type representing whole numbers." href="https://psyteachr.github.io/glossary/i#integer">integer</a> and <a class="glossary" target="_blank" title="A data type representing a real decimal number" href="https://psyteachr.github.io/glossary/d#double">double</a>. Integers are the whole numbers, like -1, 0 and 1. Doubles are numbers that can have fractional amounts. If you just type a plain number such as <code>10</code>, it is stored as a double, even if it doesn’t have a decimal point. If you want it to be an exact integer, you can use the <code>L</code> suffix (10L), but this distinction doesn’t make much difference in practice.</p>
 <p>If you ever want to know the data type of something, use the <code>typeof</code> function.</p>
 <div class="cell" data-layout-align="center">
@@ -390,8 +394,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 [1] FALSE</code></pre>
 </div>
 </div>
-</section><section id="character-data" class="level3" data-number="G.1.2"><h3 data-number="G.1.2" class="anchored" data-anchor-id="character-data">
-<span class="header-section-number">G.1.2</span> Character data</h3>
+</section><section id="character-data" class="level3" data-number="H.1.2"><h3 data-number="H.1.2" class="anchored" data-anchor-id="character-data">
+<span class="header-section-number">H.1.2</span> Character data</h3>
 <p><a class="glossary" target="_blank" title="A data type representing strings of text." href="https://psyteachr.github.io/glossary/c#character">Characters</a> (also called “strings”) are any text between quotation marks.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">typeof</span>(<span class="st">"This is a character string"</span>)</span>
@@ -409,8 +413,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <pre><code>The instructor said, "R is cool," and the class agreed.</code></pre>
 </div>
 </div>
-</section><section id="logical-data" class="level3" data-number="G.1.3"><h3 data-number="G.1.3" class="anchored" data-anchor-id="logical-data">
-<span class="header-section-number">G.1.3</span> Logical Data</h3>
+</section><section id="logical-data" class="level3" data-number="H.1.3"><h3 data-number="H.1.3" class="anchored" data-anchor-id="logical-data">
+<span class="header-section-number">H.1.3</span> Logical Data</h3>
 <p><a class="glossary" target="_blank" title="A data type representing TRUE or FALSE values." href="https://psyteachr.github.io/glossary/l#logical">Logical</a> data (also sometimes called “boolean” values) is one of two values: true or false. In R, we always write them in uppercase: <code>TRUE</code> and <code>FALSE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span>
@@ -427,12 +431,12 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -440,8 +444,8 @@ Note
 <p>You might also see logical values abbreviated as <code>T</code> and <code>F</code>, or <code>0</code> and <code>1</code>. This can cause some problems down the road, so we will always spell out the whole thing.</p>
 </div>
 </div>
-</section><section id="factors" class="level3" data-number="G.1.4"><h3 data-number="G.1.4" class="anchored" data-anchor-id="factors">
-<span class="header-section-number">G.1.4</span> Factors</h3>
+</section><section id="factors" class="level3" data-number="H.1.4"><h3 data-number="H.1.4" class="anchored" data-anchor-id="factors">
+<span class="header-section-number">H.1.4</span> Factors</h3>
 <p>A <a class="glossary" target="_blank" title="A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter" href="https://psyteachr.github.io/glossary/f#factor">factor</a> is a specific type of integer that lets you specify the categories and their order. This is useful in data tables to make plots display with categories in the correct order.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>myfactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="st">"B"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>,<span class="st">"C"</span>))</span>
@@ -460,8 +464,8 @@ Levels: A B C</code></pre>
 [1] "factor"</code></pre>
 </div>
 </div>
-</section><section id="dates-and-times" class="level3" data-number="G.1.5"><h3 data-number="G.1.5" class="anchored" data-anchor-id="dates-and-times">
-<span class="header-section-number">G.1.5</span> Dates and Times</h3>
+</section><section id="dates-and-times" class="level3" data-number="H.1.5"><h3 data-number="H.1.5" class="anchored" data-anchor-id="dates-and-times">
+<span class="header-section-number">H.1.5</span> Dates and Times</h3>
 <p>Dates and times are represented by doubles with special classes. Although <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code> will tell you they are a double, you can tell that they are dates by checking their <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>. Datetimes can have one or more of a few classes that start with <code>POSIX</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2022-01-24"</span>)</span>
@@ -477,13 +481,13 @@ Levels: A B C</code></pre>
 [1] "POSIXct" "POSIXt" </code></pre>
 </div>
 </div>
-<p>See <a href="app-dates.html"><span>Appendix&nbsp;H</span></a> for how to use <pkg>lubridate</pkg> to work with dates and times.</p>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<p>See <a href="app-dates.html"><span>Appendix&nbsp;I</span></a> for how to use <pkg>lubridate</pkg> to work with dates and times.</p>
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -573,11 +577,11 @@ Note
 </ul>
 </div>
 </div>
-</section></section><section id="sec-containers" class="level2" data-number="G.2"><h2 data-number="G.2" class="anchored" data-anchor-id="sec-containers">
-<span class="header-section-number">G.2</span> Basic container types</h2>
+</section></section><section id="sec-containers" class="level2" data-number="H.2"><h2 data-number="H.2" class="anchored" data-anchor-id="sec-containers">
+<span class="header-section-number">H.2</span> Basic container types</h2>
 <p>Individual data values can be grouped together into containers. The main types of containers we’ll work with are vectors, lists, and data tables.</p>
-<section id="sec-vectors" class="level3" data-number="G.2.1"><h3 data-number="G.2.1" class="anchored" data-anchor-id="sec-vectors">
-<span class="header-section-number">G.2.1</span> Vectors</h3>
+<section id="sec-vectors" class="level3" data-number="H.2.1"><h3 data-number="H.2.1" class="anchored" data-anchor-id="sec-vectors">
+<span class="header-section-number">H.2.1</span> Vectors</h3>
 <p>A <a class="glossary" target="_blank" title="A type of data structure that collects values with the same data type, like T/F values, numbers, or strings." href="https://psyteachr.github.io/glossary/v#vector">vector</a> in R is a set of items (or ‘elements’) in a specific order. All of the elements in a vector must be of the same <strong>data type</strong> (numeric, character, logical). You can create a vector by enclosing the elements in the function <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="do">## put information into a vector using c(...)</span></span>
@@ -590,12 +594,12 @@ Note
 [1] 1 2 3 4 5 6</code></pre>
 </div>
 </div>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -617,12 +621,12 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Warning
 </div>
 </div>
@@ -647,12 +651,12 @@ Warning
 <pre><code>[1] "R" "S" "T" "U" "D" "I" "O"</code></pre>
 </div>
 </div>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -691,12 +695,12 @@ Solution
  100.1  -13.2  -13.2 </code></pre>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -760,8 +764,8 @@ Note
 <pre><code> [1]  1  2  5  6  9 10 13 14 17 18 21 22 25 26 29 30 33 34 37 38</code></pre>
 </div>
 </div>
-</section></section><section id="lists" class="level3" data-number="G.2.2"><h3 data-number="G.2.2" class="anchored" data-anchor-id="lists">
-<span class="header-section-number">G.2.2</span> Lists</h3>
+</section></section><section id="lists" class="level3" data-number="H.2.2"><h3 data-number="H.2.2" class="anchored" data-anchor-id="lists">
+<span class="header-section-number">H.2.2</span> Lists</h3>
 <p>Recall that vectors can contain data of only one type. What if you want to store a collection of data of different data types? For that purpose you would use a <a class="glossary" target="_blank" title="A container data type that allows items with different data types to be grouped together." href="https://psyteachr.github.io/glossary/l#list">list</a>. Define a list using the <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>data_types <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
@@ -787,12 +791,12 @@ Note
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -810,8 +814,8 @@ Note
 <p>The single brackets (<code>bracket1</code> and <code>name1</code>) return a list with the subset of items inside the brackets. In this case, that’s just one item, but can be more (try <code>data_types[1:2]</code>). The items keep their names if they have them, so the returned value is <code>list(double = 10)</code>.</p>
 <p>The double brackets (<code>bracket2</code> and <code>name2</code> return a single item as a vector. You can’t select more than one item; <code>data_types[[1:2]]</code> will give you a “subscript out of bounds” error.</p>
 <p>The dollar-sign notation is the same as double-brackets. If the name has spaces or any characters other than letters, numbers, underscores, and full stops, you need to surround the name with backticks (e.g., <code>sales$`Customer ID`</code>).</p>
-</section><section id="sec-tables-data" class="level3" data-number="G.2.3"><h3 data-number="G.2.3" class="anchored" data-anchor-id="sec-tables-data">
-<span class="header-section-number">G.2.3</span> Tables</h3>
+</section><section id="sec-tables-data" class="level3" data-number="H.2.3"><h3 data-number="H.2.3" class="anchored" data-anchor-id="sec-tables-data">
+<span class="header-section-number">H.2.3</span> Tables</h3>
 <p><a class="glossary" target="_blank" title="Data in a rectangular table format, where each row has an entry for each column." href="https://psyteachr.github.io/glossary/t#tabular-data">Tabular data</a> structures allow for a collection of data of different types (characters, integers, logical, etc.) but subject to the constraint that each “column” of the table (element of the list) must have the same number of elements. The base R version of a table is called a <code>data.frame</code>, while the ‘tidyverse’ version is called a <code>tibble</code>. Tibbles are far easier to work with, so we’ll be using those. To learn more about differences between these two data structures, see <code>vignette("tibble")</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># construct a table by column with tibble</span></span>
@@ -888,8 +892,8 @@ $ friendly &lt;lgl&gt; TRUE, TRUE, TRUE</code></pre>
 <span id="cb55-6"><a href="#cb55-6"></a>bends_name <span class="ot">&lt;-</span> avatar[, <span class="fu">c</span>(<span class="st">"bends"</span>, <span class="st">"name"</span>)] <span class="co"># subset table (by name)</span></span>
 <span id="cb55-7"><a href="#cb55-7"></a>toph       <span class="ot">&lt;-</span> avatar[[<span class="dv">2</span>, <span class="dv">1</span>]] <span class="co"># single cell (row, col)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section></section><section id="sec-glossary-datatypes" class="level2" data-number="G.3"><h2 data-number="G.3" class="anchored" data-anchor-id="sec-glossary-datatypes">
-<span class="header-section-number">G.3</span> Glossary</h2>
+</section></section></section><section id="sec-glossary-datatypes" class="level2" data-number="H.3"><h2 data-number="H.3" class="anchored" data-anchor-id="sec-glossary-datatypes">
+<span class="header-section-number">H.3</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
 
 <table>
@@ -1371,9 +1375,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1438,6 +1456,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1477,23 +1581,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./app-debugging.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Debugging</span></span>
+      <a href="./app-import.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Import</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./app-dates.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Dates and Times</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Dates and Times</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">CC-BY 2022, psyTeachR</div>   
+    <div class="nav-footer-left">CC-BY 2024, psyTeachR</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/psyteachr/ads-v2">
+    <a class="nav-link" href="https://github.com/psyteachr/ads-v3">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

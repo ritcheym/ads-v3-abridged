@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Applied Data Skills - Appendix D — Conventions</title>
+
+
+<title>Applied Data Skills - 5&nbsp; Practice Report</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,60 +20,8 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
+
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -79,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./app-teams.html" rel="next">
-<link href="./app-symbols.html" rel="prev">
+<link href="./06-ai.html" rel="next">
+<link href="./04-summary.html" rel="prev">
 <link href="./images/logos/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -92,7 +43,8 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -110,33 +62,46 @@ div.csl-indent {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script type="text/javascript">
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
+
+<script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="include/psyteachr.css">
+</script>
+
+
+<link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
-<body class="nav-sidebar floating slimcontent">
+
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-conventions.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-formative.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -144,26 +109,26 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-</div>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -175,7 +140,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
@@ -207,7 +172,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-formative.html" class="sidebar-item-text sidebar-link">
+  <a href="./05-formative.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
@@ -261,8 +226,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span></a>
@@ -282,7 +247,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></span></a>
   </div>
 </li>
@@ -329,25 +294,39 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><a href="https://doi.org/10.5281/zenodo.6365077"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg" alt="DOI"></a></p>
 </div></div>
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#test-yourself" id="toc-test-yourself" class="nav-link active" data-scroll-target="#test-yourself"><span class="header-section-number">D.1</span> Test Yourself</a></li>
-  <li><a href="#callout-boxes" id="toc-callout-boxes" class="nav-link" data-scroll-target="#callout-boxes"><span class="header-section-number">D.2</span> Callout boxes</a></li>
-  <li><a href="#code-and-output" id="toc-code-and-output" class="nav-link" data-scroll-target="#code-and-output"><span class="header-section-number">D.3</span> Code and Output</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v3/edit/master/app-conventions.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v3/blob/master/app-conventions.qmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#assessment-information" id="toc-assessment-information" class="nav-link active" data-scroll-target="#assessment-information"><span class="header-section-number">5.1</span> Assessment information</a></li>
+  <li><a href="#intended-learning-outcomes-ilos" id="toc-intended-learning-outcomes-ilos" class="nav-link" data-scroll-target="#intended-learning-outcomes-ilos"><span class="header-section-number">5.2</span> Intended Learning Outcomes (ILOs)</a>
+  <ul class="collapse">
+  <li><a href="#knowledge-and-skills" id="toc-knowledge-and-skills" class="nav-link" data-scroll-target="#knowledge-and-skills">Knowledge and skills</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
+  <li><a href="#communication" id="toc-communication" class="nav-link" data-scroll-target="#communication">Communication</a></li>
+  </ul></li>
+  <li><a href="#details-and-files" id="toc-details-and-files" class="nav-link" data-scroll-target="#details-and-files"><span class="header-section-number">5.3</span> Details and files</a></li>
+  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support"><span class="header-section-number">5.4</span> Support</a></li>
+  <li><a href="#helpful-hints" id="toc-helpful-hints" class="nav-link" data-scroll-target="#helpful-hints"><span class="header-section-number">5.5</span> Helpful hints</a></li>
+  <li><a href="#why-am-i-being-assessed-like-this" id="toc-why-am-i-being-assessed-like-this" class="nav-link" data-scroll-target="#why-am-i-being-assessed-like-this"><span class="header-section-number">5.6</span> Why am I being assessed like this?</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v3/edit/master/05-formative.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v3/blob/master/05-formative.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Appendix D — Conventions</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></h1>
 </div>
 
 
@@ -360,176 +339,90 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
   
 
-</header><p>This book will use the following conventions:</p>
+</header>
+
+<p>This chapter describes a formative exercise for this class. If you are not part of the Applied Data Skills microcredential class, you can ignore the instructions about Moodle and submission, but the formative exercise is still valuable practice.</p>
+<section id="assessment-information" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="assessment-information"><span class="header-section-number">5.1</span> Assessment information</h2>
 <ul>
-<li>Generic code: <code>list(number = 1, letter = "A")</code>
-</li>
-<li>Highlighted code: <code><span><span class="fu"><a target="_blank" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>number <span class="op">=</span> <span class="fl">1</span>, letter <span class="op">=</span> <span class="st">“A”</span><span class="op">)</span></span></code>
-</li>
-<li>File paths: <code class="path">data/sales.csv</code>
-</li>
-<li>Menu/interface options: <if>Tools &gt; Global Options… &gt; Pane Layout</if>
-</li>
-<li>R Packages: <pkg>tidyverse</pkg>
-</li>
-<li>Functions: <code><span><span class="fu"><a target="_blank" href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="op">)</span></span></code>
-</li>
-<li>Strings: <code><span><span class="st">“Lisa”</span></span></code>, <code><span><span class="st">“Emily”</span></span></code>
-</li>
-<li>Numbers: <code><span><span class="fl">100</span></span></code>, <code><span><span class="fl">3.14</span></span></code>
-</li>
-<li>Logical values: <code><span><span class="cn">TRUE</span></span></code>, <code><span><span class="cn">FALSE</span></span></code>
-</li>
-<li>Glossary items: <a class="glossary" target="_blank" title="Discrete variables that have an inherent order, such as level of education or dislike/like." href="https://psyteachr.github.io/glossary/o#ordinal">ordinal</a>
-</li>
-<li>Citations: <span class="citation" data-cites="R-tidyverse">Wickham (<a href="11-refs.html#ref-R-tidyverse" role="doc-biblioref">2021</a>)</span>
-</li>
-<li>Internal links: <a href="03-viz.html"><span>Chapter&nbsp;3</span></a>
-</li>
-<li>External links: <a href="https://mastering-shiny.org/" target="_blank">Mastering Shiny</a>
-</li>
-<li>Mac-specific: <mac>Cmd-Shift-F10</mac>
-</li>
-<li>Windows-specific: <pc>Ctl-Shift-F10</pc>
-</li>
+<li>You will be given a dataset and a finished report on that data. Your task is to write the code that produces the report.</li>
+<li>Please check Moodle and the assessment information sheet for the deadline.</li>
+<li>The solution will be released immediately after the deadline on Moodle.</li>
+<li>This is a formative activity and does not count towards your course grade.</li>
+<li>You should submit two files to Moodle to complete the exercise - your .Rmd file and the knitted html document.</li>
+<li>Please read all the assessment information before attempting the exercise. Additionally, you should not expect to be able to complete it until you have worked through Chapters 1-5 (although particularly Chapters 1-3).</li>
+<li>The practice report will not be individually graded. Instead, we will release the solution file so that you can compare your code to our solution as generic feedback. If you would like to discuss any aspect of the report, you can attend office hours with the course leads and/or teaching assistants.</li>
 </ul>
-<p>A list of mac and windows <a href="https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">keyboard shortcuts</a>.</p>
-<section id="test-yourself" class="level2" data-number="D.1"><h2 data-number="D.1" class="anchored" data-anchor-id="test-yourself">
-<span class="header-section-number">D.1</span> Test Yourself</h2>
-<p>I am going to learn a lot: <select class="webex-select"><option value="blank"></option>
-<option value="answer">TRUE</option>
-<option value="">FALSE</option></select></p>
-<div class="cell" data-layout-align="center">
+</section>
+<section id="intended-learning-outcomes-ilos" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="intended-learning-outcomes-ilos"><span class="header-section-number">5.2</span> Intended Learning Outcomes (ILOs)</h2>
+<section id="knowledge-and-skills" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="knowledge-and-skills">Knowledge and skills</h3>
 <ul>
-<li>What is a p-value?
-<div id="radio_COROVSRDAH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_COROVSRDAH" value=""><span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_COROVSRDAH" value="answer"><span>the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_COROVSRDAH" value=""><span>the probability of making an error in your conclusion</span></label>
-</div>
-</li>
+<li>Demonstrate the ability to use R for data wrangling and visualisation</li>
+<li>Demonstrate the ability to use R Markdown for reproducible reports</li>
 </ul>
-</div>
-<div class="cell" data-layout-align="center" data-webex.hide="Hidden Solutions">
-<div class="webex-solution">
-<button>
-Hidden Solutions
-</button>
-<p>You found it!</p>
-</div>
-</div>
-</section><section id="callout-boxes" class="level2 page-columns page-full" data-number="D.2"><h2 data-number="D.2" class="anchored" data-anchor-id="callout-boxes">
-<span class="header-section-number">D.2</span> Callout boxes</h2>
-<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="">See the <a href="https://quarto.org/docs/authoring/callouts.html">quarto reference</a> for more options.</span></div></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Informational asides.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Tips</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notes to warn you about something.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notes about things that could cause serious errors.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notes about things that are important.</p>
-</div>
-</div>
-<div class="try callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Try (click to expand)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Try it yourself.</p>
-</div>
-</div>
-</div>
-</section><section id="code-and-output" class="level2" data-number="D.3"><h2 data-number="D.3" class="anchored" data-anchor-id="code-and-output">
-<span class="header-section-number">D.3</span> Code and Output</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># code chunks</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">paste</span>(<span class="st">"Code"</span>, <span class="st">"Output"</span>, <span class="dv">1</span>, <span class="at">sep =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Code Output 1"</code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center" data-verbatim="r, fig.width = 2, fig.height = 2">
-<div class="verbatim">
-<pre class="sourceCode r code-with-copy"><code class="sourceCode R">```{r, fig.width = 2, fig.height = 2}</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># code chunks with headers</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="sourceCode r code-with-copy"><code class="sourceCode R">```</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
-</div>
-</div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">## Markdown Example</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="ss">* </span>Inline code: <span class="in">`r nrow(iris)`</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="ss">* </span>*Italics*</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="ss">* </span>**Bold**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="evaluation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="evaluation">Evaluation</h3>
+<ul>
+<li>Demonstrate the ability to evaluate an output to understand the underlying data wrangling and analysis</li>
+</ul>
+</section>
+<section id="communication" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="communication">Communication</h3>
+<ul>
+<li>Demonstrate the ability to produce a clear and coherent report with appropriate spelling, grammar, and layout.</li>
+</ul>
+</section>
+</section>
+<section id="details-and-files" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="details-and-files"><span class="header-section-number">5.3</span> Details and files</h2>
+<ul>
+<li><p>There are two files you need to download. The first is the dataset: <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download="">review_data.csv</a>. The second is the finished report that you need to backwards engineer from the data: <a href="https://psyteachr.github.io/ads-v2/data/formative_report_output.html">formative_report_output.html</a>.</p></li>
+<li><p>There are multiple ways to achieve the same outcome when coding. You do not have to use the same solutions that we did; what matters is that the output is the same.</p></li>
+<li><p>All plots, and tables in the report should be fully reproducible, in addition, all numbers in bold should also be reproducible, i.e., you should use inline coding.</p></li>
+<li><p>For any visuals, you should get as close to the example report as possible, although we recognise that it may be difficult to know the exact theme or colours used without seeing the code.</p></li>
+<li><p>In order to replicate the report you will need the following skills:</p>
+<ul>
+<li>Markdown text formatting (e.g., bold, italics, headings)</li>
+<li>Adding images to Markdown from online sources</li>
+<li>Data visualisation</li>
+<li>Summarising data in tables Inline coding</li>
+</ul></li>
+</ul>
+<p>Almost everything you need to do generate this report will have been covered at least once in the workbook, but you should also expect to need to Google some things – being able to search for alternative solutions is such a key skill for programming.</p>
+</section>
+<section id="support" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="support"><span class="header-section-number">5.4</span> Support</h2>
+<p>This assessment will require you to use the skills you have learned from Chapter 1 (Intro to R and R Studio) up to and including Chapter 5 (Data Summaries) of the Applied Data Skills workbook. You can also ask for help on Teams, although because this is a formative activity, the help we give will be constrained.</p>
+<p>Google and Stack Overflow will help you a lot. Remember to include the names of packages and functions to help ensure the results are closer to what you’re trying to do.</p>
+</section>
+<section id="helpful-hints" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="helpful-hints"><span class="header-section-number">5.5</span> Helpful hints</h2>
+<p>A few hints to help you on your way:</p>
+<ul>
+<li>This dataset is bigger than the ones you’ve used before, which means you might find it takes R a little longer to complete certain tasks.</li>
+<li>Googling “ggplot rotate x axis labels” will help you out.</li>
+<li>theme_fivethirtyeight()</li>
+<li>The verified review definition is formatted as a block quote.</li>
+<li><a href="https://haozhu233.github.io/kableExtra/awesome_table_in_html">Create Awesome HTML Table with knitr::kable and kableExtra</a></li>
+<li><a href="<https://community.rstudio.com/t/how-to-turn-off-scientific-notation-like-1e-09-in-r/71575">How to Turn off scientific notation like 1e+09 in R?</a></li>
+<li>There are a couple of ways you can create the final plot, one method might be to calculate the numbers you need first, and then use this new dataset for the plot, another method would be to use <code>stat_summary()</code>.</li>
+</ul>
+</section>
+<section id="why-am-i-being-assessed-like-this" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="why-am-i-being-assessed-like-this"><span class="header-section-number">5.6</span> Why am I being assessed like this?</h2>
+<p>This report serves as a practice for the full report, which will be due at the end of the semester. The practice report gives you the intended output so that you can focus on your coding skills, rather than deciding how to summarise and present the data. You will need to make these decisions for the full report.</p>
+<p>Whilst most of the skills required for the practice report have been explicitly taught, there are minor bits of the coding that will require you to look up solutions independently. This will be good practice for the final summative assessment and for applying your coding skills to your own work.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
-Wickham, H. (2021). <em>Tidyverse: Easily install and load the tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>
-</div>
-</div>
-</section></main><!-- /main --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script><script>
+</section>
+
+</main> <!-- /main -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -702,7 +595,8 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script><script>
+</script>
+<script>
 $( document ).ready(function() {
   var cite = ' ';
   var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
@@ -723,7 +617,8 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><script id="quarto-html-after-body" type="application/javascript">
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1070,26 +965,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./app-symbols.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></span>
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-summary.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summaries</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./app-teams.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-ai.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">AI</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">CC-BY 2024, psyTeachR</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item compact">
+    <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/psyteachr/ads-v3">
       <i class="bi bi-github" role="img">
 </i> 
@@ -1108,9 +1006,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
 </ul>
-</div>
+    </div>
   </div>
 </footer>
+
 
 
 </body></html>

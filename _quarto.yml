@@ -23,7 +23,7 @@ book:
   #   hypothesis:
   #     theme: clean
   #     openSidebar: false
-  repo-url: https://github.com/psyteachr/ads-v2/
+  repo-url: https://github.com/psyteachr/ads-v3/
   repo-branch: master
   repo-actions: [edit, issue, source]
 #  downloads: [pdf, epub]
@@ -33,10 +33,10 @@ book:
   #   background: light
   margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
   page-footer:
-    left: "CC-BY 2022, psyTeachR"
+    left: "CC-BY 2024, psyTeachR"
     right:
       - icon: github
-        href: https://github.com/psyteachr/ads-v2
+        href: https://github.com/psyteachr/ads-v3
       - icon: twitter
         href: https://twitter.com/psyteachr
       - icon: https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg
@@ -46,9 +46,9 @@ book:
   - 01-intro.qmd
   - 02-reports.qmd
   - 03-viz.qmd
-  - 04-data.qmd
-  - 05-summary.qmd
-  - 06-formative.qmd
+  - 04-summary.qmd
+  - 05-formative.qmd
+  - 06-ai.qmd
   - 07-joins.qmd
   - 08-tidy.qmd
   - 09-wrangle.qmd
@@ -62,12 +62,10 @@ book:
   - app-conventions.qmd
   - app-teams.qmd
   - app-debugging.qmd
+  - app-import.qmd
   - app-datatypes.qmd
   - app-dates.qmd
   - app-styling.qmd
-#  - app-hashtags.qmd
-#  - app-twitter.qmd
-  - app-spotify.qmd
   - app-webpage.qmd
 
 

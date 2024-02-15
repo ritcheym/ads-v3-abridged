@@ -1,6 +1,6 @@
-Package: ads-v2
+Package: ads-v3
 Title: Applied Data Skills
-Version: 2.0
+Version: 3.0
 Authors@R: 
  c(
      person(
@@ -52,8 +52,7 @@ Imports:
     ggbump,
     waffle,
     DT,
-    showtext,
-    spotifyr
+    showtext
 Remotes: 
     psyteachr/glossary,
     ropensci/rnaturalearthhires

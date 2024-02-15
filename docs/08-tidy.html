@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - 8&nbsp; Data Tidying</title>
 <style>
@@ -14,9 +14,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -43,43 +44,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -137,184 +108,218 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-tidy.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/psyteachr/ads-v2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+    <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
 <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-    </ul>
-<a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+</div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></a>
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Intro to R and RStudio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-reports.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reports with R Markdown</span></a>
+  <a href="./02-reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reports with R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-viz.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></a>
+  <a href="./03-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Import</span></a>
+  <a href="./04-summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summaries</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Summaries</span></a>
+  <a href="./05-formative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-formative.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practice Report</span></a>
+  <a href="./06-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">AI</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-joins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></a>
+  <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></a>
+  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-custom.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></a>
+  <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-license.html" class="sidebar-item-text sidebar-link">License/Citation</a>
+  <a href="./12-license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">License/Citation</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></a>
+  <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-updating-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Updating R, RStudio, and packages</span></a>
+  <a href="./app-updating-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Updating R, RStudio, and packages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-symbols.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></a>
+  <a href="./app-symbols.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></a>
+  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-teams.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></a>
+  <a href="./app-teams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-debugging.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Debugging</span></a>
+  <a href="./app-debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-datatypes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Types</span></a>
+  <a href="./app-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Import</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-dates.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Dates and Times</span></a>
+  <a href="./app-datatypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Data Types</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-styling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Styling Plots</span></a>
+  <a href="./app-dates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Dates and Times</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-spotify.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Spotify Data</span></a>
+  <a href="./app-styling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">Styling Plots</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-webpage.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Webpages</span></a>
+  <a href="./app-webpage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">Webpages</span></span></a>
   </div>
 </li>
       </ul>
 </li>
     </ul>
 </div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><a href="https://doi.org/10.5281/zenodo.6365077"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg" alt="DOI"></a></p>
 </div></div>
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -322,49 +327,49 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   <ul>
 <li><a href="#sec-ilo-tidy" id="toc-sec-ilo-tidy" class="nav-link active" data-scroll-target="#sec-ilo-tidy">Intended Learning Outcomes</a></li>
   <li><a href="#sec-walkthrough-tidy" id="toc-sec-walkthrough-tidy" class="nav-link" data-scroll-target="#sec-walkthrough-tidy">Walkthrough video</a></li>
-  <li><a href="#sec-setup-tidy" id="toc-sec-setup-tidy" class="nav-link" data-scroll-target="#sec-setup-tidy"><span class="toc-section-number">8.1</span>  Set-up</a></li>
+  <li><a href="#sec-setup-tidy" id="toc-sec-setup-tidy" class="nav-link" data-scroll-target="#sec-setup-tidy"><span class="header-section-number">8.1</span> Set-up</a></li>
   <li>
-<a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="toc-section-number">8.2</span>  Data Structures</a>
+<a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">8.2</span> Data Structures</a>
   <ul class="collapse">
-<li><a href="#untidy-data" id="toc-untidy-data" class="nav-link" data-scroll-target="#untidy-data"><span class="toc-section-number">8.2.1</span>  Untidy data</a></li>
-  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="toc-section-number">8.2.2</span>  Tidy data</a></li>
+<li><a href="#untidy-data" id="toc-untidy-data" class="nav-link" data-scroll-target="#untidy-data"><span class="header-section-number">8.2.1</span> Untidy data</a></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">8.2.2</span> Tidy data</a></li>
   </ul>
 </li>
   <li>
-<a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"><span class="toc-section-number">8.3</span>  Reshaping Data</a>
+<a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"><span class="header-section-number">8.3</span> Reshaping Data</a>
   <ul class="collapse">
-<li><a href="#wide-to-long" id="toc-wide-to-long" class="nav-link" data-scroll-target="#wide-to-long"><span class="toc-section-number">8.3.1</span>  Wide to long</a></li>
-  <li><a href="#long-to-wide" id="toc-long-to-wide" class="nav-link" data-scroll-target="#long-to-wide"><span class="toc-section-number">8.3.2</span>  Long to wide</a></li>
+<li><a href="#wide-to-long" id="toc-wide-to-long" class="nav-link" data-scroll-target="#wide-to-long"><span class="header-section-number">8.3.1</span> Wide to long</a></li>
+  <li><a href="#long-to-wide" id="toc-long-to-wide" class="nav-link" data-scroll-target="#long-to-wide"><span class="header-section-number">8.3.2</span> Long to wide</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-multistep" id="toc-sec-multistep" class="nav-link" data-scroll-target="#sec-multistep"><span class="toc-section-number">8.4</span>  Multi-step tidying</a>
+<a href="#sec-multistep" id="toc-sec-multistep" class="nav-link" data-scroll-target="#sec-multistep"><span class="header-section-number">8.4</span> Multi-step tidying</a>
   <ul class="collapse">
-<li><a href="#one-observation-per-row" id="toc-one-observation-per-row" class="nav-link" data-scroll-target="#one-observation-per-row"><span class="toc-section-number">8.4.1</span>  One observation per row</a></li>
-  <li><a href="#one-variable-per-column" id="toc-one-variable-per-column" class="nav-link" data-scroll-target="#one-variable-per-column"><span class="toc-section-number">8.4.2</span>  One variable per column</a></li>
-  <li><a href="#one-value-per-cell" id="toc-one-value-per-cell" class="nav-link" data-scroll-target="#one-value-per-cell"><span class="toc-section-number">8.4.3</span>  One value per cell</a></li>
-  <li><a href="#altering-data" id="toc-altering-data" class="nav-link" data-scroll-target="#altering-data"><span class="toc-section-number">8.4.4</span>  Altering data</a></li>
-  <li><a href="#fixing-data-types" id="toc-fixing-data-types" class="nav-link" data-scroll-target="#fixing-data-types"><span class="toc-section-number">8.4.5</span>  Fixing data types</a></li>
+<li><a href="#one-observation-per-row" id="toc-one-observation-per-row" class="nav-link" data-scroll-target="#one-observation-per-row"><span class="header-section-number">8.4.1</span> One observation per row</a></li>
+  <li><a href="#one-variable-per-column" id="toc-one-variable-per-column" class="nav-link" data-scroll-target="#one-variable-per-column"><span class="header-section-number">8.4.2</span> One variable per column</a></li>
+  <li><a href="#one-value-per-cell" id="toc-one-value-per-cell" class="nav-link" data-scroll-target="#one-value-per-cell"><span class="header-section-number">8.4.3</span> One value per cell</a></li>
+  <li><a href="#altering-data" id="toc-altering-data" class="nav-link" data-scroll-target="#altering-data"><span class="header-section-number">8.4.4</span> Altering data</a></li>
+  <li><a href="#fixing-data-types" id="toc-fixing-data-types" class="nav-link" data-scroll-target="#fixing-data-types"><span class="header-section-number">8.4.5</span> Fixing data types</a></li>
   </ul>
 </li>
-  <li><a href="#sec-pipes" id="toc-sec-pipes" class="nav-link" data-scroll-target="#sec-pipes"><span class="toc-section-number">8.5</span>  Pipes</a></li>
+  <li><a href="#sec-pipes" id="toc-sec-pipes" class="nav-link" data-scroll-target="#sec-pipes"><span class="header-section-number">8.5</span> Pipes</a></li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.6</span>  Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.6</span> Exercises</a>
   <ul class="collapse">
-<li><a href="#survey-1" id="toc-survey-1" class="nav-link" data-scroll-target="#survey-1"><span class="toc-section-number">8.6.1</span>  Survey 1</a></li>
-  <li><a href="#tidy-1" id="toc-tidy-1" class="nav-link" data-scroll-target="#tidy-1"><span class="toc-section-number">8.6.2</span>  Tidy 1</a></li>
-  <li><a href="#survey-2" id="toc-survey-2" class="nav-link" data-scroll-target="#survey-2"><span class="toc-section-number">8.6.3</span>  Survey 2</a></li>
-  <li><a href="#analysis-and-visualisation" id="toc-analysis-and-visualisation" class="nav-link" data-scroll-target="#analysis-and-visualisation"><span class="toc-section-number">8.6.4</span>  Analysis and visualisation</a></li>
-  <li><a href="#your-data" id="toc-your-data" class="nav-link" data-scroll-target="#your-data"><span class="toc-section-number">8.6.5</span>  Your data</a></li>
+<li><a href="#survey-1" id="toc-survey-1" class="nav-link" data-scroll-target="#survey-1"><span class="header-section-number">8.6.1</span> Survey 1</a></li>
+  <li><a href="#tidy-1" id="toc-tidy-1" class="nav-link" data-scroll-target="#tidy-1"><span class="header-section-number">8.6.2</span> Tidy 1</a></li>
+  <li><a href="#survey-2" id="toc-survey-2" class="nav-link" data-scroll-target="#survey-2"><span class="header-section-number">8.6.3</span> Survey 2</a></li>
+  <li><a href="#analysis-and-visualisation" id="toc-analysis-and-visualisation" class="nav-link" data-scroll-target="#analysis-and-visualisation"><span class="header-section-number">8.6.4</span> Analysis and visualisation</a></li>
+  <li><a href="#your-data" id="toc-your-data" class="nav-link" data-scroll-target="#your-data"><span class="header-section-number">8.6.5</span> Your data</a></li>
   </ul>
 </li>
-  <li><a href="#sec-glossary-tidy" id="toc-sec-glossary-tidy" class="nav-link" data-scroll-target="#sec-glossary-tidy"><span class="toc-section-number">8.7</span>  Glossary</a></li>
-  <li><a href="#sec-resources-tidy" id="toc-sec-resources-tidy" class="nav-link" data-scroll-target="#sec-resources-tidy"><span class="toc-section-number">8.8</span>  Further resources</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v2/edit/master/08-tidy.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v2/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v2/blob/master/08-tidy.qmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#sec-glossary-tidy" id="toc-sec-glossary-tidy" class="nav-link" data-scroll-target="#sec-glossary-tidy"><span class="header-section-number">8.7</span> Glossary</a></li>
+  <li><a href="#sec-resources-tidy" id="toc-sec-resources-tidy" class="nav-link" data-scroll-target="#sec-resources-tidy"><span class="header-section-number">8.8</span> Further resources</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v3/edit/master/08-tidy.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v3/blob/master/08-tidy.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-tidy" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></h1>
+<h1 class="title"><span id="sec-tidy" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></h1>
 </div>
 
 
@@ -405,12 +410,12 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <p>An <a class="glossary" target="_blank" title="All of the data about a single trial or question." href="https://psyteachr.github.io/glossary/o#observation">observation</a> is all the information about a single “thing” in a single condition, such as at one point in time. These things can be customers, sales, orders, feedback questionnaires, tweets, or really anything. Observations should have a way to identify them, such as a unique ID or a unique combination of values like country and year.</p>
 <p>A <a class="glossary" target="_blank" title="(coding): A word that identifies and stores the value of some data for later use; (stats): An attribute or characteristic of an observation that you can measure, count, or describe" href="https://psyteachr.github.io/glossary/v#variable">variable</a> is one type of information about the observation. For example, if the observation is a sale, the variables you might have about the sale are the sale ID, the customer’s ID, the date of the sale, the price paid, and method of payment.</p>
 <p>A <a class="glossary" target="_blank" title="A single number or piece of data." href="https://psyteachr.github.io/glossary/v#value">value</a> is the data for one variable for one observation. For example, the value of the date variable from the observation of a sale might be <code>2021-08-20</code>.</p>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -537,9 +542,9 @@ Explain these answers
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>untidy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/untidy_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tbl-untidy-data" class="cell tbl-parent quarto-layout-panel anchored">
+<div id="tbl-untidy-data" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Untidy table">
 <div class="panel-caption table-caption">
-<p>Untidy table</p>
+<p><strong>?(caption)</strong></p>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -705,12 +710,12 @@ totalprice_2020
 <li>add <code>item_2018 + item_2019 + item_2020</code> to get the total number of items bought per customer</li>
 <li>add <code>totalprice_2018 + totalprice_2019 + totalprice_2020</code> to get the total price per customer</li>
 </ol>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -730,11 +735,16 @@ Note
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/tidy_data.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="tbl-tidy-data" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Tidy table">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
 <div id="htmlwidget-068bb33ee6c648c062f3" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-068bb33ee6c648c062f3">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],[3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59,3.91,4.72,5.59],[7.82,37.76,55.9,3.91,28.32,5.59,15.64,23.6,27.95,39.1,4.72,16.77,11.73,42.48,44.72]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render"],"jsHooks":[]}</script>
+</div>
 </div>
 </div>
 <ul>
@@ -831,12 +841,12 @@ total_price
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -852,19 +862,18 @@ Note
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/tidy/excel_pivot_table.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Converting between wide and long formats using pivot tables in Excel.</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Converting between wide and long formats using pivot tables in Excel.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>It can be easier to just consider one type of measurement at a time. <code>untidy_data</code> has two types of measurements, total price and price per item. Let’s look at just the <code>totalprice</code> data first.</p>
 <p>We can select just the columns we want using the <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select()</a></code> function. This function’s first argument is the data table you want to select from, then each argument after that is either the name of a column in that table, or <code>new_name = old_name</code>. This is a useful function for changing the column names and order of columns, as well as selecting a subset of columns.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Warning
 </div>
 </div>
@@ -885,9 +894,9 @@ Warning
 <span id="cb6-7"><a href="#cb6-7"></a>  <span class="st">`</span><span class="at">2020</span><span class="st">`</span> <span class="ot">=</span> totalprice_2020</span>
 <span id="cb6-8"><a href="#cb6-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tbl-wide-data" class="cell tbl-parent quarto-layout-panel anchored">
+<div id="tbl-wide-data" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Wide table">
 <div class="panel-caption table-caption">
-<p>Wide table</p>
+<p><strong>?(caption)</strong></p>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -994,11 +1003,16 @@ customer_id
 <span id="cb7-4"><a href="#cb7-4"></a>  <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
 <span id="cb7-5"><a href="#cb7-5"></a>  <span class="at">values_to =</span> <span class="st">"totalprice"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="tbl-long-data" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Long table">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
 <div id="htmlwidget-f3e0ab314bd8f55b1313" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-f3e0ab314bd8f55b1313">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],["2018","2019","2020","2018","2019","2020","2018","2019","2020","2018","2019","2020","2018","2019","2020"],[7.82,37.76,55.9,3.91,28.32,5.59,15.64,23.6,27.95,39.1,4.72,16.77,11.73,42.48,44.72]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
 </div>
 </div>
 <p>It also makes it very easy to use with <code>ggplot()</code>. Run the following plot, and consider how you’d make it with the wide version (it is likely impossible).</p>
@@ -1008,17 +1022,16 @@ customer_id
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="08-tidy_files/figure-html/long-ggplot-demo-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Most plots are easier to make with data in a long format.</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Most plots are easier to make with data in a long format.</figcaption></figure>
 </div>
 </div>
 </div>
-<div class="callout-note try callout callout-style-default callout-captioned">
+<div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -1095,12 +1108,12 @@ Answer
 </div>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -1154,9 +1167,9 @@ Note
 <span id="cb10-6"><a href="#cb10-6"></a>  <span class="at">values_from =</span> totalprice <span class="co"># the new column values</span></span>
 <span id="cb10-7"><a href="#cb10-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="tbl-wide-pivot" class="cell tbl-parent quarto-layout-panel anchored">
+<div id="tbl-wide-pivot" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Data made wider with pivot_wider()">
 <div class="panel-caption table-caption">
-<p>Data made wider with pivot_wider()</p>
+<p><strong>?(caption)</strong></p>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -1430,11 +1443,16 @@ totalprice_2020
 <span id="cb11-11"><a href="#cb11-11"></a>  <span class="at">values_transform =</span> <span class="fu">list</span>(<span class="at">value =</span> as.character) </span>
 <span id="cb11-12"><a href="#cb11-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="tbl-wide-to-long" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Untidy data converted from wide to long.">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
 <div id="htmlwidget-bdf75e25f5de97246f84" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-bdf75e25f5de97246f84">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5],["itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice","itemsprice","itemsprice","itemsprice","totalprice","totalprice","totalprice"],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],["2 (3.91)","8 (4.72)","10 (5.59)","7.82","37.76","55.9","1 (3.91)","6 (4.72)","1 (5.59)","3.91","28.32","5.59","4 (3.91)","5 (4.72)","5 (5.59)","15.64","23.6","27.95","10 (3.91)","1 (4.72)","3 (5.59)","39.1","4.72","16.77","3 (3.91)","9 (4.72)","8 (5.59)","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>category<\/th>\n      <th>year<\/th>\n      <th>value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
 </div>
 </div>
 </section><section id="one-variable-per-column" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="one-variable-per-column">
@@ -1448,19 +1466,24 @@ totalprice_2020
 <span id="cb12-5"><a href="#cb12-5"></a>  <span class="at">values_from =</span> value</span>
 <span id="cb12-6"><a href="#cb12-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="tbl-intermediate" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Data converted from long to an intermediate shape.">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
 <div id="htmlwidget-1a016b97394491d87468" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1a016b97394491d87468">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],["2 (3.91)","8 (4.72)","10 (5.59)","1 (3.91)","6 (4.72)","1 (5.59)","4 (3.91)","5 (4.72)","5 (5.59)","10 (3.91)","1 (4.72)","3 (5.59)","3 (3.91)","9 (4.72)","8 (5.59)"],["7.82","37.76","55.9","3.91","28.32","5.59","15.64","23.6","27.95","39.1","4.72","16.77","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>itemsprice<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -1481,19 +1504,24 @@ Note
 <span id="cb13-7"><a href="#cb13-7"></a>  <span class="at">convert =</span> <span class="cn">TRUE</span> <span class="co"># whether to fix the data type of the new columns</span></span>
 <span id="cb13-8"><a href="#cb13-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="tbl-split" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="The itemsprice column split into items and price_per_item using separate().">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
 <div id="htmlwidget-f5cbe9e99727bd83c54e" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-f5cbe9e99727bd83c54e">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],["(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)","(3.91)","(4.72)","(5.59)"],["7.82","37.76","55.9","3.91","28.32","5.59","15.64","23.6","27.95","39.1","4.72","16.77","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Warning
 </div>
 </div>
@@ -1515,11 +1543,16 @@ Warning
 <span id="cb14-7"><a href="#cb14-7"></a>  )</span>
 <span id="cb14-8"><a href="#cb14-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<div id="tbl-mutate" class="cell tbl-parent quarto-layout-panel anchored" data-tbl-cap="Mutating data to remove the parentheses from price_per_item.">
+<div class="panel-caption table-caption">
+<p><strong>?(caption)</strong></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 
 <div id="htmlwidget-5b9cc4bc14e909363de6" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-5b9cc4bc14e909363de6">{"x":{"filter":"none","vertical":false,"data":[[1,1,1,2,2,2,3,3,3,4,4,4,5,5,5],[2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020,2018,2019,2020],[2,8,10,1,6,1,4,5,5,10,1,3,3,9,8],["3.91","4.72","5.59","3.91","4.72","5.59","3.91","4.72","5.59","3.91","4.72","5.59","3.91","4.72","5.59"],["7.82","37.76","55.9","3.91","28.32","5.59","15.64","23.6","27.95","39.1","4.72","16.77","11.73","42.48","44.72"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>customer_id<\/th>\n      <th>year<\/th>\n      <th>items<\/th>\n      <th>price_per_item<\/th>\n      <th>totalprice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 7, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[0,1,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
+</div>
 </div>
 </div>
 </section><section id="fixing-data-types" class="level3" data-number="8.4.5"><h3 data-number="8.4.5" class="anchored" data-anchor-id="fixing-data-types">
@@ -1538,7 +1571,7 @@ $ price_per_item &lt;chr&gt; "3.91", "4.72", "5.59", "3.91", "4.72", "5.59", "3.
 $ totalprice     &lt;chr&gt; "7.82", "37.76", "55.9", "3.91", "28.32", "5.59", "15.6…</code></pre>
 </div>
 </div>
-<p>Once the data are clean and tidy, you can fix all of your column data types in one step using <code><a href="https://readr.tidyverse.org/reference/type_convert.html">readr::type_convert()</a></code>. This is good practice when you’ve finished cleaning a data set. If the automatic type detection doesn’t work as expected, this usually means that you still have non-numeric characters in a column where there were only supposed to be numbers. You can also manually set the column types in the same way as for <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code> (see <a href="04-data.html"><span>Chapter&nbsp;4</span></a>)).</p>
+<p>Once the data are clean and tidy, you can fix all of your column data types in one step using <code><a href="https://readr.tidyverse.org/reference/type_convert.html">readr::type_convert()</a></code>. This is good practice when you’ve finished cleaning a data set. If the automatic type detection doesn’t work as expected, this usually means that you still have non-numeric characters in a column where there were only supposed to be numbers. You can also manually set the column types in the same way as for <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code> (see <a href="app-import.html"><span>Appendix&nbsp;G</span></a>)).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>tidy_data <span class="ot">&lt;-</span> <span class="fu">type_convert</span>(</span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="at">df =</span> mutated_data,</span>
@@ -1562,7 +1595,7 @@ $ totalprice     &lt;dbl&gt; 7.82, 37.76, 55.90, 3.91, 28.32, 5.59, 15.64, 23.60
 <div style="width: 200px; float: right;">
 <p><img src="images/tidy/pipe_sticker.png" style="width: 100%"></p>
 </div>
-<p>We’ve already introduced pipes in <a href="05-summary.html#sec-pipes-first"><span>Section&nbsp;5.3.2</span></a> but this type of data processing is where they really start to shine, as they can significantly reduce the amount of code you write.</p>
+<p>We’ve already introduced pipes in <a href="04-summary.html#sec-pipes-first"><span>Section&nbsp;4.2.2</span></a> but this type of data processing is where they really start to shine, as they can significantly reduce the amount of code you write.</p>
 <p>As a recap, a pipe takes the result of the previous function and sends it to the next function as its first argument, which means that you do not need to create intermediate objects. Below is all the code we’ve used in this chapter, and in the process we created five objects. This can get very confusing in longer scripts.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>untidy_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/untidy_data.csv"</span>, </span>
@@ -1608,12 +1641,12 @@ $ totalprice     &lt;dbl&gt; 7.82, 37.76, 55.90, 3.91, 28.32, 5.59, 15.64, 23.60
 <span id="cb19-41"><a href="#cb19-41"></a>  <span class="at">trim_ws =</span> <span class="cn">TRUE</span></span>
 <span id="cb19-42"><a href="#cb19-42"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Warning
 </div>
 </div>
@@ -1739,12 +1772,12 @@ Warning
 </li>
 </ol>
 <p>Don’t feel like you always need to get all of your data wrangling code into a single pipeline. You should make intermediate objects whenever you need to break up your code because it’s getting too complicated or if you need to debug something.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -1762,12 +1795,12 @@ Note
 </li>
 </ul>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1808,12 +1841,12 @@ Explain these answers
 <span class="header-section-number">8.6.2</span> Tidy 1</h3>
 <p>Transform <code>wide1</code> to long-form using <code>pivot_longer()</code> and store it in an object named <code>tidy1</code></p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1862,12 +1895,12 @@ Hint 2
 <p><code>into  = c("col1", "col2")</code></p>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1884,12 +1917,12 @@ Solution
 </div>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="Alternative solution">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Alternative solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1934,12 +1967,12 @@ Hint 2
 <p><code>data %&gt;% pivot_longer() %&gt;% separate() %&gt;% pivot_wider()</code></p>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -1960,12 +1993,12 @@ Solution
 <span class="header-section-number">8.6.4</span> Analysis and visualisation</h3>
 <p>Using <code>group_by()</code> and <code>summarise()</code>, calculate the mean score for each participant for both satisfaction and recommendation. Do this for both versions of the dataset so that you can see how the structure of the dataset changes the approach you need to take.</p>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -2003,12 +2036,12 @@ Hint
 </div>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -2035,12 +2068,12 @@ Solution
 </div>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -2067,12 +2100,12 @@ Solution
 </div>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="true">
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -2522,9 +2555,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2589,6 +2636,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -2640,11 +2773,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">CC-BY 2022, psyTeachR</div>   
+    <div class="nav-footer-left">CC-BY 2024, psyTeachR</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/psyteachr/ads-v2">
+    <a class="nav-link" href="https://github.com/psyteachr/ads-v3">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
