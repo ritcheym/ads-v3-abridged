@@ -12,24 +12,64 @@ THIS CHAPTER IS CURRENTLY UNDERGOING REVISION
 
 There is a walkthrough video of this chapter available via [Echo360](). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
+
 ## Set-up {#sec-setup-summary}
 
 First, create a new project for the work we'll do in this chapter named `r path("04-summary")`. Second, download the data for this chapter (<a href="data/ncod_tweets.rds" download>ncod_tweets.rds</a>) and save it in your project data folder. Finally, open and save and new R Markdown document named `summary.Rmd`, delete the welcome text and load the required packages for this chapter.
 
 ```{r setup-summary, message=FALSE, verbatim="r setup, include=FALSE"}
 library(tidyverse)   # data wrangling functions
+library(readxl)      # to read in excel files
 library(kableExtra)  # for nice tables
 ```
 
 Download the [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf).
 
+[Life expectancy and mortality ](https://www.who.int/data/sets/health-inequality-monitor-dataset#gho)  (WHO Global Health Observatory)
 
 ```{r}
-tweets <- readRDS("data/ncod_tweets.rds")
+mortality_orig <- read_xlsx("data/rep_gho_mortality.xlsx")
 ```
 
 
-First, run `glimpse(tweets)` or click on the object in the environment to find out what information is in the downloaded data (it's a lot!). Now let's create a series of summary tables and plots with these data.
+First, run `glimpse(mortality_orig)` or click on the object in the environment to find out what information is in the downloaded data (it's a lot!). There are `r nrow(mortality_orig)` rows and `r ncol(mortality_orig)` columns of data. You can read more about the indicators in the [metadata](data/rep_gho_mortality-metadata.pdf) file that the WO helpfully provides, but we're going to practice figuring out who data is structured using data summaries in this exercise, since it's a common task to get a mysteriously formatted data file and need to figure it out yourself. At the very least, this exercise should remind you to never do this to other people -- always provide a codebook! 
+
+```{r}
+glimpse(mortality_orig)
+```
+
+
+Now let's create a series of summary tables and plots with these data.
+
+## Counting
+
+You can count categorical data with the `count()` function. Since each row is an observations, you can count the number of rows per each different `screen_name` to get the number of tweets per user. This will give you a new table with each combination of the counted columns and a column called `n` containing the number of observations from that group. 
+
+The argument `sort = TRUE` will sort the table by `n` in descending order, whilst `head()` returns the first six lines of a data table and is a useful function to call when you have a very large dataset and just want to see the top values.
+
+```{r}
+mortality_orig %>%
+  count(setting)
+```
+
+```{r, echo = FALSE}
+mcq1 <- c(answer = "`tweets %>% count(is_quote, is_retweet)`", 
+          x = "`tweets %>% count(is_quote) %>% count(is_retweet)`", 
+          x = "`tweets %>% count(c(is_quote, is_retweet))`", 
+          x = "`tweets %>% select(is_quote, is_retweet) %>% count()`") %>%
+  longmcq()
+```
+
+::: {.callout-note .try}
+How would you create the table of counts below? 
+
+```{r, echo = FALSE}
+tweets %>% count(is_quote, is_retweet)
+```
+
+`r mcq1`
+:::
+
 
 ## Summarise {#sec-summary-summarise}
 
@@ -151,38 +191,6 @@ tweet_summary <- tweets %>% # start with the object tweets and then
 Notice that `summarise()` no longer needs the first argument to be the data table, it is pulled in from the pipe. The power of the pipe may not be obvious now, but it will soon prove its worth. 
 
 
-## Counting
-
-How many different accounts tweeted using the hashtag? Who tweeted most?
-
-You can count categorical data with the `count()` function. Since each row is a tweet, you can count the number of rows per each different `screen_name` to get the number of tweets per user. This will give you a new table with each combination of the counted columns and a column called `n` containing the number of observations from that group. 
-
-The argument `sort = TRUE` will sort the table by `n` in descending order, whilst `head()` returns the first six lines of a data table and is a useful function to call when you have a very large dataset and just want to see the top values.
-
-```{r}
-tweets_per_user <- tweets %>%
-  count(screen_name, sort = TRUE)
-
-head(tweets_per_user)
-```
-
-```{r, echo = FALSE}
-mcq1 <- c(answer = "`tweets %>% count(is_quote, is_retweet)`", 
-          x = "`tweets %>% count(is_quote) %>% count(is_retweet)`", 
-          x = "`tweets %>% count(c(is_quote, is_retweet))`", 
-          x = "`tweets %>% select(is_quote, is_retweet) %>% count()`") %>%
-  longmcq()
-```
-
-::: {.callout-note .try}
-How would you create the table of counts below? 
-
-```{r, echo = FALSE}
-tweets %>% count(is_quote, is_retweet)
-```
-
-`r mcq1`
-:::
 
 
 ## Grouping {#sec-grouping}
