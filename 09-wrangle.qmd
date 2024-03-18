@@ -8,7 +8,7 @@
 
 ## Walkthrough video {#sec-walkthrough-wrangle .unnumbered}
 
-There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/dc1e2869-a6c2-45d8-ab40-cb85cdb67f43/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is a walkthrough video of this chapter available via [Echo360](https://echo360.org.uk/media/dc1e2869-a6c2-45d8-ab40-cb85cdb67f43/public). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
 ## Set-up {#sec-setup-wrangle}
 
@@ -284,7 +284,7 @@ Note that `str_detect()` is case sensitive so it would not return values of "Hig
 `filter()` is incredibly powerful and can allow you to select very specific subsets of data. But, it is also quite dangerous because when you start combining multiple criteria and operators, it's very easy to accidentally specify something slightly different than what you intended. **Always check your output**. If you have a small dataset, then you can eyeball it to see if it looks right. With a larger dataset, you may wish to compute summary statistics or count the number of groups/observations in each variable to verify your filter is correct. There is no level of expertise in coding that can substitute knowing and checking your data. 
 :::
 
-### Arrange
+### Arrange #sec-arrange
 
 You can sort your dataset using `arrange()`. You will find yourself needing to sort data in R much less than you do in Excel, since you don't need to have rows next to each other in order to, for example, calculate group means. But `arrange()` can be useful when preparing data for display in tables. `arrange()` works on character data where it will sort alphabetically, as well as numeric data where the default is ascending order (smallest to largest). Reverse the order using `desc()`.
 

@@ -15,48 +15,141 @@ There is a walkthrough video of this chapter available via [Echo360](). Please n
 
 ## Set-up {#sec-setup-summary}
 
-First, create a new project for the work we'll do in this chapter named `r path("04-summary")`. Second, download the data for this chapter (<a href="data/ncod_tweets.rds" download>ncod_tweets.rds</a>) and save it in your project data folder. Finally, open and save and new R Markdown document named `summary.Rmd`, delete the welcome text and load the required packages for this chapter.
+First, create a new project for the work we'll do in this chapter named `r path("04-summary")`. Second, download the data for this chapter (<a href="data/12.1_delivery.csv" download>12.1_delivery.csv</a>) and save it in your project data folder. Finally, open and save and new R Markdown document named `summary.Rmd`, delete the welcome text and load the required packages for this chapter.
 
 ```{r setup-summary, message=FALSE, verbatim="r setup, include=FALSE"}
 library(tidyverse)   # data wrangling functions
-library(readxl)      # to read in excel files
 library(kableExtra)  # for nice tables
 ```
 
 Download the [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf).
 
-[Life expectancy and mortality ](https://www.who.int/data/sets/health-inequality-monitor-dataset#gho)  (WHO Global Health Observatory)
+## Import Data
+
+The data we'll be working with is on method of delivery for singleton births from Public Health Scotland. You can see the most recent version at [Method of Delivery](https://www.opendata.nhs.scot/dataset/births-in-scottish-hospitals/resource/8654b6d8-9765-4ced-8e9b-4611aa4596eb), but we'll be working from a saved version. 
+
+The data are in a `glossary("CSV")` file, so we can read this with the function `read_csv()` , and assign it to a new object that we'll call `births`.
+
+```{r, message=TRUE}
+births <- read_csv("data/12.1_delivery.csv")
+```
+
+When you load data with `read_csv()`, you get a quick summary that you should always check to see if the data were loaded correctly. One common problem is that data load with the the wrong type (see @sec-data-types). The abbreviation "chr" means this is a `r glossary("character")` column, which can contain any text. The abbreviation "dbl" is a `r glossary("double")`, which is a number that can have decimal places. There are too many columns to show here, so it tells you to use the `spec()` function to check all the columns. 
 
 ```{r}
-mortality_orig <- read_xlsx("data/rep_gho_mortality.xlsx")
+spec(births)
 ```
 
 
-First, run `glimpse(mortality_orig)` or click on the object in the environment to find out what information is in the downloaded data (it's a lot!). There are `r nrow(mortality_orig)` rows and `r ncol(mortality_orig)` columns of data. You can read more about the indicators in the [metadata](data/rep_gho_mortality-metadata.pdf) file that the WO helpfully provides, but we're going to practice figuring out who data is structured using data summaries in this exercise, since it's a common task to get a mysteriously formatted data file and need to figure it out yourself. At the very least, this exercise should remind you to never do this to other people -- always provide a codebook! 
+You can also use the `glimpse()` function to check the type of each column, and see a few examples of the cell values. 
 
 ```{r}
-glimpse(mortality_orig)
+glimpse(births)
+```
+
+The column `SIMDQuintileQF` looks a little odd. We can quickly check what all the values are in a data table with the `count()` function:
+
+```{r}
+count(births, SIMDQuintileQF)
 ```
 
 
-Now let's create a series of summary tables and plots with these data.
+It looks like this column doesn't contain any useful info, so we can just ignore it, or skip it using the `col_types` argument and two helper functions, `cols()` and `col_skip()`. Setting the `col_types` argument also removes the message about column types.
+
+```{r}
+births <- read_csv("data/12.1_delivery.csv",
+                   col_types = cols(SIMDQuintileQF = col_skip()))
+```
+
+You can learn more about importing data in @sec-data
+
+### Exploring a Dataset 
+
+There are `r nrow(delivery)` rows and `r ncol(delivery)` columns of data. The data dictionary on the NHS website includes the following, but doesn't clearly state what the possible values are for each column. We're going to practice figuring out more about how data is structured using data summaries in this exercise, since it's a common task to get a mysteriously formatted data file and need to figure it out yourself. At the very least, this exercise should remind you to never do this to other people -- always provide a clear codebook with all values! 
+
+Column | Type | Label
+:------|:-----|:-----
+FinancialYear     | text | Data is recorded for financial years (1st April to 31st March) based on the date of the mother's discharge
+CA                | text | 9-digit code for Council areas based on boundaries as at 1st April 2019
+SIMDQuintile      | text | Scottish Index of Multiple Deprivation (SIMD) quintile; 1(Most Deprived) - 5(Least Deprived)
+SIMDQuintileQF    | text | Qualifier for SIMDQuintile indicating unknown quintiles
+SIMDVersion       | text | Most appropriate SIMD release used for each year
+AgeGroup          | text | Age Group of the mother at time of admission
+Delivery          | text | The method by which the baby was delivered
+Induced           | text | Was the delivery induced, that is, was it started artificially
+Livebirths        | numeric |Number of live births
+
+### The $ operator
+
+We need to take a couple of brief detours to introduce some additional coding conventions. First, let's introduce the `$` notation. The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will return all the observations in that column.
+
+```{r}
+years <- births$FinancialYear
+```
+
+If your item has multiple observations, you can specify which ones to return using square brackets `[]` and the row number or a `r glossary("vector")` of row numbers.
+
+```{r}
+births$FinancialYear[1] # select one observation
+births$AgeGroup[c(20,30,40)] # select multiple with c()
+```
+
+### Pipes {#sec-pipes-first}
+
+Let's say you want to filter the dataset down to just the emergency C-sections, and then sum up the total number of live births per year, and then arrange the data from largest to smallest (don't worry, we'll introduce these functions soon). You could do it by creating intermediate objects for each step:
+
+```{r}
+c_sections <- filter(births, Delivery == "Caesarean - Emergency")
+c_per_year <- summarise(c_sections, n = sum(Livebirths), .by = FinancialYear)
+c_sorted <- arrange(c_per_year, desc(n))
+
+c_sorted
+```
+
+Whilst the above code is functional, it adds three unnecessary objects to the environment, increasing the risk we'll use one of these objects by mistake. Enter... the pipe.
+
+Let's formally introduce the `r glossary("pipe")`, that weird `%>%` you may have seen. Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before `%>%` to be the first argument of the function after `%>%`. It can be useful to translate the pipe as "**and then**". It's easier to show than tell, so let's look at an example.
+
+```{r}
+              
+c_per_year <- births %>% # start with the births table, and then
+  # filter the table to just emergency c-sections
+  filter(Delivery == "Caesarean - Emergency") %>% # and then
+  # calculate the total number of births per year
+  summarise(n = sum(Livebirths), .by = FinancialYear) %>% # and then
+  # sort by n, descending
+  arrange(desc(n))
+
+c_per_year
+```
+
+Notice that  `filter()`, summarise()` and `arrange()` no longer need the first argument to be the data table, it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth. 
 
 ## Counting
 
-You can count categorical data with the `count()` function. Since each row is an observations, you can count the number of rows per each different `screen_name` to get the number of tweets per user. This will give you a new table with each combination of the counted columns and a column called `n` containing the number of observations from that group. 
+You can count categorical data with the `count()` function. This will give you a new table with each combination of the counted columns and a column called `n` containing the number of observations from that group. 
 
-The argument `sort = TRUE` will sort the table by `n` in descending order, whilst `head()` returns the first six lines of a data table and is a useful function to call when you have a very large dataset and just want to see the top values.
+Let's figure out how entries there were per delivery type. The first argument is the name of the data table object, and the second argument is the name of the column we want to count.
 
 ```{r}
-mortality_orig %>%
-  count(setting)
+count(births, Delivery)
 ```
 
+There are 7 types of deliveries, and the new column `n` tells you how many rows of the data table there are per type. 
+
+We can check a combination of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. 
+
+```{r}
+count(births, AgeGroup, Induced, sort = TRUE)
+```
+
+
 ```{r, echo = FALSE}
-mcq1 <- c(answer = "`tweets %>% count(is_quote, is_retweet)`", 
-          x = "`tweets %>% count(is_quote) %>% count(is_retweet)`", 
-          x = "`tweets %>% count(c(is_quote, is_retweet))`", 
-          x = "`tweets %>% select(is_quote, is_retweet) %>% count()`") %>%
+mcq1 <- c(answer = "`count(births, Induced, sort = TRUE)`", 
+          x = "`count(Induced, births, sort = TRUE)`", 
+          x = "`count(births, Induced)`", 
+          x = "`count(Induced, births)`") %>%
+  sample() %>%
   longmcq()
 ```
 
@@ -64,11 +157,13 @@ mcq1 <- c(answer = "`tweets %>% count(is_quote, is_retweet)`",
 How would you create the table of counts below? 
 
 ```{r, echo = FALSE}
-tweets %>% count(is_quote, is_retweet)
+count(births, Induced, sort = TRUE)
 ```
 
 `r mcq1`
 :::
+
+However, the numbers above are not the number of births, but rather the number of rows in the data set. The column `Livebirths` contains the number per each category, so we will need to add those numbers together to see the total number of births. 
 
 
 ## Summarise {#sec-summary-summarise}
@@ -85,234 +180,138 @@ mean(values, na.rm = TRUE) # removes NAs first
 ```
 :::
 
-This function can be used to answer questions like: How many tweets were there? What date range is represented in these data? What are the `r glossary("mean")` and `r glossary("median")` number of favourites per tweet? Let's start with a very simple example to calculate the mean, median, min, and max number of favourites (Twitter's version of a "like"):
+This function can be used to answer questions like: How many total live births were there? What are the `r glossary("mean")` and `r glossary("median")` number of births per year? Let's start with a very simple example to calculate the total number of births:
 
-* The first argument that `summarise()` takes is the data table you wish to summarise, in this case the object `tweets`.
-* `summarise()` will create a new table. The column names of this new table will be the left hand-side arguments, i.e., `mean_favs`, `median_favs`, `min_favs` and `max_favs`. 
+* The first argument that `summarise()` takes is the data table you wish to summarise, in this case the object `delivery`.
+* `summarise()` will create a new table. The column names of this new table will be the left hand-side arguments (e.g., `total_births`)
 * The values of these columns are the result of the summary operation on the right hand-side.
 
 ```{r}
-favourite_summary <- summarise(tweets,
-                           mean_favs = mean(favorite_count),
-                           median_favs = median(favorite_count),
-                           min_favs = min(favorite_count),
-                           max_favs = max(favorite_count))
+summarise(births,
+          total_births = sum(Livebirths))
 ```
 
-```{r echo = FALSE}
-favourite_summary %>%
-  kable(align = "c")
-```
 
-The mean number of favourites is substantially higher than the median and the range is huge, suggesting there are ` r glossary("outlier", "outliers")`. A quick histogram confirms this - most tweets have few favourites but there are a few  with a lot of likes  that skew the mean.
+If you want to summarise by category, you can use the `.by` argument, as long as you have a version of dplyr that is 1.1.0 or above (if not, you can use the method in the next section).
 
 ```{r}
-ggplot(tweets, aes(x = favorite_count)) +
-  geom_histogram(bins = 25) +
-  scale_x_continuous(trans = "pseudo_log", 
-                     breaks = c(0, 1, 10, 100, 1000, 10000))
+summarise(births,
+          total_births = sum(Livebirths),
+          .by = Delivery)
 ```
 
-::: {.callout-note}
-Plotting the logarithm of a very skewed value can often give you a better idea of what's going on. Use `scale_x_continuous(trans = "pseudo_log")` to include zeros on the plot (just "log" converts 0 to negative infinity and removes it from the plot).
-:::
-
-You can add multiple operations to a single call to `summarise()` so let's try a few different operations. The `n()` function counts the number of rows in the data. The `created_at` column gives us the date each tweet were created, so we can use the `min()` and `max()` functions to get the range of dates. 
+If you want to group by more than one column, use the `c()` function to group the column names.
 
 ```{r}
-tweet_summary <- tweets %>%
-  summarise(mean_favs = mean(favorite_count),
-            median_favs = quantile(favorite_count, .5),
-            n = n(),
-            min_date = min(created_at),
-            max_date = max(created_at))
-
-glimpse(tweet_summary)
+summarise(births,
+          total_births = sum(Livebirths),
+          .by = c(Delivery, Induced))
 ```
-
-::: {.callout-note}
-`r glossary("quantile", "Quantiles")` are like percentiles. Use `quantile(x, .50)` to find the median (the number where 50% of values in `x` are above it and 50% are below it). This can be useful when you need a value like "90% of tweets get *X* favourites or fewer".
-
-```{r}
-quantile(tweets$favorite_count, 0.90)
-```
-
-:::
-
-```{r, echo=FALSE}
-mcq1 <- c(answer = "`tweets %>% summarise(max_retweets = max(retweets))`",
-          x = "`tweets %>% summarise(max = retweets)`",
-          x = "`tweets %>% summarise(max_retweets)`", 
-          x = "`tweets %>% max(retweets)`") %>%
-  sample() %>% longmcq()
-
-mcq2 <- c(answer = "`summarise(width = mean(display_text_width))`",
-          x = "`width(mean(display_text_width))`",
-          x = "`summarise(display_text_width = mean)`",
-          x = "`group_by(display_text_width)`") %>%
-  sample() %>% longmcq()
-```
-
-
-::: {.callout-note .try}
-* How would you find the largest number of retweets?
-    `r mcq1`
-* How would you calculate the mean `display_text_width`? 
-    `r mcq2`
-:::
-
-### The $ operator
-
-We need to take a couple of brief detours to introduce some additional coding conventions. First, let's clear up what that `$` notation is doing. The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will print all the observations in that column. 
-
-```{r}
-tweet_summary$mean_favs
-```
-
-If your item has multiple observations, you can specify which ones to return using square brackets `[]` and the row number or a `r glossary("vector")` of row numbers.
-
-```{r}
-tweets$source[1] # select one observation
-tweets$display_text_width[c(20,30,40)] # select multiple with c()
-```
-
-### Pipes {#sec-pipes-first}
-
-For our second detour, let's formally introduce the `r glossary("pipe")`, that weird `%>%` symbol we've used occasionally. Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before `%>%` to be the first argument of the function after `%>%`. It can be useful to translate the pipe as "**and then**". It's easier to show than tell, so let's look at an example.
-
-We could write the above code using a pipe as follows:
-
-```{r eval = FALSE}
-tweet_summary <- tweets %>% # start with the object tweets and then
-  summarise(mean_favs = mean(favorite_count), #summarise it
-            median_favs = median(favorite_count))
-```
-
-Notice that `summarise()` no longer needs the first argument to be the data table, it is pulled in from the pipe. The power of the pipe may not be obvious now, but it will soon prove its worth. 
-
 
 
 
 ## Grouping {#sec-grouping}
 
-You can also create summary values by group. The combination of `group_by()` and `summarise()` is incredibly powerful, and it is also a good demonstration of why pipes are so useful.
+You can also create summary values by group using a combination of `group_by()` and `summarise()`. The function `group_by()` takes an existing data table and converts it into a grouped table, where any operations that are subsequently performed on it are done "by group". 
 
-The function `group_by()` takes an existing data table and converts it into a grouped table, where any operations that are performed on it are done "by group".
-
-The first line of code creates an object named `tweets_grouped`, that groups the dataset according to whether the user is a verified user. On the surface, `tweets_grouped` doesn't look any different to the original `tweets`. However, the underlying structure has changed and so when we run `summarise()`, we now get our requested summaries for each group (in this case verified or not). 
+It differs from the `.by` argument to `summarise()` in that it is persistent, so the table stays grouped until you explicitly remove the groups using the `ungroup()` functions, while the `.by` argument only applies to the function it is inside. Most of the code examples you'll see use this style, since the `.by` argument is fairly new.
 
 ```{r}
-tweets_grouped <- tweets %>%
-  group_by(verified)
-
-verified <- tweets_grouped %>%
-  summarise(count = n(),
-            mean_favs = mean(favorite_count),
-            mean_retweets = mean(retweet_count)) %>%
+births %>%
+  group_by(Delivery) %>%
+  summarise(births = sum(Livebirths)) %>%
   ungroup()
-
-verified
 ```
 
 ::: {.callout-warning}
 Make sure you call the `ungroup()` function when you are done with grouped functions. Failing to do this can cause all sorts of mysterious problems if you use that data table later assuming it isn't grouped.
 :::
 
-Whilst the above code is functional, it adds an unnecessary object to the environment - `tweets_grouped` is taking up space and increases the risk we'll use this grouped object by mistake. Enter... the pipe.
 
-Rather than creating an intermediate object, we can use the pipe to string our code together.
+You might have noticed that the order of the table above is different from the order when using the `.by` argument of `summarise()`. This is because `group_by()` always sorts the values in the grouping columns in ascending order, while `.by` leaves them in the order they are first encountered in your data frame. Use the function `arrange()` to manually change order (see @sec-arrange).
 
 ```{r}
-verified <- 
-  tweets %>% # Start with the original dataset; and then
-  group_by(verified) %>% # group it; and then
-  summarise(count = n(), # summarise it by those groups
-            mean_favs = mean(favorite_count),
-            mean_retweets = mean(retweet_count)) %>%
-  ungroup()
+births %>%
+  group_by(Delivery) %>%
+  summarise(births = sum(Livebirths)) %>%
+  ungroup() %>%
+  arrange(desc(births)) # sort by number of births in descending order
 ```
 
-```{r, echo = FALSE}
-mcq3 <- c(answer = "`group_by(screen_name)`",
-          x = "`summarise(screen_name)`",
-          x = "`count(screen_name)`",
-          x = "`mean(screen_name)`") %>%
-  sample() %>% longmcq()
-```
 
-::: {.callout-note .try}
-* What would you change to calculate the mean favourites and retweets by `screen_name` instead of by `verified`? 
-    `r mcq3`
-:::
 
 ### Multiple groupings
 
-You can add multiple variables to `group_by()` to further break down your data. For example, the below gives us the number of likes and retweets broken down by verified status and the device the person was tweeting from (`source`). 
+You can add multiple variables to `group_by()` to further break down your data. For example, the below gives us the number of births broken down by delivery type and year.
 
-* Reverse the order of `verified` and `source` in `group_by()` to see how it changed the output.
+* Reverse the order of `Delivery` and FinancialYear` in `group_by()` to see how it changes the output.
 
-```{r, message=FALSE}
-verified_source <- tweets %>%
-  group_by(verified, source) %>%
-  summarise(count = n(),
-            mean_favs = mean(favorite_count),
-            mean_retweets = mean(retweet_count)) %>%
-  ungroup() %>%
-  arrange(desc(count))
-
-head(verified_source)
+```{r}
+births %>%
+  group_by(Delivery, FinancialYear) %>%
+  summarise(n = sum(Livebirths)) %>%
+  ungroup()
 ```
 
 ::: {.callout-warning}
 You may get the following message when using `summarise()` after `group_by()`.
 
-> `summarise()` has grouped output by 'verified'. You can override using the `.groups` argument.
+> `summarise()` has grouped output by 'Delivery'. You can override using the `.groups` argument.
 
 Tidyverse recently added a message to remind you whether the `summarise()` function automatically ungroups grouped data or not (it may do different things depending on how it's used). You can set the argument `.groups` to "drop", "drop_last", "keep", or "rowwise" (see the help for `?summarise`), but it's good practice to explicitly use `ungroup()` when you're done working by groups, regardless. 
 :::
+
 
 ### Filter and mutate
 
 You can also use additional functions like `filter()` or `mutate()` after `group_by`. You'll learn more about these in @sec-wrangle but briefly:
 
-* `filter()` keeps observations (rows) according to specified criteria, e.g., all values above 5, or all verified users.
+* `filter()` keeps observations (rows) according to specified criteria, e.g., all values above 5, or all induced births.
 * `mutate()` creates new variables (columns), or overwrites existing ones.
 
-You can combine functions like this to get detailed insights into your data. For example, what were the most favourited original and quoted tweets? 
+You can combine functions like this to get detailed insights into your data. For example, you can 
 
-* The variable `is_quote` tells us whether the tweet in question was an original tweet or a quote tweet. Because we want our output to treat these separately, we pass this variable to `group_by()`. 
-* We want the most favourited tweets, i.e., the maximum value of `favourite_count`, so we can use `filter()` to only return rows where `favourite_count` is equal to the maximum value in the variable `favourite_count`. Note the use of `==` rather than a single `=`.
-* Just in case there was a tie, choose a random one with `sample_n(size = 1)`.
+* filter your data to remove unknown ages and delivery types
+* count the number of births per year, delivery type, and age group
+* recode the financial year into just the first year, and make it numeric
 
 ```{r}
-most_fav <- tweets %>%
-  group_by(is_quote) %>%
-  filter(favorite_count == max(favorite_count)) %>%
-  sample_n(size = 1) %>%
-  ungroup()
+births_per_year_type_age <- births %>%
+  filter(AgeGroup != "Unknown",
+         Delivery != "Not Known") %>%
+  summarise(n = sum(Livebirths),
+            .by = c(FinancialYear, Delivery, AgeGroup)) %>%
+  mutate(year = str_extract(FinancialYear, ".{4}"),
+         year = as.integer(year))
+
+# show just the first 6 rows
+head(births_per_year_type_age)
+```
+
+Now you can use your skills from @sec-viz to plot the data!
+
+```{r fig-birth-year-type-age, fig.cap = ""}
+ggplot(births_per_year_type_age, 
+       aes(x = year, y = n, color = AgeGroup)) +
+  geom_line() +
+  facet_wrap(~Delivery, scales = "free_y") +
+  labs(x = NULL, 
+       y = "Number of Live Births per Year",
+       color = "Age Group") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 
-```{r, echo = FALSE}
-mcq1 <- c(answer = "`tweets %>% group_by(source) %>% filter(n() >= 10)`", 
-          x = "`tweets %>% group_by(source) %>% select(n() >= 10)`", 
-          x = "`tweets %>% group_by(source) %>% filter(count() >= 10)`", 
-          x = "`tweets %>% group_by(source) %>% select(count() >= 10)`") %>%
-  sample() %>% longmcq()
-```
 
-::: {.callout-note .try}
-* How would you limit the results to sources with 10 or more rows?
-    `r mcq1`
-:::
+
+
 
 
 ## Exercises
 
 That was an intensive chapter! Take a break and then try one (or more) of the following:
 
-* If you have your own Twitter account, conduct a similar analysis of a different hashtag.
-* Look through the rest of the variables in `tweets`; what other insights can you generate about this data?
+* hat other insights can you generate about the birth data?
 * Read through the [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) vignettes and apply your own preferred table style.
 * Work through the first few chapters of [Tidy Text](https://www.tidytextmining.com/index.html){target="_blank"} to see how you can work with and analyse text. In particular, see if you can conduct a sentiment analysis on the tweet data.
 

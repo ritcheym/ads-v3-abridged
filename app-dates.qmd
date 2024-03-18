@@ -10,9 +10,46 @@ library(tidyverse)
 library(lubridate)
 ```
 
+## Formats
+
+While there is only one correct way to write date (The ISO 8601 format of "YYYY-MM-DD"), dates can be found in many formats. When you are reading a data file, you might need to specify the date format so it can be read properly. Date format specification uses abbreviations to represent the different ways people can write. the year, month, and day (as well as hours, minutes, and seconds). For example, the date `2023-01-03` is represented by the formatting string `"%Y-%m-%d`. The fastest way to find the list of formatting abbreviations is to look in the help for the function `col_date()`.
+
+```{r, filename = "Run in the console"}
+?col_date
+```
+
+
+```{r}
+# create a table with some different date formats
+date_formats <- tibble(
+  best = "2022-01-03",
+  ok = "2022 January 3",
+  bad = "January 3, 2022",
+  terrible = "Mon is 3 22 1"
+)
+
+# save it as a CSV file
+write_csv(date_formats, "data/date_formats.csv")
+
+# read it in
+df <- read_csv("data/date_formats.csv")
+```
+
+You can see that only the first column read as a date, and the rest read as characters. You can set the date format using the `col_types` argument and two helper functions, `cols()` and `col_date()`.
+
+```{r}
+ct <- cols(ok = col_date("%Y %B %d"),
+           bad = col_date("%B %d, %Y"),
+           terrible = col_date("%a is %m %y %d"))
+
+read_csv("data/date_formats.csv", 
+         col_types = ct)
+```
+
+
 ## Parsing
 
-Dates can be in many formats. The `ymd` functions can deal with almost all of them, regardless of the punctuation used in the format. All of the examples below produce a date in the standard format "2022-01-03".
+The `ymd` functions can deal with almost all date formats, regardless of the punctuation used in the format. All of the examples below produce a date in the standard format "2022-01-03".
 
 ```{r ymd, results='hide'}
 # year-month-day orders
@@ -44,7 +81,6 @@ The date/time functions can also take a timezone argument. If you don't specify 
 ```{r tz}
 ymd_hm("2022-01-03 18:05", tz = "GMT")
 ```
-
 
 ## Get Parts
 
