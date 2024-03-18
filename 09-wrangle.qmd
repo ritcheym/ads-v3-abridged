@@ -878,9 +878,9 @@ follow_data %>%
 
 In preparation for the final summative assessment, explore the data to provide one original insight of your own.
 
-### Report
+### Share on Teams
 
-Compile all the above into a visually appealing reproducible report that could be used to target employees and trainers for extra training (or depending on what mood you're in, to fire them). Use inline coding to report any numbers in the text. Once you're finished, post your Rmd and knitted html document on teams so that other learners can see your approach.
+Once you're done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 09 channel.
 
 
 ## Glossary {#sec-glossary-wrangle}
@@ -894,8 +894,8 @@ glossary_table(as_kable = FALSE) |>
 ## Further resources {#sec-resources-wrangle}
 
 * [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
-* [Chapter 5: Data Transformation ](http://r4ds.had.co.nz/transform.html) in *R for Data Science*
-* [Chapter 19: Functions](https://r4ds.had.co.nz/functions.html) in *R for Data Science*
+* [Chapter 3: Data Transformation ](https://r4ds.hadley.nz/data-transform) in *R for Data Science*
+* [Chapter 25: Functions](https://r4ds.hadley.nz/functions) in *R for Data Science*
 * [Introduction to stringr](https://stringr.tidyverse.org/articles/stringr.html)
 
 

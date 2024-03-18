@@ -6,6 +6,10 @@
 -   Be able to knit a simple reproducible report with R Markdown
 -   Be able to create code chunks, tables, images, and inline R in an R Markdown document
 
+## Functions used {#functions-ch02}
+
+*`count()`, `filter()`, `geom_bar()`, `geom_col()`, `ggplot()`, `include_graphics()`, `install_tinytex()`, `kable()`, `kable_classic()`, `labs()`, `max()`, `min()`, `nrow()`, `read_csv()`, `row_spec()`, `str()`, `summary()`, `View()`.     
+
 Download the [R Markdown Cheat Sheet](https://www.rstudio.org/links/r_markdown_cheat_sheet){download=""}
 
 ## Walkthrough video {#sec-walkthrough-reports .unnumbered}
@@ -171,7 +175,7 @@ In your code chunk, write the code you created in @sec-objects.
 name <- "Emily"
 age <- 36
 today <- Sys.Date()
-christmas <- as.Date("2023-12-25")
+christmas <- as.Date("2024-12-25")
 ```
 
 ::: {.callout-note}
@@ -889,6 +893,10 @@ rmarkdown::render("job.Rmd")
 
 `r unhide()`
 
+### Share on Teams
+
+Once you're done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 02 channel.
+
 ## Glossary {#sec-glossary-reports}
 
 ```{r, echo = FALSE, results='asis'}
@@ -905,7 +913,6 @@ glossary_table(as_kable = FALSE) |>
 -->
 -   [R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html)
 -   [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J. J. Allaire, & Garrett Grolemund
--   [Chapter 27: R Markdown](https://r4ds.had.co.nz/r-markdown.html) of *R for Data Science*
 -   [Project Structure](https://slides.djnavarro.net/project-structure/) by Danielle Navarro
 -   [How to name files](https://speakerdeck.com/jennybc/how-to-name-files) by Jenny Bryan
 -   [kableExtra](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)

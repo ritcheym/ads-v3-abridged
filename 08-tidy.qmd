@@ -824,11 +824,11 @@ ggplot(tidy2a, aes(x = response)) +
   theme_bw()
 ```
 
-### Your data
-
-Finally, find a wide-form dataset of your own and try and tidy it into long-form. If you get stuck or you just want to check your solution, post it on Teams - just remember to be careful about sharing confidential data if it's your own dataset. 
-
 If your head hurts a bit at this point, rest assured it's absolutely normal. As we said at the start, reshaping and tidying data is a conceptual leap and there's no shortcut to the fact it just takes a bit of time and practice with different datasets - you will get there eventually!
+
+### Share on Teams
+
+Once you're done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 08 channel.
 
 ## Glossary {#sec-glossary-tidy}
 
@@ -842,5 +842,5 @@ glossary_table(as_kable = FALSE) |>
 
 -   [Data tidying cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/tidyr.pdf)
 -   [Tidy Data](http://vita.had.co.nz/papers/tidy-data.html)
--   [Chapter 12: Tidy Data](http://r4ds.had.co.nz/tidy-data.html) in *R for Data Science*
--   [Chapter 18: Pipes](http://r4ds.had.co.nz/pipes.html) in *R for Data Science*
+-   [Chapter 5: Tidy Data](https://r4ds.hadley.nz/data-tidy)) in *R for Data Science*
+-   [Chapter 4.3: Pipes](https://r4ds.hadley.nz/workflow-style.html#sec-pipes) in *R for Data Science*

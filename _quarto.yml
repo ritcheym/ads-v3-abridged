@@ -31,28 +31,28 @@ book:
   # sidebar:
   #   style: docked
   #   background: light
-  margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
+#  margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
   page-footer:
     left: "CC-BY 2024, psyTeachR"
-    right:
-      - icon: github
-        href: https://github.com/psyteachr/ads-v3
-      - icon: twitter
-        href: https://twitter.com/psyteachr
-      - icon: https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg
-        href: https://doi.org/10.5281/zenodo.6365077
+#    right:
+ #     - icon: github
+  #      href: https://github.com/psyteachr/ads-v3
+   #   - icon: twitter
+    #    href: https://twitter.com/psyteachr
+     # - icon: https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg
+      #  href: https://doi.org/10.5281/zenodo.6365077
   chapters:
   - index.qmd
   - 01-intro.qmd
   - 02-reports.qmd
   - 03-viz.qmd
-  - 04-summary.qmd
-  - 05-formative.qmd
-  - 06-ai.qmd
-  - 07-joins.qmd
-  - 08-tidy.qmd
-  - 09-wrangle.qmd
-  - 10-custom.qmd
+#  - 04-summary.qmd
+#  - 05-formative.qmd
+#  - 06-ai.qmd
+#  - 07-joins.qmd
+#  - 08-tidy.qmd
+#  - 09-wrangle.qmd
+#  - 10-custom.qmd
   - 11-refs.qmd
   - 12-license.qmd
   appendices:

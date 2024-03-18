@@ -6,6 +6,10 @@
 * Be able to create plots in layers using ggplot
 * Be able to choose appropriate plots for data
 
+## Functions used {#functions-ch03}
+
+*`aes()`, `as.numeric()`, `c()`, `col_character()`, `col_datetime()`, `col_double()`, `col_factor()`, `col_integer()`, `cols()`, `coord_cartesian()`, `count()`, `element_blank()`, `facet_wrap()`, `factor()`, `geom_bar()`, `geom_boxplot()`, `geom_col()`, `geom_histogram()`, `geom_jitter()`, `geom_point()`, `geom_smooth()`, `ggplot()`, `ggtitle()`, `glimpse()`, `guides()`, `mean()`, `now()`, `plot_layout()`, `read_csv()`, `rgb()`, `scale_fill_manual()`, `scale_x_continuous()`, `scale_x_date()`, `scale_x_discrete()`, `scale_y_continuous()`, `seq()`, `spec()`, `stat_summary()`, `theme()`, `theme_bw()`, `theme_gdocs()`, `theme_set()`, `today()`
+
 ## Walkthrough video {#sec-walkthrough-viz .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360](https://echo360.org.uk/media/457312c7-ae4f-4506-8016-a29df4f47462/public). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
@@ -1231,7 +1235,7 @@ glossary_table(as_kable = FALSE) |>
 
 * [ggplot2 cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
 * [Data visualisation using R, for researchers who don't use R](https://psyteachr.github.io/introdataviz/) [@nordmann_2021]
-* [Chapter 3: Data Visualisation](http://r4ds.had.co.nz/data-visualisation.html) of *R for Data Science*
+* [Chapter 1: Data Visualisation](https://r4ds.hadley.nz/data-visualize) of *R for Data Science*
 * [ggplot2 FAQs](https://ggplot2.tidyverse.org/articles/)
 * [ggplot2 documentation](https://ggplot2.tidyverse.org/reference/)
 * [Hack Your Data Beautiful](https://psyteachr.github.io/hack-your-data/) workshop by University of Glasgow postgraduate students

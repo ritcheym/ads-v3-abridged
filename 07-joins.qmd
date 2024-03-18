@@ -571,6 +571,9 @@ no_exam <- anti_join(essay_grades, exam_grades, by = "id")
 
 -   How many students have a grade for the exam but not the essay? `r fitb(nrow(no_exam))`
 
+### Share on Teams
+
+Once you're done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 07 channel.
 
 ## Glossary {#sec-glossary-joins}
 
@@ -583,8 +586,8 @@ glossary_table(as_kable = FALSE) |>
 ## Further resources {#sec-resources-joins}
 
 * [Data transformation cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
-* [Chapter 13: Relational Data](http://r4ds.had.co.nz/relational-data.html) in *R for Data Science*
-* [Chapter 21: Iteration](https://r4ds.had.co.nz/iteration.html) in *R for Data Science*.
+* [Chapter 19: Joins](https://r4ds.hadley.nz/joins) in *R for Data Science*
+* [Chapter 26: Iteration](https://r4ds.hadley.nz/iteration) in *R for Data Science*.
 * [purrr cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/purrr.pdf)
 
 ```{r, include = FALSE}

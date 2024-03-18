@@ -21,7 +21,7 @@ This book accompanies a 10-week course, covering one chapter per week. Each chap
 :::
 -->
 
-Learning data skills is kind of like having a gym membership (thanks to [Phil McAleer](https://twitter.com/McAleerP) for the analogy). You'll be given state-of-the-art equipment to use and instructions for how to use them, but your data skills won't get any stronger unless you practice.
+Learning data skills is kind of like having a gym membership - you'll be given state-of-the-art equipment to use and instructions for how to use them, but your data skills won't get any stronger unless you practice.
 
 <!--
 ::: {.small_left}

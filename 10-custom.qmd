@@ -991,7 +991,6 @@ diamonds %>%
 :::
 
 
-
 ### Other formats
 
 You can create more than just reports with R Markdown. You can also create presentations, interactive dashboards, books, websites, and web applications.

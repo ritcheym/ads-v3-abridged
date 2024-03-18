@@ -13,6 +13,10 @@ set.seed(12042016)
 * Be able to get help for packages and functions
 * Be able to create objects by writing and running code in the console
 
+## Functions used {#functions-ch01}
+
+* `.rs.restartR()`, `?`, `Sys.Date()`, `as.Date()`, `beep()`, `devtools::install_github()`, `install.packages()`, `library()`, `paste()`, `sample()`, `vignette()`.
+
 ## Walkthrough video {#sec-walkthrough-intro .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/3861d902-df69-417d-8f27-259089f992b8/public) We recommend first trying to work through each section of the book on your own and then watching the video if you get stuck, or if you would like more information. This will feel slower than just starting with the video, but you will learn more in the long-run. Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
@@ -314,7 +318,7 @@ Run the following code in the console, but change the values of `name` and `age`
 name <- "Emily"
 age <- 36
 today <- Sys.Date()
-christmas <- as.Date("2023-12-25")
+christmas <- as.Date("2024-12-25")
 ```
 
 You'll see that four objects now appear in the environment pane:

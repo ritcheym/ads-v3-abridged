@@ -309,12 +309,16 @@ mcq1 <- c(answer = "`tweets %>% group_by(source) %>% filter(n() >= 10)`",
 
 ## Exercises
 
-That was an intensive chapter! Take a break and then try one (or more) of the following and post your knitted HTML files on Teams so that other learners on the course can see what you did.
+That was an intensive chapter! Take a break and then try one (or more) of the following:
 
 * If you have your own Twitter account, conduct a similar analysis of a different hashtag.
 * Look through the rest of the variables in `tweets`; what other insights can you generate about this data?
 * Read through the [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) vignettes and apply your own preferred table style.
 * Work through the first few chapters of [Tidy Text](https://www.tidytextmining.com/index.html){target="_blank"} to see how you can work with and analyse text. In particular, see if you can conduct a sentiment analysis on the tweet data.
+
+### Share on Teams
+
+Once you're done, share your knitted report and the Rmd file on Teams in the Week 04 channel.
 
 ## Glossary {#sec-glossary-summary}
 
@@ -327,5 +331,5 @@ glossary_table(as_kable = FALSE) |>
 ## Further resources {#sec-resources-summary}
 
 * [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf)
-* [Chapter 5: Data Transformation ](https://r4ds.hadley.nz/data-transform.html) in *R for Data Science*
+* [Chapter 3: Data Transformation ](https://r4ds.hadley.nz/data-transform) in *R for Data Science*
 * [kableExtra vignettes](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
