@@ -14,7 +14,7 @@ There is a walkthrough video of this chapter available via [Echo360.](https://ec
 
 ## Set-up {#sec-setup-data}
 
-Create a new project for the work we'll do in this chapter named `r path("04-data")`. Then, create and save a new R Markdown document named `data.Rmd`, get rid of the default template text, and load the packages in the set-up code chunk. You should have all of these packages installed already, but if you get the message `Error in library(x) : there is no package called ‘x’`, please refer to @sec-install-package.
+Create a new project for the work we'll do in this chapter named `r path("app-data-import")`. Then, create and save a new R Markdown document named `data.Rmd`, get rid of the default template text, and load the packages in the set-up code chunk. You should have all of these packages installed already, but if you get the message `Error in library(x) : there is no package called ‘x’`, please refer to @sec-install-package.
 
 ```{r setup-data, message=FALSE, verbatim="r setup, include=FALSE"}
 library(tidyverse)     # includes readr & tibble
@@ -617,25 +617,13 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/c/
 knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Star_wars2.svg/2880px-Star_wars2.svg.png")
 ```
 
-
 `r unhide()`
 
-### Share your work
-
-Once you're done, share your knitted html file on the Week 4 Teams channel so other learners on the course can see how you approached the task. 
-
-```{r, include = FALSE}
-# remove starwars.csv from the data folder so it doens't get inclued in the shared data. It sometimes gets created when authors run the code in this section
-if (file.exists("data/starwars.csv"))
-  file.remove("data/starwars.csv")
-```
 
 ## Glossary {#sec-glossary-data}
 
 ```{r, echo = FALSE, results='asis'}
-glossary_table(as_kable = FALSE) |> 
-  kableExtra::kable(row.names = FALSE, escape = FALSE) |>
-  unclass() |> cat()
+glossary_table()
 ```
 
 ## Further resources {#sec-resources-data}
@@ -646,13 +634,9 @@ glossary_table(as_kable = FALSE) |>
 
 
 
-
-
-
-
 ```{r, include = FALSE}
 # clean up temp datasets
-files <- c("data/avatar_na.csv", "data/family.csv")
+files <- c("data/avatar_na.csv", "data/family.csv", "data/starwars.csv")
 
 file.exists(files) %>%
   `[`(files, .) %>%

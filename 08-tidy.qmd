@@ -833,9 +833,7 @@ Once you're done, share your knitted html file and the Rmd file for the exercise
 ## Glossary {#sec-glossary-tidy}
 
 ```{r, echo = FALSE, results='asis'}
-glossary_table(as_kable = FALSE) |> 
-  kableExtra::kable(row.names = FALSE, escape = FALSE) |>
-  unclass() |> cat()
+glossary_table()
 ```
 
 ## Further resources {#sec-resources-tidy}

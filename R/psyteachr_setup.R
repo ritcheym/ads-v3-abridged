@@ -8,6 +8,9 @@ suppressPackageStartupMessages({
   library(knitr)
 })
 
+glossary_path("psyteachr")
+glossary_popup("hover")
+
 # default knitr options
 knitr::opts_chunk$set(
   echo       = TRUE,

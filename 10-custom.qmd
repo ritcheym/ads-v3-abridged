@@ -23,7 +23,6 @@ library(tidyverse)   # data wrangling functions
 library(ggthemes)    # for themes
 library(patchwork)   # for combining plots
 library(plotly)      # for interactive plots
-# devtools::install_github("hrbrmstr/waffle")
 library(waffle)      # for waffle plots
 library(ggbump)      # for bump plots
 library(treemap)     # for treemap plots
@@ -325,15 +324,6 @@ Hover over the data points above and click on the legend items.
 #### Waffle Plots
 
 In @sec-viz, we mentioned that pie charts are such a poor way to visualise proportions that we refused to even show you how to make one. Waffle plots are a delicious alternative. 
-
-::: {.callout-warning}
-Use <pkg>waffle</pkg> by [hrbrmstr on GitHub](https://github.com/hrbrmstr/waffle/) using the `install_github()` function below, rather than the one on CRAN you get from using `install.packages()`.
-
-```{r, eval = FALSE}
-devtools::install_github("hrbrmstr/waffle")
-```
-
-:::
 
 By default, `geom_waffle()` represents each observation with a tile and splits these across 10 rows. You can play about with the `n_rows` argument to determine what works best for your data.
 
