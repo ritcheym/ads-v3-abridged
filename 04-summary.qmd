@@ -27,7 +27,7 @@ Download the [Data transformation cheat sheet](https://raw.githubusercontent.com
 
 The data we'll be working with is on method of delivery for singleton births from Public Health Scotland. You can see the most recent version at [Method of Delivery](https://www.opendata.nhs.scot/dataset/births-in-scottish-hospitals/resource/8654b6d8-9765-4ced-8e9b-4611aa4596eb), but we'll be working from a saved version. 
 
-The data are in a `glossary("CSV")` file, so we can read this with the function `read_csv()` , and assign it to a new object that we'll call `births`. You can learn more about importing data from other file types in @sec-data. 
+The data are in a `r glossary("CSV")` file, so we can read this with the function `read_csv()` , and assign it to a new object that we'll call `births`. You can learn more about importing data from other file types in @sec-data. 
 
 ```{r, message=TRUE}
 births <- read_csv("data/12.1_delivery.csv")

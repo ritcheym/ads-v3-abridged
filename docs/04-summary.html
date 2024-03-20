@@ -390,7 +390,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </section><section id="import-data" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="import-data">
 <span class="header-section-number">4.2</span> Import Data</h2>
 <p>The data we’ll be working with is on method of delivery for singleton births from Public Health Scotland. You can see the most recent version at <a href="https://www.opendata.nhs.scot/dataset/births-in-scottish-hospitals/resource/8654b6d8-9765-4ced-8e9b-4611aa4596eb">Method of Delivery</a>, but we’ll be working from a saved version.</p>
-<p>The data are in a <code>glossary("CSV")</code> file, so we can read this with the function <code>read_csv()</code> , and assign it to a new object that we’ll call <code>births</code>. You can learn more about importing data from other file types in <a href="app-import.html"><span>Appendix&nbsp;G</span></a>.</p>
+<p>The data are in a <a href="https://psyteachr.github.io/glossary/c#csv" target="_blank" class="glossary" title="Comma-separated variable: a file type for representing data where each variable is separated from the next by a comma.">CSV</a> file, so we can read this with the function <code>read_csv()</code> , and assign it to a new object that we’ll call <code>births</code>. You can learn more about importing data from other file types in <a href="app-import.html"><span>Appendix&nbsp;G</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>births <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/12.1_delivery.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1553,8 +1553,8 @@ Unknown
 </div>
 </div>
 </div>
-<div id="radio_YLDLEJJJEP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YLDLEJJJEP" value="x"><span><code>count(births, induced)</code></span></label><label><input type="radio" autocomplete="off" name="radio_YLDLEJJJEP" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_YLDLEJJJEP" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_YLDLEJJJEP" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label>
+<div id="radio_NREVYDQYTL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NREVYDQYTL" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_NREVYDQYTL" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_NREVYDQYTL" value="x"><span><code>count(births, induced)</code></span></label><label><input type="radio" autocomplete="off" name="radio_NREVYDQYTL" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label>
 </div>
 </div>
 </div>
@@ -4402,22 +4402,26 @@ Note
 <td style="text-align: left;">A data type representing strings of text.</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/c#csv" target="_blank">csv</a></td>
+<td style="text-align: left;">Comma-separated variable: a file type for representing data where each variable is separated from the next by a comma.</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/d#double" target="_blank">double</a></td>
 <td style="text-align: left;">A data type representing a real decimal number</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/m#mean" target="_blank">mean</a></td>
 <td style="text-align: left;">A descriptive statistic that measures the average value of a set of numbers.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/m#median" target="_blank">median</a></td>
 <td style="text-align: left;">The middle number in a distribution where half of the values are larger and half are smaller.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/p#pipe" target="_blank">pipe</a></td>
 <td style="text-align: left;">A way to order your code in a more readable format using the symbol %&gt;%</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/v#vector" target="_blank">vector</a></td>
 <td style="text-align: left;">A type of data structure that collects values with the same data type, like T/F values, numbers, or strings.</td>
 </tr>
