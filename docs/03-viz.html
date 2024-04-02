@@ -368,7 +368,7 @@ div.csl-indent {
 <li>Be able to choose appropriate plots for data</li>
 </ul></section><section id="functions-ch03" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="functions-ch03">
 <span class="header-section-number">3.1</span> Functions used</h2>
-<p>*<code>aes()</code>, <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code>, <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, <code>col_character()</code>, <code>col_datetime()</code>, <code>col_double()</code>, <code>col_factor()</code>, <code>col_integer()</code>, <code>cols()</code>, <code>coord_cartesian()</code>, <code>count()</code>, <code>element_blank()</code>, <code>facet_wrap()</code>, <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code>, <code>geom_bar()</code>, <code>geom_boxplot()</code>, <code>geom_col()</code>, <code>geom_histogram()</code>, <code>geom_jitter()</code>, <code>geom_point()</code>, <code>geom_smooth()</code>, <code>ggplot()</code>, <code>ggtitle()</code>, <code>glimpse()</code>, <code>guides()</code>, <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code>now()</code>, <code>plot_layout()</code>, <code>read_csv()</code>, <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb()</a></code>, <code>scale_fill_manual()</code>, <code>scale_x_continuous()</code>, <code>scale_x_date()</code>, <code>scale_x_discrete()</code>, <code>scale_y_continuous()</code>, <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, <code>spec()</code>, <code>stat_summary()</code>, <code>theme()</code>, <code>theme_bw()</code>, <code>theme_gdocs()</code>, <code>theme_set()</code>, <code>today()</code></p>
+<p><code>aes()</code>, <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code>, <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, <code>col_character()</code>, <code>col_datetime()</code>, <code>col_double()</code>, <code>col_factor()</code>, <code>col_integer()</code>, <code>cols()</code>, <code>coord_cartesian()</code>, <code>count()</code>, <code>element_blank()</code>, <code>facet_wrap()</code>, <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code>, <code>geom_bar()</code>, <code>geom_boxplot()</code>, <code>geom_col()</code>, <code>geom_histogram()</code>, <code>geom_jitter()</code>, <code>geom_point()</code>, <code>geom_smooth()</code>, <code>ggplot()</code>, <code>ggtitle()</code>, <code>glimpse()</code>, <code>guides()</code>, <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code>now()</code>, <code>plot_layout()</code>, <code>read_csv()</code>, <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb()</a></code>, <code>scale_fill_manual()</code>, <code>scale_x_continuous()</code>, <code>scale_x_date()</code>, <code>scale_x_discrete()</code>, <code>scale_y_continuous()</code>, <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, <code>spec()</code>, <code>stat_summary()</code>, <code>theme()</code>, <code>theme_bw()</code>, <code>theme_gdocs()</code>, <code>theme_set()</code>, <code>today()</code></p>
 </section><section id="sec-walkthrough-viz" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-viz">Walkthrough video</h2>
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/457312c7-ae4f-4506-8016-a29df4f47462/public">Echo360</a>. Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
 </section><section id="sec-setup-viz" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="sec-setup-viz">
@@ -510,14 +510,14 @@ Do not factor numbers
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># the current date</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-03-20"</code></pre>
+<pre><code>[1] "2024-04-02"</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># the current date and time in the GMT timezone</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>lubridate<span class="sc">::</span><span class="fu">now</span>(<span class="at">tzone =</span> <span class="st">"GMT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-03-20 14:40:17 GMT"</code></pre>
+<pre><code>[1] "2024-04-02 14:55:09 GMT"</code></pre>
 </div>
 </div>
 <div class="try callout callout-style-default callout-note callout-titled">
@@ -1356,8 +1356,8 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <ul>
 <li>What mapping would you use?
-<div id="radio_CVSHZYPUHQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CVSHZYPUHQ" value="answer"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_CVSHZYPUHQ" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_CVSHZYPUHQ" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_CVSHZYPUHQ" value="x"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_CVSHZYPUHQ" value="x"><span>aes(y = population)</span></label>
+<div id="radio_HPUMEUJZUK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HPUMEUJZUK" value="answer"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_HPUMEUJZUK" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_HPUMEUJZUK" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_HPUMEUJZUK" value="x"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_HPUMEUJZUK" value="x"><span>aes(y = population)</span></label>
 </div>
 </li>
 </ul>
@@ -1371,8 +1371,8 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <ul>
 <li>What mapping would you use?
-<div id="radio_MCVVBKHFDL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MCVVBKHFDL" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_MCVVBKHFDL" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_MCVVBKHFDL" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_MCVVBKHFDL" value="answer"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_MCVVBKHFDL" value="x"><span>aes(y = population)</span></label>
+<div id="radio_CTKCZTJYTJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CTKCZTJYTJ" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_CTKCZTJYTJ" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_CTKCZTJYTJ" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_CTKCZTJYTJ" value="answer"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_CTKCZTJYTJ" value="x"><span>aes(y = population)</span></label>
 </div>
 </li>
 </ul>
@@ -1467,8 +1467,8 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <ul>
 <li>How would you set the mapping for this plot?
-<div id="radio_NRMLBKZYVN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NRMLBKZYVN" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_NRMLBKZYVN" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_NRMLBKZYVN" value="answer"><span>aes(x = population)</span></label><label><input type="radio" autocomplete="off" name="radio_NRMLBKZYVN" value="x"><span>aes(x = population, y = count)</span></label>
+<div id="radio_GZAYDNSVUI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GZAYDNSVUI" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_GZAYDNSVUI" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_GZAYDNSVUI" value="answer"><span>aes(x = population)</span></label><label><input type="radio" autocomplete="off" name="radio_GZAYDNSVUI" value="x"><span>aes(x = population, y = count)</span></label>
 </div>
 </li>
 </ul>
@@ -1540,7 +1540,7 @@ Arguments inside aes()
 <span id="cb49-4"><a href="#cb49-4"></a>                 <span class="at">color =</span> <span class="st">"black"</span>,</span>
 <span id="cb49-5"><a href="#cb49-5"></a>                 <span class="at">fill =</span> issue_category)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in list2(binwidth = binwidth, bins = bins, na.rm = na.rm, orientation = orientation, : object 'issue_category' not found</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): object 'issue_category' not found</code></pre>
 </div>
 </div>
 </div>
@@ -1796,8 +1796,8 @@ Test your understanding
 <option value="x">geom_violinplot()</option></select>
 </li>
 <li>What does the mapping look like for both plots?
-<div id="radio_HLOXBRJJHQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HLOXBRJJHQ" value="x"><span>aes(x = employee_id, y = call_time, colour = call_time)</span></label><label><input type="radio" autocomplete="off" name="radio_HLOXBRJJHQ" value="answer"><span>aes(x = employee_id, y = call_time, fill = employee_id)</span></label><label><input type="radio" autocomplete="off" name="radio_HLOXBRJJHQ" value="x"><span>aes(x = employee_id, y = call_time, colour = employee_id)</span></label><label><input type="radio" autocomplete="off" name="radio_HLOXBRJJHQ" value="x"><span>aes(x = employee_id, y = call_time, fill = call_time)</span></label>
+<div id="radio_BSWCEQFACZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BSWCEQFACZ" value="x"><span>aes(x = employee_id, y = call_time, colour = call_time)</span></label><label><input type="radio" autocomplete="off" name="radio_BSWCEQFACZ" value="answer"><span>aes(x = employee_id, y = call_time, fill = employee_id)</span></label><label><input type="radio" autocomplete="off" name="radio_BSWCEQFACZ" value="x"><span>aes(x = employee_id, y = call_time, colour = employee_id)</span></label><label><input type="radio" autocomplete="off" name="radio_BSWCEQFACZ" value="x"><span>aes(x = employee_id, y = call_time, fill = call_time)</span></label>
 </div>
 </li>
 <li>Which employee has the longest median call time? <select class="webex-select"><option value="blank"></option>
@@ -2106,7 +2106,6 @@ More plots styles
 </section></section><section id="sec-glossary-viz" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="sec-glossary-viz">
 <span class="header-section-number">3.7</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead><tr class="header">
@@ -2228,7 +2227,6 @@ More plots styles
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 </section><section id="sec-resources-viz" class="level2" data-number="3.8"><h2 data-number="3.8" class="anchored" data-anchor-id="sec-resources-viz">

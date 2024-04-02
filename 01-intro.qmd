@@ -15,7 +15,7 @@ set.seed(12042016)
 
 ## Functions used {#functions-ch01}
 
-* `.rs.restartR()`, `?`, `Sys.Date()`, `as.Date()`, `beep()`, `devtools::install_github()`, `install.packages()`, `library()`, `paste()`, `sample()`, `vignette()`.
+`.rs.restartR()`, `?`, `Sys.Date()`, `as.Date()`, `beep()`, `devtools::install_github()`, `install.packages()`, `library()`, `paste()`, `sample()`, `vignette()`.
 
 ## Walkthrough video {#sec-walkthrough-intro .unnumbered}
 

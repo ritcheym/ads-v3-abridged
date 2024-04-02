@@ -8,7 +8,7 @@
 
 ## Functions used {#functions-ch02}
 
-*`count()`, `filter()`, `geom_bar()`, `geom_col()`, `ggplot()`, `include_graphics()`, `install_tinytex()`, `kable()`, `kable_classic()`, `labs()`, `max()`, `min()`, `nrow()`, `read_csv()`, `row_spec()`, `str()`, `summary()`, `View()`.     
+`count()`, `filter()`, `geom_bar()`, `geom_col()`, `ggplot()`, `include_graphics()`, `install_tinytex()`, `kable()`, `kable_classic()`, `labs()`, `max()`, `min()`, `nrow()`, `read_csv()`, `row_spec()`, `str()`, `summary()`, `View()`.     
 
 Download the [R Markdown Cheat Sheet](https://www.rstudio.org/links/r_markdown_cheat_sheet){download=""}
 

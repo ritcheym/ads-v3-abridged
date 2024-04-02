@@ -6,6 +6,11 @@
 * Be able to summarise data by groups
 * Use pipes to chain together functions
 
+## Functions used {#functions-ch04}
+
+`arrange()`, `clean_names()`, `col_factor()`, `col_skip()`, `cols()`, `count()`, `desc()`, `filter()`, `group_by()`, `head()`, `mean()`, `median()`, `mutate()`, `read_csv()`, `sum()`, `summarise()`, `ungroup()`
+
+
 ## Walkthrough video {#sec-walkthrough-summary .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360](). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
@@ -430,11 +435,12 @@ births_per_year_type_age  %>%
 
 ## Exercises
 
-That was an intensive chapter! Take a break and then try one (or more) of the following:
+Take a break and then try one (or more) of the following:
 
-* What other insights can you generate about the birth data?
-* Download some other data from [Scottish Health and Social Care Oopen Data](https://www.opendata.nhs.scot/) and create summary tables and plots.
-* Summarise your own data.
+* Create an Rmd report that presents the above code with nice formatting. For example, hide the code from the output and format the tables.
+* Explore the data and add at least one unique insights of your own to the report
+* Download a different data set from [Scottish Health and Social Care Open Data](https://www.opendata.nhs.scot/) and create summary tables and plots.
+* If you have data of your own, practice summarising this in R.
 
 ### Share on Teams
 
