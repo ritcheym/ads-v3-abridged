@@ -354,6 +354,10 @@ Start up help in a browser by entering `help.start()` in the console. Click on <
 
 If the function help doesn't help, or you're not even sure what function you need, try Googling your question. It will take some practice to be able to use the right jargon in your search terms to get what you want. It helps to put "R" or "tidyverse" in the search text, or the name of the relevant package, like "ggplot2". 
 
+### AI
+
+Generative AI platforms have exploded in popularity, particularly when it comes to coding. Because of this, we have created a companion book [AITutoR](https://psyteachr.github.io/AITutoR/) to show you how to use AI responsibly to support your coding journey. 
+
 ### Vignettes
 
 Many packages, especially [tidyverse](https://www.tidyverse.org/packages/){target="_blank"} ones, have helpful websites with vignettes explaining how to use their functions. Some of the vignettes are also available inside R. You can access them from a package's help page or with the `vignette()` function.

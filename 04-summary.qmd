@@ -55,10 +55,20 @@ The column `SIMDQuintileQF` looks a little odd. We can quickly check what all th
 count(births, SIMDQuintileQF)
 ```
 
+It looks like this column doesn't contain any useful info, so we can just ignore it, or skip it. To do this at the point of loading in the data, we create an object (`birth_cols`) that contains our column specification using the `col_types` argument and two helper functions, `cols()` and `col_skip()`. We then pass `birth_cols` to the `col_types` argument of `read_csv()` which uses this info to amend the file that is loaded in.
 
-It looks like this column doesn't contain any useful info, so we can just ignore it, or skip it using the `col_types` argument and two helper functions, `cols()` and `col_skip()`. 
+```{r}
+# edit the output of spec(births)
+birth_cols <- cols(
+  SIMDQuintileQF = col_skip()
+)
 
-You can also set the order of levels for `r glossary("categorical")` data when you first import it. You can also use the `count()` function to check the level labels for `AgeGroup`, `Delivery` and `Induced`; set `sort = TRUE` to sort by frequency.
+births <- read_csv("data/12.1_delivery.csv", col_types = birth_cols)
+```
+
+There's also additional edits you can make to the initial file, for example, you can also set the order of levels for `r glossary("categorical")` data when you first import it. 
+
+To check which groups our data has, we can  use the `count()` function to check the level labels for `AgeGroup`, `Delivery` and `Induced`; and set `sort = TRUE` to sort by frequency.
 
 ```{r}
 count(births, AgeGroup)
@@ -66,13 +76,14 @@ count(births, Delivery, sort = TRUE)
 count(births, Induced, sort = TRUE)
 ```
 
-To create the column specification object, just edit the output of `spec(births)`; you can remove the columns that imported correctly, or leave them all in for clarity. Setting the `col_types` argument also removes the message about column types.
+We'll now add on extra code to `birth_cols` to set the order of our factors. What order you choose will depend on what makes most sense for the data. For `AgeGroup` we'll list them in chronological order, whilst for `Delivery` and `Induced`, we'll sort them according to the highest value - it can be helpful to think of what order you'll like the bars to be in if you were making a graph.
+
 
 ```{r}
 # edit the output of spec(births)
 birth_cols <- cols(
   SIMDQuintileQF = col_skip(),
-  AgeGroup = col_factor(levels = c("25-34", "35 and over", "Under 25", "Unknown")),
+  AgeGroup = col_factor(levels = c("Under 25", "25-34", "35 and over","Unknown")),
   Delivery = col_factor(levels = c("Spontaneous", 
                                    "Caesarean - Emergency", 
                                    "Forceps", 
@@ -100,7 +111,7 @@ dput(delivery_table$Delivery)
 
 ### Clean up names
 
-Data sets often import with column names that are a little difficult to use in code. You can manually rename them, but the `pkg("janitor")` package makes this incredibly easy. This dataset has pretty good names, with no spaces or special characters, but it does use uppercase letters to separate words, which can be hard to remember. the `clean_names()` function changes everything to lowercase and uses underscores to separate word parts. 
+Data sets often import with column names that are a little difficult to use in code. You can manually rename them, but the `r pkg("janitor")` package makes this incredibly easy. This dataset has pretty good names, with no spaces or special characters, but it does use uppercase letters to separate words, which can be hard to remember. the `clean_names()` function changes everything to lowercase and uses underscores to separate word parts. Using `clean_names` everytime you import a dataset is a good habit to get into. 
 
 ```{r}
 births <- clean_names(births)
@@ -153,7 +164,7 @@ c_sections <- filter(births, delivery == "Caesarean - Emergency")
 c_per_year <- summarise(c_sections, n = sum(livebirths), .by = financial_year)
 c_sorted <- arrange(c_per_year, desc(n))
 
-c_sorted
+head(c_sorted)
 ```
 
 Whilst the above code is functional, it adds three unnecessary objects to the environment, increasing the risk we'll use one of these objects by mistake. Enter... the pipe.
@@ -170,7 +181,7 @@ c_per_year <- births %>% # start with the births table, and then
   # sort by n, descending
   arrange(desc(n))
 
-c_per_year
+head(c_per_year)
 ```
 
 Notice that  `filter()`, summarise()` and `arrange()` no longer need the first argument to be the data table, it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth. 
@@ -191,7 +202,14 @@ count(births, delivery)
 
 There are 7 types of deliveries, and the new column `n` tells you how many rows of the data table there are per type. 
 
-We can check a combination of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. 
+You can add on a column with the numbers expressed in percent using the function `mutate()`. We'll go into more detail on how to use `mutate()` in @sec-wrangle, but for now, it can be used to add new columns or overwrite existing columns.
+
+```{r}
+count(births, delivery) %>%
+  mutate(percent = n/sum(n)*100)
+```
+
+We can also count combination of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. We won't add on percent just yet as the additional variable requires another function that we'll come back to later.
 
 ```{r}
 count(births, age_group, induced, sort = TRUE)
@@ -217,7 +235,7 @@ count(births, induced, sort = TRUE)
 `r mcq1`
 :::
 
-However, the numbers above are not the number of births, but rather the number of rows in the data set. The column `Livebirths` contains the number per each category, so we will need to add those numbers together to see the total number of births. 
+However, the numbers above are not the number of births, but rather the number of rows in the data set. The column `live_births` contains the number per each category, so we will need to add those numbers together to see the total number of births. 
 
 
 ## Summarise {#sec-summary-summarise}
@@ -225,7 +243,7 @@ However, the numbers above are not the number of births, but rather the number o
 The `summarise()` function from the <pkg>dplyr</pkg> package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions. Check the [Data Transformation Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf) for various summary functions. Some common ones are: `n()`, `min()`, `max()`, `sum()`, `mean()`, and `quantile()`.
 
 ::: {.callout-warning}
-If you get the answer `NA` from a summary function, that usually means that there are missing values in the columns you were summarising. We'll discuss this more in @sec-missing-values, but you can ignore missing values for many functions by adding the argument `na.rm = TRUE`.
+If you get the answer `NA` from a summary function, that usually means that there are missing values in the columns you were summarising. This may seem counter-intuitive but it is actually very logical if you consider that NA means "I don't know the value of this cell" because the average of 1 + 2 + I don't know isn't 1.5, it's "I don't know". We'll discuss this more in @sec-missing-values, but you can ignore missing values for many functions by adding the argument `na.rm = TRUE`.
 
 ```{r}
 values <- c(1, 2, 4, 3, NA, 2)
@@ -300,7 +318,7 @@ You can add multiple variables to `group_by()` to further break down your data. 
 
 * Reverse the order of `delivery` and financial_year` in `group_by()` to see how it changes the output.
 
-```{r}
+```{r eval = FALSE}
 births %>%
   group_by(delivery, financial_year) %>%
   summarise(n = sum(livebirths)) %>%
@@ -315,32 +333,75 @@ You may get the following message when using `summarise()` after `group_by()`.
 Tidyverse recently added a message to remind you whether the `summarise()` function automatically ungroups grouped data or not (it may do different things depending on how it's used). You can set the argument `.groups` to "drop", "drop_last", "keep", or "rowwise" (see the help for `?summarise`), but it's good practice to explicitly use `ungroup()` when you're done working by groups, regardless. 
 :::
 
+### Percent by groups
+
+Calculating percent by groups is a great example of the flexibility of `group_by()` but also why you have to be very careful and always check the output of your code.
+
+When we just had one variable to count, adding percent was nice and easy:
+
+```{r}
+count(births, delivery) %>%
+  mutate(percent = n/sum(n)*100)
+```
+
+With multiple variables, problems can arise if we use the exact same approach because by default, it will calculate the percent that each row contributes to the dataset as a whole. This might be what you want:
+
+```{r}
+count(births, age_group, induced, sort = TRUE)%>%
+  mutate(percent = n/sum(n)*100)
+```
+
+However, it's more likely that you would want to calculate percent by groups. For example, what percent of people in the Induced category were in which age group? Or what percent of 25-34 year olds were induced? To calculate these numbers, we add in a call to `group_by()`:
+
+```{r}
+# group by age, percentages within each age group will sum to 100
+count(births, age_group, induced)%>% #age then induced
+  group_by(age_group) %>%
+  mutate(percent = n/sum(n)*100)
+
+# group by induced, percentages within each induction group will sum to 100
+count(births, induced, age_group)%>% #induced then age
+  group_by(induced) %>%
+  mutate(percent = n/sum(n)*100)
+```
+
+If you have updated `r pkg("dyplr")` then you can also use the `.by` argument in `mutate()`:
+
+```{r}
+# group by age, percentages within each age group will sum to 100
+count(births, age_group, induced)%>% #age then induced
+  mutate(percent = n/sum(n)*100,
+         .by = age_group)
+
+# group by induced, percentages within each induction group will sum to 100
+count(births, induced, age_group)%>% #induced then age
+  mutate(percent = n/sum(n)*100,
+         .by = induced)
+```
+
 
 ## Additional Functions
 
-You can also use additional functions like `filter()` or `mutate()` after `group_by` or with the `.by` argument. You'll learn more about these in @sec-wrangle but briefly:
+You can also use additional functions like `filter()` after `group_by` or with the `.by` argument. You'll learn more about these in @sec-wrangle but briefly:
 
 * `filter()` keeps observations (rows) according to specified criteria, e.g., all values above 5, or all induced births
-* `mutate()` creates new variables (columns), or overwrites existing ones
 * `arrange()` sorts the rows by value
 
 You can combine functions like this to get detailed insights into your data. For example, you can 
 
 * recode the financial year into just the first year, and make it numeric
 * filter your data to remove unknown ages and delivery types
-* count the number of births per year, delivery type, and age group
-* transform the count into a percentage of the births per year and age group
 
 
 ```{r}
 births_per_year_type_age <- births %>%
-  mutate(year = str_extract(financial_year, ".{4}"),
-         year = as.integer(year)) %>%
-  filter(age_group != "Unknown",
-         delivery != "Not Known") %>%
+  mutate(year = str_extract(financial_year, ".{4}"), # takes first four digits
+         year = as.integer(year)) %>% # transform to numeric
+  filter(age_group != "Unknown", # remove unknown
+         delivery != "Not Known") %>% # remove not known
   summarise(n = sum(livebirths),
             .by = c(year, delivery, age_group)) %>%
-  mutate(pcnt = 100 * n / sum(n), 
+  mutate(pcnt = n / sum(n) * 100, 
          .by = c(year, age_group))
   
 
@@ -365,11 +426,6 @@ births_per_year_type_age  %>%
        color = "Age Group") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
-
-
-
-
-
 
 
 ## Exercises
