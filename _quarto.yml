@@ -48,8 +48,8 @@ book:
   - 01-intro.qmd
   - 02-reports.qmd
   - 03-viz.qmd
-  #- 04-summary.qmd
-  #- 05-formative.qmd
+  - 04-summary.qmd
+  - 05-formative.qmd
   #- 06-ai.qmd
   #- 07-joins.qmd
   #- 08-tidy.qmd
@@ -57,18 +57,18 @@ book:
   #- 10-custom.qmd
   #- 11-refs.qmd
   #- 12-license.qmd
-#  appendices:
-#  - app-installing-r.qmd
-#  - app-updating-r.qmd
-#  - app-symbols.qmd
-#  - app-conventions.qmd
-#  - app-teams.qmd
-#  - app-debugging.qmd
-#  - app-import.qmd
-#  - app-datatypes.qmd
-#  - app-dates.qmd
-#  - app-styling.qmd
-#  - app-webpage.qmd
+  appendices:
+  - app-installing-r.qmd
+  - app-updating-r.qmd
+  - app-symbols.qmd
+  - app-conventions.qmd
+  - app-teams.qmd
+  - app-debugging.qmd
+  - app-import.qmd
+  - app-datatypes.qmd
+  - app-dates.qmd
+  - app-styling.qmd
+  - app-webpage.qmd
 
 
 bibliography:
