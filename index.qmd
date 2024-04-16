@@ -8,6 +8,8 @@ By the end of this book, you will be able to use R to:
 -   summarise data
 -   informatively visualise data
 -   create reusable report templates
+-   use AI to responsibly assist with coding
+
 
 ## Structure of the course
 

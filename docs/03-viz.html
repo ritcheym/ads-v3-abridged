@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - 3&nbsp; Data Visualisation</title>
 <style>
@@ -19,7 +19,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -55,6 +55,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -98,7 +99,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -107,8 +114,10 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><script src="site_libs/kePrint-0.0.1/kePrint.js"></script><link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="stylesheet" href="include/psyteachr.css">
@@ -119,19 +128,19 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-viz.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-viz.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main">
@@ -284,7 +293,7 @@ div.csl-indent {
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
@@ -351,6 +360,7 @@ div.csl-indent {
   </div>
   
 
+
 </header><section id="sec-ilo-viz" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-ilo-viz">Intended Learning Outcomes</h2>
 <ul>
 <li>Be able to identify categorical versus continuous data</li>
@@ -370,7 +380,7 @@ div.csl-indent {
 </li>
 <li>Save it inside your ADS directory (<strong>not</strong> inside another project)</li>
 </ul>
-<p>Then, create and save a new <a href="https://psyteachr.github.io/glossary/r#r-markdown" target="_blank" class="glossary" title="The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code.">R Markdown</a> document named <code>plots.Rmd</code>, get rid of the default template text, and load the packages in the set-up code <a href="https://psyteachr.github.io/glossary/c#chunk" target="_blank" class="glossary" title="A section of code in an R Markdown file">chunk</a>. You should have all of these packages installed already, but if you get the message <code>Error in library(x) : there is no package called ‘x’</code>, please refer to <a href="01-intro.html#sec-install-package"><span>Section&nbsp;1.4.1</span></a>.</p>
+<p>Then, create and save a new <a href="https://psyteachr.github.io/glossary/r#r-markdown" target="_blank" class="glossary" title="The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code.">R Markdown</a> document named <code>plots.Rmd</code>, get rid of the default template text, and load the packages in the set-up code <a href="https://psyteachr.github.io/glossary/c#chunk" target="_blank" class="glossary" title="A section of code in an R Markdown file">chunk</a>. You should have all of these packages installed already, but if you get the message <code>Error in library(x) : there is no package called ‘x’</code>, please refer to <a href="01-intro.html#sec-install-package" class="quarto-xref"><span>Section 1.4.1</span></a>.</p>
 <div class="cell" data-layout-align="center" data-verbatim="r setup, include=FALSE">
 <div class="verbatim">
 <pre class="sourceCode r code-with-copy"><code class="sourceCode R">```{r setup, include=FALSE}</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
@@ -437,12 +447,12 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Variables can be classified as <a href="https://psyteachr.github.io/glossary/c#continuous" target="_blank" class="glossary" title="Data that can take on any values between other existing values.">continuous</a> (numbers) or <a href="https://psyteachr.github.io/glossary/c#categorical" target="_blank" class="glossary" title="Data that can only take certain values, such as types of pet.">categorical</a> (labels). When you’re plotting data, it’s important to know what kind of variables you have, which can help you decide what types of plots are most appropriate. Each variable also has a <a href="https://psyteachr.github.io/glossary/d#data-type" target="_blank" class="glossary" title="The kind of data represented by an object.">data type</a>, such as <a href="https://psyteachr.github.io/glossary/n#numeric" target="_blank" class="glossary" title="A data type representing a real decimal number or integer.">numeric</a> (numbers), <a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">character</a> (text), or <a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">logical</a> (TRUE/FALSE values). Some plots can only work on some data types. Make sure you have watched the mini-lecture on types of data from last week before you work through this chapter. Additionally, <a href="app-datatypes.html"><span>Appendix&nbsp;H</span></a> has more details, as this concept will be relevant repeatedly.</p>
+<p>Variables can be classified as <a href="https://psyteachr.github.io/glossary/c#continuous" target="_blank" class="glossary" title="Data that can take on any values between other existing values.">continuous</a> (numbers) or <a href="https://psyteachr.github.io/glossary/c#categorical" target="_blank" class="glossary" title="Data that can only take certain values, such as types of pet.">categorical</a> (labels). When you’re plotting data, it’s important to know what kind of variables you have, which can help you decide what types of plots are most appropriate. Each variable also has a <a href="https://psyteachr.github.io/glossary/d#data-type" target="_blank" class="glossary" title="The kind of data represented by an object.">data type</a>, such as <a href="https://psyteachr.github.io/glossary/n#numeric" target="_blank" class="glossary" title="A data type representing a real decimal number or integer.">numeric</a> (numbers), <a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">character</a> (text), or <a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">logical</a> (TRUE/FALSE values). Some plots can only work on some data types. Make sure you have watched the mini-lecture on types of data from last week before you work through this chapter. Additionally, <a href="app-datatypes.html" class="quarto-xref"><span>Appendix H</span></a> has more details, as this concept will be relevant repeatedly.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/appx/excel-format-cells.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Data types are like the categories when you format cells in Excel.</figcaption></figure>
+<figcaption>Data types are like the categories when you format cells in Excel.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -631,27 +641,35 @@ $ rating    &lt;fct&gt; a little evil, very good, very good, very good</code></p
 </section></section><section id="building-plots" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="building-plots">
 <span class="header-section-number">3.4</span> Building plots</h2>
 <p>There are multiple approaches to data visualisation in R; in this course we will use the popular package <pkg>ggplot2</pkg>, which is part of the larger <code>tidyverse</code> collection of packages. A grammar of graphics (the “gg” in “ggplot”) is a standardised way to describe the components of a graphic. <pkg>ggplot2</pkg> uses a layered grammar of graphics, in which plots are built up in a series of layers. It may be helpful to think about any picture as having multiple elements that sit semi-transparently over each other. A good analogy is old Disney movies where artists would create a background and then add moveable elements on top of the background via transparencies.</p>
-<p><a href="#fig-layers">Figure&nbsp;<span>3.1</span></a> displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a <code>geom</code>) that is desired for these variables is specified (layer 3) - in this case <code>geom_point()</code> is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).</p>
+<p><a href="#fig-layers" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a <code>geom</code>) that is desired for these variables is specified (layer 3) - in this case <code>geom_point()</code> is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-layers" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-layers-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.1: Evolution of a layered plot</figcaption></figure>
+<div id="fig-layers" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-layers-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Evolution of a layered plot
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Importantly, each layer is independent and independently customisable. For example, the size, colour and position of each component can be adjusted, or one could, for example, remove the first geom (the data points) to only visualise the line of best fit, simply by removing the layer that draws the data points (<a href="#fig-remove-layer">Figure&nbsp;<span>3.2</span></a>). The use of layers makes it easy to build up complex plots step-by-step, and to adapt or extend plots from existing code.</p>
+<p>Importantly, each layer is independent and independently customisable. For example, the size, colour and position of each component can be adjusted, or one could, for example, remove the first geom (the data points) to only visualise the line of best fit, simply by removing the layer that draws the data points (<a href="#fig-remove-layer" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>). The use of layers makes it easy to build up complex plots step-by-step, and to adapt or extend plots from existing code.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-remove-layer" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-remove-layer-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.2: Final plot with scatterplot layer removed.</figcaption></figure>
+<div id="fig-remove-layer" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-remove-layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-remove-layer-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remove-layer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Final plot with scatterplot layer removed.
+</figcaption></figure>
 </div>
 </div>
 </div>
 <section id="sec-plots-loading-data" class="level3" data-number="3.4.1"><h3 data-number="3.4.1" class="anchored" data-anchor-id="sec-plots-loading-data">
 <span class="header-section-number">3.4.1</span> Plot Data</h3>
-<p>Let’s build up the plot above, layer by layer. First we need to get the data. We’ll learn how to load data from different sources in <a href="app-import.html"><span>Appendix&nbsp;G</span></a>, but this time we’ll use the same method as we did in <a href="02-reports.html#sec-loading-online"><span>Section&nbsp;2.5.1</span></a> and load it from an online source.</p>
+<p>Let’s build up the plot above, layer by layer. First we need to get the data. We’ll learn how to load data from different sources in <a href="app-import.html" class="quarto-xref"><span>Appendix G</span></a>, but this time we’ll use the same method as we did in <a href="02-reports.html#sec-loading-online" class="quarto-xref"><span>Section 2.5.1</span></a> and load it from an online source.</p>
 <p>When you load the data, <code>read_csv()</code> will produce a message that gives you information about the data it has imported and what assumptions it has made. The “column specification” tells you what each column is named and what type of data R has categorised each variable as. The abbreviation “chr” is for <a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">character</a> columns, “dbl” is for <a href="https://psyteachr.github.io/glossary/d#double" target="_blank" class="glossary" title="A data type representing a real decimal number">double</a> columns, and “dttm” is a date/time column.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>survey_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://psyteachr.github.io/ads-v2/data/survey_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -733,7 +751,7 @@ Define objects before you use them
 <span class="header-section-number">3.4.2</span> Plot setup</h3>
 <section id="default-theme" class="level4" data-number="3.4.2.1"><h4 data-number="3.4.2.1" class="anchored" data-anchor-id="default-theme">
 <span class="header-section-number">3.4.2.1</span> Default theme</h4>
-<p>Plots in this book use the black-and-white theme, not the default grey theme, so set your default theme to the same so your plots will look like the examples below. At the top of your script, in the setup chunk after you’ve loaded the tidyverse package, add the following code and run it. You’ll learn more ways to customise your theme in <a href="#sec-themes"><span>Section&nbsp;3.4.3.4</span></a> and <a href="app-styling.html#sec-themes-appendix"><span>Section&nbsp;J.3</span></a>.</p>
+<p>Plots in this book use the black-and-white theme, not the default grey theme, so set your default theme to the same so your plots will look like the examples below. At the top of your script, in the setup chunk after you’ve loaded the tidyverse package, add the following code and run it. You’ll learn more ways to customise your theme in <a href="#sec-themes" class="quarto-xref"><span>Section 3.4.3.4</span></a> and <a href="app-styling.html#sec-themes-appendix" class="quarto-xref"><span>Section J.3</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>()) <span class="co"># set the default theme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -743,9 +761,13 @@ Define objects before you use them
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> survey_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-setup" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-setup-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.3: A blank ggplot.</figcaption></figure>
+<div id="fig-build-plot-setup" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-setup-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: A blank ggplot.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -760,9 +782,13 @@ Define objects before you use them
 <span id="cb19-4"><a href="#cb19-4"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)</span>
 <span id="cb19-5"><a href="#cb19-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-mapping" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-mapping-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.4: A blank plot with x- and y- axes mapped.</figcaption></figure>
+<div id="fig-build-plot-mapping" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-mapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-mapping-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-mapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: A blank plot with x- and y- axes mapped.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -789,9 +815,13 @@ ggplot argument names
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">geom_point</span>() <span class="co"># scatterplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-geoms" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-geoms-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.5: Adding a scatterplot with geom_point().</figcaption></figure>
+<div id="fig-build-plot-geoms" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-geoms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-geoms-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-geoms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Adding a scatterplot with geom_point().
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -812,7 +842,7 @@ Location of the +
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -842,9 +872,13 @@ Location of the +
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-build-plot-geom2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-geom2-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.6: Points first versus line first.</figcaption></figure>
+<div id="fig-build-plot-geom2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-geom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-geom2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-geom2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Points first versus line first.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -874,9 +908,13 @@ Location of the +
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># add plots together in 1 row</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>point_first <span class="sc">+</span> line_first <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-geom2b" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-geom2b-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.7: Combining plots with patchwork.</figcaption></figure>
+<div id="fig-build-plot-geom2b" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-geom2b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-geom2b-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-geom2b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Combining plots with patchwork.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -898,7 +936,7 @@ Try changing nrow to 2
 <p>There are nearly endless ways to customise ggplots. We’ll cover a few of the basic customisations here.</p>
 <section id="styling-geoms" class="level4" data-number="3.4.3.1"><h4 data-number="3.4.3.1" class="anchored" data-anchor-id="styling-geoms">
 <span class="header-section-number">3.4.3.1</span> Styling geoms</h4>
-<p>We should definitely put the line in front of the points, but the points are still a bit dark. If you want to change the overall style of a geom, you can set the arguments <code>colour</code>, <code>alpha</code>, <code>shape</code>, <code>size</code> and <code>linetype</code> inside the geom function. There are many different values that you can set these to; <a href="app-styling.html"><span>Appendix&nbsp;J</span></a>) gives details of these. Play around with different values below and figure out what the <a href="https://psyteachr.github.io/glossary/d#default-value" target="_blank" class="glossary" title="A value that a function uses for an argument if it is skipped.">default values</a> are for <code>shape</code> and <code>size</code>.</p>
+<p>We should definitely put the line in front of the points, but the points are still a bit dark. If you want to change the overall style of a geom, you can set the arguments <code>colour</code>, <code>alpha</code>, <code>shape</code>, <code>size</code> and <code>linetype</code> inside the geom function. There are many different values that you can set these to; <a href="app-styling.html" class="quarto-xref"><span>Appendix J</span></a>) gives details of these. Play around with different values below and figure out what the <a href="https://psyteachr.github.io/glossary/d#default-value" target="_blank" class="glossary" title="A value that a function uses for an argument if it is skipped.">default values</a> are for <code>shape</code> and <code>size</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"dodgerblue"</span>, </span>
@@ -911,9 +949,13 @@ Try changing nrow to 2
 <span id="cb29-9"><a href="#cb29-9"></a>              <span class="at">colour =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, .<span class="dv">5</span>, .<span class="dv">8</span>),</span>
 <span id="cb29-10"><a href="#cb29-10"></a>              <span class="at">linetype =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-style" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-style-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.8: Changing geom styles.</figcaption></figure>
+<div id="fig-build-plot-style" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-style-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-style-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: Changing geom styles.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -927,7 +969,7 @@ Setting aesthetics overall versus by category
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This method is only for changing the style of <em>all</em> the shapes made with that geom. If you want, for example, points to have different colours depending on which issue category they are from, you set the argument <code>colour = issue_category</code> inside the <code>aes()</code> function for the mapping. You can customise the colours used with <code>scale_</code> functions, which you will learn about below and in <a href="app-styling.html"><span>Appendix&nbsp;J</span></a>).</p>
+<p>This method is only for changing the style of <em>all</em> the shapes made with that geom. If you want, for example, points to have different colours depending on which issue category they are from, you set the argument <code>colour = issue_category</code> inside the <code>aes()</code> function for the mapping. You can customise the colours used with <code>scale_</code> functions, which you will learn about below and in <a href="app-styling.html" class="quarto-xref"><span>Appendix J</span></a>).</p>
 </div>
 </div>
 </section><section id="format-axes" class="level4" data-number="3.4.3.2"><h4 data-number="3.4.3.2" class="anchored" data-anchor-id="format-axes">
@@ -958,9 +1000,13 @@ Setting aesthetics overall versus by category
 <span id="cb32-10"><a href="#cb32-10"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Call time (seconds)"</span>,</span>
 <span id="cb32-11"><a href="#cb32-11"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">600</span>, <span class="at">by =</span> <span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-axes" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-axes-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.9: Formatting plot axes with scale_ functions.</figcaption></figure>
+<div id="fig-build-plot-axes" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-axes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-axes-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-axes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: Formatting plot axes with scale_ functions.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -995,9 +1041,13 @@ Minor breaks
 <span id="cb33-12"><a href="#cb33-12"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">360</span>), </span>
 <span id="cb33-13"><a href="#cb33-13"></a>                  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">180</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-limits" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-limits-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.10: Changing the axis limits.</figcaption></figure>
+<div id="fig-build-plot-limits" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-limits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-limits-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-limits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.10: Changing the axis limits.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1034,9 +1084,13 @@ Setting limits with the scale_ function
 <span id="cb34-13"><a href="#cb34-13"></a>  <span class="co"># change the theme</span></span>
 <span id="cb34-14"><a href="#cb34-14"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_gdocs</span>(<span class="at">base_size =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-theme" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-theme-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.11: Changing the theme to the Google Docs style.</figcaption></figure>
+<div id="fig-build-plot-theme" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-theme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-theme-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-theme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.11: Changing the theme to the Google Docs style.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1061,9 +1115,13 @@ Setting limits with the scale_ function
 <span id="cb35-15"><a href="#cb35-15"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb35-16"><a href="#cb35-16"></a>        <span class="at">plot.background =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-build-plot-custom-theme" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-build-plot-custom-theme-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.12: Customising the theme to remove the x-axis line and background outline.</figcaption></figure>
+<div id="fig-build-plot-custom-theme" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-build-plot-custom-theme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-build-plot-custom-theme-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-build-plot-custom-theme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.12: Customising the theme to remove the x-axis line and background outline.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1090,9 +1148,13 @@ Setting limits with the scale_ function
 <span id="cb36-17"><a href="#cb36-17"></a>       <span class="at">subtitle =</span> <span class="st">"2020 Call Data"</span>,</span>
 <span id="cb36-18"><a href="#cb36-18"></a>       <span class="at">caption =</span> <span class="st">"Figure 1. As wait time increases, call time increases."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-caption" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-caption-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.13: Adding a title, subtitle, and caption.</figcaption></figure>
+<div id="fig-caption" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-caption-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-caption-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-caption-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.13: Adding a title, subtitle, and caption.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1118,9 +1180,13 @@ Setting limits with the scale_ function
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> issue_category)) <span class="sc">+</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-bar" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-bar-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.14: A basic bar plot.</figcaption></figure>
+<div id="fig-bar" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-bar-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.14: A basic bar plot.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1178,7 +1244,7 @@ Code
 <span id="cb39-28"><a href="#cb39-28"></a>  <span class="fu">ggtitle</span>(<span class="st">"Number of issues per category"</span>) <span class="co"># add a title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/custom-bar-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/custom-bar-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1223,9 +1289,13 @@ Code
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(count_data, <span class="fu">aes</span>(<span class="at">x =</span> issue_category, <span class="at">y =</span> n)) <span class="sc">+</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-col" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-col-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.15: A basic column plot.</figcaption></figure>
+<div id="fig-col" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-col-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-col-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-col-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.15: A basic column plot.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1320,9 +1390,13 @@ Test your understanding
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="fig-histogram" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-histogram-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.16: Histogram of wait times.</figcaption></figure>
+<div id="fig-histogram" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-histogram-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.16: Histogram of wait times.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1341,9 +1415,13 @@ Test your understanding
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time)) <span class="sc">+</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">30</span>, <span class="at">boundary =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-histogram-boundary0" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-histogram-boundary0-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.17: A histogram with the boundary set to 0.</figcaption></figure>
+<div id="fig-histogram-boundary0" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-histogram-boundary0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-histogram-boundary0-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-boundary0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.17: A histogram with the boundary set to 0.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1357,9 +1435,13 @@ Test your understanding
 <span id="cb46-6"><a href="#cb46-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Wait time (seconds)"</span>,</span>
 <span id="cb46-7"><a href="#cb46-7"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">600</span>, <span class="dv">60</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-histogram-custom" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-histogram-custom-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.18: Histogram with custom styles.</figcaption></figure>
+<div id="fig-histogram-custom" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-histogram-custom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-histogram-custom-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-custom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.18: Histogram with custom styles.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1377,7 +1459,7 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/test-one-continuous-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/test-one-continuous-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1436,7 +1518,7 @@ Axis label customisation
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Histogram with categories represented by fill.</figcaption></figure>
+<figcaption>Histogram with categories represented by fill.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1486,7 +1568,7 @@ Area plot alternative
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Stacked area plot.</figcaption></figure>
+<figcaption>Stacked area plot.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1507,9 +1589,13 @@ Area plot alternative
 <span id="cb52-8"><a href="#cb52-8"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Wait time (seconds)"</span>,</span>
 <span id="cb52-9"><a href="#cb52-9"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">600</span>, <span class="dv">60</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-histogram-dodge" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-histogram-dodge-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.19: A histogram with multiple groups.</figcaption></figure>
+<div id="fig-histogram-dodge" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-histogram-dodge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-histogram-dodge-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-dodge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.19: A histogram with multiple groups.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1540,9 +1626,13 @@ Frequency plot alternative
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<div id="fig-groups-freqpoly" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-groups-freqpoly-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.20: A frequency plot with multiple groups.</figcaption></figure>
+<div id="fig-groups-freqpoly" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-groups-freqpoly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-groups-freqpoly-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-groups-freqpoly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.20: A frequency plot with multiple groups.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1565,9 +1655,13 @@ Frequency plot alternative
 <span id="cb55-10"><a href="#cb55-10"></a></span>
 <span id="cb55-11"><a href="#cb55-11"></a>violin_area <span class="sc">+</span> violin_count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-violin-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-violin-plot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.21: The default violin plot gives each shape the same area. Set scale=‘count’ to make the size proportional to the number of observations.</figcaption></figure>
+<div id="fig-violin-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-violin-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-violin-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-violin-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.21: The default violin plot gives each shape the same area. Set scale=‘count’ to make the size proportional to the number of observations.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1591,9 +1685,13 @@ Frequency plot alternative
 <span id="cb56-13"><a href="#cb56-13"></a></span>
 <span id="cb56-14"><a href="#cb56-14"></a>boxplot <span class="sc">+</span> custom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-box-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-box-plot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.22: Boxplots.</figcaption></figure>
+<div id="fig-box-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-box-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-box-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-box-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.22: Boxplots.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1627,9 +1725,13 @@ Frequency plot alternative
 <span id="cb57-24"><a href="#cb57-24"></a>               <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb57-25"><a href="#cb57-25"></a>  <span class="fu">ggtitle</span>(<span class="st">"ViolinBox"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-violin-combos" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-violin-combos-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.23: Violin plots combined with different methods to represent means and medians.</figcaption></figure>
+<div id="fig-violin-combos" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-violin-combos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-violin-combos-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-violin-combos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.23: Violin plots combined with different methods to represent means and medians.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1649,9 +1751,13 @@ Misleading Bar Charts
 <p>Column plots can also be very misleading. The plot on the left starts the y-axis at 0, which makes the bar heights proportional, showing almost no difference in average wait times. Since the differences are hard to see, you may be tempted to start the y-axis higher, but that makes it look like the average wait time for returns is double that for tech.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-col-plot-bad" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-col-plot-bad-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.24: Don’t plot continuous data with column plots. They are only appropriate for count data.</figcaption></figure>
+<div id="fig-col-plot-bad" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-col-plot-bad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-col-plot-bad-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-col-plot-bad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.24: Don’t plot continuous data with column plots. They are only appropriate for count data.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1671,7 +1777,7 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/test-grouped-continuous-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/test-grouped-continuous-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1731,15 +1837,19 @@ Test your understanding
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-demo-point" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-demo-point-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.25: Scatterplot with geom_point().</figcaption></figure>
+<div id="fig-demo-point" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-demo-point-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-demo-point-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-demo-point-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.25: Scatterplot with geom_point().
+</figcaption></figure>
 </div>
 </div>
 </div>
 </section><section id="trendlines" class="level4" data-number="3.5.4.2"><h4 data-number="3.5.4.2" class="anchored" data-anchor-id="trendlines">
 <span class="header-section-number">3.5.4.2</span> Trendlines</h4>
-<p>In <a href="#fig-layers">Figure&nbsp;<span>3.1</span></a>, we emphasised the relationship between wait time and call time with a trendline created by <code>geom_smooth()</code> using the argument <code>method = lm</code> (“lm” stands for “linear model” or a straight line relationship). You can also set <code>method = loess</code> to visualise a non-linear relationship.</p>
+<p>In <a href="#fig-layers" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>, we emphasised the relationship between wait time and call time with a trendline created by <code>geom_smooth()</code> using the argument <code>method = lm</code> (“lm” stands for “linear model” or a straight line relationship). You can also set <code>method = loess</code> to visualise a non-linear relationship.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>lm_plot <span class="ot">&lt;-</span> </span>
 <span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
@@ -1755,9 +1865,13 @@ Test your understanding
 <span id="cb59-12"><a href="#cb59-12"></a></span>
 <span id="cb59-13"><a href="#cb59-13"></a>lm_plot <span class="sc">+</span> loess_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-2-continuous" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-2-continuous-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.26: Different ways to show the relationship between two continuous variables.</figcaption></figure>
+<div id="fig-2-continuous" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-2-continuous-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-2-continuous-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-continuous-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.26: Different ways to show the relationship between two continuous variables.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1782,9 +1896,13 @@ Error shading
 <span id="cb60-2"><a href="#cb60-2"></a>                        <span class="at">y =</span> satisfaction)) <span class="sc">+</span> </span>
 <span id="cb60-3"><a href="#cb60-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">formula =</span> y<span class="sc">~</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-date-x" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-date-x-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.27: Plotting dates.</figcaption></figure>
+<div id="fig-date-x" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-date-x-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-date-x-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-date-x-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.27: Plotting dates.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1799,9 +1917,13 @@ Error shading
 <span id="cb61-7"><a href="#cb61-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Caller Satisfaction"</span>) <span class="sc">+</span></span>
 <span id="cb61-8"><a href="#cb61-8"></a>  <span class="fu">ggtitle</span>(<span class="st">"2020 Caller Satisfaction"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-date-month" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-date-month-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.28: Plotting dates with breaks one month apart.</figcaption></figure>
+<div id="fig-date-month" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-date-month-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-date-month-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-date-month-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.28: Plotting dates with breaks one month apart.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1843,7 +1965,7 @@ Solution
 <span id="cb62-12"><a href="#cb62-12"></a>  <span class="fu">ggtitle</span>(<span class="st">"2020 Caller Satisfaction"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1861,9 +1983,13 @@ Solution
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> call_time, <span class="at">y =</span> satisfaction)) <span class="sc">+</span> </span>
 <span id="cb63-2"><a href="#cb63-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-over-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-over-plot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.29: Overlapping data makes plots hard to understand.</figcaption></figure>
+<div id="fig-over-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-over-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-over-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-over-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.29: Overlapping data makes plots hard to understand.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1887,9 +2013,13 @@ Change these values to understand what jitter is doing
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> call_time, <span class="at">y =</span> satisfaction)) <span class="sc">+</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="dv">0</span>, <span class="at">height =</span> .<span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-jitter-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-jitter-plot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.30: Jitter plot.</figcaption></figure>
+<div id="fig-jitter-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-jitter-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-jitter-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-jitter-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.30: Jitter plot.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1908,9 +2038,13 @@ Change these values to understand what jitter is doing
 <span id="cb65-9"><a href="#cb65-9"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Call Time (seconds)"</span>,</span>
 <span id="cb65-10"><a href="#cb65-10"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">600</span>, <span class="dv">30</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fact-plot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-viz_files/figure-html/fig-fact-plot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.31: A histogram with facets.</figcaption></figure>
+<div id="fig-fact-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-fact-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-viz_files/figure-html/fig-fact-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fact-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.31: A histogram with facets.
+</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1929,7 +2063,7 @@ More plots styles
 </div>
 </section></section></section><section id="exercises" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="exercises">
 <span class="header-section-number">3.6</span> Exercises</h2>
-<p>For the final step in this chapter, we will create a report of data visualisations. You may need to refer back to <a href="02-reports.html"><span>Chapter&nbsp;2</span></a>) to help you complete these exercises and you may also want to take a break before you work through this section. We’d also recommend you <a href="https://psyteachr.github.io/glossary/k#knit" target="_blank" class="glossary" title="To create an HTML, PDF, or Word document from an R Markdown (Rmd) document">knit</a> at every step so that you can see how your output changes.</p>
+<p>For the final step in this chapter, we will create a report of data visualisations. You may need to refer back to <a href="02-reports.html" class="quarto-xref"><span>Chapter 2</span></a>) to help you complete these exercises and you may also want to take a break before you work through this section. We’d also recommend you <a href="https://psyteachr.github.io/glossary/k#knit" target="_blank" class="glossary" title="To create an HTML, PDF, or Word document from an R Markdown (Rmd) document">knit</a> at every step so that you can see how your output changes.</p>
 <section id="sec-exercises-new-rmd-3" class="level3" data-number="3.6.1"><h3 data-number="3.6.1" class="anchored" data-anchor-id="sec-exercises-new-rmd-3">
 <span class="header-section-number">3.6.1</span> New Markdown</h3>
 <p>Create and save a new R Markdown document named <code>plots_report.Rmd</code> and give it the title “Customer satisfaction report”. Remove the default template text and then load the packages and code below in the set-up code chunk:</p>
@@ -1945,7 +2079,7 @@ More plots styles
 </div>
 </section><section id="sec-exercises-summary" class="level3" data-number="3.6.2"><h3 data-number="3.6.2" class="anchored" data-anchor-id="sec-exercises-summary">
 <span class="header-section-number">3.6.2</span> Summary</h3>
-<p>Create a level 1 heading titled “Overview”. Underneath this heading, write a short summary of what the data set contains and what each of the variables means (you can use the information from <a href="#sec-plots-loading-data"><span>Section&nbsp;3.4.1</span></a> if you like).</p>
+<p>Create a level 1 heading titled “Overview”. Underneath this heading, write a short summary of what the data set contains and what each of the variables means (you can use the information from <a href="#sec-plots-loading-data" class="quarto-xref"><span>Section 3.4.1</span></a> if you like).</p>
 </section><section id="presenting-plots" class="level3" data-number="3.6.3"><h3 data-number="3.6.3" class="anchored" data-anchor-id="presenting-plots">
 <span class="header-section-number">3.6.3</span> Presenting plots</h3>
 <p>Pick your two favourites plots from all the examples we’ve made in this chapter. For each plot:</p>
@@ -1965,13 +2099,14 @@ More plots styles
 <li>Organise your Markdown so that the plots are shown <strong>after</strong> the text summary.</li>
 </ul></section><section id="editing-your-markdown-display" class="level3" data-number="3.6.5"><h3 data-number="3.6.5" class="anchored" data-anchor-id="editing-your-markdown-display">
 <span class="header-section-number">3.6.5</span> Editing your Markdown display</h3>
-<p>Adjust the set-up of your Markdown so that your knitted report does not show any code, messages, or warnings, and all figures are 8 x 5 (see <a href="02-reports.html#sec-rmd-setup"><span>Section&nbsp;2.7.1</span></a>).</p>
+<p>Adjust the set-up of your Markdown so that your knitted report does not show any code, messages, or warnings, and all figures are 8 x 5 (see <a href="02-reports.html#sec-rmd-setup" class="quarto-xref"><span>Section 2.7.1</span></a>).</p>
 </section><section id="share-your-work" class="level3" data-number="3.6.6"><h3 data-number="3.6.6" class="anchored" data-anchor-id="share-your-work">
 <span class="header-section-number">3.6.6</span> Share your work</h3>
 <p>Once you’ve completed this activity, post it in the Week 3 channel on Teams so that you can compare which plots you chose and visual style with other learners on the course.</p>
 </section></section><section id="sec-glossary-viz" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="sec-glossary-viz">
 <span class="header-section-number">3.7</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
@@ -2093,6 +2228,7 @@ More plots styles
 </tbody>
 </table>
 </div>
+</div>
 </section><section id="sec-resources-viz" class="level2" data-number="3.8"><h2 data-number="3.8" class="anchored" data-anchor-id="sec-resources-viz">
 <span class="header-section-number">3.8</span> Further Resources</h2>
 <ul>
@@ -2115,7 +2251,7 @@ More plots styles
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-nordmann_2021" class="csl-entry" role="listitem">
 Nordmann, E., McAleer, P., Toivo, W., Paterson, H., &amp; DeBruine, L. M. (2021). <em>Data visualisation using <span>R</span>, for researchers who don’t use <span>R</span></em>. PsyArXiv. <a href="https://doi.org/10.31234/osf.io/4huvw">https://doi.org/10.31234/osf.io/4huvw</a>
 </div>
@@ -2357,6 +2493,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -2423,13 +2586,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2508,10 +2673,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2521,8 +2703,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2534,7 +2725,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2578,6 +2892,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2603,6 +2918,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2662,19 +3003,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./02-reports.html" class="pagination-link">
+      <a href="./02-reports.html" class="pagination-link" aria-label="Reports with R Markdown">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reports with R Markdown</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-summary.html" class="pagination-link">
+      <a href="./04-summary.html" class="pagination-link" aria-label="Data Summaries">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summaries</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">CC-BY 2024, psyTeachR</div>   
+    <div class="nav-footer-left">
+<p>CC-BY 2024, psyTeachR</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
