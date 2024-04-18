@@ -194,6 +194,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">License/Citation</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -655,7 +691,7 @@ Note
 <p>For dates, you might need to set the format your dates are in. See <code><a href="https://rdrr.io/r/base/strptime.html">?strptime</a></code> for a list of the codes used to represent different date formats. For example, <code>"%d-%b-%y"</code> means that the dates are formatted like <code>31-Jan-21</code>.</p>
 </div>
 </div>
-<p>The functions from <pkg>readxl</pkg> for loading <code>.xlsx</code> sheets have a different, more limited way to specify the column types. You will have to convert factor columns and dates using <code>mutate()</code>, which you’ll learn about in <span class="quarto-unresolved-ref">?sec-wrangle</span>, so most people let <code>read_excel()</code> guess data types and don’t set the <code>col_types</code> argument.</p>
+<p>The functions from <pkg>readxl</pkg> for loading <code>.xlsx</code> sheets have a different, more limited way to specify the column types. You will have to convert factor columns and dates using <code>mutate()</code>, which you’ll learn about in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 8</span></a>, so most people let <code>read_excel()</code> guess data types and don’t set the <code>col_types</code> argument.</p>
 <p>For SPSS data, whilst <code><a href="https://rdrr.io/pkg/rio/man/import.html">rio::import()</a></code> will just read the numeric values of factors and not their labels, the function <code>read_sav()</code> from <pkg>haven</pkg> reads both. However, you have to convert factors from a haven-specific “labelled double” to a factor (we have no idea why haven doesn’t do this for you).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>demo_sav<span class="sc">$</span>factor <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(demo_sav<span class="sc">$</span>factor)</span>
@@ -953,7 +989,7 @@ $ date    &lt;chr&gt; "2020-01-1", "2020-01-2", "2020-01-3", "2020-01-4", "2020-
 <li>
 <code>date</code> should be a date column</li>
 </ul>
-<p>We’ll learn how to deal with this mess in <span class="quarto-unresolved-ref">?sec-tidy</span> and <span class="quarto-unresolved-ref">?sec-wrangle</span>, but we can fix a few things by setting the <code>col_types</code> argument in <code>read_csv()</code> to specify the column types for our two columns that were guessed wrong and skip the “junk” column. The argument <code>col_types</code> takes a list where the name of each item in the list is a column name and the value is from the table below. You can use the function, like <code>col_double()</code> or the abbreviation, like <code>"d"</code>; for consistency with earlier in this chapter we will use the function names. Omitted column names are guessed.</p>
+<p>We’ll learn how to deal with this mess in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 7</span></a> and <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 8</span></a>, but we can fix a few things by setting the <code>col_types</code> argument in <code>read_csv()</code> to specify the column types for our two columns that were guessed wrong and skip the “junk” column. The argument <code>col_types</code> takes a list where the name of each item in the list is a column name and the value is from the table below. You can use the function, like <code>col_double()</code> or the abbreviation, like <code>"d"</code>; for consistency with earlier in this chapter we will use the function names. Omitted column names are guessed.</p>
 <table class="table">
 <thead><tr class="header">
 <th style="text-align: left;">function</th>

@@ -194,6 +194,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">License/Citation</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -1001,7 +1037,7 @@ NA
 </div>
 </div>
 <p>There are 7 types of deliveries, and the new column <code>n</code> tells you how many rows of the data table there are per type.</p>
-<p>You can add on a column with the numbers expressed in percent using the function <code>mutate()</code>. We’ll go into more detail on how to use <code>mutate()</code> in <span class="quarto-unresolved-ref">?sec-wrangle</span>, but for now, it can be used to add new columns or overwrite existing columns.</p>
+<p>You can add on a column with the numbers expressed in percent using the function <code>mutate()</code>. We’ll go into more detail on how to use <code>mutate()</code> in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 8</span></a>, but for now, it can be used to add new columns or overwrite existing columns.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">count</span>(births, delivery) <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1318,7 +1354,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you get the answer <code>NA</code> from a summary function, that usually means that there are missing values in the columns you were summarising. This may seem counter-intuitive but it is actually very logical if you consider that NA means “I don’t know the value of this cell” because the average of 1 + 2 + I don’t know isn’t 1.5, it’s “I don’t know”. We’ll discuss this more in <span class="quarto-unresolved-ref">?sec-missing-values</span>, but you can ignore missing values for many functions by adding the argument <code>na.rm = TRUE</code>.</p>
+<p>If you get the answer <code>NA</code> from a summary function, that usually means that there are missing values in the columns you were summarising. This may seem counter-intuitive but it is actually very logical if you consider that NA means “I don’t know the value of this cell” because the average of 1 + 2 + I don’t know isn’t 1.5, it’s “I don’t know”. We’ll discuss this more in <a href="09-wrangle.html#sec-missing-values" class="quarto-xref"><span>Section 8.3.2</span></a>, but you can ignore missing values for many functions by adding the argument <code>na.rm = TRUE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">2</span>)</span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="fu">mean</span>(values) <span class="co"># is NA</span></span>
@@ -1786,7 +1822,7 @@ Warning
 <p>Make sure you call the <code>ungroup()</code> function when you are done with grouped functions. Failing to do this can cause all sorts of mysterious problems if you use that data table later assuming it isn’t grouped.</p>
 </div>
 </div>
-<p>You might have noticed that the order of the table above is different from the order when using the <code>.by</code> argument of <code>summarise()</code>. This is because <code>group_by()</code> always sorts the values in the grouping columns in ascending order, while <code>.by</code> leaves them in the order they are first encountered in your data frame. Use the function <code>arrange()</code> to manually change order (see <span class="quarto-unresolved-ref">?sec-arrange</span>).</p>
+<p>You might have noticed that the order of the table above is different from the order when using the <code>.by</code> argument of <code>summarise()</code>. This is because <code>group_by()</code> always sorts the values in the grouping columns in ascending order, while <code>.by</code> leaves them in the order they are first encountered in your data frame. Use the function <code>arrange()</code> to manually change order (see <a href="09-wrangle.html#sec-arrange" class="quarto-xref"><span>Section 8.2.3</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>births <span class="sc">%&gt;%</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">group_by</span>(delivery) <span class="sc">%&gt;%</span></span>
@@ -2906,7 +2942,7 @@ Unknown
 </div>
 </section></section><section id="additional-functions" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="additional-functions">
 <span class="header-section-number">4.7</span> Additional Functions</h2>
-<p>You can also use additional functions like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> after <code>group_by</code> or with the <code>.by</code> argument. You’ll learn more about these in <span class="quarto-unresolved-ref">?sec-wrangle</span> but briefly:</p>
+<p>You can also use additional functions like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> after <code>group_by</code> or with the <code>.by</code> argument. You’ll learn more about these in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 8</span></a> but briefly:</p>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> keeps observations (rows) according to specified criteria, e.g., all values above 5, or all induced births</li>
@@ -3085,7 +3121,7 @@ Note
 <span id="cb38-8"><a href="#cb38-8"></a>       <span class="at">color =</span> <span class="st">"Age Group"</span>) <span class="sc">+</span></span>
 <span id="cb38-9"><a href="#cb38-9"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-birth-year-type-age" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" width="100%">
+<div id="fig-birth-year-type-age" class="quarto-figure quarto-figure-center quarto-float anchored" width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-birth-year-type-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-summary_files/figure-html/fig-birth-year-type-age-1.png" id="fig-birth-year-type-age" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:100.0%">
 </div>

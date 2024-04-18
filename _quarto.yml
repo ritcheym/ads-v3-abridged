@@ -51,12 +51,12 @@ book:
   - 04-summary.qmd
   - 05-formative.qmd
   #- 06-ai.qmd
-  #- 07-joins.qmd
-  #- 08-tidy.qmd
-  #- 09-wrangle.qmd
-  #- 10-custom.qmd
-  #- 11-refs.qmd
-  #- 12-license.qmd
+  - 07-joins.qmd
+  - 08-tidy.qmd
+  - 09-wrangle.qmd
+  - 10-custom.qmd
+  - 11-refs.qmd
+  - 12-license.qmd
   appendices:
   - app-installing-r.qmd
   - app-updating-r.qmd

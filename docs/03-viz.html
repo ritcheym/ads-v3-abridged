@@ -214,6 +214,42 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">License/Citation</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -395,7 +431,7 @@ div.csl-indent {
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">ggplot2 cheat sheet</a>.</p>
 </section><section id="variable-types" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="variable-types">
 <span class="header-section-number">3.3</span> Variable types</h2>
-<p>If a spreadsheet is in a <a href="https://psyteachr.github.io/glossary/t#tidy-data" target="_blank" class="glossary" title="A format for data that maps the meaning onto the structure.">tidy data</a> format, each row is an <a href="https://psyteachr.github.io/glossary/o#observation" target="_blank" class="glossary" title="All of the data about a single trial or question.">observation</a>, each column is a <a href="https://psyteachr.github.io/glossary/v#variable" target="_blank" class="glossary" title="(coding): A word that identifies and stores the value of some data for later use; (stats): An attribute or characteristic of an observation that you can measure, count, or describe">variable</a>, and the information in each cell is a single <a href="https://psyteachr.github.io/glossary/v#value" target="_blank" class="glossary" title="A single number or piece of data.">value</a>. We’ll learn more about how to get our data into this format in <span class="quarto-unresolved-ref">?sec-tidy</span>, but to get started we’ll use datasets with the right format.</p>
+<p>If a spreadsheet is in a <a href="https://psyteachr.github.io/glossary/t#tidy-data" target="_blank" class="glossary" title="A format for data that maps the meaning onto the structure.">tidy data</a> format, each row is an <a href="https://psyteachr.github.io/glossary/o#observation" target="_blank" class="glossary" title="All of the data about a single trial or question.">observation</a>, each column is a <a href="https://psyteachr.github.io/glossary/v#variable" target="_blank" class="glossary" title="(coding): A word that identifies and stores the value of some data for later use; (stats): An attribute or characteristic of an observation that you can measure, count, or describe">variable</a>, and the information in each cell is a single <a href="https://psyteachr.github.io/glossary/v#value" target="_blank" class="glossary" title="A single number or piece of data.">value</a>. We’ll learn more about how to get our data into this format in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 7</span></a>, but to get started we’ll use datasets with the right format.</p>
 <p>For example, the table below lists pets owned by members of the psyTeachR team. Each row is an observation of one pet. There are 6 variables for each pet, their <code>name</code>, <code>owner</code>, <code>species</code>, <code>birthdate</code>, <code>weight</code> (in kg), and <code>rating</code> (on a 5-point scale from “very evil” to “very good”).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -502,7 +538,7 @@ Do not factor numbers
 </div>
 </div>
 </div>
-<p>Sometimes people represent categorical variables with numbers that correspond to names, like 0 = “no” and 1 = “yes”, but values in between don’t have a clear interpretation. If you have control over how the data are recorded, it’s better to use the character names for clarity. You’ll learn how to recode columns in <span class="quarto-unresolved-ref">?sec-wrangle</span>.</p>
+<p>Sometimes people represent categorical variables with numbers that correspond to names, like 0 = “no” and 1 = “yes”, but values in between don’t have a clear interpretation. If you have control over how the data are recorded, it’s better to use the character names for clarity. You’ll learn how to recode columns in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
 </section><section id="dates-and-times" class="level3" data-number="3.3.3"><h3 data-number="3.3.3" class="anchored" data-anchor-id="dates-and-times">
 <span class="header-section-number">3.3.3</span> Dates and times</h3>
 <p>Dates and times are a special case of variable. They can act like categorical or continuous variables, and there are special ways to plot them. Dates and times can be hard to work with, but the [<pkg>lubridate</pkg>(https://lubridate.tidyverse.org/) package provides functions to help you with this.</p>
@@ -1158,7 +1194,7 @@ Figure&nbsp;3.13: Adding a title, subtitle, and caption.
 </div>
 </div>
 </div>
-<p>However, it is more accessible to include this sort of information in plain text for screen readers. You can add a text caption in the chunk header, and some document types will even automatically number figures for you (you’ll learn about this in <span class="quarto-unresolved-ref">?sec-linked-docs</span>). You can also add alt-text descriptions for screen readers that describe the image.</p>
+<p>However, it is more accessible to include this sort of information in plain text for screen readers. You can add a text caption in the chunk header, and some document types will even automatically number figures for you (you’ll learn about this in <a href="10-custom.html#sec-linked-docs" class="quarto-xref"><span>Section 9.2.2</span></a>). You can also add alt-text descriptions for screen readers that describe the image.</p>
 <div class="cell" data-layout-align="center" data-verbatim="r fig-wait-vs-call, fig.cap=&quot;As wait time increases, call time increases.&quot;, fig.alt=&quot;A scatterplot showing wait time on the x-axis (range 0-360 seconds) and call time on the y-axis (range 0-180 seconds) with a trend line showing that as wait time increases, call time increases from about 60 wait/30 call to about 300 wait/65 call.&quot;">
 <div class="verbatim">
 <pre class="sourceCode r code-with-copy"><code class="sourceCode R">```{r fig-wait-vs-call, fig.cap="As wait time increases, call time increases.", fig.alt="A scatterplot showing wait time on the x-axis (range 0-360 seconds) and call time on the y-axis (range 0-180 seconds) with a trend line showing that as wait time increases, call time increases from about 60 wait/30 call to about 300 wait/65 call."}</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
@@ -1200,7 +1236,7 @@ Customising bar plot appearance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You probably want to customise some things, like the colours, order of the columns, and their labels. Inspect the code below and try running it layer by layer to figure out where these things change. The functions <code>scale_fill_manual()</code> and <code>scale_x_discrete()</code> are new, but work in the same way as the other <code>scale_</code> functions. You’ll learn more about this in <span class="quarto-unresolved-ref">?sec-custom-viz</span>.</p>
+<p>You probably want to customise some things, like the colours, order of the columns, and their labels. Inspect the code below and try running it layer by layer to figure out where these things change. The functions <code>scale_fill_manual()</code> and <code>scale_x_discrete()</code> are new, but work in the same way as the other <code>scale_</code> functions. You’ll learn more about this in <a href="10-custom.html#sec-custom-viz" class="quarto-xref"><span>Section 9.1</span></a>.</p>
 <div class="cell" data-layout-align="center" data-webex.hide="Code">
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -1301,7 +1337,7 @@ Figure&nbsp;3.15: A basic column plot.
 </div>
 </section><section id="pie-chart" class="level4" data-number="3.5.1.3"><h4 data-number="3.5.1.3" class="anchored" data-anchor-id="pie-chart">
 <span class="header-section-number">3.5.1.3</span> Pie chart</h4>
-<p>Pie charts are a <a href="https://www.data-to-viz.com/caveat/pie.html" target="_blank">misleading form of data visualisation</a>, so we won’t cover them. We’ll cover options for visualising proportions, like waffle, lollipop and treemap plots, in <span class="quarto-unresolved-ref">?sec-other-plots</span>.</p>
+<p>Pie charts are a <a href="https://www.data-to-viz.com/caveat/pie.html" target="_blank">misleading form of data visualisation</a>, so we won’t cover them. We’ll cover options for visualising proportions, like waffle, lollipop and treemap plots, in <a href="10-custom.html#sec-other-plots" class="quarto-xref"><span>Section 9.1.4</span></a>.</p>
 <div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1611,7 +1647,7 @@ Frequency plot alternative
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Alternatively, you can use <code>geom_freqpoly()</code> to plot a line connecting the top of each bin (see <span class="quarto-unresolved-ref">?sec-freqpoly</span>).</p>
+<p>Alternatively, you can use <code>geom_freqpoly()</code> to plot a line connecting the top of each bin (see <a href="10-custom.html#sec-freqpoly" class="quarto-xref"><span>Section 9.1.4.1.1</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># frequency plot</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time,</span>
@@ -2058,7 +2094,7 @@ More plots styles
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These are not, by any means, all the plot types that you can make in R. This chapter just gave you a basic overview, and we will go into more detail in <span class="quarto-unresolved-ref">?sec-custom-viz</span>). The <a href="#resources-viz">further resources</a> section at the end of this chapter lists many resources, but the <a href="http://www.r-graph-gallery.com/" target="_blank">R Graph Gallery</a> is especially useful to get inspiration for the kinds of beautiful plots you can make in R.</p>
+<p>These are not, by any means, all the plot types that you can make in R. This chapter just gave you a basic overview, and we will go into more detail in <a href="10-custom.html#sec-custom-viz" class="quarto-xref"><span>Section 9.1</span></a>). The <a href="#resources-viz">further resources</a> section at the end of this chapter lists many resources, but the <a href="http://www.r-graph-gallery.com/" target="_blank">R Graph Gallery</a> is especially useful to get inspiration for the kinds of beautiful plots you can make in R.</p>
 </div>
 </div>
 </section></section></section><section id="exercises" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="exercises">
@@ -2234,7 +2270,7 @@ More plots styles
 <ul>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">ggplot2 cheat sheet</a></li>
 <li>
-<a href="https://psyteachr.github.io/introdataviz/">Data visualisation using R, for researchers who don’t use R</a> <span class="citation" data-cites="nordmann_2021">(<a href="#ref-nordmann_2021" role="doc-biblioref">Nordmann et al., 2021</a>)</span>
+<a href="https://psyteachr.github.io/introdataviz/">Data visualisation using R, for researchers who don’t use R</a> <span class="citation" data-cites="nordmann_2021">(<a href="11-refs.html#ref-nordmann_2021" role="doc-biblioref">Nordmann et al., 2021</a>)</span>
 </li>
 <li>
 <a href="https://r4ds.hadley.nz/data-visualize">Chapter 1: Data Visualisation</a> of <em>R for Data Science</em>
@@ -2251,7 +2287,7 @@ More plots styles
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-nordmann_2021" class="csl-entry" role="listitem">
 Nordmann, E., McAleer, P., Toivo, W., Paterson, H., &amp; DeBruine, L. M. (2021). <em>Data visualisation using <span>R</span>, for researchers who don’t use <span>R</span></em>. PsyArXiv. <a href="https://doi.org/10.31234/osf.io/4huvw">https://doi.org/10.31234/osf.io/4huvw</a>
 </div>

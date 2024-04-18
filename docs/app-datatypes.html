@@ -194,6 +194,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-refs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-license.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">License/Citation</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -800,7 +836,7 @@ Note
 <span id="cb51-4"><a href="#cb51-4"></a><span class="co"># or by importing data from a file</span></span>
 <span id="cb51-5"><a href="#cb51-5"></a>avatar <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/avatar.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Tabular data becomes especially important for when we talk about <a class="glossary" target="_blank" title="A format for data that maps the meaning onto the structure." href="https://psyteachr.github.io/glossary/t#tidy-data">tidy data</a> in <span class="quarto-unresolved-ref">?sec-tidy</span>, which consists of a set of simple principles for structuring data.</p>
+<p>Tabular data becomes especially important for when we talk about <a class="glossary" target="_blank" title="A format for data that maps the meaning onto the structure." href="https://psyteachr.github.io/glossary/t#tidy-data">tidy data</a> in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 7</span></a>, which consists of a set of simple principles for structuring data.</p>
 <section id="table-info" class="level4" data-number="H.2.3.1"><h4 data-number="H.2.3.1" class="anchored" data-anchor-id="table-info">
 <span class="header-section-number">H.2.3.1</span> Table info</h4>
 <p>We can get information about the table using the following functions.</p>
@@ -836,7 +872,7 @@ $ friendly &lt;lgl&gt; TRUE, TRUE, TRUE</code></pre>
 </div>
 </section><section id="sec-row-col-access" class="level4" data-number="H.2.3.2"><h4 data-number="H.2.3.2" class="anchored" data-anchor-id="sec-row-col-access">
 <span class="header-section-number">H.2.3.2</span> Accessing rows and columns</h4>
-<p>There are various ways of accessing specific columns or rows from a table. You’ll be learning more about this in <span class="quarto-unresolved-ref">?sec-tidy</span> and <span class="quarto-unresolved-ref">?sec-wrangle</span>.</p>
+<p>There are various ways of accessing specific columns or rows from a table. You’ll be learning more about this in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 7</span></a> and <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>siblings   <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="co"># rows (by number)</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>bends      <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">pull</span>(<span class="dv">2</span>) <span class="co"># column vector (by number)</span></span>

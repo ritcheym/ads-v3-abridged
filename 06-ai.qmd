@@ -1,14 +1,55 @@
-# AI {#sec-ai}
-
-CONTENT COMING SOON!
+# Coding with AI {#sec-ai}
 
 ## Intended Learning Outcomes {#sec-ilo-ai .unnumbered}
 
-* A
-* B
+* Use AI to write code
+* Critically evaluate the output of AI
 
 ## Walkthrough video {#sec-walkthrough-ai .unnumbered}
 
-There is a walkthrough video of this chapter available via [Echo360](). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is no walkthrough video for this chapter.
+
+## Here we go again {#sec-setup-ai}
+
+So far we've been slowly building up your use of AI but we've very consciously stayed away from allowing or encouraging you to use AI to write your code. But it's now time, so for this chapter, we're going to do something a bit different. 
+
+Rather than giving you new exercises or content, your task is seemingly very simple: redo the practice report from Chapter 5, but this time, **AI must write all of the code**. You can use any AI platform you'd like.
+
+The rationale behind this is that having worked through the report yourself, you will be intimately familiar with the dataset and the requirements of the assignment. This means that your ability to critically evaluate and check its output will be stronger than with a new dataset. This should (in theory) allow you to:
+
+* Check whether it's actually done it right
+* Understand how to engineer your prompts to get it closer to the solution if it's struggling
+* Evaluate the suitability of alternative approaches to your original solution. 
 
 ## Set-up {#sec-setup-ai}
+
+Create a separate project from your original practice report project to avoid any confusion.
+
+The two files you need to download are the dataset: <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download>review_data.csv</a>. and the finished report that you need to backwards engineer from the data: [formative_report_output.html](https://psyteachr.github.io/ads-v2/data/formative_report_output.html).
+
+
+## Starting advice
+
+A few hints, tip, and rules to get you on your way:
+
+* Although the dataset for the practice report isn't sensitive data (and indeed was publicly available), treat it as if it were. Even if the AI has the capability, don't upload the dataset. Instead run `str()` and `summary()` and describe the dataset to the AI so it knows the variables and the types of data.
+* You can upload the finished report if you want although describing each bit manually might be more educational in the long-run (and more likely to generalise to when you don't have anything to backwards engineer from).
+* Check everything it produces. Just because it doesn't throw an error, doesn't mean it's right.
+* Think about the specificity of your prompts. If you want it to produce solutions closer to our solution, tell it to use the `tidyverse`. If you'd like to see what other approaches it might take, don't give it a steer on packages (be mindful you might need to install some new packages).
+
+
+## Keep a log
+
+As you're progressing, makes notes on the following:
+
+* What does it get right with ease?
+* What does it get right with a bit of back-and-forth?
+* What errors does it make? If you didn't know the dataset and hadn't worked through the report yourself, is there anything you think you may have missed that the AI got wrong?
+* How does the code compare to your original solution?? Is there anything you think it did better? Is there anything you think you did better?
+* Did you learn any new functions or approaches?
+
+Once you're done, post your notes on Teams so we can compare how different AIs performed. If you use ChatGPT or Gemini, you can also post a link to your chat so other learners can see the full process.
+
+::: {.callout-warning}
+Teaching with and about AI is a brave new world. We think that this exercise will be extremely useful for a number of reasons but we'd really appreciate any feedback on whether that's the case!
+:::

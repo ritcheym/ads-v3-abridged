@@ -2,7 +2,7 @@
 
 ## Intended Learning Outcomes {#sec-ilo-custom .unnumbered}
 
-The final chapter of ADS moves beyond the core skills needed to complete the course. Our aim in this chapter is to give you a sense of what is now available to you with your new-found R skills. There's a lot in this chapter, as we wanted to present an overview of the possibilities, although there are no exercises at the end. If you're enrolled on ADS, you may wish to prioritise the summative assessment this week and come back to this chapter at a later date.
+The final chapter of ADS moves beyond the core skills needed to complete the course. Our aim in this chapter is to give you a sense of what is now available to you with your new-found R skills. There's a lot in this chapter, as we wanted to present an overview of the possibilities, although there are no exercises at the end. If you're enrolled on ADS, we recommend reading through this chapter because it might give you some ideas for the final report, but if you want to prioritise the summative assessment this week and come back to this chapter to work through it in full at a later date that's fine with us.
 
 * Create and customise advanced types of plots
 * Structure data in report, presentation, and dashboard formats
