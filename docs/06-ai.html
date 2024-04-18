@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Applied Data Skills - Appendix D — Conventions</title>
+
+
+<title>Applied Data Skills - 6&nbsp; Coding with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,61 +20,8 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
+
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -80,8 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./app-teams.html" rel="next">
-<link href="./app-symbols.html" rel="prev">
+<link href="./07-joins.html" rel="next">
+<link href="./05-formative.html" rel="prev">
 <link href="./images/logos/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -93,7 +43,8 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,53 +70,63 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="include/psyteachr.css">
+}</script>
+
+
+<link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
-<body class="nav-sidebar floating slimcontent">
+
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-conventions.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-ai.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-</div>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -177,7 +138,7 @@ div.csl-indent {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
@@ -215,7 +176,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-ai.html" class="sidebar-item-text sidebar-link">
+  <a href="./06-ai.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI</span></span></a>
   </div>
 </li>
@@ -263,8 +224,8 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span></a>
@@ -284,7 +245,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./app-conventions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></span></a>
   </div>
 </li>
@@ -331,23 +292,32 @@ div.csl-indent {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#test-yourself" id="toc-test-yourself" class="nav-link active" data-scroll-target="#test-yourself"><span class="header-section-number">D.1</span> Test Yourself</a></li>
-  <li><a href="#callout-boxes" id="toc-callout-boxes" class="nav-link" data-scroll-target="#callout-boxes"><span class="header-section-number">D.2</span> Callout boxes</a></li>
-  <li><a href="#code-and-output" id="toc-code-and-output" class="nav-link" data-scroll-target="#code-and-output"><span class="header-section-number">D.3</span> Code and Output</a></li>
-  </ul></nav>
+  <li><a href="#sec-ilo-ai" id="toc-sec-ilo-ai" class="nav-link active" data-scroll-target="#sec-ilo-ai">Intended Learning Outcomes</a></li>
+  <li><a href="#sec-walkthrough-ai" id="toc-sec-walkthrough-ai" class="nav-link" data-scroll-target="#sec-walkthrough-ai">Walkthrough video</a></li>
+  <li><a href="#sec-intro-ai" id="toc-sec-intro-ai" class="nav-link" data-scroll-target="#sec-intro-ai"><span class="header-section-number">6.1</span> Here we go again</a></li>
+  <li><a href="#sec-setup-ai" id="toc-sec-setup-ai" class="nav-link" data-scroll-target="#sec-setup-ai"><span class="header-section-number">6.2</span> Set-up</a></li>
+  <li><a href="#starting-advice" id="toc-starting-advice" class="nav-link" data-scroll-target="#starting-advice"><span class="header-section-number">6.3</span> Starting advice</a></li>
+  <li><a href="#keep-a-log" id="toc-keep-a-log" class="nav-link" data-scroll-target="#keep-a-log"><span class="header-section-number">6.4</span> Keep a log</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-conventions.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Conventions</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Appendix D — Conventions</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ai" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI</span></span></h1>
 </div>
 
 
@@ -361,91 +331,57 @@ div.csl-indent {
   
 
 
-</header><p>This book will use the following conventions:</p>
+</header>
+
+
+<section id="sec-ilo-ai" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sec-ilo-ai">Intended Learning Outcomes</h2>
 <ul>
-<li>Generic code: <code>list(number = 1, letter = "A")</code>
-</li>
-<li>Highlighted code: <code><span><span class="fu"><a target="_blank" href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>number <span class="op">=</span> <span class="fl">1</span>, letter <span class="op">=</span> <span class="st">“A”</span><span class="op">)</span></span></code>
-</li>
-<li>File paths: <code class="path">data/sales.csv</code>
-</li>
-<li>Menu/interface options: <if>Tools &gt; Global Options… &gt; Pane Layout</if>
-</li>
-<li>R Packages: <pkg>tidyverse</pkg>
-</li>
-<li>Functions: <code><span><span class="fu"><a target="_blank" href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="op">)</span></span></code>
-</li>
-<li>Strings: <code><span><span class="st">“Lisa”</span></span></code>, <code><span><span class="st">“Emily”</span></span></code>
-</li>
-<li>Numbers: <code><span><span class="fl">100</span></span></code>, <code><span><span class="fl">3.14</span></span></code>
-</li>
-<li>Logical values: <code><span><span class="cn">TRUE</span></span></code>, <code><span><span class="cn">FALSE</span></span></code>
-</li>
-<li>Glossary items: <a class="glossary" target="_blank" title="Discrete variables that have an inherent order, such as level of education or dislike/like." href="https://psyteachr.github.io/glossary/o#ordinal">ordinal</a>
-</li>
-<li>Citations: <span class="citation" data-cites="R-tidyverse">Wickham (<a href="11-refs.html#ref-R-tidyverse" role="doc-biblioref">2021</a>)</span>
-</li>
-<li>Internal links: <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a>
-</li>
-<li>External links: <a href="https://mastering-shiny.org/" target="_blank">Mastering Shiny</a>
-</li>
-<li>Mac-specific: <mac>Cmd-Shift-F10</mac>
-</li>
-<li>Windows-specific: <pc>Ctl-Shift-F10</pc>
-</li>
+<li>Use AI to write code</li>
+<li>Critically evaluate the output of AI</li>
 </ul>
-<p>A list of mac and windows <a href="https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">keyboard shortcuts</a>.</p>
-<section id="test-yourself" class="level2" data-number="D.1"><h2 data-number="D.1" class="anchored" data-anchor-id="test-yourself">
-<span class="header-section-number">D.1</span> Test Yourself</h2>
-<p>I am going to learn a lot: <select class="webex-select"><option value="blank"></option>
-<option value="answer">TRUE</option>
-<option value="">FALSE</option></select></p>
-<div class="cell" data-layout-align="center">
+</section>
+<section id="sec-walkthrough-ai" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-ai">Walkthrough video</h2>
+<p>There is no walkthrough video for this chapter.</p>
+</section>
+<section id="sec-intro-ai" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-intro-ai"><span class="header-section-number">6.1</span> Here we go again</h2>
+<p>So far we’ve been slowly building up your use of AI but we’ve very consciously stayed away from allowing or encouraging you to use AI to write your code. But it’s now time, so for this chapter, we’re going to do something a bit different.</p>
+<p>Rather than giving you new exercises or content, your task is seemingly very simple: redo the practice report from Chapter 5, but this time, <strong>AI must write all of the code</strong>. You can use any AI platform you’d like.</p>
+<p>The rationale behind this is that having worked through the report yourself, you will be intimately familiar with the dataset and the requirements of the assignment. This means that your ability to critically evaluate and check its output will be stronger than with a new dataset. This should (in theory) allow you to:</p>
 <ul>
-<li>What is a p-value?
-<div id="radio_COROVSRDAH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_COROVSRDAH" value=""><span>the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_COROVSRDAH" value="answer"><span>the probability of the observed, or more extreme, data, under the assumption that the null-hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_COROVSRDAH" value=""><span>the probability of making an error in your conclusion</span></label>
-</div>
-</li>
+<li>Check whether it’s actually done it right</li>
+<li>Understand how to engineer your prompts to get it closer to the solution if it’s struggling</li>
+<li>Evaluate the suitability of alternative approaches to your original solution.</li>
 </ul>
-</div>
-<div class="cell" data-layout-align="center" data-webex.hide="Hidden Solutions">
-<div class="webex-solution">
-<button>
-Hidden Solutions
-</button>
-<p>You found it!</p>
-</div>
-</div>
-</section><section id="callout-boxes" class="level2 page-columns page-full" data-number="D.2"><h2 data-number="D.2" class="anchored" data-anchor-id="callout-boxes">
-<span class="header-section-number">D.2</span> Callout boxes</h2>
-<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">See the <a href="https://quarto.org/docs/authoring/callouts.html">quarto reference</a> for more options.</span></div></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Informational asides.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Tips</p>
-</div>
-</div>
+</section>
+<section id="sec-setup-ai" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-setup-ai"><span class="header-section-number">6.2</span> Set-up</h2>
+<p>Create a separate project from your original practice report project to avoid any confusion.</p>
+<p>The two files you need to download are the dataset: <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download="">review_data.csv</a>. and the finished report that you need to backwards engineer from the data: <a href="https://psyteachr.github.io/ads-v2/data/formative_report_output.html">formative_report_output.html</a>.</p>
+</section>
+<section id="starting-advice" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="starting-advice"><span class="header-section-number">6.3</span> Starting advice</h2>
+<p>A few hints, tip, and rules to get you on your way:</p>
+<ul>
+<li>Although the dataset for the practice report isn’t sensitive data (and indeed was publicly available), treat it as if it were. Even if the AI has the capability, don’t upload the dataset. Instead run <code>str()</code> and <code>summary()</code> and describe the dataset to the AI so it knows the variables and the types of data.</li>
+<li>You can upload the finished report if you want although describing each bit manually might be more educational in the long-run (and more likely to generalise to when you don’t have anything to backwards engineer from).</li>
+<li>Check everything it produces. Just because it doesn’t throw an error, doesn’t mean it’s right.</li>
+<li>Think about the specificity of your prompts. If you want it to produce solutions closer to our solution, tell it to use the <code>tidyverse</code>. If you’d like to see what other approaches it might take, don’t give it a steer on packages (be mindful you might need to install some new packages).</li>
+</ul>
+</section>
+<section id="keep-a-log" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="keep-a-log"><span class="header-section-number">6.4</span> Keep a log</h2>
+<p>As you’re progressing, makes notes on the following:</p>
+<ul>
+<li>What does it get right with ease?</li>
+<li>What does it get right with a bit of back-and-forth?</li>
+<li>What errors does it make? If you didn’t know the dataset and hadn’t worked through the report yourself, is there anything you think you may have missed that the AI got wrong?</li>
+<li>How does the code compare to your original solution?? Is there anything you think it did better? Is there anything you think you did better?</li>
+<li>Did you learn any new functions or approaches?</li>
+</ul>
+<p>Once you’re done, post your notes on Teams so we can compare how different AIs performed. If you use ChatGPT or Gemini, you can also post a link to your chat so other learners can see the full process.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -456,275 +392,411 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Notes to warn you about something.</p>
+<p>Teaching with and about AI is a brave new world. We think that this exercise will be extremely useful for a number of reasons but we’d really appreciate any feedback on whether that’s the case!</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notes about things that could cause serious errors.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Notes about things that are important.</p>
-</div>
-</div>
-<div class="try callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Try (click to expand)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Try it yourself.</p>
-</div>
-</div>
-</div>
-</section><section id="code-and-output" class="level2" data-number="D.3"><h2 data-number="D.3" class="anchored" data-anchor-id="code-and-output">
-<span class="header-section-number">D.3</span> Code and Output</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># code chunks</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">paste</span>(<span class="st">"Code"</span>, <span class="st">"Output"</span>, <span class="dv">1</span>, <span class="at">sep =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Code Output 1"</code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center" data-verbatim="r, fig.width = 2, fig.height = 2">
-<div class="verbatim">
-<pre class="sourceCode r code-with-copy"><code class="sourceCode R">```{r, fig.width = 2, fig.height = 2}</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># code chunks with headers</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="sourceCode r code-with-copy"><code class="sourceCode R">```</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre>
-</div>
-</div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource md number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">## Markdown Example</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="ss">* </span>Inline code: <span class="in">`r nrow(iris)`</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="ss">* </span>*Italics*</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="ss">* </span>**Bold**</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
-Wickham, H. (2021). <em>Tidyverse: Easily install and load the tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>
-</div>
-</div>
-</section></main><!-- /main --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script><script>
+</section>
+
+</main> <!-- /main -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
+
+<script>
+
+
 
 /* update total correct if #webex-total_correct exists */
+
 update_total_correct = function() {
+
   console.log("webex: update total_correct");
 
+
+
   if (t = document.getElementById("webex-total_correct")) {
+
     var correct = document.getElementsByClassName("webex-correct").length;
+
     var solvemes = document.getElementsByClassName("webex-solveme").length;
+
     var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+
     var selects = document.getElementsByClassName("webex-select").length;
 
+
+
     t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+
   }
+
 }
+
+
 
 /* webex-solution button toggling function */
+
 b_func = function() {
+
   console.log("webex: toggle hide");
 
+
+
   var cl = this.parentElement.classList;
+
   if (cl.contains('open')) {
+
     cl.remove("open");
+
   } else {
+
     cl.add("open");
+
   }
+
 }
+
+
 
 /* function for checking solveme answers */
+
 solveme_func = function(e) {
+
   console.log("webex: check solveme");
 
+
+
   var real_answers = JSON.parse(this.dataset.answer);
+
   var my_answer = this.value;
+
   var cl = this.classList;
+
   if (cl.contains("ignorecase")) {
+
     my_answer = my_answer.toLowerCase();
+
   }
+
   if (cl.contains("nospaces")) {
+
     my_answer = my_answer.replace(/ /g, "")
+
   }
+
+
 
   if (my_answer == "") {
+
     cl.remove("webex-correct");
+
     cl.remove("webex-incorrect");
+
   } else if (real_answers.includes(my_answer)) {
+
     cl.add("webex-correct");
+
     cl.remove("webex-incorrect");
+
   } else {
+
     cl.add("webex-incorrect");
+
     cl.remove("webex-correct");
+
   }
+
+
 
   // match numeric answers within a specified tolerance
+
   if(this.dataset.tol > 0){
+
     var tol = JSON.parse(this.dataset.tol);
+
     var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+
     if (matches.reduce((a, b) => a + b, 0) > 0) {
+
       cl.add("webex-correct");
+
     } else {
+
       cl.remove("webex-correct");
+
     }
+
   }
+
+
 
   // added regex bit
+
   if (cl.contains("regex")){
+
     answer_regex = RegExp(real_answers.join("|"))
+
     if (answer_regex.test(my_answer)) {
+
       cl.add("webex-correct");
+
     }
+
   }
 
+
+
   update_total_correct();
+
 }
 
+
+
 /* function for checking select answers */
+
 select_func = function(e) {
+
   console.log("webex: check select");
+
+
 
   var cl = this.classList
 
+
+
   /* add style */
+
   cl.remove("webex-incorrect");
+
   cl.remove("webex-correct");
+
   if (this.value == "answer") {
+
     cl.add("webex-correct");
+
   } else if (this.value != "blank") {
+
     cl.add("webex-incorrect");
+
   }
 
+
+
   update_total_correct();
+
 }
+
+
 
 /* function for checking radiogroups answers */
+
 radiogroups_func = function(e) {
+
   console.log("webex: check radiogroups");
 
+
+
   var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+
   var cl = checked_button.parentElement.classList;
+
   var labels = checked_button.parentElement.parentElement.children;
 
+
+
   /* get rid of styles */
+
   for (i = 0; i < labels.length; i++) {
+
     labels[i].classList.remove("webex-incorrect");
+
     labels[i].classList.remove("webex-correct");
+
   }
+
+
 
   /* add style */
+
   if (checked_button.value == "answer") {
+
     cl.add("webex-correct");
+
   } else {
+
     cl.add("webex-incorrect");
+
   }
 
+
+
   update_total_correct();
+
 }
+
+
 
 window.onload = function() {
+
   console.log("webex onload");
+
   /* set up solution buttons */
+
   var buttons = document.getElementsByTagName("button");
 
+
+
   for (var i = 0; i < buttons.length; i++) {
+
     if (buttons[i].parentElement.classList.contains('webex-solution')) {
+
       buttons[i].onclick = b_func;
+
     }
+
   }
+
+
 
   /* set up webex-solveme inputs */
+
   var solveme = document.getElementsByClassName("webex-solveme");
 
+
+
   for (var i = 0; i < solveme.length; i++) {
+
     /* make sure input boxes don't auto-anything */
+
     solveme[i].setAttribute("autocomplete","off");
+
     solveme[i].setAttribute("autocorrect", "off");
+
     solveme[i].setAttribute("autocapitalize", "off");
+
     solveme[i].setAttribute("spellcheck", "false");
+
     solveme[i].value = "";
 
+
+
     /* adjust answer for ignorecase or nospaces */
+
     var cl = solveme[i].classList;
+
     var real_answer = solveme[i].dataset.answer;
+
     if (cl.contains("ignorecase")) {
+
       real_answer = real_answer.toLowerCase();
+
     }
+
     if (cl.contains("nospaces")) {
+
       real_answer = real_answer.replace(/ /g, "");
+
     }
+
     solveme[i].dataset.answer = real_answer;
 
+
+
     /* attach checking function */
+
     solveme[i].onkeyup = solveme_func;
+
     solveme[i].onchange = solveme_func;
 
+
+
     $(solveme[i]).after(" <span class='webex-icon'></span>");
+
   }
+
+
 
   /* set up radiogroups */
+
   var radiogroups = document.getElementsByClassName("webex-radiogroup");
+
   for (var i = 0; i < radiogroups.length; i++) {
+
     radiogroups[i].onchange = radiogroups_func;
+
   }
+
+
 
   /* set up selects */
+
   var selects = document.getElementsByClassName("webex-select");
+
   for (var i = 0; i < selects.length; i++) {
+
     selects[i].onchange = select_func;
+
     $(selects[i]).after(" <span class='webex-icon'></span>");
+
   }
+
+
 
   update_total_correct();
+
 }
 
-</script><script>
+
+
+</script>
+
+<script>
+
 $( document ).ready(function() {
+
   var cite = ' ';
+
   var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+
   var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
 
+
+
   $("footer div.row div:eq(1) p").html(
+
     psyteachr + license + cite
+
   );
 
+
+
   function move_sidebar() {
+
     var w = window.innerWidth;
+
     if (w < 992) {
+
       $("#toc").appendTo($("#main-nav"));
+
     } else {
+
       $("#toc").appendTo($("div.sidebar-chapter"));
+
     }
+
   }
+
   move_sidebar();
+
   window.onresize = move_sidebar;
+
 });
-</script><script id="quarto-html-after-body" type="application/javascript">
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1276,19 +1348,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./app-symbols.html" class="pagination-link" aria-label="Symbols">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></span>
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./05-formative.html" class="pagination-link" aria-label="Practice Report">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./app-teams.html" class="pagination-link" aria-label="Using Teams">
-        <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Using Teams</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-joins.html" class="pagination-link" aria-label="Data Relations">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>CC-BY 2024, psyTeachR</p>
 </div>   
@@ -1300,6 +1375,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

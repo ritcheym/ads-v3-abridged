@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Applied Data Skills - 9&nbsp; Customising Visualisations &amp; Reports</title>
+<title>Applied Data Skills - 10&nbsp; Customising Visualisations &amp; Reports</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,7 +135,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-custom.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-custom.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -220,26 +220,32 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./06-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-custom.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -342,32 +348,32 @@ div.csl-indent {
 <li><a href="#sec-ilo-custom" id="toc-sec-ilo-custom" class="nav-link active" data-scroll-target="#sec-ilo-custom">Intended Learning Outcomes</a></li>
   <li><a href="#sec-walkthrough-custom" id="toc-sec-walkthrough-custom" class="nav-link" data-scroll-target="#sec-walkthrough-custom">Walkthrough video</a></li>
   <li>
-<a href="#sec-custom-viz" id="toc-sec-custom-viz" class="nav-link" data-scroll-target="#sec-custom-viz"><span class="header-section-number">9.1</span> Visualisation</a>
+<a href="#sec-custom-viz" id="toc-sec-custom-viz" class="nav-link" data-scroll-target="#sec-custom-viz"><span class="header-section-number">10.1</span> Visualisation</a>
   <ul class="collapse">
-<li><a href="#sec-setup-custom-viz" id="toc-sec-setup-custom-viz" class="nav-link" data-scroll-target="#sec-setup-custom-viz"><span class="header-section-number">9.1.1</span> Set-up</a></li>
-  <li><a href="#defaults" id="toc-defaults" class="nav-link" data-scroll-target="#defaults"><span class="header-section-number">9.1.2</span> Defaults</a></li>
-  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations"><span class="header-section-number">9.1.3</span> Annotations</a></li>
-  <li><a href="#sec-other-plots" id="toc-sec-other-plots" class="nav-link" data-scroll-target="#sec-other-plots"><span class="header-section-number">9.1.4</span> Other Plots</a></li>
-  <li><a href="#sec-resources-custom" id="toc-sec-resources-custom" class="nav-link" data-scroll-target="#sec-resources-custom"><span class="header-section-number">9.1.5</span> Resources</a></li>
+<li><a href="#sec-setup-custom-viz" id="toc-sec-setup-custom-viz" class="nav-link" data-scroll-target="#sec-setup-custom-viz"><span class="header-section-number">10.1.1</span> Set-up</a></li>
+  <li><a href="#defaults" id="toc-defaults" class="nav-link" data-scroll-target="#defaults"><span class="header-section-number">10.1.2</span> Defaults</a></li>
+  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations"><span class="header-section-number">10.1.3</span> Annotations</a></li>
+  <li><a href="#sec-other-plots" id="toc-sec-other-plots" class="nav-link" data-scroll-target="#sec-other-plots"><span class="header-section-number">10.1.4</span> Other Plots</a></li>
+  <li><a href="#sec-resources-custom" id="toc-sec-resources-custom" class="nav-link" data-scroll-target="#sec-resources-custom"><span class="header-section-number">10.1.5</span> Resources</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-custom-reports" id="toc-sec-custom-reports" class="nav-link" data-scroll-target="#sec-custom-reports"><span class="header-section-number">9.2</span> Reports</a>
+<a href="#sec-custom-reports" id="toc-sec-custom-reports" class="nav-link" data-scroll-target="#sec-custom-reports"><span class="header-section-number">10.2</span> Reports</a>
   <ul class="collapse">
-<li><a href="#sec-setup-custom-reports" id="toc-sec-setup-custom-reports" class="nav-link" data-scroll-target="#sec-setup-custom-reports"><span class="header-section-number">9.2.1</span> Set-up</a></li>
-  <li><a href="#sec-linked-docs" id="toc-sec-linked-docs" class="nav-link" data-scroll-target="#sec-linked-docs"><span class="header-section-number">9.2.2</span> Linked documents</a></li>
-  <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">9.2.3</span> References</a></li>
-  <li><a href="#interactive-tables" id="toc-interactive-tables" class="nav-link" data-scroll-target="#interactive-tables"><span class="header-section-number">9.2.4</span> Interactive tables</a></li>
-  <li><a href="#other-formats" id="toc-other-formats" class="nav-link" data-scroll-target="#other-formats"><span class="header-section-number">9.2.5</span> Other formats</a></li>
-  <li><a href="#sec-resources-report" id="toc-sec-resources-report" class="nav-link" data-scroll-target="#sec-resources-report"><span class="header-section-number">9.2.6</span> Resources</a></li>
+<li><a href="#sec-setup-custom-reports" id="toc-sec-setup-custom-reports" class="nav-link" data-scroll-target="#sec-setup-custom-reports"><span class="header-section-number">10.2.1</span> Set-up</a></li>
+  <li><a href="#sec-linked-docs" id="toc-sec-linked-docs" class="nav-link" data-scroll-target="#sec-linked-docs"><span class="header-section-number">10.2.2</span> Linked documents</a></li>
+  <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">10.2.3</span> References</a></li>
+  <li><a href="#interactive-tables" id="toc-interactive-tables" class="nav-link" data-scroll-target="#interactive-tables"><span class="header-section-number">10.2.4</span> Interactive tables</a></li>
+  <li><a href="#other-formats" id="toc-other-formats" class="nav-link" data-scroll-target="#other-formats"><span class="header-section-number">10.2.5</span> Other formats</a></li>
+  <li><a href="#sec-resources-report" id="toc-sec-resources-report" class="nav-link" data-scroll-target="#sec-resources-report"><span class="header-section-number">10.2.6</span> Resources</a></li>
   </ul>
 </li>
-  <li><a href="#course-complete" id="toc-course-complete" class="nav-link" data-scroll-target="#course-complete"><span class="header-section-number">9.3</span> Course Complete</a></li>
+  <li><a href="#course-complete" id="toc-course-complete" class="nav-link" data-scroll-target="#course-complete"><span class="header-section-number">10.3</span> Course Complete</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-custom" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></h1>
+<h1 class="title"><span id="sec-custom" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></h1>
 </div>
 
 
@@ -389,10 +395,10 @@ div.csl-indent {
 <li>Include linked figures, tables, and references</li>
 </ul></section><section id="sec-walkthrough-custom" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-custom">Walkthrough video</h2>
 <p>There is no walkthrough video of this chapter because it is not core content.</p>
-</section><section id="sec-custom-viz" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="sec-custom-viz">
-<span class="header-section-number">9.1</span> Visualisation</h2>
-<section id="sec-setup-custom-viz" class="level3" data-number="9.1.1"><h3 data-number="9.1.1" class="anchored" data-anchor-id="sec-setup-custom-viz">
-<span class="header-section-number">9.1.1</span> Set-up</h3>
+</section><section id="sec-custom-viz" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="sec-custom-viz">
+<span class="header-section-number">10.1</span> Visualisation</h2>
+<section id="sec-setup-custom-viz" class="level3" data-number="10.1.1"><h3 data-number="10.1.1" class="anchored" data-anchor-id="sec-setup-custom-viz">
+<span class="header-section-number">10.1.1</span> Set-up</h3>
 <p>First, create a new project for the work we’ll do in this chapter named <code class="path">10-advanced</code>. Second, open and save a new R Markdown document named <code>visualisations.Rmd</code>, delete the welcome text and load the required packages for this section. You will probably need to install several new packages.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-with-filename">
@@ -418,8 +424,8 @@ div.csl-indent {
 </div>
 <p>You’ll need to make a folder called “data” and download data files into it: <a href="https://psyteachr.github.io/ads-v2/data/survey_data.csv" download="">survey_data.csv</a> and <a href="https://psyteachr.github.io/ads-v2/data/scottish_population.csv" download="">scottish_population.csv</a>.</p>
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">ggplot2 cheat sheet</a>.</p>
-</section><section id="defaults" class="level3" data-number="9.1.2"><h3 data-number="9.1.2" class="anchored" data-anchor-id="defaults">
-<span class="header-section-number">9.1.2</span> Defaults</h3>
+</section><section id="defaults" class="level3" data-number="10.1.2"><h3 data-number="10.1.2" class="anchored" data-anchor-id="defaults">
+<span class="header-section-number">10.1.2</span> Defaults</h3>
 <p>The code below creates two familiar plots from <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a>), using the default (light) theme and palettes. First, load the data and set <code>issue_category</code> to a factor so you can control the order of the categories.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># update column specification</span></span>
@@ -477,11 +483,11 @@ Note
 <p>Try changing the theme using built-in themes or customising the colours or linetypes with scale_* functions. See <a href="app-styling.html" class="quarto-xref"><span>Appendix J</span></a> for details.</p>
 </div>
 </div>
-</section><section id="annotations" class="level3" data-number="9.1.3"><h3 data-number="9.1.3" class="anchored" data-anchor-id="annotations">
-<span class="header-section-number">9.1.3</span> Annotations</h3>
+</section><section id="annotations" class="level3" data-number="10.1.3"><h3 data-number="10.1.3" class="anchored" data-anchor-id="annotations">
+<span class="header-section-number">10.1.3</span> Annotations</h3>
 <p>It’s often useful to add annotations to a plot, for example, to highlight an important part of the plot or add labels. The <code>annotate()</code> function creates a specific geom at x- and y-coordinates you specify.</p>
-<section id="text-annotations" class="level4" data-number="9.1.3.1"><h4 data-number="9.1.3.1" class="anchored" data-anchor-id="text-annotations">
-<span class="header-section-number">9.1.3.1</span> Text annotations</h4>
+<section id="text-annotations" class="level4" data-number="10.1.3.1"><h4 data-number="10.1.3.1" class="anchored" data-anchor-id="text-annotations">
+<span class="header-section-number">10.1.3.1</span> Text annotations</h4>
 <p>Add a text annotation by setting the <code>geom</code> argument to “text” or “label” and adding a <code>label</code>. Labels have padding and a background, while text is just text.</p>
 <ul>
 <li>Backslash-n <code>\n</code> in the label text controls where the line breaks are. Try removing or changing the position of these to see what happens.</li>
@@ -582,8 +588,8 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="other-annotations" class="level4" data-number="9.1.3.2"><h4 data-number="9.1.3.2" class="anchored" data-anchor-id="other-annotations">
-<span class="header-section-number">9.1.3.2</span> Other annotations</h4>
+</section><section id="other-annotations" class="level4" data-number="10.1.3.2"><h4 data-number="10.1.3.2" class="anchored" data-anchor-id="other-annotations">
+<span class="header-section-number">10.1.3.2</span> Other annotations</h4>
 <p>You can add other geoms to highlight parts of a plot. The example below adds a rectangle around a group of points, a text label, a straight arrow from the label to the rectangle, and a curved arrow from the label to an individual point.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>point <span class="sc">+</span></span>
@@ -616,10 +622,10 @@ Solution
 </div>
 </div>
 <p>See the <pkg>ggforce”, “https://ggforce.data-imaginist.com/”)` package for more sophisticated options, such as highlighting a group of points with an ellipse.</pkg></p>
-</section></section><section id="sec-other-plots" class="level3" data-number="9.1.4"><h3 data-number="9.1.4" class="anchored" data-anchor-id="sec-other-plots">
-<span class="header-section-number">9.1.4</span> Other Plots</h3>
-<section id="frequency-and-density-plots" class="level4" data-number="9.1.4.1"><h4 data-number="9.1.4.1" class="anchored" data-anchor-id="frequency-and-density-plots">
-<span class="header-section-number">9.1.4.1</span> Frequency and density plots</h4>
+</section></section><section id="sec-other-plots" class="level3" data-number="10.1.4"><h3 data-number="10.1.4" class="anchored" data-anchor-id="sec-other-plots">
+<span class="header-section-number">10.1.4</span> Other Plots</h3>
+<section id="frequency-and-density-plots" class="level4" data-number="10.1.4.1"><h4 data-number="10.1.4.1" class="anchored" data-anchor-id="frequency-and-density-plots">
+<span class="header-section-number">10.1.4.1</span> Frequency and density plots</h4>
 <p>In <a href="03-viz.html#sec-histogram" class="quarto-xref"><span>Section 3.5.2</span></a>, we showed you how to use a histogram to show the distribution of one continuous variable. You can also use frequency or density plots.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>survey_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/survey_data.csv"</span>,</span>
@@ -637,8 +643,8 @@ Solution
 </div>
 </div>
 </div>
-<section id="sec-freqpoly" class="level5" data-number="9.1.4.1.1"><h5 data-number="9.1.4.1.1" class="anchored" data-anchor-id="sec-freqpoly">
-<span class="header-section-number">9.1.4.1.1</span> Frequency plot</h5>
+<section id="sec-freqpoly" class="level5" data-number="10.1.4.1.1"><h5 data-number="10.1.4.1.1" class="anchored" data-anchor-id="sec-freqpoly">
+<span class="header-section-number">10.1.4.1.1</span> Frequency plot</h5>
 <p>Rather than plotting each bin as a bar, you can connect a line across the top of each bin using a frequency plot. The function <code>geom_freqpoly()</code> works the same as <code>geom_histogram()</code>, except it can’t take a <code>fill</code> argument because it’s just a line.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time)) <span class="sc">+</span></span>
@@ -653,8 +659,8 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="density-plot" class="level5" data-number="9.1.4.1.2"><h5 data-number="9.1.4.1.2" class="anchored" data-anchor-id="density-plot">
-<span class="header-section-number">9.1.4.1.2</span> Density plot</h5>
+</section><section id="density-plot" class="level5" data-number="10.1.4.1.2"><h5 data-number="10.1.4.1.2" class="anchored" data-anchor-id="density-plot">
+<span class="header-section-number">10.1.4.1.2</span> Density plot</h5>
 <p>If the distribution is smooth, a density plot is often a better way to show the distribution. A density plot doesn’t need the <code>binwidth</code> or <code>boundary</code> arguments because it doesn’t split the data into bins, but it can have <code>fill</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time)) <span class="sc">+</span></span>
@@ -668,8 +674,8 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="test-your-understanding" class="level5" data-number="9.1.4.1.3"><h5 data-number="9.1.4.1.3" class="anchored" data-anchor-id="test-your-understanding">
-<span class="header-section-number">9.1.4.1.3</span> Test your understanding</h5>
+</section><section id="test-your-understanding" class="level5" data-number="10.1.4.1.3"><h5 data-number="10.1.4.1.3" class="anchored" data-anchor-id="test-your-understanding">
+<span class="header-section-number">10.1.4.1.3</span> Test your understanding</h5>
 <p>Imagine you have a table of the <a href="https://population.un.org/wpp/Download/Standard/Population/" target="_blank">population for each country in the world</a> with the columns <code>country</code> and <code>population</code>. We’ll just look at the 76 countries with populations of less than a million.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -708,8 +714,8 @@ Note
 </ul>
 </div>
 </div>
-</section></section><section id="interactive-plots" class="level4" data-number="9.1.4.2"><h4 data-number="9.1.4.2" class="anchored" data-anchor-id="interactive-plots">
-<span class="header-section-number">9.1.4.2</span> Interactive Plots</h4>
+</section></section><section id="interactive-plots" class="level4" data-number="10.1.4.2"><h4 data-number="10.1.4.2" class="anchored" data-anchor-id="interactive-plots">
+<span class="header-section-number">10.1.4.2</span> Interactive Plots</h4>
 <p>The <pkg>plotly</pkg> package can be used to make interactive graphs. Assign your ggplot to a variable and then use the function <code>ggplotly()</code> on the plot object. Note that interactive plots only work in HTML files, not PDFs or Word files.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplotly</span>(point)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -731,8 +737,8 @@ Note
 <p>Hover over the data points above and click on the legend items.</p>
 </div>
 </div>
-</section><section id="waffle-plots" class="level4" data-number="9.1.4.3"><h4 data-number="9.1.4.3" class="anchored" data-anchor-id="waffle-plots">
-<span class="header-section-number">9.1.4.3</span> Waffle Plots</h4>
+</section><section id="waffle-plots" class="level4" data-number="10.1.4.3"><h4 data-number="10.1.4.3" class="anchored" data-anchor-id="waffle-plots">
+<span class="header-section-number">10.1.4.3</span> Waffle Plots</h4>
 <p>In <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a>, we mentioned that pie charts are such a poor way to visualise proportions that we refused to even show you how to make one. Waffle plots are a delicious alternative.</p>
 <p>By default, <code>geom_waffle()</code> represents each observation with a tile and splits these across 10 rows. You can play about with the <code>n_rows</code> argument to determine what works best for your data.</p>
 <div class="cell" data-layout-align="center">
@@ -778,8 +784,8 @@ Note
 </div>
 </div>
 </div>
-</section><section id="treemap" class="level4" data-number="9.1.4.4"><h4 data-number="9.1.4.4" class="anchored" data-anchor-id="treemap">
-<span class="header-section-number">9.1.4.4</span> Treemap</h4>
+</section><section id="treemap" class="level4" data-number="10.1.4.4"><h4 data-number="10.1.4.4" class="anchored" data-anchor-id="treemap">
+<span class="header-section-number">10.1.4.4</span> Treemap</h4>
 <p>Treemap plots are another way to visualise proportions. Like the waffle plots, you need to count the data by category first. You can use any <a href="https://www.datanovia.com/en/blog/the-a-z-of-rcolorbrewer-palette/">brewer palette</a> for the fill.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>survey_data <span class="sc">%&gt;%</span> </span>
@@ -821,8 +827,8 @@ Note
 </div>
 </div>
 </div>
-</section><section id="bump-plots" class="level4" data-number="9.1.4.5"><h4 data-number="9.1.4.5" class="anchored" data-anchor-id="bump-plots">
-<span class="header-section-number">9.1.4.5</span> Bump Plots</h4>
+</section><section id="bump-plots" class="level4" data-number="10.1.4.5"><h4 data-number="10.1.4.5" class="anchored" data-anchor-id="bump-plots">
+<span class="header-section-number">10.1.4.5</span> Bump Plots</h4>
 <p>Bump plots are very useful for visualising how rankings change over time. So first, we need to get some ranking data. Let’s start with a more typical raw data table, containing an identifying column of <code>person</code> and three columns for their scores each week</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># make a small dataset of scores for 3 people over 3 weeks</span></span>
@@ -974,8 +980,8 @@ Note
 </div>
 </div>
 </div>
-</section><section id="sec-word-clouds" class="level4" data-number="9.1.4.6"><h4 data-number="9.1.4.6" class="anchored" data-anchor-id="sec-word-clouds">
-<span class="header-section-number">9.1.4.6</span> Word Clouds</h4>
+</section><section id="sec-word-clouds" class="level4" data-number="10.1.4.6"><h4 data-number="10.1.4.6" class="anchored" data-anchor-id="sec-word-clouds">
+<span class="header-section-number">10.1.4.6</span> Word Clouds</h4>
 <p>Word clouds are a common way to summarise text data. First, download <a href="https://psyteachr.github.io/ads-v2/data/amazon_alexa.csv" download="">amazon_alexa.csv</a> into your data folder and then load it into an object. This dataset contains text reviews as well as the 1-5 rating from customers who bought an Alexa device on Amazon.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># https://www.kaggle.com/sid321axn/amazon-alexa-reviews</span></span>
@@ -1114,8 +1120,8 @@ Warning
 <p>It’s worth highlighting that whilst word clouds are very common, they’re really the equivalent of pie charts for text data because we’re not very good at making accurate comparisons based on size. You might be able to see what’s the most popular word, but can you accurately determine the 2nd, 3rd, 4th or 5th most popular word based on the clouds alone? There’s also the issue that just because it’s text data doesn’t make it a qualitative analysis and just because something is said a lot doesn’t mean it’s useful or important. But, this argument is outwith the scope of this book, even if it is a recurring part of Emily’s life thanks to her qualitative wife.</p>
 </div>
 </div>
-</section><section id="maps" class="level4" data-number="9.1.4.7"><h4 data-number="9.1.4.7" class="anchored" data-anchor-id="maps">
-<span class="header-section-number">9.1.4.7</span> Maps</h4>
+</section><section id="maps" class="level4" data-number="10.1.4.7"><h4 data-number="10.1.4.7" class="anchored" data-anchor-id="maps">
+<span class="header-section-number">10.1.4.7</span> Maps</h4>
 <p>Working with maps can be tricky. The <pkg>sf</pkg> package provides functions that work with <pkg>ggplot2</pkg>, such as <code>geom_sf()</code>. The <pkg>rnaturalearth</pkg> package (and associated data packages that you may be prompted to download) provide high-quality mapping coordinates.</p>
 <ul>
 <li>
@@ -1262,8 +1268,8 @@ Warning
 </div>
 </div>
 </div>
-</section><section id="animated-plots" class="level4" data-number="9.1.4.8"><h4 data-number="9.1.4.8" class="anchored" data-anchor-id="animated-plots">
-<span class="header-section-number">9.1.4.8</span> Animated Plots</h4>
+</section><section id="animated-plots" class="level4" data-number="10.1.4.8"><h4 data-number="10.1.4.8" class="anchored" data-anchor-id="animated-plots">
+<span class="header-section-number">10.1.4.8</span> Animated Plots</h4>
 <p>Animated plots are a great way to add a wow factor to your reports, but they can be complex to make, distracting, and not very accessible, so use them sparingly and only for data visualisation where the animation really adds something. The package <pkg>gganimate”, “https://gganimate.com/”)` has many functions for animating ggplots.</pkg></p>
 <p>Here, we’ll load some population data from the United Nations. <a href="data/WPP2019_POP_F01_1_TOTAL_POPULATION_BOTH_SEXES.xlsx" download="">Download the file</a> into your data folder and open it in Excel first to see what it looks like. The code below gets the data from the first tab, filters it to just the 6 world regions, makes the data long, and makes sure the <code>year</code> column is numeric and the <code>pop</code> column shows population in whole numbers (the original data is in 1000s).</p>
 <div class="cell" data-layout-align="center">
@@ -1353,8 +1359,8 @@ Warning
 </div>
 </div>
 </div>
-</section></section><section id="sec-resources-custom" class="level3" data-number="9.1.5"><h3 data-number="9.1.5" class="anchored" data-anchor-id="sec-resources-custom">
-<span class="header-section-number">9.1.5</span> Resources</h3>
+</section></section><section id="sec-resources-custom" class="level3" data-number="10.1.5"><h3 data-number="10.1.5" class="anchored" data-anchor-id="sec-resources-custom">
+<span class="header-section-number">10.1.5</span> Resources</h3>
 <p>There are so many more options for data visualisation in R than we have time to cover here. The following resources will get you started on your journey to informative, intuitive visualisations.</p>
 <ul>
 <li>
@@ -1373,10 +1379,10 @@ Warning
 <a href="https://plot.ly/ggplot2/">plotly</a> for creating interactive graphs</li>
 <li><a href="https://r-spatial.org/r/2018/10/25/ggplot2-sf.html">Drawing Beautiful Maps Programmatically</a></li>
 <li><a href="https://gganimate.com/">gganimate</a></li>
-</ul></section></section><section id="sec-custom-reports" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="sec-custom-reports">
-<span class="header-section-number">9.2</span> Reports</h2>
-<section id="sec-setup-custom-reports" class="level3" data-number="9.2.1"><h3 data-number="9.2.1" class="anchored" data-anchor-id="sec-setup-custom-reports">
-<span class="header-section-number">9.2.1</span> Set-up</h3>
+</ul></section></section><section id="sec-custom-reports" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="sec-custom-reports">
+<span class="header-section-number">10.2</span> Reports</h2>
+<section id="sec-setup-custom-reports" class="level3" data-number="10.2.1"><h3 data-number="10.2.1" class="anchored" data-anchor-id="sec-setup-custom-reports">
+<span class="header-section-number">10.2.1</span> Set-up</h3>
 <p>Close your visualisation Markdown and open and save an new R Markdown document named <code>reports.Rmd</code>, delete the welcome text and load the required packages for this section.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">library</span>(tidyverse)     <span class="co"># data wrangling functions</span></span>
@@ -1388,8 +1394,8 @@ Warning
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">library</span>(DT)            <span class="co"># for interactive tables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You’ll need to make a folder called “data” and download data files into it: <a href="https://psyteachr.github.io/ads-v2/data/amazon_alexa.csv" download="">amazon_alexa.csv</a> and <a href="https://psyteachr.github.io/ads-v2/data/scottish_population.csv" download="">scottish_population.csv</a>.</p>
-</section><section id="sec-linked-docs" class="level3" data-number="9.2.2"><h3 data-number="9.2.2" class="anchored" data-anchor-id="sec-linked-docs">
-<span class="header-section-number">9.2.2</span> Linked documents</h3>
+</section><section id="sec-linked-docs" class="level3" data-number="10.2.2"><h3 data-number="10.2.2" class="anchored" data-anchor-id="sec-linked-docs">
+<span class="header-section-number">10.2.2</span> Linked documents</h3>
 <p>If you need to create longer reports with links between sections, you can edit the YAML to use a bookdown format. <code><a href="https://pkgs.rstudio.com/bookdown/reference/html_document2.html">bookdown::html_document2</a></code> is a useful one that adds figure and table numbers automatically to any figures or tables with a caption and allows you to link to these by reference.</p>
 <p>To create links to tables and figures, you need to name the code chunk that created your figures or tables, and then call those names in your inline coding:</p>
 <div class="cell" data-layout-align="center" data-verbatim="r tab-my-table">
@@ -1505,16 +1511,16 @@ Linked document code
 </div>
 <p>This format defaults to numbered sections, so set <code>number_sections: false</code> in the <a href="https://psyteachr.github.io/glossary/y#yaml" target="_blank" class="glossary" title="A structured format for information">YAML</a> header if you don’t want this. If you remove numbered sections, links like <code>@sec-conclusion)</code> will show “??”, so you need to use URL link syntax instead, like this:</p>
 <pre><code>See the [last section](#conclusion) for concluding remarks.</code></pre>
-</section><section id="sec-references" class="level3" data-number="9.2.3"><h3 data-number="9.2.3" class="anchored" data-anchor-id="sec-references">
-<span class="header-section-number">9.2.3</span> References</h3>
+</section><section id="sec-references" class="level3" data-number="10.2.3"><h3 data-number="10.2.3" class="anchored" data-anchor-id="sec-references">
+<span class="header-section-number">10.2.3</span> References</h3>
 <p>There are several ways to do in-text references and automatically generate a <a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html" target="_blank">bibliography</a> in R Markdown. Markdown files need to link to a BibTex file (a plain text file with references in a specific format) that contains the references you need to cite. You specify the name of this file in the YAML header, like <code>bibliography: filename.bib</code> and cite references in text using an at symbol and a shortname, like <code>[@tidyverse]</code>.</p>
-<section id="creating-a-bibtex-file" class="level4" data-number="9.2.3.1"><h4 data-number="9.2.3.1" class="anchored" data-anchor-id="creating-a-bibtex-file">
-<span class="header-section-number">9.2.3.1</span> Creating a BibTeX file</h4>
+<section id="creating-a-bibtex-file" class="level4" data-number="10.2.3.1"><h4 data-number="10.2.3.1" class="anchored" data-anchor-id="creating-a-bibtex-file">
+<span class="header-section-number">10.2.3.1</span> Creating a BibTeX file</h4>
 <p>Most reference software like EndNote, Zotero or Mendeley have exporting options that can export to BibTeX format. You just need to check the shortnames in the resulting file.</p>
 <p>You can also make a BibTeX file and add references manually. In RStudio, go to <if>File &gt; New File… &gt; Text File</if> and save the file as “bibliography.bib”.</p>
 <p>Next, add the line <code>bibliography: bibliography.bib</code> to your YAML header.</p>
-</section><section id="adding-references" class="level4" data-number="9.2.3.2"><h4 data-number="9.2.3.2" class="anchored" data-anchor-id="adding-references">
-<span class="header-section-number">9.2.3.2</span> Adding references</h4>
+</section><section id="adding-references" class="level4" data-number="10.2.3.2"><h4 data-number="10.2.3.2" class="anchored" data-anchor-id="adding-references">
+<span class="header-section-number">10.2.3.2</span> Adding references</h4>
 <p>You can add references to a journal article in the following format:</p>
 <pre><code>@article{shortname,
   author = {Author One and Author Two and Author Three},
@@ -1550,19 +1556,19 @@ Linked document code
 </div>
 </div>
 </div>
-</section><section id="citing-references" class="level4" data-number="9.2.3.3"><h4 data-number="9.2.3.3" class="anchored" data-anchor-id="citing-references">
-<span class="header-section-number">9.2.3.3</span> Citing references</h4>
+</section><section id="citing-references" class="level4" data-number="10.2.3.3"><h4 data-number="10.2.3.3" class="anchored" data-anchor-id="citing-references">
+<span class="header-section-number">10.2.3.3</span> Citing references</h4>
 <p>You can cite references in text like this:</p>
 <pre><code>This tutorial uses several R packages [@tidyverse;@rmarkdown].</code></pre>
 <p>This tutorial uses several R packages <span class="citation" data-cites="tidyverse rmarkdown">(<a href="11-refs.html#ref-rmarkdown" role="doc-biblioref">Allaire et al., 2018</a>; <a href="11-refs.html#ref-tidyverse" role="doc-biblioref">Wickham, 2017</a>)</span>.</p>
 <p>Put a minus in front of the @ if you just want the year:</p>
 <pre><code>Franconeri and colleagues [-@franconeri2021science] review research-backed guidelines for creating effective and intuitive visualizations.</code></pre>
 <p>Franconeri and colleagues <span class="citation" data-cites="franconeri2021science">(<a href="11-refs.html#ref-franconeri2021science" role="doc-biblioref">2021</a>)</span> review research-backed guidelines for creating effective and intuitive visualizations.</p>
-</section><section id="citation-styles" class="level4" data-number="9.2.3.4"><h4 data-number="9.2.3.4" class="anchored" data-anchor-id="citation-styles">
-<span class="header-section-number">9.2.3.4</span> Citation styles</h4>
+</section><section id="citation-styles" class="level4" data-number="10.2.3.4"><h4 data-number="10.2.3.4" class="anchored" data-anchor-id="citation-styles">
+<span class="header-section-number">10.2.3.4</span> Citation styles</h4>
 <p>You can search a <a href="https://www.zotero.org/styles" target="_blank">list of style files</a> (e.g., APA, MLA, Harvard) and download a file that will format your bibliography. You’ll need to add the line <code>csl: filename.csl</code> to your YAML header.</p>
-</section><section id="reference-section" class="level4" data-number="9.2.3.5"><h4 data-number="9.2.3.5" class="anchored" data-anchor-id="reference-section">
-<span class="header-section-number">9.2.3.5</span> Reference section</h4>
+</section><section id="reference-section" class="level4" data-number="10.2.3.5"><h4 data-number="10.2.3.5" class="anchored" data-anchor-id="reference-section">
+<span class="header-section-number">10.2.3.5</span> Reference section</h4>
 <p>By default, the reference section is added to the end of the document. If you want to change the position (e.g., to add figures and tables after the references), include <code>&lt;div id="refs"&gt;&lt;/div&gt;</code> where you want the references.</p>
 <div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1577,8 +1583,8 @@ Note
 <p>Add in-text citations and a reference list to your report.</p>
 </div>
 </div>
-</section></section><section id="interactive-tables" class="level3" data-number="9.2.4"><h3 data-number="9.2.4" class="anchored" data-anchor-id="interactive-tables">
-<span class="header-section-number">9.2.4</span> Interactive tables</h3>
+</section></section><section id="interactive-tables" class="level3" data-number="10.2.4"><h3 data-number="10.2.4" class="anchored" data-anchor-id="interactive-tables">
+<span class="header-section-number">10.2.4</span> Interactive tables</h3>
 <p>One way to make your reports more exciting is to use interactive tables. The <code><a href="https://rdrr.io/pkg/DT/man/datatable.html">DT::datatable()</a></code> function displays a table with some extra interactive elements to allow readers to search and reorder the data, as well as controlling the number of rows shown at once. This can be especially helpful. This only works with HTML output types. The <a href="https://rstudio.github.io/DT/" target="_blank">DT website</a> has extensive tutorials, but we’ll cover the basics here.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">library</span>(DT)</span>
@@ -1666,11 +1672,11 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="other-formats" class="level3" data-number="9.2.5"><h3 data-number="9.2.5" class="anchored" data-anchor-id="other-formats">
-<span class="header-section-number">9.2.5</span> Other formats</h3>
+</section><section id="other-formats" class="level3" data-number="10.2.5"><h3 data-number="10.2.5" class="anchored" data-anchor-id="other-formats">
+<span class="header-section-number">10.2.5</span> Other formats</h3>
 <p>You can create more than just reports with R Markdown. You can also create presentations, interactive dashboards, books, websites, and web applications.</p>
-<section id="presentations" class="level4" data-number="9.2.5.1"><h4 data-number="9.2.5.1" class="anchored" data-anchor-id="presentations">
-<span class="header-section-number">9.2.5.1</span> Presentations</h4>
+<section id="presentations" class="level4" data-number="10.2.5.1"><h4 data-number="10.2.5.1" class="anchored" data-anchor-id="presentations">
+<span class="header-section-number">10.2.5.1</span> Presentations</h4>
 <p>You can choose a presentation template when you create a new R Markdown document. We’ll use ioslides for this example, but the other formats work similarly.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1734,8 +1740,8 @@ Solution
 <span id="cb62-45"><a href="#cb62-45"></a><span class="in">  theme_minimal() </span></span>
 <span id="cb62-46"><a href="#cb62-46"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="dashboards" class="level4" data-number="9.2.5.2"><h4 data-number="9.2.5.2" class="anchored" data-anchor-id="dashboards">
-<span class="header-section-number">9.2.5.2</span> Dashboards</h4>
+</section><section id="dashboards" class="level4" data-number="10.2.5.2"><h4 data-number="10.2.5.2" class="anchored" data-anchor-id="dashboards">
+<span class="header-section-number">10.2.5.2</span> Dashboards</h4>
 <p>Dashboards are a way to display text, tables, and plots with dynamic formatting. After you install <pkg>flexdashboard</pkg>, you can choose a flexdashboard template when you create a new R Markdown document.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1822,8 +1828,8 @@ Solution
 </div>
 <p>Change the size of your web browser to see how the boxes, tables and figures change.</p>
 <p>The best way to figure out how to format a dashboard is trial and error, but you can also look at some <a href="https://pkgs.rstudio.com/flexdashboard/articles/layouts.html" target="_blank">sample layouts</a>.</p>
-</section><section id="books" class="level4" data-number="9.2.5.3"><h4 data-number="9.2.5.3" class="anchored" data-anchor-id="books">
-<span class="header-section-number">9.2.5.3</span> Books</h4>
+</section><section id="books" class="level4" data-number="10.2.5.3"><h4 data-number="10.2.5.3" class="anchored" data-anchor-id="books">
+<span class="header-section-number">10.2.5.3</span> Books</h4>
 <p>You can create online books with <pkg>bookdown</pkg>. In fact, the book you’re reading was created using bookdown. After you download the package, start a new project and choose “Book project using bookdown” from the list of project templates.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1834,16 +1840,16 @@ Solution
 </div>
 </div>
 <p>Each chapter is written in a separate .Rmd file and the general book settings can be changed in the <code>_bookdown.yml</code> and <code>_output.yml</code> files.</p>
-</section><section id="websites" class="level4" data-number="9.2.5.4"><h4 data-number="9.2.5.4" class="anchored" data-anchor-id="websites">
-<span class="header-section-number">9.2.5.4</span> Websites</h4>
+</section><section id="websites" class="level4" data-number="10.2.5.4"><h4 data-number="10.2.5.4" class="anchored" data-anchor-id="websites">
+<span class="header-section-number">10.2.5.4</span> Websites</h4>
 <p>You can create a simple website the same way you create any R Markdown document. Choose “Simple R Markdown Website” from the project templates to get started. See <a href="app-webpage.html" class="quarto-xref"><span>Appendix K</span></a> for a step-by-step tutorial.</p>
 <p>For more complex, blog-style websites, you can investigate <a href="https://bookdown.org/yihui/blogdown/"><pkg>blogdown</pkg></a>. After you install this package, you will also be able to create template blogdown projects to get you started.</p>
-</section><section id="shiny" class="level4" data-number="9.2.5.5"><h4 data-number="9.2.5.5" class="anchored" data-anchor-id="shiny">
-<span class="header-section-number">9.2.5.5</span> Shiny</h4>
+</section><section id="shiny" class="level4" data-number="10.2.5.5"><h4 data-number="10.2.5.5" class="anchored" data-anchor-id="shiny">
+<span class="header-section-number">10.2.5.5</span> Shiny</h4>
 <p>To get truly interactive, you can take your R coding to the next level and learn Shiny. Shiny apps let your R code react to user input. You can do things like <a href="https://shiny.psy.gla.ac.uk/debruine/wordcloud/">make a word cloud</a>, <a href="https://shiny.psy.gla.ac.uk/debruine/seen/">search a google spreadsheet</a>, or <a href="https://shiny.psy.gla.ac.uk/debruine/question/">conduct a survey</a>.</p>
 <p>This is well outside the scope of this class, but the skills you’ve learned here provide a good start. The free book <a href="https://debruine.github.io/shinyintro/">Building Web Apps with R Shiny</a> by one of the authors of this book can get you started creating shiny apps.</p>
-</section></section><section id="sec-resources-report" class="level3" data-number="9.2.6"><h3 data-number="9.2.6" class="anchored" data-anchor-id="sec-resources-report">
-<span class="header-section-number">9.2.6</span> Resources</h3>
+</section></section><section id="sec-resources-report" class="level3" data-number="10.2.6"><h3 data-number="10.2.6" class="anchored" data-anchor-id="sec-resources-report">
+<span class="header-section-number">10.2.6</span> Resources</h3>
 <ul>
 <li><a href="https://rmarkdown.rstudio.com/formats.html">RStudio Formats</a></li>
 <li><a href="https://bookdown.org/yihui/rmarkdown-cookbook">R Markdown Cookbook</a></li>
@@ -1854,8 +1860,8 @@ Solution
 <li><a href="https://shiny.rstudio.com/">Shiny</a></li>
 <li><a href="https://debruine.github.io/shinyintro/">Building Web Apps with R Shiny</a></li>
 </ul>
-<hr></section></section><section id="course-complete" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="course-complete">
-<span class="header-section-number">9.3</span> Course Complete</h2>
+<hr></section></section><section id="course-complete" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="course-complete">
+<span class="header-section-number">10.3</span> Course Complete</h2>
 <p>And so, we are done. We’ve covered a huge amount over the course of Applied Data Skills, and whilst you’re likely more comfortable with some bits than others, the skills you have developed are truly impressive. Even if you go no further than what you’ve learned in this book, you can now work reproducibly to produce informative summaries and visualisations that provide new insights into your data and reduce human error.</p>
 <p>But it’s also important to recognise that your knowledge of R will never be complete. In the course of writing this book, the entire ADS team have learned new functions, new arguments, new approaches, and new reasons to love or loathe certain data visualisations. The flexibility and possibility of R is what makes it frustrating and empowering in equal measure. What we hope more than anything is that Applied Data Skills is the start of your journey with R, not the end. Please keep in touch, we’d love to see where it takes you.</p>
 <p>Emily Nordmann,<br>
@@ -2623,7 +2629,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./09-wrangle.html" class="pagination-link" aria-label="Data Wrangling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

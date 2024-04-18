@@ -9,7 +9,7 @@
 
 There is no walkthrough video for this chapter.
 
-## Here we go again {#sec-setup-ai}
+## Here we go again {#sec-intro-ai}
 
 So far we've been slowly building up your use of AI but we've very consciously stayed away from allowing or encouraging you to use AI to write your code. But it's now time, so for this chapter, we're going to do something a bit different. 
 

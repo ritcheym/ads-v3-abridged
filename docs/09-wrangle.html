@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.551">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Applied Data Skills - 8&nbsp; Data Wrangling</title>
+<title>Applied Data Skills - 9&nbsp; Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-wrangle.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-wrangle.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -195,26 +195,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./06-ai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./07-joins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Relations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-tidy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-wrangle.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-custom.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -316,42 +322,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
 <li><a href="#sec-ilo-wrangle" id="toc-sec-ilo-wrangle" class="nav-link active" data-scroll-target="#sec-ilo-wrangle">Intended Learning Outcomes</a></li>
   <li><a href="#sec-walkthrough-wrangle" id="toc-sec-walkthrough-wrangle" class="nav-link" data-scroll-target="#sec-walkthrough-wrangle">Walkthrough video</a></li>
-  <li><a href="#sec-setup-wrangle" id="toc-sec-setup-wrangle" class="nav-link" data-scroll-target="#sec-setup-wrangle"><span class="header-section-number">8.1</span> Set-up</a></li>
+  <li><a href="#sec-setup-wrangle" id="toc-sec-setup-wrangle" class="nav-link" data-scroll-target="#sec-setup-wrangle"><span class="header-section-number">9.1</span> Set-up</a></li>
   <li>
-<a href="#wrangling-functions" id="toc-wrangling-functions" class="nav-link" data-scroll-target="#wrangling-functions"><span class="header-section-number">8.2</span> Wrangling functions</a>
+<a href="#wrangling-functions" id="toc-wrangling-functions" class="nav-link" data-scroll-target="#wrangling-functions"><span class="header-section-number">9.2</span> Wrangling functions</a>
   <ul class="collapse">
-<li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">8.2.1</span> Select</a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">8.2.2</span> Filter</a></li>
-  <li><a href="#sec-arrange" id="toc-sec-arrange" class="nav-link" data-scroll-target="#sec-arrange"><span class="header-section-number">8.2.3</span> Arrange</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">8.2.4</span> Mutate</a></li>
-  <li><a href="#sec-dplyr-summarise" id="toc-sec-dplyr-summarise" class="nav-link" data-scroll-target="#sec-dplyr-summarise"><span class="header-section-number">8.2.5</span> Summarise</a></li>
-  <li><a href="#sec-dplyr-groupby" id="toc-sec-dplyr-groupby" class="nav-link" data-scroll-target="#sec-dplyr-groupby"><span class="header-section-number">8.2.6</span> Group By</a></li>
+<li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">9.2.1</span> Select</a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">9.2.2</span> Filter</a></li>
+  <li><a href="#sec-arrange" id="toc-sec-arrange" class="nav-link" data-scroll-target="#sec-arrange"><span class="header-section-number">9.2.3</span> Arrange</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">9.2.4</span> Mutate</a></li>
+  <li><a href="#sec-dplyr-summarise" id="toc-sec-dplyr-summarise" class="nav-link" data-scroll-target="#sec-dplyr-summarise"><span class="header-section-number">9.2.5</span> Summarise</a></li>
+  <li><a href="#sec-dplyr-groupby" id="toc-sec-dplyr-groupby" class="nav-link" data-scroll-target="#sec-dplyr-groupby"><span class="header-section-number">9.2.6</span> Group By</a></li>
   </ul>
 </li>
   <li>
-<a href="#complications" id="toc-complications" class="nav-link" data-scroll-target="#complications"><span class="header-section-number">8.3</span> Complications</a>
+<a href="#complications" id="toc-complications" class="nav-link" data-scroll-target="#complications"><span class="header-section-number">9.3</span> Complications</a>
   <ul class="collapse">
-<li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding"><span class="header-section-number">8.3.1</span> Rounding</a></li>
-  <li><a href="#sec-missing-values" id="toc-sec-missing-values" class="nav-link" data-scroll-target="#sec-missing-values"><span class="header-section-number">8.3.2</span> Missing values</a></li>
+<li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding"><span class="header-section-number">9.3.1</span> Rounding</a></li>
+  <li><a href="#sec-missing-values" id="toc-sec-missing-values" class="nav-link" data-scroll-target="#sec-missing-values"><span class="header-section-number">9.3.2</span> Missing values</a></li>
   </ul>
 </li>
   <li>
-<a href="#sec-together-wrangle" id="toc-sec-together-wrangle" class="nav-link" data-scroll-target="#sec-together-wrangle"><span class="header-section-number">8.4</span> Exercises</a>
+<a href="#sec-together-wrangle" id="toc-sec-together-wrangle" class="nav-link" data-scroll-target="#sec-together-wrangle"><span class="header-section-number">9.4</span> Exercises</a>
   <ul class="collapse">
-<li><a href="#creating-new-categories" id="toc-creating-new-categories" class="nav-link" data-scroll-target="#creating-new-categories"><span class="header-section-number">8.4.1</span> Creating new categories</a></li>
-  <li><a href="#filter-by-calculated-score" id="toc-filter-by-calculated-score" class="nav-link" data-scroll-target="#filter-by-calculated-score"><span class="header-section-number">8.4.2</span> Filter by calculated score</a></li>
-  <li><a href="#multiple-critera" id="toc-multiple-critera" class="nav-link" data-scroll-target="#multiple-critera"><span class="header-section-number">8.4.3</span> Multiple critera</a></li>
-  <li><a href="#original-insight" id="toc-original-insight" class="nav-link" data-scroll-target="#original-insight"><span class="header-section-number">8.4.4</span> Original insight</a></li>
-  <li><a href="#share-on-teams" id="toc-share-on-teams" class="nav-link" data-scroll-target="#share-on-teams"><span class="header-section-number">8.4.5</span> Share on Teams</a></li>
+<li><a href="#creating-new-categories" id="toc-creating-new-categories" class="nav-link" data-scroll-target="#creating-new-categories"><span class="header-section-number">9.4.1</span> Creating new categories</a></li>
+  <li><a href="#filter-by-calculated-score" id="toc-filter-by-calculated-score" class="nav-link" data-scroll-target="#filter-by-calculated-score"><span class="header-section-number">9.4.2</span> Filter by calculated score</a></li>
+  <li><a href="#multiple-critera" id="toc-multiple-critera" class="nav-link" data-scroll-target="#multiple-critera"><span class="header-section-number">9.4.3</span> Multiple critera</a></li>
+  <li><a href="#original-insight" id="toc-original-insight" class="nav-link" data-scroll-target="#original-insight"><span class="header-section-number">9.4.4</span> Original insight</a></li>
+  <li><a href="#share-on-teams" id="toc-share-on-teams" class="nav-link" data-scroll-target="#share-on-teams"><span class="header-section-number">9.4.5</span> Share on Teams</a></li>
   </ul>
 </li>
-  <li><a href="#sec-glossary-wrangle" id="toc-sec-glossary-wrangle" class="nav-link" data-scroll-target="#sec-glossary-wrangle"><span class="header-section-number">8.5</span> Glossary</a></li>
-  <li><a href="#sec-resources-wrangle" id="toc-sec-resources-wrangle" class="nav-link" data-scroll-target="#sec-resources-wrangle"><span class="header-section-number">8.6</span> Further resources</a></li>
+  <li><a href="#sec-glossary-wrangle" id="toc-sec-glossary-wrangle" class="nav-link" data-scroll-target="#sec-glossary-wrangle"><span class="header-section-number">9.5</span> Glossary</a></li>
+  <li><a href="#sec-resources-wrangle" id="toc-sec-resources-wrangle" class="nav-link" data-scroll-target="#sec-resources-wrangle"><span class="header-section-number">9.6</span> Further resources</a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-wrangle" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></h1>
+<h1 class="title"><span id="sec-wrangle" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></h1>
 </div>
 
 
@@ -372,8 +378,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Be able to handle missing data</li>
 </ul></section><section id="sec-walkthrough-wrangle" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-wrangle">Walkthrough video</h2>
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/dc1e2869-a6c2-45d8-ab40-cb85cdb67f43/public">Echo360</a>. Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
-</section><section id="sec-setup-wrangle" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="sec-setup-wrangle">
-<span class="header-section-number">8.1</span> Set-up</h2>
+</section><section id="sec-setup-wrangle" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="sec-setup-wrangle">
+<span class="header-section-number">9.1</span> Set-up</h2>
 <p>First, create a new project for the work we’ll do in this chapter named <code class="path">09-wrangle</code>. Second, open and save and new R Markdown document named <code>wrangle.Rmd</code>, delete the welcome text and load the required packages for this chapter.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-with-filename">
@@ -399,9 +405,9 @@ Warning
 </div>
 <p>You’ll need to make a folder called “data” and download a data file into it: <a href="https://psyteachr.github.io/ads-v2/data/budget.csv" download="">budget.csv</a>.</p>
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation cheat sheet</a>.</p>
-</section><section id="wrangling-functions" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="wrangling-functions">
-<span class="header-section-number">8.2</span> Wrangling functions</h2>
-<p>Data wrangling refers to the process of cleaning, transforming, and restructuring your data to get it into the format you need for analysis and it’s something you will spend an awful lot of time doing. Most <a href="https://psyteachr.github.io/glossary/d#data-wrangling" target="_blank" class="glossary" title="The process of preparing data for visualisation and statistical analysis.">data wrangling</a> involves the reshaping functions you learned in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 7</span></a> and six functions from the <pkg>dplyr</pkg> package that is loaded as part of the <pkg>tidyverse</pkg>: <code>select</code>, <code>filter</code>, <code>arrange</code>, <code>mutate</code>, <code>summarise</code>, and <code>group_by</code>. You’ll remember the last two from <a href="04-summary.html" class="quarto-xref"><span>Chapter 4</span></a>, so we’ll only cover them briefly.</p>
+</section><section id="wrangling-functions" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="wrangling-functions">
+<span class="header-section-number">9.2</span> Wrangling functions</h2>
+<p>Data wrangling refers to the process of cleaning, transforming, and restructuring your data to get it into the format you need for analysis and it’s something you will spend an awful lot of time doing. Most <a href="https://psyteachr.github.io/glossary/d#data-wrangling" target="_blank" class="glossary" title="The process of preparing data for visualisation and statistical analysis.">data wrangling</a> involves the reshaping functions you learned in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a> and six functions from the <pkg>dplyr</pkg> package that is loaded as part of the <pkg>tidyverse</pkg>: <code>select</code>, <code>filter</code>, <code>arrange</code>, <code>mutate</code>, <code>summarise</code>, and <code>group_by</code>. You’ll remember the last two from <a href="04-summary.html" class="quarto-xref"><span>Chapter 4</span></a>, so we’ll only cover them briefly.</p>
 <p>It’s worth highlighting that in this chapter we’re going to cover these common functions and common uses of said functions. However, <pkg>dplyr</pkg> (and packages beyond it) has a huge number of additional wrangling functions and each function has many different arguments. Essentially, if you think you should be able to wrangle your data in a particular way that we haven’t explicitly shown you, you almost certainly can, it might just take a bit of Googling to find out how.</p>
 <p>We’ll use a small example table with the sales, expenses, and satisfaction for two years from four regions over two products. After you load the data, use <code>glimpse(budget)</code> or <code>View(budget)</code> to get familiar with the data.</p>
 <div class="cell" data-layout-align="center">
@@ -517,11 +523,11 @@ Warning
 </div>
 </div>
 </div>
-<section id="select" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="select">
-<span class="header-section-number">8.2.1</span> Select</h3>
+<section id="select" class="level3" data-number="9.2.1"><h3 data-number="9.2.1" class="anchored" data-anchor-id="select">
+<span class="header-section-number">9.2.1</span> Select</h3>
 <p>You can select a subset of the columns (variables) in a table to make it easier to view or to prepare a table for display. You can also select columns in a new order.</p>
-<section id="by-name-or-index" class="level4" data-number="8.2.1.1"><h4 data-number="8.2.1.1" class="anchored" data-anchor-id="by-name-or-index">
-<span class="header-section-number">8.2.1.1</span> By name or index</h4>
+<section id="by-name-or-index" class="level4" data-number="9.2.1.1"><h4 data-number="9.2.1.1" class="anchored" data-anchor-id="by-name-or-index">
+<span class="header-section-number">9.2.1.1</span> By name or index</h4>
 <p>You can select columns by name or number (which is sometimes referred to as the column index). Selecting by number can be useful when the column names are long or complicated.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># select single column by name</span></span>
@@ -574,8 +580,8 @@ Warning
 </div>
 </div>
 </div>
-</section><section id="un-selecting-columns" class="level4" data-number="8.2.1.2"><h4 data-number="8.2.1.2" class="anchored" data-anchor-id="un-selecting-columns">
-<span class="header-section-number">8.2.1.2</span> Un-selecting columns</h4>
+</section><section id="un-selecting-columns" class="level4" data-number="9.2.1.2"><h4 data-number="9.2.1.2" class="anchored" data-anchor-id="un-selecting-columns">
+<span class="header-section-number">9.2.1.2</span> Un-selecting columns</h4>
 <p>You can select columns either by telling R which ones you want to keep as in the previous examples, or by specifying which ones you want to exclude by using a minus symbol to un-select columns. You can also use the colon notation to de-select columns, but to do so you need to put parentheses around the span first, e.g., <code>-(sales_2019:expenses_2020)</code>, not <code>-sales_2019:expenses_2020</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># de-select individual columns</span></span>
@@ -584,8 +590,8 @@ Warning
 <span id="cb6-4"><a href="#cb6-4"></a><span class="co"># de-select a range of columns</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>sales <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>(expenses_2019<span class="sc">:</span>expenses_2020))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="select-helpers" class="level4" data-number="8.2.1.3"><h4 data-number="8.2.1.3" class="anchored" data-anchor-id="select-helpers">
-<span class="header-section-number">8.2.1.3</span> Select helpers</h4>
+</section><section id="select-helpers" class="level4" data-number="9.2.1.3"><h4 data-number="9.2.1.3" class="anchored" data-anchor-id="select-helpers">
+<span class="header-section-number">9.2.1.3</span> Select helpers</h4>
 <p>Finally, you can select columns based on criteria about the column names.</p>
 <table class="table">
 <colgroup>
@@ -655,8 +661,8 @@ Note
 </ul>
 </div>
 </div>
-</section></section><section id="filter" class="level3" data-number="8.2.2"><h3 data-number="8.2.2" class="anchored" data-anchor-id="filter">
-<span class="header-section-number">8.2.2</span> Filter</h3>
+</section></section><section id="filter" class="level3" data-number="9.2.2"><h3 data-number="9.2.2" class="anchored" data-anchor-id="filter">
+<span class="header-section-number">9.2.2</span> Filter</h3>
 <p>Whilst <code>select()</code> chooses the columns you want to retain, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> chooses the rows to retain by matching row or column criteria.</p>
 <p>You can filter by a single criterion. This criterion can be rows where a certain column’s value matches a character value (e.g., “North”) or a number (e.g., 9003). It can also be the result of a logical equation (e.g., keep all rows with a specific column value larger than a certain value). The criterion is checked for each row, and if the result is FALSE, the row is removed. You can reverse equations by specifying <code>!=</code> where <code>!</code> means “not”.</p>
 <div class="cell" data-layout-align="center">
@@ -928,8 +934,8 @@ Warning
 <p><code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> is incredibly powerful and can allow you to select very specific subsets of data. But, it is also quite dangerous because when you start combining multiple criteria and operators, it’s very easy to accidentally specify something slightly different than what you intended. <strong>Always check your output</strong>. If you have a small dataset, then you can eyeball it to see if it looks right. With a larger dataset, you may wish to compute summary statistics or count the number of groups/observations in each variable to verify your filter is correct. There is no level of expertise in coding that can substitute knowing and checking your data.</p>
 </div>
 </div>
-</section><section id="sec-arrange" class="level3" data-number="8.2.3"><h3 data-number="8.2.3" class="anchored" data-anchor-id="sec-arrange">
-<span class="header-section-number">8.2.3</span> Arrange</h3>
+</section><section id="sec-arrange" class="level3" data-number="9.2.3"><h3 data-number="9.2.3" class="anchored" data-anchor-id="sec-arrange">
+<span class="header-section-number">9.2.3</span> Arrange</h3>
 <p>You can sort your dataset using <code>arrange()</code>. You will find yourself needing to sort data in R much less than you do in Excel, since you don’t need to have rows next to each other in order to, for example, calculate group means. But <code>arrange()</code> can be useful when preparing data for display in tables. <code>arrange()</code> works on character data where it will sort alphabetically, as well as numeric data where the default is ascending order (smallest to largest). Reverse the order using <code>desc()</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># arranging the table </span></span>
@@ -1133,8 +1139,8 @@ Note
 </div>
 </div>
 </div>
-</section><section id="mutate" class="level3" data-number="8.2.4"><h3 data-number="8.2.4" class="anchored" data-anchor-id="mutate">
-<span class="header-section-number">8.2.4</span> Mutate</h3>
+</section><section id="mutate" class="level3" data-number="9.2.4"><h3 data-number="9.2.4" class="anchored" data-anchor-id="mutate">
+<span class="header-section-number">9.2.4</span> Mutate</h3>
 <p>The function <code>mutate()</code> allows you to add new columns or change existing ones by overwriting them by using the syntax <code>new_column = operation</code>. You can add more than one column in the same mutate function by separating the columns with a comma. Once you make a new column, you can use it in further column definitions. For example, the creation of <code>profit</code> below uses the column <code>expenses</code>, which is created above it.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>budget2 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span></span>
@@ -1203,10 +1209,10 @@ Tip
 </div>
 </div>
 <p>Just like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>mutate()</code> is incredibly powerful and the scope of what you can create is far beyond what we can cover in this book.</p>
-</section><section id="sec-dplyr-summarise" class="level3" data-number="8.2.5"><h3 data-number="8.2.5" class="anchored" data-anchor-id="sec-dplyr-summarise">
-<span class="header-section-number">8.2.5</span> Summarise</h3>
+</section><section id="sec-dplyr-summarise" class="level3" data-number="9.2.5"><h3 data-number="9.2.5" class="anchored" data-anchor-id="sec-dplyr-summarise">
+<span class="header-section-number">9.2.5</span> Summarise</h3>
 <p>You were introduced to the <code>summarise()</code> function in <a href="04-summary.html#sec-summary-summarise" class="quarto-xref"><span>Section 4.5</span></a>. This applies summary functions to an entire table (or groups, as you’ll see in the next section).</p>
-<p>Let’s say we want to determine the mean sales and expenses, plus the minimum and maximum profit, for any region, product and year. First, we need to reshape the data like we learned in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 7</span></a>, so that there is a column for year and one column each for sales and expenses, instead of separate columns for each year. We’ll also drop the satisfaction data as we don’t need it for this analysis.</p>
+<p>Let’s say we want to determine the mean sales and expenses, plus the minimum and maximum profit, for any region, product and year. First, we need to reshape the data like we learned in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a>, so that there is a column for year and one column each for sales and expenses, instead of separate columns for each year. We’ll also drop the satisfaction data as we don’t need it for this analysis.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>budget4 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">select</span>(<span class="sc">-</span>satisfaction_2019, <span class="sc">-</span>satisfaction_2020) <span class="sc">%&gt;%</span></span>
@@ -1304,8 +1310,8 @@ Tip
 </div>
 </div>
 </div>
-</section><section id="sec-dplyr-groupby" class="level3" data-number="8.2.6"><h3 data-number="8.2.6" class="anchored" data-anchor-id="sec-dplyr-groupby">
-<span class="header-section-number">8.2.6</span> Group By</h3>
+</section><section id="sec-dplyr-groupby" class="level3" data-number="9.2.6"><h3 data-number="9.2.6" class="anchored" data-anchor-id="sec-dplyr-groupby">
+<span class="header-section-number">9.2.6</span> Group By</h3>
 <p>You were introduced to the <code>group_by()</code> function in <a href="04-summary.html#sec-grouping" class="quarto-xref"><span>Section 4.6</span></a>. For example, you can break down the summary statistics above by year and product.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>year_prod <span class="ot">&lt;-</span> budget4 <span class="sc">%&gt;%</span></span>
@@ -1507,10 +1513,10 @@ Note
 </div>
 </div>
 </div>
-</section></section><section id="complications" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="complications">
-<span class="header-section-number">8.3</span> Complications</h2>
-<section id="rounding" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="rounding">
-<span class="header-section-number">8.3.1</span> Rounding</h3>
+</section></section><section id="complications" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="complications">
+<span class="header-section-number">9.3</span> Complications</h2>
+<section id="rounding" class="level3" data-number="9.3.1"><h3 data-number="9.3.1" class="anchored" data-anchor-id="rounding">
+<span class="header-section-number">9.3.1</span> Rounding</h3>
 <p>Let’s say we want to round all the values to the nearest pound. The pattern below uses the <code>across()</code> function to apply the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function to the columns from <code>mean_sales</code> to <code>max_profit</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>year_prod <span class="sc">%&gt;%</span></span>
@@ -1565,7 +1571,7 @@ Note
 </div>
 </div>
 </div>
-<p>If you compare this table to the one in <a href="#sec-dplyr-groupby" class="quarto-xref"><span>Section 8.2.6</span></a>, you’ll see that the 2019 gadgets mean sales rounded up from 881.5 to 882, while the mean expenses rounded down from 238.5 to 238. What’s going on!?</p>
+<p>If you compare this table to the one in <a href="#sec-dplyr-groupby" class="quarto-xref"><span>Section 9.2.6</span></a>, you’ll see that the 2019 gadgets mean sales rounded up from 881.5 to 882, while the mean expenses rounded down from 238.5 to 238. What’s going on!?</p>
 <p>This may seem like a mistake, but R rounds .5 to the nearest even number, rather than always up, like you were probably taught in school. This prevents overestimation biases, since x.5 is <em>exactly</em> halfway between x and x+1, so there is no reason it should always round up.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">round</span>(<span class="fl">0.5</span>)</span>
@@ -1586,12 +1592,12 @@ Note
 [1] 2</code></pre>
 </div>
 </div>
-</section><section id="sec-missing-values" class="level3" data-number="8.3.2"><h3 data-number="8.3.2" class="anchored" data-anchor-id="sec-missing-values">
-<span class="header-section-number">8.3.2</span> Missing values</h3>
+</section><section id="sec-missing-values" class="level3" data-number="9.3.2"><h3 data-number="9.3.2" class="anchored" data-anchor-id="sec-missing-values">
+<span class="header-section-number">9.3.2</span> Missing values</h3>
 <p>If you have control over your data, it is always best to keep missing values as empty cells rather than denoting missingness with a word or implausible number. If you used “missing” rather than leaving the cell empty, the entire variable would be read as character data, which means you wouldn’t be able to perform mathematical operations like calculating the mean. If you use an implausible number (0 or 999 are common), then you risk these values being included in any calculations as real numbers.</p>
 <p>However, we often don’t have control over how the data come to us, so let’s run through how to fix this.</p>
-<section id="bad-missing-values" class="level4" data-number="8.3.2.1"><h4 data-number="8.3.2.1" class="anchored" data-anchor-id="bad-missing-values">
-<span class="header-section-number">8.3.2.1</span> Bad missing values</h4>
+<section id="bad-missing-values" class="level4" data-number="9.3.2.1"><h4 data-number="9.3.2.1" class="anchored" data-anchor-id="bad-missing-values">
+<span class="header-section-number">9.3.2.1</span> Bad missing values</h4>
 <p>What if the South region hadn’t returned their expenses (entered as 0) and the North region hadn’t returned their sales data for 2020 yet, so someone entered it as “missing”?</p>
 <p>First, we’re going to recode the data to add in the missing values</p>
 <p>For the South data, we can use <code>case_when()</code> to set the value of expenses to 0 if the year is 2020 and region is “South”, otherwise use the value from the expenses column (i.e., don’t change).</p>
@@ -1706,8 +1712,8 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="convert-missing-values-to-na" class="level4" data-number="8.3.2.2"><h4 data-number="8.3.2.2" class="anchored" data-anchor-id="convert-missing-values-to-na">
-<span class="header-section-number">8.3.2.2</span> Convert missing values to NA</h4>
+</section><section id="convert-missing-values-to-na" class="level4" data-number="9.3.2.2"><h4 data-number="9.3.2.2" class="anchored" data-anchor-id="convert-missing-values-to-na">
+<span class="header-section-number">9.3.2.2</span> Convert missing values to NA</h4>
 <p>To set the missing values to NA, we can use the handy function <code>na_if()</code>. We’ll also need to transform <code>sales</code> back to numeric.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>missing_data <span class="ot">&lt;-</span> missing_bad <span class="sc">%&gt;%</span></span>
@@ -1774,8 +1780,8 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="ignore-missing-values" class="level4" data-number="8.3.2.3"><h4 data-number="8.3.2.3" class="anchored" data-anchor-id="ignore-missing-values">
-<span class="header-section-number">8.3.2.3</span> Ignore missing values</h4>
+</section><section id="ignore-missing-values" class="level4" data-number="9.3.2.3"><h4 data-number="9.3.2.3" class="anchored" data-anchor-id="ignore-missing-values">
+<span class="header-section-number">9.3.2.3</span> Ignore missing values</h4>
 <p>This is because <code>NA</code> basically means “I don’t know”, and the sum of 100 and “I don’t know” is “I don’t know”, not 100. However, when you’re calculating means, you often want to just ignore missing values. Set <code>na.rm = TRUE</code> in the summary function to remove missing values before calculating.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>missing_data <span class="sc">%&gt;%</span></span>
@@ -1831,8 +1837,8 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="count-missing-values" class="level4" data-number="8.3.2.4"><h4 data-number="8.3.2.4" class="anchored" data-anchor-id="count-missing-values">
-<span class="header-section-number">8.3.2.4</span> Count missing values</h4>
+</section><section id="count-missing-values" class="level4" data-number="9.3.2.4"><h4 data-number="9.3.2.4" class="anchored" data-anchor-id="count-missing-values">
+<span class="header-section-number">9.3.2.4</span> Count missing values</h4>
 <p>If you want to find out how many missing or non-missing values there are in a column, use the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function to get a <a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">logical</a> vector of whether or not each value is missing, and use <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> to count how many values are TRUE or <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to calculate the proportion of TRUE values.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>missing_data <span class="sc">%&gt;%</span></span>
@@ -1887,8 +1893,8 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="omit-missing-values" class="level4" data-number="8.3.2.5"><h4 data-number="8.3.2.5" class="anchored" data-anchor-id="omit-missing-values">
-<span class="header-section-number">8.3.2.5</span> Omit missing values</h4>
+</section><section id="omit-missing-values" class="level4" data-number="9.3.2.5"><h4 data-number="9.3.2.5" class="anchored" data-anchor-id="omit-missing-values">
+<span class="header-section-number">9.3.2.5</span> Omit missing values</h4>
 <p>You may also want to remove rows that have missing values and only work from complete datasets. <code>drop_na()</code> will remove any row that has a missing observation. You can use <code>drop_na()</code> on the entire dataset which will remove any row that has <em>any</em> missing value, or you can specify to only remove rows that are missing a specific value.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># remove any rows with any missing values</span></span>
@@ -1900,8 +1906,8 @@ Caused by warning in `mean.default()`:
 <span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">drop_na</span>(sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Missing data can be quite difficult to deal with depending on how it is represented. As always, no amount of coding expertise can make up for not understanding the structure and idiosyncrasies of your data.</p>
-</section></section></section><section id="sec-together-wrangle" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="sec-together-wrangle">
-<span class="header-section-number">8.4</span> Exercises</h2>
+</section></section></section><section id="sec-together-wrangle" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="sec-together-wrangle">
+<span class="header-section-number">9.4</span> Exercises</h2>
 <p>Let’s try some exercises using a dataset you already encountered in <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a> so that you can see how much more you’re able to do with the data now.</p>
 <ul>
 <li>Save your current Markdown, close it, and open a new Rmd named “survey_data_mad_skillz”.</li>
@@ -1939,8 +1945,8 @@ dttm (1): call_start
 </div>
 </div>
 </div>
-<section id="creating-new-categories" class="level3" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="creating-new-categories">
-<span class="header-section-number">8.4.1</span> Creating new categories</h3>
+<section id="creating-new-categories" class="level3" data-number="9.4.1"><h3 data-number="9.4.1" class="anchored" data-anchor-id="creating-new-categories">
+<span class="header-section-number">9.4.1</span> Creating new categories</h3>
 <p>Employees 1-5 were trained by Michael and employees 6-10 were trained by Dwight.</p>
 <ul>
 <li>Create a new column named <code>trainer</code> that lists the trainer for each employee.</li>
@@ -2007,8 +2013,8 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="filter-by-calculated-score" class="level3" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="filter-by-calculated-score">
-<span class="header-section-number">8.4.2</span> Filter by calculated score</h3>
+</section><section id="filter-by-calculated-score" class="level3" data-number="9.4.2"><h3 data-number="9.4.2" class="anchored" data-anchor-id="filter-by-calculated-score">
+<span class="header-section-number">9.4.2</span> Filter by calculated score</h3>
 <p>First, calculate the average wait time and store this in an object named <code>mean_wait</code>. This should be a single value rather than a table.</p>
 <div class="webex-solution">
 <button>
@@ -2087,8 +2093,8 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="multiple-critera" class="level3" data-number="8.4.3"><h3 data-number="8.4.3" class="anchored" data-anchor-id="multiple-critera">
-<span class="header-section-number">8.4.3</span> Multiple critera</h3>
+</section><section id="multiple-critera" class="level3" data-number="9.4.3"><h3 data-number="9.4.3" class="anchored" data-anchor-id="multiple-critera">
+<span class="header-section-number">9.4.3</span> Multiple critera</h3>
 <p>Now, add a column to <code>survey_data</code> named <code>follow_up</code> that flags whether a customer should be followed up with a courtesy phone call. Your company is short-staffed so only customers that meet all three of the following criteria should be followed-up:</p>
 <ul>
 <li>Their wait time should be above the average <strong>for all calls</strong>
@@ -2221,14 +2227,14 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="original-insight" class="level3" data-number="8.4.4"><h3 data-number="8.4.4" class="anchored" data-anchor-id="original-insight">
-<span class="header-section-number">8.4.4</span> Original insight</h3>
+</section><section id="original-insight" class="level3" data-number="9.4.4"><h3 data-number="9.4.4" class="anchored" data-anchor-id="original-insight">
+<span class="header-section-number">9.4.4</span> Original insight</h3>
 <p>In preparation for the final summative assessment, explore the data to provide one original insight of your own.</p>
-</section><section id="share-on-teams" class="level3" data-number="8.4.5"><h3 data-number="8.4.5" class="anchored" data-anchor-id="share-on-teams">
-<span class="header-section-number">8.4.5</span> Share on Teams</h3>
+</section><section id="share-on-teams" class="level3" data-number="9.4.5"><h3 data-number="9.4.5" class="anchored" data-anchor-id="share-on-teams">
+<span class="header-section-number">9.4.5</span> Share on Teams</h3>
 <p>Once you’re done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 09 channel.</p>
-</section></section><section id="sec-glossary-wrangle" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="sec-glossary-wrangle">
-<span class="header-section-number">8.5</span> Glossary</h2>
+</section></section><section id="sec-glossary-wrangle" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="sec-glossary-wrangle">
+<span class="header-section-number">9.5</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
 <table>
 <thead><tr>
@@ -2291,8 +2297,8 @@ A piece of text inside of quotes.
 </tbody>
 </table>
 </div>
-</section><section id="sec-resources-wrangle" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="sec-resources-wrangle">
-<span class="header-section-number">8.6</span> Further resources</h2>
+</section><section id="sec-resources-wrangle" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="sec-resources-wrangle">
+<span class="header-section-number">9.6</span> Further resources</h2>
 <ul>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation cheat sheet</a></li>
 <li>
@@ -3056,12 +3062,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./08-tidy.html" class="pagination-link" aria-label="Data Tidying">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Tidying</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./10-custom.html" class="pagination-link" aria-label="Customising Visualisations &amp; Reports">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Customising Visualisations &amp; Reports</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

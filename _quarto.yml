@@ -50,7 +50,7 @@ book:
   - 03-viz.qmd
   - 04-summary.qmd
   - 05-formative.qmd
-  #- 06-ai.qmd
+  - 06-ai.qmd
   - 07-joins.qmd
   - 08-tidy.qmd
   - 09-wrangle.qmd
