@@ -32,7 +32,7 @@ Download the [Data transformation cheat sheet](https://raw.githubusercontent.com
 
 The data we'll be working with is on method of delivery for singleton births from Public Health Scotland. You can see the most recent version at [Method of Delivery](https://www.opendata.nhs.scot/dataset/births-in-scottish-hospitals/resource/8654b6d8-9765-4ced-8e9b-4611aa4596eb), but we'll be working from a saved version. 
 
-The data are in a `r glossary("CSV")` file, so we can read this with the function `read_csv()` , and assign it to a new object that we'll call `births`. You can learn more about importing data from other file types in @sec-data. 
+The data are in a `r glossary("CSV")` file (download <a href="data/12.1_delivery.csv" download>12.1_delivery.csv</a>), so we can read this with the function `read_csv()` , and assign it to a new object that we'll call `births`. You can learn more about importing data from other file types in @sec-data. 
 
 ```{r, message=TRUE}
 births <- read_csv("data/12.1_delivery.csv")
@@ -84,6 +84,18 @@ count(births, Induced, sort = TRUE)
 We'll now add on extra code to `birth_cols` to set the order of our factors. What order you choose will depend on what makes most sense for the data. For `AgeGroup` we'll list them in chronological order, whilst for `Delivery` and `Induced`, we'll sort them according to the highest value - it can be helpful to think of what order you'll like the bars to be in if you were making a graph.
 
 
+:::{.callout-tip}
+
+The levels for `Delivery` are numerous and complex, which increases the risk of a typo and is just tedious to type. Here is a quick trick to generate the text you can copy and paste into your code. The function `dput()` gives you the code you can use to recreate an object.
+
+```{r, filename = "Type in the console"}
+delivery_table <- count(births, Delivery, sort = TRUE)
+dput(delivery_table$Delivery)
+```
+
+:::
+
+
 ```{r}
 # edit the output of spec(births)
 birth_cols <- cols(
@@ -103,20 +115,10 @@ births <- read_csv("data/12.1_delivery.csv", col_types = birth_cols)
 ```
 
 
-:::{.callout-tip}
-
-The levels for `Delivery` are numerous and complex, which increases the risk of a typo and is just tedious to type. Here is a quick trick to generate the text you can copy and paste into your code. The function `dput()` gives you the code you can use to recreate an object.
-
-```{r, filename = "Type in the console"}
-delivery_table <- count(births, Delivery, sort = TRUE)
-dput(delivery_table$Delivery)
-```
-
-:::
 
 ### Clean up names
 
-Data sets often import with column names that are a little difficult to use in code. You can manually rename them, but the `r pkg("janitor")` package makes this incredibly easy. This dataset has pretty good names, with no spaces or special characters, but it does use uppercase letters to separate words, which can be hard to remember. the `clean_names()` function changes everything to lowercase and uses underscores to separate word parts. Using `clean_names` everytime you import a dataset is a good habit to get into. 
+Data sets often import with column names that are a little difficult to use in code. You can manually rename them, but the `r pkg("janitor")` package makes this incredibly easy. This dataset has pretty good names, with no spaces or special characters, but it does use uppercase letters to separate words, which can be hard to remember. the `clean_names()` function changes everything to lowercase and uses underscores to separate word parts. Using `clean_names` every time you import a dataset is a good habit to get into. 
 
 ```{r}
 births <- clean_names(births)
@@ -189,7 +191,7 @@ c_per_year <- births %>% # start with the births table, and then
 head(c_per_year)
 ```
 
-Notice that  `filter()`, summarise()` and `arrange()` no longer need the first argument to be the data table, it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth. 
+Notice that  `filter()`, `summarise()` and `arrange()` no longer need the first argument to be the data table, it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth. 
 
 :::{.callout-note}
 Base R recently added a "native pipe" that looks like this: `|>`, while the tidyverse has traditionally used the "magrittr pipe" that looks like this `%>%`. They have a few small differences that you don't need to learn about yet. We'll be using the magrittr pipe, but you might see the base R pipe in other sources.

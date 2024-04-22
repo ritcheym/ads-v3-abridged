@@ -15,16 +15,16 @@ book:
   image: images/logos/logo.png
   favicon: images/logos/favicon.ico
   #cookie-consent: true
-  #google-analytics: "G-6NP3MF25W3"
+  google-analytics: "G-6NP3MF25W3"
   page-navigation: true
   search: true
   # comments:
   #   hypothesis:
   #     theme: clean
   #     openSidebar: false
-  #repo-url: https://github.com/psyteachr/ads-v3/
-  #repo-branch: master
-  #repo-actions: [edit, issue, source]
+  repo-url: https://github.com/psyteachr/ads-v3/
+  repo-branch: master
+  repo-actions: [edit, issue, source]
 #  downloads: [pdf, epub]
   sharing:
   - twitter
@@ -33,16 +33,16 @@ book:
   # sidebar:
   #   style: docked
   #   background: light
-#  margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
+  margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
   page-footer:
     left: "CC-BY 2024, psyTeachR"
-#    right:
- #     - icon: github
-  #      href: https://github.com/psyteachr/ads-v3
-   #   - icon: twitter
-    #    href: https://twitter.com/psyteachr
-     # - icon: https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg
-      #  href: https://doi.org/10.5281/zenodo.6365077
+    right:
+    - icon: github
+      href: https://github.com/psyteachr/ads-v3
+    - icon: twitter
+      href: https://twitter.com/psyteachr
+    - icon: https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg
+      href: https://doi.org/10.5281/zenodo.6365077
   chapters:
   - index.qmd
   - 01-intro.qmd
