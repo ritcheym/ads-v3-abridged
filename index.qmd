@@ -34,3 +34,19 @@ Data skills do not require you to memorise lots of code. You will be introduced 
 :::
 
 Learning to code involves making a **lot** of mistakes. These mistakes are completely essential to the process, so try not to feel too frustrated. Many of the chapter exercises will give you broken code to fix so you get experience seeing what common errors look like. As you become a more experienced coder, you might not make fewer errors, but you'll recover from them much faster.
+
+## How (and why!) to enrol on ADS
+
+This book contains the core coding materials for Applied Data Skills (ADS). Open Educational Resources (OER) are a fundamental part of the PsyTeachR mission, however, we'd also encourage you to consider enrolling in the full version of ADS. ADS is primarily offered as an [Upskilling Course](https://www.gla.ac.uk/study/sfcupskilling/) through the University of Glasgow. If you're Scottish-domiciled, there are currently fully-funded places available through the Scottish Funding Council but you can also enrol as a [self-funded](https://www.gla.ac.uk/scholarships/upskilling/) student wherever you are in the world.
+
+In addition to this book, learners on ADS get:
+
+* Weekly lectures on the fundamentals of statistics, data visualization, and working with quantitative data
+* A curated reading list
+* Weekly quizzes
+* A formative assessment with a solution file and walkthrough video
+* A summative assessment that is individually graded. Successful completion of this assessment results in the award of a 10-credit SCQF Level 8 qualification.
+* Access to a friendly and inclusive learning community on Teams that provides on-demand technical and learning support by our two academic leads and a dedicated Teaching Assistant, as well as the opportunity to interact with and learn from peers. 
+* A supported schedule and syllabus that has been purposefully designed to be underpinned by the science of learning to maximize success.
+
+ADS currently runs in April each year and you can [subscribe to be notified](https://r1.dotdigital-pages.com/p/4S63-CAV) when applications open.
