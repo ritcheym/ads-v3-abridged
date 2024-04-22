@@ -375,10 +375,8 @@ vignette("ggplot2-specs", package = "ggplot2")
 
 The glossary at the end of each chapter defines common jargon you might encounter while learning R. This specialised vocabulary can help you to communicate more efficiently and to search for solutions to problems. The terms below link to our [PsyTeachR glossary](https://psyteachr.github.io/glossary/), which contains further information and examples.
 
-```{r, echo = FALSE, results='asis'}
-glossary_table(as_kable = FALSE) |> 
-  kableExtra::kable(row.names = FALSE, escape = FALSE) |>
-  unclass() |> cat()
+```{r, echo = FALSE}
+glossary_table()
 ```
 
 ## Further Resources {#sec-resources-intro}

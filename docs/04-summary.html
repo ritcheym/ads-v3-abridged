@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - 4&nbsp; Data Summaries</title>
 <style>
@@ -19,7 +19,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -79,7 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -88,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -98,8 +105,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><script src="site_libs/kePrint-0.0.1/kePrint.js"></script><link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link rel="stylesheet" href="include/psyteachr.css">
+</script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -107,23 +113,23 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-summary.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summaries</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-summary.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Summaries</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/psyteachr/ads-v3/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -315,7 +321,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><a href="https://doi.org/10.5281/zenodo.6365077"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg" alt="DOI"></a></p>
@@ -333,28 +339,28 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <li><a href="#clean-up-names" id="toc-clean-up-names" class="nav-link" data-scroll-target="#clean-up-names"><span class="header-section-number">4.3.1</span> Clean up names</a></li>
   <li><a href="#exploring-a-dataset" id="toc-exploring-a-dataset" class="nav-link" data-scroll-target="#exploring-a-dataset"><span class="header-section-number">4.3.2</span> Exploring a Dataset</a></li>
   <li><a href="#the-operator" id="toc-the-operator" class="nav-link" data-scroll-target="#the-operator"><span class="header-section-number">4.3.3</span> The $ operator</a></li>
-  <li><a href="#sec-pipes-first" id="toc-sec-pipes-first" class="nav-link" data-scroll-target="#sec-pipes-first"><span class="header-section-number">4.3.4</span> Pipes</a></li>
   </ul>
 </li>
-  <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting"><span class="header-section-number">4.4</span> Counting</a></li>
-  <li><a href="#sec-summary-summarise" id="toc-sec-summary-summarise" class="nav-link" data-scroll-target="#sec-summary-summarise"><span class="header-section-number">4.5</span> Summarise</a></li>
+  <li><a href="#sec-pipes-first" id="toc-sec-pipes-first" class="nav-link" data-scroll-target="#sec-pipes-first"><span class="header-section-number">4.4</span> Pipes</a></li>
+  <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting"><span class="header-section-number">4.5</span> Counting</a></li>
+  <li><a href="#sec-summary-summarise" id="toc-sec-summary-summarise" class="nav-link" data-scroll-target="#sec-summary-summarise"><span class="header-section-number">4.6</span> Summarise</a></li>
   <li>
-<a href="#sec-grouping" id="toc-sec-grouping" class="nav-link" data-scroll-target="#sec-grouping"><span class="header-section-number">4.6</span> Grouping</a>
+<a href="#sec-grouping" id="toc-sec-grouping" class="nav-link" data-scroll-target="#sec-grouping"><span class="header-section-number">4.7</span> Grouping</a>
   <ul class="collapse">
-<li><a href="#multiple-groupings" id="toc-multiple-groupings" class="nav-link" data-scroll-target="#multiple-groupings"><span class="header-section-number">4.6.1</span> Multiple groupings</a></li>
-  <li><a href="#percent-by-groups" id="toc-percent-by-groups" class="nav-link" data-scroll-target="#percent-by-groups"><span class="header-section-number">4.6.2</span> Percent by groups</a></li>
+<li><a href="#multiple-groupings" id="toc-multiple-groupings" class="nav-link" data-scroll-target="#multiple-groupings"><span class="header-section-number">4.7.1</span> Multiple groupings</a></li>
+  <li><a href="#percent-by-groups" id="toc-percent-by-groups" class="nav-link" data-scroll-target="#percent-by-groups"><span class="header-section-number">4.7.2</span> Percent by groups</a></li>
   </ul>
 </li>
-  <li><a href="#additional-functions" id="toc-additional-functions" class="nav-link" data-scroll-target="#additional-functions"><span class="header-section-number">4.7</span> Additional Functions</a></li>
+  <li><a href="#additional-functions" id="toc-additional-functions" class="nav-link" data-scroll-target="#additional-functions"><span class="header-section-number">4.8</span> Additional Functions</a></li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.8</span> Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.9</span> Exercises</a>
   <ul class="collapse">
-<li><a href="#share-on-teams" id="toc-share-on-teams" class="nav-link" data-scroll-target="#share-on-teams"><span class="header-section-number">4.8.1</span> Share on Teams</a></li>
+<li><a href="#share-on-teams" id="toc-share-on-teams" class="nav-link" data-scroll-target="#share-on-teams"><span class="header-section-number">4.9.1</span> Share on Teams</a></li>
   </ul>
 </li>
-  <li><a href="#sec-glossary-summary" id="toc-sec-glossary-summary" class="nav-link" data-scroll-target="#sec-glossary-summary"><span class="header-section-number">4.9</span> Glossary</a></li>
-  <li><a href="#sec-resources-summary" id="toc-sec-resources-summary" class="nav-link" data-scroll-target="#sec-resources-summary"><span class="header-section-number">4.10</span> Further resources</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v3/edit/master/04-summary.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v3/blob/master/04-summary.qmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#sec-glossary-summary" id="toc-sec-glossary-summary" class="nav-link" data-scroll-target="#sec-glossary-summary"><span class="header-section-number">4.10</span> Glossary</a></li>
+  <li><a href="#sec-resources-summary" id="toc-sec-resources-summary" class="nav-link" data-scroll-target="#sec-resources-summary"><span class="header-section-number">4.11</span> Further resources</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/psyteachr/ads-v3/edit/master/04-summary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/psyteachr/ads-v3/blob/master/04-summary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -370,6 +376,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
     
   </div>
   
+
 
 </header><section id="sec-ilo-summary" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-ilo-summary">Intended Learning Outcomes</h2>
 <ul>
@@ -390,15 +397,14 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <pre><strong>Chapter packages</strong></pre>
 </div>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)   <span class="co"># data wrangling functions</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(janitor)     <span class="co"># data cleaning functions</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(kableExtra)  <span class="co"># for nice tables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(janitor)     <span class="co"># data cleaning functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation cheat sheet</a>.</p>
 </section><section id="import-data" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="import-data">
 <span class="header-section-number">4.3</span> Import Data</h2>
 <p>The data we’ll be working with is on method of delivery for singleton births from Public Health Scotland. You can see the most recent version at <a href="https://www.opendata.nhs.scot/dataset/births-in-scottish-hospitals/resource/8654b6d8-9765-4ced-8e9b-4611aa4596eb">Method of Delivery</a>, but we’ll be working from a saved version.</p>
-<p>The data are in a <a href="https://psyteachr.github.io/glossary/c#csv" target="_blank" class="glossary" title="Comma-separated variable: a file type for representing data where each variable is separated from the next by a comma.">CSV</a> file (download <a href="data/12.1_delivery.csv" download="">12.1_delivery.csv</a>), so we can read this with the function <code>read_csv()</code> , and assign it to a new object that we’ll call <code>births</code>. You can learn more about importing data from other file types in <a href="app-import.html"><span>Appendix&nbsp;G</span></a>.</p>
+<p>The data are in a <a href="https://psyteachr.github.io/glossary/c#csv" target="_blank" class="glossary" title="Comma-separated variable: a file type for representing data where each variable is separated from the next by a comma.">CSV</a> file (download <a href="data/12.1_delivery.csv" download="">12.1_delivery.csv</a>), so we can read this with the function <code>read_csv()</code> , and assign it to a new object that we’ll call <code>births</code>. You can learn more about importing data from other file types in <a href="app-import.html" class="quarto-xref"><span>Appendix G</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>births <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/12.1_delivery.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -412,7 +418,7 @@ dbl (2): SIMDQuintile, Livebirths
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>When you load data with <code>read_csv()</code>, you get a quick summary that you should always check to see if the data were loaded correctly. One common problem is that data load with the the wrong type (see <a href="app-datatypes.html"><span>Appendix&nbsp;H</span></a>), usually because a numeric column contains some unexpected text values. So the first thing to check is that each column has the expected data type. The abbreviation “chr” means this is a <a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">character</a> column, which can contain any text. The abbreviation “dbl” is a <a href="https://psyteachr.github.io/glossary/d#double" target="_blank" class="glossary" title="A data type representing a real decimal number">double</a>, which is a number that can have decimal places.</p>
+<p>When you load data with <code>read_csv()</code>, you get a quick summary that you should always check to see if the data were loaded correctly. One common problem is that data load with the the wrong type (see <a href="app-datatypes.html" class="quarto-xref"><span>Appendix H</span></a>), usually because a numeric column contains some unexpected text values. So the first thing to check is that each column has the expected data type. The abbreviation “chr” means this is a <a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">character</a> column, which can contain any text. The abbreviation “dbl” is a <a href="https://psyteachr.github.io/glossary/d#double" target="_blank" class="glossary" title="A data type representing a real decimal number">double</a>, which is a number that can have decimal places.</p>
 <p>There are too many columns to show all of them in the summary, so it tells you to use the <code>spec()</code> function to check all the columns.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">spec</span>(births)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -453,32 +459,19 @@ $ Livebirths     &lt;dbl&gt; 9, 5, 8, 1, 6, 21, 60, 4, 4, 3, 1, 1, 1, 14, 2, 6, 
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">count</span>(births, SIMDQuintileQF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-SIMDQuintileQF
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">SIMDQuintileQF</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-:
-</td>
-<td style="text-align:right;">
-1137
-</td>
+<tr class="odd">
+<td style="text-align: left;">:</td>
+<td style="text-align: right;">1137</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-95940
-</td>
+<tr class="even">
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">95940</td>
 </tr>
 </tbody>
 </table>
@@ -502,158 +495,87 @@ NA
 <span id="cb10-3"><a href="#cb10-3"></a><span class="fu">count</span>(births, Induced, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-AgeGroup
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">AgeGroup</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-37557
-</td>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">37557</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-29592
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">29592</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:right;">
-29918
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: right;">29918</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-10
-</td>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">10</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-Delivery
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">Delivery</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:right;">
-25607
-</td>
+<tr class="odd">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: right;">25607</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:right;">
-22526
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: right;">22526</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:right;">
-19041
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: right;">19041</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:right;">
-14573
-</td>
+<tr class="even">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: right;">14573</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Elective
-</td>
-<td style="text-align:right;">
-12417
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: right;">12417</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:right;">
-2483
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: right;">2483</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:right;">
-430
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: right;">430</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-Induced
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">Induced</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-54217
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">54217</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-39097
-</td>
+<tr class="even">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">39097</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-3763
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">3763</td>
 </tr>
 </tbody>
 </table>
@@ -696,27 +618,21 @@ Tip
 <span id="cb13-6"><a href="#cb13-6"></a>                                   <span class="st">"Caesarean - Emergency"</span>, </span>
 <span id="cb13-7"><a href="#cb13-7"></a>                                   <span class="st">"Forceps"</span>, </span>
 <span id="cb13-8"><a href="#cb13-8"></a>                                   <span class="st">"Vacuum"</span>, </span>
-<span id="cb13-9"><a href="#cb13-9"></a>                                   <span class="st">"Caesarean = Elective"</span>, </span>
+<span id="cb13-9"><a href="#cb13-9"></a>                                   <span class="st">"Caesarean - Elective"</span>, </span>
 <span id="cb13-10"><a href="#cb13-10"></a>                                   <span class="st">"Breech"</span>, </span>
 <span id="cb13-11"><a href="#cb13-11"></a>                                   <span class="st">"Not Known"</span>)),</span>
 <span id="cb13-12"><a href="#cb13-12"></a>  <span class="at">Induced =</span> <span class="fu">col_factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Not Induced"</span>, <span class="st">"Induced"</span>, <span class="st">"Unknown"</span>))</span>
 <span id="cb13-13"><a href="#cb13-13"></a>)</span>
 <span id="cb13-14"><a href="#cb13-14"></a></span>
 <span id="cb13-15"><a href="#cb13-15"></a>births <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/12.1_delivery.csv"</span>, <span class="at">col_types =</span> birth_cols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
-e.g.:
-  dat &lt;- vroom(...)
-  problems(dat)</code></pre>
-</div>
 </div>
 <section id="clean-up-names" class="level3" data-number="4.3.1"><h3 data-number="4.3.1" class="anchored" data-anchor-id="clean-up-names">
 <span class="header-section-number">4.3.1</span> Clean up names</h3>
 <p>Data sets often import with column names that are a little difficult to use in code. You can manually rename them, but the <pkg>janitor</pkg> package makes this incredibly easy. This dataset has pretty good names, with no spaces or special characters, but it does use uppercase letters to separate words, which can be hard to remember. the <code>clean_names()</code> function changes everything to lowercase and uses underscores to separate word parts. Using <code>clean_names</code> every time you import a dataset is a good habit to get into.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>births <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(births)</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="fu">colnames</span>(births)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>births <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(births)</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">colnames</span>(births)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "financial_year" "ca"             "simd_quintile"  "simd_version"  
 [5] "age_group"      "delivery"       "induced"        "livebirths"    </code></pre>
@@ -787,90 +703,65 @@ e.g.:
 <span class="header-section-number">4.3.3</span> The $ operator</h3>
 <p>We need to take a couple of brief detours to introduce some additional coding conventions. First, let’s introduce the <code>$</code> notation. The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will return all the observations in that column.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>years <span class="ot">&lt;-</span> births<span class="sc">$</span>financial_year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>years <span class="ot">&lt;-</span> births<span class="sc">$</span>financial_year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If your item has multiple observations, you can specify which ones to return using square brackets <code>[]</code> and the row number or a <a href="https://psyteachr.github.io/glossary/v#vector" target="_blank" class="glossary" title="A type of data structure that collects values with the same data type, like T/F values, numbers, or strings.">vector</a> of row numbers.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>births<span class="sc">$</span>financial_year[<span class="dv">1</span>] <span class="co"># select one observation</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>births<span class="sc">$</span>age_group[<span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)] <span class="co"># select multiple with c()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>births<span class="sc">$</span>financial_year[<span class="dv">1</span>] <span class="co"># select the first observation</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>births<span class="sc">$</span>livebirths[<span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>)] <span class="co"># select multiple with c()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1997/98"
-[1] Under 25 25-34    Under 25
-Levels: Under 25 25-34 35 and over Unknown</code></pre>
+[1]  2 42  3</code></pre>
 </div>
 </div>
-</section><section id="sec-pipes-first" class="level3" data-number="4.3.4"><h3 data-number="4.3.4" class="anchored" data-anchor-id="sec-pipes-first">
-<span class="header-section-number">4.3.4</span> Pipes</h3>
+</section></section><section id="sec-pipes-first" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="sec-pipes-first">
+<span class="header-section-number">4.4</span> Pipes</h2>
 <div style="width: 200px; float: right;">
 <p><img src="images/tidy/pipe_sticker.png" style="width: 100%"></p>
 </div>
 <p>Let’s say you want to filter the dataset down to just the emergency C-sections, and then sum up the total number of live births per year, and then arrange the data from largest to smallest (don’t worry, we’ll introduce these functions soon). You could do it by creating intermediate objects for each step:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>c_sections <span class="ot">&lt;-</span> <span class="fu">filter</span>(births, delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2"></a>c_per_year <span class="ot">&lt;-</span> <span class="fu">summarise</span>(c_sections, <span class="at">n =</span> <span class="fu">sum</span>(livebirths), <span class="at">.by =</span> financial_year)</span>
-<span id="cb20-3"><a href="#cb20-3"></a>c_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(c_per_year, <span class="fu">desc</span>(n))</span>
-<span id="cb20-4"><a href="#cb20-4"></a></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">head</span>(c_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>c_sections <span class="ot">&lt;-</span> <span class="fu">filter</span>(births, </span>
+<span id="cb19-2"><a href="#cb19-2"></a>                     delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a>c_per_year <span class="ot">&lt;-</span> <span class="fu">summarise</span>(c_sections, </span>
+<span id="cb19-5"><a href="#cb19-5"></a>                        <span class="at">n =</span> <span class="fu">sum</span>(livebirths), </span>
+<span id="cb19-6"><a href="#cb19-6"></a>                        <span class="at">.by =</span> financial_year)</span>
+<span id="cb19-7"><a href="#cb19-7"></a></span>
+<span id="cb19-8"><a href="#cb19-8"></a>c_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(c_per_year, <span class="fu">desc</span>(n))</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="fu">head</span>(c_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-financial_year
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">financial_year</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-2014/15
-</td>
-<td style="text-align:right;">
-8964
-</td>
+<tr class="odd">
+<td style="text-align: left;">2014/15</td>
+<td style="text-align: right;">8964</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2015/16
-</td>
-<td style="text-align:right;">
-8958
-</td>
+<tr class="even">
+<td style="text-align: left;">2015/16</td>
+<td style="text-align: right;">8958</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2021/22
-</td>
-<td style="text-align:right;">
-8920
-</td>
+<tr class="odd">
+<td style="text-align: left;">2021/22</td>
+<td style="text-align: right;">8920</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2011/12
-</td>
-<td style="text-align:right;">
-8916
-</td>
+<tr class="even">
+<td style="text-align: left;">2011/12</td>
+<td style="text-align: right;">8916</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2013/14
-</td>
-<td style="text-align:right;">
-8810
-</td>
+<tr class="odd">
+<td style="text-align: left;">2013/14</td>
+<td style="text-align: right;">8810</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2022/23
-</td>
-<td style="text-align:right;">
-8739
-</td>
+<tr class="even">
+<td style="text-align: left;">2022/23</td>
+<td style="text-align: right;">8739</td>
 </tr>
 </tbody>
 </table>
@@ -880,75 +771,51 @@ n
 <p>Whilst the above code is functional, it adds three unnecessary objects to the environment, increasing the risk we’ll use one of these objects by mistake. Enter… the pipe.</p>
 <p>Let’s formally introduce the <a href="https://psyteachr.github.io/glossary/p#pipe" target="_blank" class="glossary" title="A way to order your code in a more readable format using the symbol %>%">pipe</a>, that weird <code>%&gt;%</code> you may have seen. Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before <code>%&gt;%</code> to be the first argument of the function after <code>%&gt;%</code>. It can be useful to translate the pipe as “<strong>and then</strong>”. It’s easier to show than tell, so let’s look at an example.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>c_per_year <span class="ot">&lt;-</span> births <span class="sc">%&gt;%</span> <span class="co"># start with the births table, and then</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="co"># filter the table to just emergency c-sections</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">filter</span>(delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="co"># calculate the total number of births per year</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths), <span class="at">.by =</span> financial_year) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>  <span class="co"># sort by n, descending</span></span>
-<span id="cb21-7"><a href="#cb21-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
-<span id="cb21-8"><a href="#cb21-8"></a></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="fu">head</span>(c_per_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>  <span class="co"># start with the births table       </span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>c_per_year <span class="ot">&lt;-</span> births <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  </span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="co"># filter the table to just emergency c-sections</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">filter</span>(delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>  </span>
+<span id="cb20-7"><a href="#cb20-7"></a>  <span class="co"># calculate the total number of births per year</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths), </span>
+<span id="cb20-9"><a href="#cb20-9"></a>            <span class="at">.by =</span> financial_year) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>  </span>
+<span id="cb20-11"><a href="#cb20-11"></a>  <span class="co"># sort by n, descending</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
+<span id="cb20-13"><a href="#cb20-13"></a></span>
+<span id="cb20-14"><a href="#cb20-14"></a><span class="fu">head</span>(c_per_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-financial_year
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">financial_year</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-2014/15
-</td>
-<td style="text-align:right;">
-8964
-</td>
+<tr class="odd">
+<td style="text-align: left;">2014/15</td>
+<td style="text-align: right;">8964</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2015/16
-</td>
-<td style="text-align:right;">
-8958
-</td>
+<tr class="even">
+<td style="text-align: left;">2015/16</td>
+<td style="text-align: right;">8958</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2021/22
-</td>
-<td style="text-align:right;">
-8920
-</td>
+<tr class="odd">
+<td style="text-align: left;">2021/22</td>
+<td style="text-align: right;">8920</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2011/12
-</td>
-<td style="text-align:right;">
-8916
-</td>
+<tr class="even">
+<td style="text-align: left;">2011/12</td>
+<td style="text-align: right;">8916</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2013/14
-</td>
-<td style="text-align:right;">
-8810
-</td>
+<tr class="odd">
+<td style="text-align: left;">2013/14</td>
+<td style="text-align: right;">8810</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2022/23
-</td>
-<td style="text-align:right;">
-8739
-</td>
+<tr class="even">
+<td style="text-align: left;">2022/23</td>
+<td style="text-align: right;">8739</td>
 </tr>
 </tbody>
 </table>
@@ -969,80 +836,47 @@ Note
 <p>Base R recently added a “native pipe” that looks like this: <code>|&gt;</code>, while the tidyverse has traditionally used the “magrittr pipe” that looks like this <code>%&gt;%</code>. They have a few small differences that you don’t need to learn about yet. We’ll be using the magrittr pipe, but you might see the base R pipe in other sources.</p>
 </div>
 </div>
-</section></section><section id="counting" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="counting">
-<span class="header-section-number">4.4</span> Counting</h2>
-<p>You can count categorical data with the <code>count()</code> function. This will give you a new table with each combination of the counted columns and a column called <code>n</code> containing the number of observations from that group.</p>
-<p>Let’s figure out how entries there were per delivery type. The first argument is the name of the data table object, and the second argument is the name of the column we want to count.</p>
+</section><section id="counting" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="counting">
+<span class="header-section-number">4.5</span> Counting</h2>
+<p>You can count categorical data with the <code>count()</code> function. This will give you a new table with each combination of the counted columns and a column called <code>n</code> containing the number of rows from that group.</p>
+<p>Let’s figure out how many entries there were per delivery type. The first argument is the name of the data table object, and the second argument is the name of the column we want to count.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">count</span>(births, delivery)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">count</span>(births, delivery)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">delivery</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:right;">
-25607
-</td>
+<tr class="odd">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: right;">25607</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:right;">
-22526
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: right;">22526</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:right;">
-19041
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: right;">19041</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:right;">
-14573
-</td>
+<tr class="even">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: right;">14573</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:right;">
-2483
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: right;">12417</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:right;">
-430
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: right;">2483</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-12417
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: right;">430</td>
 </tr>
 </tbody>
 </table>
@@ -1050,247 +884,127 @@ NA
 </div>
 </div>
 <p>There are 7 types of deliveries, and the new column <code>n</code> tells you how many rows of the data table there are per type.</p>
-<p>You can add on a column with the numbers expressed in percent using the function <code>mutate()</code>. We’ll go into more detail on how to use <code>mutate()</code> in <a href="09-wrangle.html"><span>Chapter&nbsp;9</span></a>, but for now, it can be used to add new columns or overwrite existing columns.</p>
+<p>You can add on a column with the numbers expressed in percent using the function <code>mutate()</code>. We’ll go into more detail on how to use <code>mutate()</code> in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a>, but for now, it can be used to add new columns or overwrite existing columns.</p>
+<p>The code below divides the value in the <code>n</code> column by the sum of the numbers in that column. The next step modifies the percent column by multiplying it by 100 and rounding the value. You could do this all in one step, like <code>round(100 * n / sum(n))</code>, but often it’s clearer to break it into a few steps to avoid too many nested parentheses.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">count</span>(births, delivery) <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">count</span>(births, delivery) <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
+<span id="cb22-3"><a href="#cb22-3"></a>         <span class="at">percent =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> percent))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-percent
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">delivery</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">percent</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:right;">
-25607
-</td>
-<td style="text-align:right;">
-26.3780298
-</td>
+<tr class="odd">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: right;">25607</td>
+<td style="text-align: right;">26</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:right;">
-22526
-</td>
-<td style="text-align:right;">
-23.2042605
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: right;">22526</td>
+<td style="text-align: right;">23</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:right;">
-19041
-</td>
-<td style="text-align:right;">
-19.6143268
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: right;">19041</td>
+<td style="text-align: right;">20</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:right;">
-14573
-</td>
-<td style="text-align:right;">
-15.0117948
-</td>
+<tr class="even">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: right;">14573</td>
+<td style="text-align: right;">15</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:right;">
-2483
-</td>
-<td style="text-align:right;">
-2.5577634
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: right;">12417</td>
+<td style="text-align: right;">13</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:right;">
-430
-</td>
-<td style="text-align:right;">
-0.4429474
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: right;">2483</td>
+<td style="text-align: right;">3</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-12417
-</td>
-<td style="text-align:right;">
-12.7908773
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<p>We can also count combination of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. We won’t add on percent just yet as the additional variable requires another function that we’ll come back to later.</p>
+<p>We can also count combinations of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. We won’t add on percent just yet as the additional variable requires another function that we’ll come back to later.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">count</span>(births, age_group, induced, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">count</span>(births, age_group, induced, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-age_group
-</th>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">age_group</th>
+<th style="text-align: left;">induced</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-20441
-</td>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">20441</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16965
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16965</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16805
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16805</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-15176
-</td>
+<tr class="even">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">15176</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-12206
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">12206</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-11711
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">11711</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-1940
-</td>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">1940</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-916
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">916</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-907
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">907</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-6
-</td>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">6</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">4</td>
 </tr>
 </tbody>
 </table>
@@ -1311,54 +1025,37 @@ Note
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:right;">
-n
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">induced</th>
+<th style="text-align: right;">n</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-54217
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">54217</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-39097
-</td>
+<tr class="even">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">39097</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-3763
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">3763</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div id="radio_GMOBKAXAIT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GMOBKAXAIT" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GMOBKAXAIT" value="x"><span><code>count(births, induced)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GMOBKAXAIT" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GMOBKAXAIT" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label>
+<div id="radio_GETQEAWRXY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="x"><span><code>count(births, induced)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label>
 </div>
 </div>
 </div>
 <p>However, the numbers above are not the number of births, but rather the number of rows in the data set. The column <code>live_births</code> contains the number per each category, so we will need to add those numbers together to see the total number of births.</p>
-</section><section id="sec-summary-summarise" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="sec-summary-summarise">
-<span class="header-section-number">4.5</span> Summarise</h2>
+</section><section id="sec-summary-summarise" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="sec-summary-summarise">
+<span class="header-section-number">4.6</span> Summarise</h2>
 <p>The <code>summarise()</code> function from the <pkg>dplyr</pkg> package is loaded as part of the tidyverse and creates summary statistics. It creates a new table with columns that summarise the data from a larger table using summary functions. Check the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data Transformation Cheat Sheet</a> for various summary functions. Some common ones are: <code>n()</code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, and <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code>.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1370,11 +1067,11 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you get the answer <code>NA</code> from a summary function, that usually means that there are missing values in the columns you were summarising. This may seem counter-intuitive but it is actually very logical if you consider that NA means “I don’t know the value of this cell” because the average of 1 + 2 + I don’t know isn’t 1.5, it’s “I don’t know”. We’ll discuss this more in <a href="09-wrangle.html#sec-missing-values"><span>Section&nbsp;9.3.2</span></a>, but you can ignore missing values for many functions by adding the argument <code>na.rm = TRUE</code>.</p>
+<p>If you get the answer <code>NA</code> from a summary function, that usually means that there are missing values in the columns you were summarising. This may seem counter-intuitive but it is actually very logical if you consider that NA means “I don’t know the value of this cell” because the average of 1 + 2 + I don’t know isn’t 1.5, it’s “I don’t know”. We’ll discuss this more in <a href="09-wrangle.html#sec-missing-values" class="quarto-xref"><span>Section 9.3.2</span></a>, but you can ignore missing values for many functions by adding the argument <code>na.rm = TRUE</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">2</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">mean</span>(values) <span class="co"># is NA</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">mean</span>(values, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># removes NAs first</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">2</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">mean</span>(values) <span class="co"># is NA</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="fu">mean</span>(values, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># removes NAs first</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA
 [1] 2.4</code></pre>
@@ -1390,21 +1087,16 @@ Warning
 <li>The values of these columns are the result of the summary operation on the right hand-side.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">summarise</span>(births,</span>
-<span id="cb27-2"><a href="#cb27-2"></a>          <span class="at">total_births =</span> <span class="fu">sum</span>(livebirths))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">summarise</span>(births,</span>
+<span id="cb26-2"><a href="#cb26-2"></a>          <span class="at">total_births =</span> <span class="fu">sum</span>(livebirths))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:right;">
-total_births
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: right;">total_births</th>
 </tr></thead>
-<tbody><tr>
-<td style="text-align:right;">
-1351669
-</td>
+<tbody><tr class="odd">
+<td style="text-align: right;">1351669</td>
 </tr></tbody>
 </table>
 </div>
@@ -1412,77 +1104,44 @@ total_births
 </div>
 <p>If you want to summarise by category, you can use the <code>.by</code> argument, as long as you have a version of dplyr that is 1.1.0 or above (if not, you can use the method in the next section).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">summarise</span>(births,</span>
-<span id="cb28-2"><a href="#cb28-2"></a>          <span class="at">total_births =</span> <span class="fu">sum</span>(livebirths),</span>
-<span id="cb28-3"><a href="#cb28-3"></a>          <span class="at">.by =</span> delivery)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">summarise</span>(births,</span>
+<span id="cb27-2"><a href="#cb27-2"></a>          <span class="at">total_births =</span> <span class="fu">sum</span>(livebirths),</span>
+<span id="cb27-3"><a href="#cb27-3"></a>          <span class="at">.by =</span> delivery)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:right;">
-total_births
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">delivery</th>
+<th style="text-align: right;">total_births</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-156405
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: right;">156405</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:right;">
-209473
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: right;">209473</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:right;">
-115698
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: right;">115698</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:right;">
-815827
-</td>
+<tr class="even">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: right;">815827</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:right;">
-50470
-</td>
+<tr class="odd">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: right;">50470</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:right;">
-3282
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: right;">3282</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:right;">
-514
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: right;">514</td>
 </tr>
 </tbody>
 </table>
@@ -1491,338 +1150,172 @@ Not Known
 </div>
 <p>If you want to group by more than one column, use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function to group the column names.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">summarise</span>(births,</span>
-<span id="cb29-2"><a href="#cb29-2"></a>          <span class="at">total_births =</span> <span class="fu">sum</span>(livebirths),</span>
-<span id="cb29-3"><a href="#cb29-3"></a>          <span class="at">.by =</span> <span class="fu">c</span>(delivery, induced))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">summarise</span>(births,</span>
+<span id="cb28-2"><a href="#cb28-2"></a>          <span class="at">total_births =</span> <span class="fu">sum</span>(livebirths),</span>
+<span id="cb28-3"><a href="#cb28-3"></a>          <span class="at">.by =</span> <span class="fu">c</span>(delivery, induced))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:right;">
-total_births
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">delivery</th>
+<th style="text-align: left;">induced</th>
+<th style="text-align: right;">total_births</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-154531
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">154531</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-81812
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">81812</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-125973
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">125973</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-42440
-</td>
+<tr class="even">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">42440</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-72528
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">72528</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-225033
-</td>
+<tr class="even">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">225033</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-586595
-</td>
+<tr class="odd">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">586595</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-32492
-</td>
+<tr class="even">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">32492</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-17714
-</td>
+<tr class="odd">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">17714</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-300
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">300</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-2966
-</td>
+<tr class="odd">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">2966</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-4199
-</td>
+<tr class="even">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">4199</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-264
-</td>
+<tr class="odd">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">264</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-1688
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">1688</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-331
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">331</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-1549
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">1549</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-730
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">730</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-146
-</td>
+<tr class="even">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">146</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-16
-</td>
+<tr class="odd">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">16</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-325
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">325</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-37
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">37</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-</section><section id="sec-grouping" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="sec-grouping">
-<span class="header-section-number">4.6</span> Grouping</h2>
+</section><section id="sec-grouping" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="sec-grouping">
+<span class="header-section-number">4.7</span> Grouping</h2>
 <p>You can also create summary values by group using a combination of <code>group_by()</code> and <code>summarise()</code>. The function <code>group_by()</code> takes an existing data table and converts it into a grouped table, where any operations that are subsequently performed on it are done “by group”.</p>
 <p>It differs from the <code>.by</code> argument to <code>summarise()</code> in that it is persistent, so the table stays grouped until you explicitly remove the groups using the <code>ungroup()</code> functions, while the <code>.by</code> argument only applies to the function it is inside. Most of the code examples you’ll see use this style, since the <code>.by</code> argument is fairly new.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>births <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">group_by</span>(delivery) <span class="sc">%&gt;%</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">summarise</span>(<span class="at">births =</span> <span class="fu">sum</span>(livebirths)) <span class="sc">%&gt;%</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>births <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">group_by</span>(delivery) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">summarise</span>(<span class="at">births =</span> <span class="fu">sum</span>(livebirths)) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:right;">
-births
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">delivery</th>
+<th style="text-align: right;">births</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:right;">
-815827
-</td>
+<tr class="odd">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: right;">815827</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:right;">
-209473
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: right;">209473</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:right;">
-115698
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: right;">115698</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:right;">
-50470
-</td>
+<tr class="even">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: right;">50470</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:right;">
-3282
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: right;">156405</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:right;">
-514
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: right;">3282</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-156405
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: right;">514</td>
 </tr>
 </tbody>
 </table>
@@ -1842,98 +1335,65 @@ Warning
 <p>Make sure you call the <code>ungroup()</code> function when you are done with grouped functions. Failing to do this can cause all sorts of mysterious problems if you use that data table later assuming it isn’t grouped.</p>
 </div>
 </div>
-<p>You might have noticed that the order of the table above is different from the order when using the <code>.by</code> argument of <code>summarise()</code>. This is because <code>group_by()</code> always sorts the values in the grouping columns in ascending order, while <code>.by</code> leaves them in the order they are first encountered in your data frame. Use the function <code>arrange()</code> to manually change order (see <a href="09-wrangle.html#sec-arrange"><span>Section&nbsp;9.2.3</span></a>).</p>
+<p>You might have noticed that the order of the table above is different from the order when using the <code>.by</code> argument of <code>summarise()</code>. This is because <code>group_by()</code> always sorts the values in the grouping columns in ascending order, while <code>.by</code> leaves them in the order they are first encountered in your data frame. Use the function <code>arrange()</code> to manually change order (see <a href="09-wrangle.html#sec-arrange" class="quarto-xref"><span>Section 9.2.3</span></a>).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>births <span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">group_by</span>(delivery) <span class="sc">%&gt;%</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">summarise</span>(<span class="at">births =</span> <span class="fu">sum</span>(livebirths)) <span class="sc">%&gt;%</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(births)) <span class="co"># sort by number of births in descending order</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>births <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">group_by</span>(delivery) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">summarise</span>(<span class="at">births =</span> <span class="fu">sum</span>(livebirths)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(births)) <span class="co"># sort by number of births in descending order</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:right;">
-births
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">delivery</th>
+<th style="text-align: right;">births</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:right;">
-815827
-</td>
+<tr class="odd">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: right;">815827</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:right;">
-209473
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: right;">209473</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-156405
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: right;">156405</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:right;">
-115698
-</td>
+<tr class="even">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: right;">115698</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:right;">
-50470
-</td>
+<tr class="odd">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: right;">50470</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:right;">
-3282
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: right;">3282</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:right;">
-514
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: right;">514</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<section id="multiple-groupings" class="level3" data-number="4.6.1"><h3 data-number="4.6.1" class="anchored" data-anchor-id="multiple-groupings">
-<span class="header-section-number">4.6.1</span> Multiple groupings</h3>
+<section id="multiple-groupings" class="level3" data-number="4.7.1"><h3 data-number="4.7.1" class="anchored" data-anchor-id="multiple-groupings">
+<span class="header-section-number">4.7.1</span> Multiple groupings</h3>
 <p>You can add multiple variables to <code>group_by()</code> to further break down your data. For example, the below gives us the number of births broken down by delivery type and year.</p>
 <ul>
 <li>Reverse the order of <code>delivery</code> and financial_year<code>in</code>group_by()` to see how it changes the output.</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>births <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">group_by</span>(delivery, financial_year) <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths)) <span class="sc">%&gt;%</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>births <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">group_by</span>(delivery, financial_year) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths)) <span class="sc">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1952,105 +1412,56 @@ Warning
 <p>Tidyverse recently added a message to remind you whether the <code>summarise()</code> function automatically ungroups grouped data or not (it may do different things depending on how it’s used). You can set the argument <code>.groups</code> to “drop”, “drop_last”, “keep”, or “rowwise” (see the help for <code>?summarise</code>), but it’s good practice to explicitly use <code>ungroup()</code> when you’re done working by groups, regardless.</p>
 </div>
 </div>
-</section><section id="percent-by-groups" class="level3" data-number="4.6.2"><h3 data-number="4.6.2" class="anchored" data-anchor-id="percent-by-groups">
-<span class="header-section-number">4.6.2</span> Percent by groups</h3>
+</section><section id="percent-by-groups" class="level3" data-number="4.7.2"><h3 data-number="4.7.2" class="anchored" data-anchor-id="percent-by-groups">
+<span class="header-section-number">4.7.2</span> Percent by groups</h3>
 <p>Calculating percent by groups is a great example of the flexibility of <code>group_by()</code> but also why you have to be very careful and always check the output of your code.</p>
 <p>When we just had one variable to count, adding percent was nice and easy:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">count</span>(births, delivery) <span class="sc">%&gt;%</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">count</span>(births, delivery) <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-percent
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">delivery</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">percent</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:right;">
-25607
-</td>
-<td style="text-align:right;">
-26.3780298
-</td>
+<tr class="odd">
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: right;">25607</td>
+<td style="text-align: right;">26.3780298</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:right;">
-22526
-</td>
-<td style="text-align:right;">
-23.2042605
-</td>
+<tr class="even">
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: right;">22526</td>
+<td style="text-align: right;">23.2042605</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:right;">
-19041
-</td>
-<td style="text-align:right;">
-19.6143268
-</td>
+<tr class="odd">
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: right;">19041</td>
+<td style="text-align: right;">19.6143268</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:right;">
-14573
-</td>
-<td style="text-align:right;">
-15.0117948
-</td>
+<tr class="even">
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: right;">14573</td>
+<td style="text-align: right;">15.0117948</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Breech
-</td>
-<td style="text-align:right;">
-2483
-</td>
-<td style="text-align:right;">
-2.5577634
-</td>
+<tr class="odd">
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: right;">12417</td>
+<td style="text-align: right;">12.7908773</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Known
-</td>
-<td style="text-align:right;">
-430
-</td>
-<td style="text-align:right;">
-0.4429474
-</td>
+<tr class="even">
+<td style="text-align: left;">Breech</td>
+<td style="text-align: right;">2483</td>
+<td style="text-align: right;">2.5577634</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:right;">
-12417
-</td>
-<td style="text-align:right;">
-12.7908773
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Known</td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">0.4429474</td>
 </tr>
 </tbody>
 </table>
@@ -2059,180 +1470,83 @@ NA
 </div>
 <p>With multiple variables, problems can arise if we use the exact same approach because by default, it will calculate the percent that each row contributes to the dataset as a whole. This might be what you want:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">count</span>(births, age_group, induced, <span class="at">sort =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">count</span>(births, age_group, induced, <span class="at">sort =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-age_group
-</th>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-percent
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">age_group</th>
+<th style="text-align: left;">induced</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">percent</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-20441
-</td>
-<td style="text-align:right;">
-21.0564809
-</td>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">20441</td>
+<td style="text-align: right;">21.0564809</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16965
-</td>
-<td style="text-align:right;">
-17.4758182
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16965</td>
+<td style="text-align: right;">17.4758182</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16805
-</td>
-<td style="text-align:right;">
-17.3110005
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16805</td>
+<td style="text-align: right;">17.3110005</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-15176
-</td>
-<td style="text-align:right;">
-15.6329512
-</td>
+<tr class="even">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">15176</td>
+<td style="text-align: right;">15.6329512</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-12206
-</td>
-<td style="text-align:right;">
-12.5735241
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">12206</td>
+<td style="text-align: right;">12.5735241</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-11711
-</td>
-<td style="text-align:right;">
-12.0636196
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">11711</td>
+<td style="text-align: right;">12.0636196</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-1940
-</td>
-<td style="text-align:right;">
-1.9984136
-</td>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">1.9984136</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-916
-</td>
-<td style="text-align:right;">
-0.9435809
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">916</td>
+<td style="text-align: right;">0.9435809</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-907
-</td>
-<td style="text-align:right;">
-0.9343099
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">907</td>
+<td style="text-align: right;">0.9343099</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0061807
-</td>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0061807</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0041204
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0041204</td>
 </tr>
 </tbody>
 </table>
@@ -2241,362 +1555,168 @@ Induced
 </div>
 <p>However, it’s more likely that you would want to calculate percent by groups. For example, what percent of people in the Induced category were in which age group? Or what percent of 25-34 year olds were induced? To calculate these numbers, we add in a call to <code>group_by()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># group by age, percentages within each age group will sum to 100</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">count</span>(births, age_group, induced)<span class="sc">%&gt;%</span> <span class="co">#age then induced</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span></span>
-<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span>
-<span id="cb35-5"><a href="#cb35-5"></a></span>
-<span id="cb35-6"><a href="#cb35-6"></a><span class="co"># group by induced, percentages within each induction group will sum to 100</span></span>
-<span id="cb35-7"><a href="#cb35-7"></a><span class="fu">count</span>(births, induced, age_group)<span class="sc">%&gt;%</span> <span class="co">#induced then age</span></span>
-<span id="cb35-8"><a href="#cb35-8"></a>  <span class="fu">group_by</span>(induced) <span class="sc">%&gt;%</span></span>
-<span id="cb35-9"><a href="#cb35-9"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># group by age, percentages within each age group will sum to 100</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">count</span>(births, age_group, induced)<span class="sc">%&gt;%</span> <span class="co">#age then induced</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb34-5"><a href="#cb34-5"></a></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="co"># group by induced, percentages within each induction group will sum to 100</span></span>
+<span id="cb34-7"><a href="#cb34-7"></a><span class="fu">count</span>(births, induced, age_group)<span class="sc">%&gt;%</span> <span class="co">#induced then age</span></span>
+<span id="cb34-8"><a href="#cb34-8"></a>  <span class="fu">group_by</span>(induced) <span class="sc">%&gt;%</span></span>
+<span id="cb34-9"><a href="#cb34-9"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-age_group
-</th>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-percent
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">age_group</th>
+<th style="text-align: left;">induced</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">percent</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16805
-</td>
-<td style="text-align:right;">
-56.170198
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16805</td>
+<td style="text-align: right;">56.170198</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-12206
-</td>
-<td style="text-align:right;">
-40.798182
-</td>
+<tr class="even">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">12206</td>
+<td style="text-align: right;">40.798182</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-907
-</td>
-<td style="text-align:right;">
-3.031620
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">907</td>
+<td style="text-align: right;">3.031620</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-20441
-</td>
-<td style="text-align:right;">
-54.426605
-</td>
+<tr class="even">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">20441</td>
+<td style="text-align: right;">54.426605</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-15176
-</td>
-<td style="text-align:right;">
-40.407913
-</td>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">15176</td>
+<td style="text-align: right;">40.407913</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-1940
-</td>
-<td style="text-align:right;">
-5.165482
-</td>
+<tr class="even">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">5.165482</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16965
-</td>
-<td style="text-align:right;">
-57.329684
-</td>
+<tr class="odd">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16965</td>
+<td style="text-align: right;">57.329684</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-11711
-</td>
-<td style="text-align:right;">
-39.574885
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">11711</td>
+<td style="text-align: right;">39.574885</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-916
-</td>
-<td style="text-align:right;">
-3.095431
-</td>
+<tr class="odd">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">916</td>
+<td style="text-align: right;">3.095431</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-60.000000
-</td>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">60.000000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-40.000000
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">40.000000</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:left;">
-age_group
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-percent
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">induced</th>
+<th style="text-align: left;">age_group</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">percent</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:right;">
-16805
-</td>
-<td style="text-align:right;">
-30.9958131
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: right;">16805</td>
+<td style="text-align: right;">30.9958131</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-20441
-</td>
-<td style="text-align:right;">
-37.7021967
-</td>
+<tr class="even">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">20441</td>
+<td style="text-align: right;">37.7021967</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-16965
-</td>
-<td style="text-align:right;">
-31.2909235
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">16965</td>
+<td style="text-align: right;">31.2909235</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0110666
-</td>
+<tr class="even">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0110666</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:right;">
-12206
-</td>
-<td style="text-align:right;">
-31.2197867
-</td>
+<tr class="odd">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: right;">12206</td>
+<td style="text-align: right;">31.2197867</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-15176
-</td>
-<td style="text-align:right;">
-38.8162775
-</td>
+<tr class="even">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">15176</td>
+<td style="text-align: right;">38.8162775</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-11711
-</td>
-<td style="text-align:right;">
-29.9537049
-</td>
+<tr class="odd">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">11711</td>
+<td style="text-align: right;">29.9537049</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0102310
-</td>
+<tr class="even">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0102310</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:right;">
-907
-</td>
-<td style="text-align:right;">
-24.1031092
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: right;">907</td>
+<td style="text-align: right;">24.1031092</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-1940
-</td>
-<td style="text-align:right;">
-51.5546107
-</td>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">51.5546107</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-916
-</td>
-<td style="text-align:right;">
-24.3422801
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">916</td>
+<td style="text-align: right;">24.3422801</td>
 </tr>
 </tbody>
 </table>
@@ -2605,371 +1725,177 @@ Unknown
 </div>
 <p>If you have updated <pkg>dyplr</pkg> then you can also use the <code>.by</code> argument in <code>mutate()</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># group by age, percentages within each age group will sum to 100</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="fu">count</span>(births, age_group, induced)<span class="sc">%&gt;%</span> <span class="co">#age then induced</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>,</span>
-<span id="cb36-4"><a href="#cb36-4"></a>         <span class="at">.by =</span> age_group)</span>
-<span id="cb36-5"><a href="#cb36-5"></a></span>
-<span id="cb36-6"><a href="#cb36-6"></a><span class="co"># group by induced, percentages within each induction group will sum to 100</span></span>
-<span id="cb36-7"><a href="#cb36-7"></a><span class="fu">count</span>(births, induced, age_group)<span class="sc">%&gt;%</span> <span class="co">#induced then age</span></span>
-<span id="cb36-8"><a href="#cb36-8"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>,</span>
-<span id="cb36-9"><a href="#cb36-9"></a>         <span class="at">.by =</span> induced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># group by age, percentages within each age group will sum to 100</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">count</span>(births, age_group, induced)<span class="sc">%&gt;%</span> <span class="co">#age then induced</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>         <span class="at">.by =</span> age_group)</span>
+<span id="cb35-5"><a href="#cb35-5"></a></span>
+<span id="cb35-6"><a href="#cb35-6"></a><span class="co"># group by induced, percentages within each induction group will sum to 100</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a><span class="fu">count</span>(births, induced, age_group)<span class="sc">%&gt;%</span> <span class="co">#induced then age</span></span>
+<span id="cb35-8"><a href="#cb35-8"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>,</span>
+<span id="cb35-9"><a href="#cb35-9"></a>         <span class="at">.by =</span> induced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-age_group
-</th>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-percent
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">age_group</th>
+<th style="text-align: left;">induced</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">percent</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16805
-</td>
-<td style="text-align:right;">
-56.170198
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16805</td>
+<td style="text-align: right;">56.170198</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-12206
-</td>
-<td style="text-align:right;">
-40.798182
-</td>
+<tr class="even">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">12206</td>
+<td style="text-align: right;">40.798182</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-907
-</td>
-<td style="text-align:right;">
-3.031620
-</td>
+<tr class="odd">
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">907</td>
+<td style="text-align: right;">3.031620</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-20441
-</td>
-<td style="text-align:right;">
-54.426605
-</td>
+<tr class="even">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">20441</td>
+<td style="text-align: right;">54.426605</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-15176
-</td>
-<td style="text-align:right;">
-40.407913
-</td>
+<tr class="odd">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">15176</td>
+<td style="text-align: right;">40.407913</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-1940
-</td>
-<td style="text-align:right;">
-5.165482
-</td>
+<tr class="even">
+<td style="text-align: left;">25-34</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">5.165482</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-16965
-</td>
-<td style="text-align:right;">
-57.329684
-</td>
+<tr class="odd">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">16965</td>
+<td style="text-align: right;">57.329684</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-11711
-</td>
-<td style="text-align:right;">
-39.574885
-</td>
+<tr class="even">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">11711</td>
+<td style="text-align: right;">39.574885</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-916
-</td>
-<td style="text-align:right;">
-3.095431
-</td>
+<tr class="odd">
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">916</td>
+<td style="text-align: right;">3.095431</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-60.000000
-</td>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">60.000000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-40.000000
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Induced</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">40.000000</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-induced
-</th>
-<th style="text-align:left;">
-age_group
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-percent
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">induced</th>
+<th style="text-align: left;">age_group</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">percent</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:right;">
-16805
-</td>
-<td style="text-align:right;">
-30.9958131
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: right;">16805</td>
+<td style="text-align: right;">30.9958131</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-20441
-</td>
-<td style="text-align:right;">
-37.7021967
-</td>
+<tr class="even">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">20441</td>
+<td style="text-align: right;">37.7021967</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-16965
-</td>
-<td style="text-align:right;">
-31.2909235
-</td>
+<tr class="odd">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">16965</td>
+<td style="text-align: right;">31.2909235</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Not Induced
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-0.0110666
-</td>
+<tr class="even">
+<td style="text-align: left;">Not Induced</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0110666</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:right;">
-12206
-</td>
-<td style="text-align:right;">
-31.2197867
-</td>
+<tr class="odd">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: right;">12206</td>
+<td style="text-align: right;">31.2197867</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-15176
-</td>
-<td style="text-align:right;">
-38.8162775
-</td>
+<tr class="even">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">15176</td>
+<td style="text-align: right;">38.8162775</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-11711
-</td>
-<td style="text-align:right;">
-29.9537049
-</td>
+<tr class="odd">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">11711</td>
+<td style="text-align: right;">29.9537049</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Induced
-</td>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.0102310
-</td>
+<tr class="even">
+<td style="text-align: left;">Induced</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0102310</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-Under 25
-</td>
-<td style="text-align:right;">
-907
-</td>
-<td style="text-align:right;">
-24.1031092
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">Under 25</td>
+<td style="text-align: right;">907</td>
+<td style="text-align: right;">24.1031092</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-1940
-</td>
-<td style="text-align:right;">
-51.5546107
-</td>
+<tr class="even">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">51.5546107</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unknown
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-916
-</td>
-<td style="text-align:right;">
-24.3422801
-</td>
+<tr class="odd">
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">916</td>
+<td style="text-align: right;">24.3422801</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-</section></section><section id="additional-functions" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="additional-functions">
-<span class="header-section-number">4.7</span> Additional Functions</h2>
-<p>You can also use additional functions like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> after <code>group_by</code> or with the <code>.by</code> argument. You’ll learn more about these in <a href="09-wrangle.html"><span>Chapter&nbsp;9</span></a> but briefly:</p>
+</section></section><section id="additional-functions" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="additional-functions">
+<span class="header-section-number">4.8</span> Additional Functions</h2>
+<p>You can also use additional functions like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> after <code>group_by</code> or with the <code>.by</code> argument. You’ll learn more about these in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a> but briefly:</p>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> keeps observations (rows) according to specified criteria, e.g., all values above 5, or all induced births</li>
@@ -2982,142 +1908,71 @@ Unknown
 <li>filter your data to remove unknown ages and delivery types</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>births_per_year_type_age <span class="ot">&lt;-</span> births <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">str_extract</span>(financial_year, <span class="st">".{4}"</span>), <span class="co"># takes first four digits</span></span>
-<span id="cb37-3"><a href="#cb37-3"></a>         <span class="at">year =</span> <span class="fu">as.integer</span>(year)) <span class="sc">%&gt;%</span> <span class="co"># transform to numeric</span></span>
-<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">filter</span>(age_group <span class="sc">!=</span> <span class="st">"Unknown"</span>, <span class="co"># remove unknown</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a>         delivery <span class="sc">!=</span> <span class="st">"Not Known"</span>) <span class="sc">%&gt;%</span> <span class="co"># remove not known</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths),</span>
-<span id="cb37-7"><a href="#cb37-7"></a>            <span class="at">.by =</span> <span class="fu">c</span>(year, delivery, age_group)) <span class="sc">%&gt;%</span></span>
-<span id="cb37-8"><a href="#cb37-8"></a>  <span class="fu">mutate</span>(<span class="at">pcnt =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>, </span>
-<span id="cb37-9"><a href="#cb37-9"></a>         <span class="at">.by =</span> <span class="fu">c</span>(year, age_group))</span>
-<span id="cb37-10"><a href="#cb37-10"></a>  </span>
-<span id="cb37-11"><a href="#cb37-11"></a></span>
-<span id="cb37-12"><a href="#cb37-12"></a><span class="co"># show just the first 6 rows</span></span>
-<span id="cb37-13"><a href="#cb37-13"></a><span class="fu">head</span>(births_per_year_type_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>births_per_year_type_age <span class="ot">&lt;-</span> births <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">str_extract</span>(financial_year, <span class="st">".{4}"</span>), <span class="co"># takes first four digits</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>         <span class="at">year =</span> <span class="fu">as.integer</span>(year)) <span class="sc">%&gt;%</span> <span class="co"># transform to numeric</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">filter</span>(age_group <span class="sc">!=</span> <span class="st">"Unknown"</span>, <span class="co"># remove unknown</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>         delivery <span class="sc">!=</span> <span class="st">"Not Known"</span>) <span class="sc">%&gt;%</span> <span class="co"># remove not known</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths),</span>
+<span id="cb36-7"><a href="#cb36-7"></a>            <span class="at">.by =</span> <span class="fu">c</span>(year, delivery, age_group)) <span class="sc">%&gt;%</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>  <span class="fu">mutate</span>(<span class="at">pcnt =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>, </span>
+<span id="cb36-9"><a href="#cb36-9"></a>         <span class="at">.by =</span> <span class="fu">c</span>(year, age_group))</span>
+<span id="cb36-10"><a href="#cb36-10"></a>  </span>
+<span id="cb36-11"><a href="#cb36-11"></a></span>
+<span id="cb36-12"><a href="#cb36-12"></a><span class="co"># show just the first 6 rows</span></span>
+<span id="cb36-13"><a href="#cb36-13"></a><span class="fu">head</span>(births_per_year_type_age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-
-<table>
-<thead><tr>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:left;">
-delivery
-</th>
-<th style="text-align:left;">
-age_group
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-pcnt
-</th>
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">delivery</th>
+<th style="text-align: left;">age_group</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">pcnt</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-3875
-</td>
-<td style="text-align:right;">
-12.095390
-</td>
+<tr class="odd">
+<td style="text-align: right;">1997</td>
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">2454</td>
+<td style="text-align: right;">7.114899</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-2570
-</td>
-<td style="text-align:right;">
-8.021975
-</td>
+<tr class="even">
+<td style="text-align: right;">1997</td>
+<td style="text-align: left;">Caesarean - Emergency</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">3875</td>
+<td style="text-align: right;">11.234815</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:left;">
-Spontaneous
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-23933
-</td>
-<td style="text-align:right;">
-74.704248
-</td>
+<tr class="odd">
+<td style="text-align: right;">1997</td>
+<td style="text-align: left;">Forceps</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">2570</td>
+<td style="text-align: right;">7.451219</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:left;">
-Vacuum
-</td>
-<td style="text-align:left;">
-25-34
-</td>
-<td style="text-align:right;">
-1534
-</td>
-<td style="text-align:right;">
-4.788214
-</td>
+<tr class="even">
+<td style="text-align: right;">1997</td>
+<td style="text-align: left;">Spontaneous</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">23933</td>
+<td style="text-align: right;">69.389116</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:left;">
-Caesarean - Emergency
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-1013
-</td>
-<td style="text-align:right;">
-15.362451
-</td>
+<tr class="odd">
+<td style="text-align: right;">1997</td>
+<td style="text-align: left;">Vacuum</td>
+<td style="text-align: left;">25-34</td>
+<td style="text-align: right;">1534</td>
+<td style="text-align: right;">4.447537</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:left;">
-Forceps
-</td>
-<td style="text-align:left;">
-35 and over
-</td>
-<td style="text-align:right;">
-473
-</td>
-<td style="text-align:right;">
-7.173188
-</td>
+<tr class="even">
+<td style="text-align: right;">1997</td>
+<td style="text-align: left;">Caesarean - Elective</td>
+<td style="text-align: left;">35 and over</td>
+<td style="text-align: right;">801</td>
+<td style="text-align: right;">10.831643</td>
 </tr>
 </tbody>
 </table>
@@ -3137,26 +1992,30 @@ Note
 <p>Re-write the code above using <code>group_by()</code> instead of the <code>.by</code> argument?</p>
 </div>
 </div>
-<p>Now you can use your skills from <a href="03-viz.html"><span>Chapter&nbsp;3</span></a> to plot the data! The code below has a few elements you haven’t seen before. For example, it adds a transparent horizontal line at 0, which is a trick to force all the y-axes to start at 0, but allows different scales per facet. It also angles the text in the x-axis.</p>
+<p>Now you can use your skills from <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a> to plot the data! The code below has a few elements you haven’t seen before. For example, it adds a transparent horizontal line at 0, which is a trick to force all the y-axes to start at 0, but allows different scales per facet. It also angles the text in the x-axis.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>births_per_year_type_age  <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> pcnt, <span class="at">color =</span> age_group)) <span class="sc">+</span></span>
-<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>delivery, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"transparent"</span>) <span class="sc">+</span> </span>
-<span id="cb38-6"><a href="#cb38-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, </span>
-<span id="cb38-7"><a href="#cb38-7"></a>       <span class="at">y =</span> <span class="st">"Percent of Live Births per Year"</span>,</span>
-<span id="cb38-8"><a href="#cb38-8"></a>       <span class="at">color =</span> <span class="st">"Age Group"</span>) <span class="sc">+</span></span>
-<span id="cb38-9"><a href="#cb38-9"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>births_per_year_type_age  <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> pcnt, <span class="at">color =</span> age_group)) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>delivery, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"transparent"</span>) <span class="sc">+</span> </span>
+<span id="cb37-6"><a href="#cb37-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, </span>
+<span id="cb37-7"><a href="#cb37-7"></a>       <span class="at">y =</span> <span class="st">"Percent of Live Births per Year"</span>,</span>
+<span id="cb37-8"><a href="#cb37-8"></a>       <span class="at">color =</span> <span class="st">"Age Group"</span>) <span class="sc">+</span></span>
+<span id="cb37-9"><a href="#cb37-9"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-birth-year-type-age" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="04-summary_files/figure-html/fig-birth-year-type-age-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;4.1: <strong>?(caption)</strong></figcaption></figure>
+<div id="fig-birth-year-type-age" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" width="100%">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-birth-year-type-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-summary_files/figure-html/fig-birth-year-type-age-1.png" id="fig-birth-year-type-age" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-birth-year-type-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1
+</figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="exercises" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">4.8</span> Exercises</h2>
+</section><section id="exercises" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">4.9</span> Exercises</h2>
 <p>Take a break and then try one (or more) of the following:</p>
 <ul>
 <li>Create an Rmd report that presents the above code with nice formatting. For example, hide the code from the output and format the tables.</li>
@@ -3164,57 +2023,57 @@ Note
 <li>Download a different data set from <a href="https://www.opendata.nhs.scot/">Scottish Health and Social Care Open Data</a> and create summary tables and plots.</li>
 <li>If you have data of your own, practice summarising this in R.</li>
 </ul>
-<section id="share-on-teams" class="level3" data-number="4.8.1"><h3 data-number="4.8.1" class="anchored" data-anchor-id="share-on-teams">
-<span class="header-section-number">4.8.1</span> Share on Teams</h3>
+<section id="share-on-teams" class="level3" data-number="4.9.1"><h3 data-number="4.9.1" class="anchored" data-anchor-id="share-on-teams">
+<span class="header-section-number">4.9.1</span> Share on Teams</h3>
 <p>Once you’re done, share your knitted report and the Rmd file on Teams in the Week 04 channel.</p>
-</section></section><section id="sec-glossary-summary" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="sec-glossary-summary">
-<span class="header-section-number">4.9</span> Glossary</h2>
+</section></section><section id="sec-glossary-summary" class="level2" data-number="4.10"><h2 data-number="4.10" class="anchored" data-anchor-id="sec-glossary-summary">
+<span class="header-section-number">4.10</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table table-sm table-striped small">
 <thead><tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">definition</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: left;">definition</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/c#categorical" target="_blank">categorical</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/c#categorical" class="glossary" target="_blank">categorical</a></td>
 <td style="text-align: left;">Data that can only take certain values, such as types of pet.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/c#character" target="_blank">character</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/c#character" class="glossary" target="_blank">character</a></td>
 <td style="text-align: left;">A data type representing strings of text.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/c#csv" target="_blank">csv</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/c#csv" class="glossary" target="_blank">csv</a></td>
 <td style="text-align: left;">Comma-separated variable: a file type for representing data where each variable is separated from the next by a comma.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/d#double" target="_blank">double</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/d#double" class="glossary" target="_blank">double</a></td>
 <td style="text-align: left;">A data type representing a real decimal number</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/m#mean" target="_blank">mean</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/m#mean" class="glossary" target="_blank">mean</a></td>
 <td style="text-align: left;">A descriptive statistic that measures the average value of a set of numbers.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/m#median" target="_blank">median</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/m#median" class="glossary" target="_blank">median</a></td>
 <td style="text-align: left;">The middle number in a distribution where half of the values are larger and half are smaller.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/p#pipe" target="_blank">pipe</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/p#pipe" class="glossary" target="_blank">pipe</a></td>
 <td style="text-align: left;">A way to order your code in a more readable format using the symbol %&gt;%</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/v#vector" target="_blank">vector</a></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/v#vector" class="glossary" target="_blank">vector</a></td>
 <td style="text-align: left;">A type of data structure that collects values with the same data type, like T/F values, numbers, or strings.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</section><section id="sec-resources-summary" class="level2" data-number="4.10"><h2 data-number="4.10" class="anchored" data-anchor-id="sec-resources-summary">
-<span class="header-section-number">4.10</span> Further resources</h2>
+</section><section id="sec-resources-summary" class="level2" data-number="4.11"><h2 data-number="4.11" class="anchored" data-anchor-id="sec-resources-summary">
+<span class="header-section-number">4.11</span> Further resources</h2>
 <ul>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation cheat sheet</a></li>
 <li>
@@ -3461,6 +2320,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -3527,13 +2413,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -3612,10 +2500,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -3625,8 +2530,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -3638,7 +2552,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -3682,6 +2719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -3707,6 +2745,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -3766,22 +2830,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./03-viz.html" class="pagination-link">
+      <a href="./03-viz.html" class="pagination-link" aria-label="Data Visualisation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Visualisation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-formative.html" class="pagination-link">
+      <a href="./05-formative.html" class="pagination-link" aria-label="Practice Report">
         <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practice Report</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">CC-BY 2024, psyTeachR</div>   
+    <div class="nav-footer-left">
+<p>CC-BY 2024, psyTeachR</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/psyteachr/ads-v3/edit/master/04-summary.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/psyteachr/ads-v3/blob/master/04-summary.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">

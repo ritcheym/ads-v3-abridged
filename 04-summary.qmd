@@ -23,7 +23,6 @@ First, create a new project for the work we'll do in this chapter named `r path(
 ```{r setup-summary, message=FALSE, warning = FALSE, filename="Chapter packages"}
 library(tidyverse)   # data wrangling functions
 library(janitor)     # data cleaning functions
-library(kableExtra)  # for nice tables
 ```
 
 Download the [Data transformation cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf).
@@ -105,7 +104,7 @@ birth_cols <- cols(
                                    "Caesarean - Emergency", 
                                    "Forceps", 
                                    "Vacuum", 
-                                   "Caesarean = Elective", 
+                                   "Caesarean - Elective", 
                                    "Breech", 
                                    "Not Known")),
   Induced = col_factor(levels = c("Not Induced", "Induced", "Unknown"))
@@ -154,11 +153,11 @@ years <- births$financial_year
 If your item has multiple observations, you can specify which ones to return using square brackets `[]` and the row number or a `r glossary("vector")` of row numbers.
 
 ```{r}
-births$financial_year[1] # select one observation
-births$age_group[c(20,30,40)] # select multiple with c()
+births$financial_year[1] # select the first observation
+births$livebirths[c(20,30,40)] # select multiple with c()
 ```
 
-### Pipes {#sec-pipes-first}
+## Pipes {#sec-pipes-first}
 
 ::: {style="width: 200px; float: right;"}
 <img src="images/tidy/pipe_sticker.png" style="width: 100%"/>
@@ -167,8 +166,13 @@ births$age_group[c(20,30,40)] # select multiple with c()
 Let's say you want to filter the dataset down to just the emergency C-sections, and then sum up the total number of live births per year, and then arrange the data from largest to smallest (don't worry, we'll introduce these functions soon). You could do it by creating intermediate objects for each step:
 
 ```{r}
-c_sections <- filter(births, delivery == "Caesarean - Emergency")
-c_per_year <- summarise(c_sections, n = sum(livebirths), .by = financial_year)
+c_sections <- filter(births, 
+                     delivery == "Caesarean - Emergency")
+
+c_per_year <- summarise(c_sections, 
+                        n = sum(livebirths), 
+                        .by = financial_year)
+
 c_sorted <- arrange(c_per_year, desc(n))
 
 head(c_sorted)
@@ -179,12 +183,16 @@ Whilst the above code is functional, it adds three unnecessary objects to the en
 Let's formally introduce the `r glossary("pipe")`, that weird `%>%` you may have seen. Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before `%>%` to be the first argument of the function after `%>%`. It can be useful to translate the pipe as "**and then**". It's easier to show than tell, so let's look at an example.
 
 ```{r}
-              
-c_per_year <- births %>% # start with the births table, and then
+  # start with the births table       
+c_per_year <- births %>% # and then
+  
   # filter the table to just emergency c-sections
   filter(delivery == "Caesarean - Emergency") %>% # and then
+  
   # calculate the total number of births per year
-  summarise(n = sum(livebirths), .by = financial_year) %>% # and then
+  summarise(n = sum(livebirths), 
+            .by = financial_year) %>% # and then
+  
   # sort by n, descending
   arrange(desc(n))
 
@@ -199,9 +207,9 @@ Base R recently added a "native pipe" that looks like this: `|>`, while the tidy
 
 ## Counting
 
-You can count categorical data with the `count()` function. This will give you a new table with each combination of the counted columns and a column called `n` containing the number of observations from that group. 
+You can count categorical data with the `count()` function. This will give you a new table with each combination of the counted columns and a column called `n` containing the number of rows from that group. 
 
-Let's figure out how entries there were per delivery type. The first argument is the name of the data table object, and the second argument is the name of the column we want to count.
+Let's figure out how many entries there were per delivery type. The first argument is the name of the data table object, and the second argument is the name of the column we want to count.
 
 ```{r}
 count(births, delivery)
@@ -211,12 +219,16 @@ There are 7 types of deliveries, and the new column `n` tells you how many rows 
 
 You can add on a column with the numbers expressed in percent using the function `mutate()`. We'll go into more detail on how to use `mutate()` in @sec-wrangle, but for now, it can be used to add new columns or overwrite existing columns.
 
+The code below divides the value in the `n` column by the sum of the numbers in that column. The next step modifies the percent column by multiplying it by 100 and rounding the value. You could do this all in one step, like `round(100 * n / sum(n))`, but often it's clearer to break it into a few steps to avoid too many nested parentheses.
+
 ```{r}
 count(births, delivery) %>%
-  mutate(percent = n/sum(n)*100)
+  mutate(percent = n / sum(n),
+         percent = round(100 * percent))
 ```
 
-We can also count combination of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. We won't add on percent just yet as the additional variable requires another function that we'll come back to later.
+
+We can also count combinations of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. We won't add on percent just yet as the additional variable requires another function that we'll come back to later.
 
 ```{r}
 count(births, age_group, induced, sort = TRUE)
@@ -450,7 +462,7 @@ Once you're done, share your knitted report and the Rmd file on Teams in the Wee
 
 ## Glossary {#sec-glossary-summary}
 
-```{r, echo = FALSE, results='asis'}
+```{r, echo = FALSE}
 glossary_table()
 ```
 

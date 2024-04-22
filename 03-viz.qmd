@@ -1224,7 +1224,7 @@ Once you've completed this activity, post it in the Week 3 channel on Teams so t
 
 ## Glossary {#sec-glossary-viz}
 
-```{r, echo = FALSE, results='asis'}
+```{r, echo = FALSE}
 glossary_table()
 ```
 

@@ -294,6 +294,8 @@ The dollar-sign notation is the same as double-brackets. If the name has spaces 
 `r glossary("Tabular data")` structures allow for a collection of data of different types (characters, integers, logical, etc.) but subject to the constraint that each "column" of the table (element of the list) must have the same number of elements. The base R version of a table is called a `data.frame`, while the 'tidyverse' version is called a `tibble`.  Tibbles are far easier to work with, so we'll be using those. To learn more about differences between these two data structures, see `vignette("tibble")`.
 
 ```{r avatar}
+library(tidyverse) # loads the tibble package
+
 # construct a table by column with tibble
 avatar <- tibble(
   name = c("Katara", "Toph", "Sokka"),

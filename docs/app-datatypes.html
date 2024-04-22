@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.553">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Applied Data Skills - Appendix H — Data Types</title>
 <style>
@@ -19,7 +19,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -79,7 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -88,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -98,8 +105,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><link rel="stylesheet" href="include/psyteachr.css">
+</script><link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
@@ -107,23 +113,23 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-datatypes.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Data Types</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-datatypes.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Data Types</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/psyteachr/ads-v3/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -315,7 +321,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><a href="https://doi.org/10.5281/zenodo.6365077"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg" alt="DOI"></a></p>
@@ -342,10 +348,10 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </ul>
 </li>
   <li><a href="#sec-glossary-datatypes" id="toc-sec-glossary-datatypes" class="nav-link" data-scroll-target="#sec-glossary-datatypes"><span class="header-section-number">H.3</span> Glossary</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/psyteachr/ads-v3/edit/master/app-datatypes.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/psyteachr/ads-v3/blob/master/app-datatypes.qmd" class="toc-action">View source</a></p></div></div></nav>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/psyteachr/ads-v3/edit/master/app-datatypes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/psyteachr/ads-v3/blob/master/app-datatypes.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-datatypes.html"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">Data Types</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title"><span id="sec-data-types" class="quarto-section-identifier">Appendix H — Data Types</span></h1>
 </div>
 
@@ -359,25 +365,26 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
   
 
+
 </header><section id="basic-data-types" class="level2" data-number="H.1"><h2 data-number="H.1" class="anchored" data-anchor-id="basic-data-types">
 <span class="header-section-number">H.1</span> Basic data types</h2>
-<p>Data can be numbers, words, true/false values or combinations of these. The basic <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">data types</a> in R are: <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a>, <a class="glossary" target="_blank" title="A data type representing strings of text." href="https://psyteachr.github.io/glossary/c#character">character</a>, and <a class="glossary" target="_blank" title="A data type representing TRUE or FALSE values." href="https://psyteachr.github.io/glossary/l#logical">logical</a>, as well as the special classes of <a class="glossary" target="_blank" title="A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter" href="https://psyteachr.github.io/glossary/f#factor">factor</a> and date/times.</p>
+<p>Data can be numbers, words, true/false values or combinations of these. The basic <a href="https://psyteachr.github.io/glossary/d#data-type" target="_blank" class="glossary" title="The kind of data represented by an object.">data types</a> in R are: <a href="https://psyteachr.github.io/glossary/n#numeric" target="_blank" class="glossary" title="A data type representing a real decimal number or integer.">numeric</a>, <a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">character</a>, and <a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">logical</a>, as well as the special classes of <a href="https://psyteachr.github.io/glossary/f#factor" target="_blank" class="glossary" title="A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter">factor</a> and date/times.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/appx/excel-format-cells.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Data types are like the categories when you format cells in Excel.</figcaption></figure>
+<figcaption>Data types are like the categories when you format cells in Excel.</figcaption></figure>
 </div>
 </div>
 </div>
 <section id="numeric-data" class="level3" data-number="H.1.1"><h3 data-number="H.1.1" class="anchored" data-anchor-id="numeric-data">
 <span class="header-section-number">H.1.1</span> Numeric data</h3>
-<p>All of the numbers are <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a> data types. There are two types of numeric data, <a class="glossary" target="_blank" title="A data type representing whole numbers." href="https://psyteachr.github.io/glossary/i#integer">integer</a> and <a class="glossary" target="_blank" title="A data type representing a real decimal number" href="https://psyteachr.github.io/glossary/d#double">double</a>. Integers are the whole numbers, like -1, 0 and 1. Doubles are numbers that can have fractional amounts. If you just type a plain number such as <code>10</code>, it is stored as a double, even if it doesn’t have a decimal point. If you want it to be an exact integer, you can use the <code>L</code> suffix (10L), but this distinction doesn’t make much difference in practice.</p>
+<p>All of the numbers are <a href="https://psyteachr.github.io/glossary/n#numeric" target="_blank" class="glossary" title="A data type representing a real decimal number or integer.">numeric</a> data types. There are two types of numeric data, <a href="https://psyteachr.github.io/glossary/i#integer" target="_blank" class="glossary" title="A data type representing whole numbers.">integer</a> and <a href="https://psyteachr.github.io/glossary/d#double" target="_blank" class="glossary" title="A data type representing a real decimal number">double</a>. Integers are the whole numbers, like -1, 0 and 1. Doubles are numbers that can have fractional amounts. If you just type a plain number such as <code>10</code>, it is stored as a double, even if it doesn’t have a decimal point. If you want it to be an exact integer, you can use the <code>L</code> suffix (10L), but this distinction doesn’t make much difference in practice.</p>
 <p>If you ever want to know the data type of something, use the <code>typeof</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">typeof</span>(<span class="dv">10</span>)   <span class="co"># double</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">typeof</span>(<span class="fl">10.0</span>) <span class="co"># double</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">typeof</span>(10L)  <span class="co"># integer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">typeof</span>(<span class="dv">10</span>L)  <span class="co"># integer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "double"
 [1] "double"
@@ -386,7 +393,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 <p>If you want to know if something is numeric (a double or an integer), you can use the function <code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code> and it will tell you if it is numeric (<code>TRUE</code>) or not (<code>FALSE</code>).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">is.numeric</span>(10L)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">is.numeric</span>(<span class="dv">10</span>L)</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">is.numeric</span>(<span class="fl">10.0</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="fu">is.numeric</span>(<span class="st">"Not a number"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -397,7 +404,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 </section><section id="character-data" class="level3" data-number="H.1.2"><h3 data-number="H.1.2" class="anchored" data-anchor-id="character-data">
 <span class="header-section-number">H.1.2</span> Character data</h3>
-<p><a class="glossary" target="_blank" title="A data type representing strings of text." href="https://psyteachr.github.io/glossary/c#character">Characters</a> (also called “strings”) are any text between quotation marks.</p>
+<p><a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">Characters</a> (also called “strings”) are any text between quotation marks.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">typeof</span>(<span class="st">"This is a character string"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="fu">typeof</span>(<span class="st">'You can use double or single quotes'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -406,7 +413,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 [1] "character"</code></pre>
 </div>
 </div>
-<p>This can include quotes, but you have to <a class="glossary" target="_blank" title="Include special characters like &quot; inside of a string by prefacing them with a backslash." href="https://psyteachr.github.io/glossary/e#escape">escape</a> quotes using a backslash to signal that the quote isn’t meant to be the end of the string.</p>
+<p>This can include quotes, but you have to <a href="https://psyteachr.github.io/glossary/e#escape" target="_blank" class="glossary" title="Include special characters like “ inside of a string by prefacing them with a backslash.">escape</a> quotes using a backslash to signal that the quote isn’t meant to be the end of the string.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>my_string <span class="ot">&lt;-</span> <span class="st">"The instructor said, </span><span class="sc">\"</span><span class="st">R is cool,</span><span class="sc">\"</span><span class="st"> and the class agreed."</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">cat</span>(my_string) <span class="co"># cat() prints the arguments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -416,7 +423,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 </section><section id="logical-data" class="level3" data-number="H.1.3"><h3 data-number="H.1.3" class="anchored" data-anchor-id="logical-data">
 <span class="header-section-number">H.1.3</span> Logical Data</h3>
-<p><a class="glossary" target="_blank" title="A data type representing TRUE or FALSE values." href="https://psyteachr.github.io/glossary/l#logical">Logical</a> data (also sometimes called “boolean” values) is one of two values: true or false. In R, we always write them in uppercase: <code>TRUE</code> and <code>FALSE</code>.</p>
+<p><a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">Logical</a> data (also sometimes called “boolean” values) is one of two values: true or false. In R, we always write them in uppercase: <code>TRUE</code> and <code>FALSE</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">class</span>(<span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -425,7 +432,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 [1] "logical"</code></pre>
 </div>
 </div>
-<p>When you compare two values with an <a class="glossary" target="_blank" title="A symbol that performs some mathematical or comparative process. " href="https://psyteachr.github.io/glossary/o#operator">operator</a>, such as checking to see if 10 is greater than 5, the resulting value is logical.</p>
+<p>When you compare two values with an <a href="https://psyteachr.github.io/glossary/o#operator" target="_blank" class="glossary" title="A symbol that performs some mathematical or comparative process.">operator</a>, such as checking to see if 10 is greater than 5, the resulting value is logical.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">is.logical</span>(<span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -447,7 +454,7 @@ Note
 </div>
 </section><section id="factors" class="level3" data-number="H.1.4"><h3 data-number="H.1.4" class="anchored" data-anchor-id="factors">
 <span class="header-section-number">H.1.4</span> Factors</h3>
-<p>A <a class="glossary" target="_blank" title="A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter" href="https://psyteachr.github.io/glossary/f#factor">factor</a> is a specific type of integer that lets you specify the categories and their order. This is useful in data tables to make plots display with categories in the correct order.</p>
+<p>A <a href="https://psyteachr.github.io/glossary/f#factor" target="_blank" class="glossary" title="A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter">factor</a> is a specific type of integer that lets you specify the categories and their order. This is useful in data tables to make plots display with categories in the correct order.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>myfactor <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="st">"B"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>,<span class="st">"C"</span>))</span>
 <span id="cb13-2"><a href="#cb13-2"></a>myfactor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -482,7 +489,7 @@ Levels: A B C</code></pre>
 [1] "POSIXct" "POSIXt" </code></pre>
 </div>
 </div>
-<p>See <a href="app-dates.html"><span>Appendix&nbsp;I</span></a> for how to use <pkg>lubridate</pkg> to work with dates and times.</p>
+<p>See <a href="app-dates.html" class="quarto-xref"><span>Appendix I</span></a> for how to use <pkg>lubridate</pkg> to work with dates and times.</p>
 <div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -583,7 +590,7 @@ Note
 <p>Individual data values can be grouped together into containers. The main types of containers we’ll work with are vectors, lists, and data tables.</p>
 <section id="sec-vectors" class="level3" data-number="H.2.1"><h3 data-number="H.2.1" class="anchored" data-anchor-id="sec-vectors">
 <span class="header-section-number">H.2.1</span> Vectors</h3>
-<p>A <a class="glossary" target="_blank" title="A type of data structure that collects values with the same data type, like T/F values, numbers, or strings." href="https://psyteachr.github.io/glossary/v#vector">vector</a> in R is a set of items (or ‘elements’) in a specific order. All of the elements in a vector must be of the same <strong>data type</strong> (numeric, character, logical). You can create a vector by enclosing the elements in the function <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</p>
+<p>A <a href="https://psyteachr.github.io/glossary/v#vector" target="_blank" class="glossary" title="A type of data structure that collects values with the same data type, like T/F values, numbers, or strings.">vector</a> in R is a set of items (or ‘elements’) in a specific order. All of the elements in a vector must be of the same <strong>data type</strong> (numeric, character, logical). You can create a vector by enclosing the elements in the function <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="do">## put information into a vector using c(...)</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
@@ -607,16 +614,26 @@ Note
 <div class="callout-body-container callout-body">
 <p>What happens when you mix types? What class is the variable <code>mixed</code>?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>mixed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="st">"good"</span>, 2L, <span class="st">"b"</span>, <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>mixed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="st">"good"</span>, <span class="dv">2</span>L, <span class="st">"b"</span>, <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="Solution">
-<div class="webex-solution">
-<button>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">typeof</span>(mixed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -632,12 +649,12 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can’t mix data types in a vector; all elements of the vector must be the same data type. If you mix them, R will <a class="glossary" target="_blank" title="Changing the data type of values in a vector to a single compatible type." href="https://psyteachr.github.io/glossary/c#coercion">coerce</a> them so that they are all the same. If you mix doubles and integers, the integers will be changed to doubles. If you mix characters and numeric types, the numbers will be coerced to characters, so <code>10</code> would turn into <code>"10"</code>.</p>
+<p>You can’t mix data types in a vector; all elements of the vector must be the same data type. If you mix them, R will <a href="https://psyteachr.github.io/glossary/c#coercion" target="_blank" class="glossary" title="Changing the data type of values in a vector to a single compatible type.">coerce</a> them so that they are all the same. If you mix doubles and integers, the integers will be changed to doubles. If you mix characters and numeric types, the numbers will be coerced to characters, so <code>10</code> would turn into <code>"10"</code>.</p>
 </div>
 </div>
 <section id="selecting-values-from-a-vector" class="level4" data-number="H.2.1.1"><h4 data-number="H.2.1.1" class="anchored" data-anchor-id="selecting-values-from-a-vector">
 <span class="header-section-number">H.2.1.1</span> Selecting values from a vector</h4>
-<p>If we wanted to pick specific values out of a vector by position, we can use square brackets (an <a class="glossary" target="_blank" title="A symbol used to get values from a container object, such as [, [[, or $" href="https://psyteachr.github.io/glossary/e#extract-operator">extract operator</a>, or <code>[]</code>) after the vector.</p>
+<p>If we wanted to pick specific values out of a vector by position, we can use square brackets (an <a href="https://psyteachr.github.io/glossary/e#extract-operator" target="_blank" class="glossary" title="A symbol used to get values from a container object, such as [, [[, or $">extract operator</a>, or <code>[]</code>) after the vector.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span>
 <span id="cb24-2"><a href="#cb24-2"></a>values[<span class="dv">2</span>] <span class="co"># selects the second value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -668,13 +685,23 @@ Note
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>secret <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">5</span>, <span class="dv">22</span>, <span class="dv">5</span>, <span class="dv">18</span>, <span class="dv">7</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">14</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">22</span>, <span class="dv">5</span>, <span class="dv">25</span>, <span class="dv">15</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center" data-webex.hide="Solution">
-<div class="webex-solution">
-<button>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
 Solution
-</button>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>LETTERS[secret]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "N" "E" "V" "E" "R" "G" "O" "N" "N" "A" "G" "I" "V" "E" "Y" "O" "U" "U" "P"</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -748,7 +775,7 @@ Note
 <p>What if you want to repeat a vector many times? You could either type it out (painful) or use the <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function, which can repeat vectors in different ways.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">10</span>)                      <span class="co"># ten zeroes</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">rep</span>(<span class="fu">c</span>(1L, 3L), <span class="at">times =</span> <span class="dv">7</span>)       <span class="co"># alternating 1 and 3, 7 times</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>L, <span class="dv">3</span>L), <span class="at">times =</span> <span class="dv">7</span>)       <span class="co"># alternating 1 and 3, 7 times</span></span>
 <span id="cb41-3"><a href="#cb41-3"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="at">each =</span> <span class="dv">2</span>) <span class="co"># A to C, 2 times each</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0 0 0 0 0 0 0 0 0 0
@@ -769,11 +796,11 @@ Note
 </div>
 </section></section><section id="lists" class="level3" data-number="H.2.2"><h3 data-number="H.2.2" class="anchored" data-anchor-id="lists">
 <span class="header-section-number">H.2.2</span> Lists</h3>
-<p>Recall that vectors can contain data of only one type. What if you want to store a collection of data of different data types? For that purpose you would use a <a class="glossary" target="_blank" title="A container data type that allows items with different data types to be grouped together." href="https://psyteachr.github.io/glossary/l#list">list</a>. Define a list using the <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> function.</p>
+<p>Recall that vectors can contain data of only one type. What if you want to store a collection of data of different data types? For that purpose you would use a <a href="https://psyteachr.github.io/glossary/l#list" target="_blank" class="glossary" title="A container data type that allows items with different data types to be grouped together.">list</a>. Define a list using the <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>data_types <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb45-2"><a href="#cb45-2"></a>  <span class="at">double =</span> <span class="fl">10.0</span>,</span>
-<span id="cb45-3"><a href="#cb45-3"></a>  <span class="at">integer =</span> 10L,</span>
+<span id="cb45-3"><a href="#cb45-3"></a>  <span class="at">integer =</span> <span class="dv">10</span>L,</span>
 <span id="cb45-4"><a href="#cb45-4"></a>  <span class="at">character =</span> <span class="st">"10"</span>,</span>
 <span id="cb45-5"><a href="#cb45-5"></a>  <span class="at">logical =</span> <span class="cn">TRUE</span></span>
 <span id="cb45-6"><a href="#cb45-6"></a>)</span>
@@ -819,31 +846,44 @@ Note
 <p>The dollar-sign notation is the same as double-brackets. If the name has spaces or any characters other than letters, numbers, underscores, and full stops, you need to surround the name with backticks (e.g., <code>sales$`Customer ID`</code>).</p>
 </section><section id="sec-tables-data" class="level3" data-number="H.2.3"><h3 data-number="H.2.3" class="anchored" data-anchor-id="sec-tables-data">
 <span class="header-section-number">H.2.3</span> Tables</h3>
-<p><a class="glossary" target="_blank" title="Data in a rectangular table format, where each row has an entry for each column." href="https://psyteachr.github.io/glossary/t#tabular-data">Tabular data</a> structures allow for a collection of data of different types (characters, integers, logical, etc.) but subject to the constraint that each “column” of the table (element of the list) must have the same number of elements. The base R version of a table is called a <code>data.frame</code>, while the ‘tidyverse’ version is called a <code>tibble</code>. Tibbles are far easier to work with, so we’ll be using those. To learn more about differences between these two data structures, see <code>vignette("tibble")</code>.</p>
+<p><a href="https://psyteachr.github.io/glossary/t#tabular-data" target="_blank" class="glossary" title="Data in a rectangular table format, where each row has an entry for each column.">Tabular data</a> structures allow for a collection of data of different types (characters, integers, logical, etc.) but subject to the constraint that each “column” of the table (element of the list) must have the same number of elements. The base R version of a table is called a <code>data.frame</code>, while the ‘tidyverse’ version is called a <code>tibble</code>. Tibbles are far easier to work with, so we’ll be using those. To learn more about differences between these two data structures, see <code>vignette("tibble")</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># construct a table by column with tibble</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a>avatar <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb50-3"><a href="#cb50-3"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Katara"</span>, <span class="st">"Toph"</span>, <span class="st">"Sokka"</span>),</span>
-<span id="cb50-4"><a href="#cb50-4"></a>  <span class="at">bends =</span> <span class="fu">c</span>(<span class="st">"water"</span>, <span class="st">"earth"</span>, <span class="cn">NA</span>),</span>
-<span id="cb50-5"><a href="#cb50-5"></a>  <span class="at">friendly =</span> <span class="cn">TRUE</span></span>
-<span id="cb50-6"><a href="#cb50-6"></a>)</span>
-<span id="cb50-7"><a href="#cb50-7"></a></span>
-<span id="cb50-8"><a href="#cb50-8"></a><span class="co"># or by row with tribble</span></span>
-<span id="cb50-9"><a href="#cb50-9"></a>avatar <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb50-10"><a href="#cb50-10"></a>  <span class="sc">~</span>name,    <span class="sc">~</span>bends,  <span class="sc">~</span>friendly,</span>
-<span id="cb50-11"><a href="#cb50-11"></a>  <span class="st">"Katara"</span>, <span class="st">"water"</span>, <span class="cn">TRUE</span>,</span>
-<span id="cb50-12"><a href="#cb50-12"></a>  <span class="st">"Toph"</span>,   <span class="st">"earth"</span>, <span class="cn">TRUE</span>,</span>
-<span id="cb50-13"><a href="#cb50-13"></a>  <span class="st">"Sokka"</span>,  <span class="cn">NA</span>,      <span class="cn">TRUE</span></span>
-<span id="cb50-14"><a href="#cb50-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># loads the tibble package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># construct a table by column with tibble</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>avatar <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb52-3"><a href="#cb52-3"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Katara"</span>, <span class="st">"Toph"</span>, <span class="st">"Sokka"</span>),</span>
+<span id="cb52-4"><a href="#cb52-4"></a>  <span class="at">bends =</span> <span class="fu">c</span>(<span class="st">"water"</span>, <span class="st">"earth"</span>, <span class="cn">NA</span>),</span>
+<span id="cb52-5"><a href="#cb52-5"></a>  <span class="at">friendly =</span> <span class="cn">TRUE</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a>)</span>
+<span id="cb52-7"><a href="#cb52-7"></a></span>
+<span id="cb52-8"><a href="#cb52-8"></a><span class="co"># or by row with tribble</span></span>
+<span id="cb52-9"><a href="#cb52-9"></a>avatar <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb52-10"><a href="#cb52-10"></a>  <span class="sc">~</span>name,    <span class="sc">~</span>bends,  <span class="sc">~</span>friendly,</span>
+<span id="cb52-11"><a href="#cb52-11"></a>  <span class="st">"Katara"</span>, <span class="st">"water"</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb52-12"><a href="#cb52-12"></a>  <span class="st">"Toph"</span>,   <span class="st">"earth"</span>, <span class="cn">TRUE</span>,</span>
+<span id="cb52-13"><a href="#cb52-13"></a>  <span class="st">"Sokka"</span>,  <span class="cn">NA</span>,      <span class="cn">TRUE</span></span>
+<span id="cb52-14"><a href="#cb52-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># export the data to a file</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>rio<span class="sc">::</span><span class="fu">export</span>(avatar, <span class="st">"data/avatar.csv"</span>)</span>
-<span id="cb51-3"><a href="#cb51-3"></a></span>
-<span id="cb51-4"><a href="#cb51-4"></a><span class="co"># or by importing data from a file</span></span>
-<span id="cb51-5"><a href="#cb51-5"></a>avatar <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/avatar.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># export the data to a file</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>rio<span class="sc">::</span><span class="fu">export</span>(avatar, <span class="st">"data/avatar.csv"</span>)</span>
+<span id="cb53-3"><a href="#cb53-3"></a></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="co"># or by importing data from a file</span></span>
+<span id="cb53-5"><a href="#cb53-5"></a>avatar <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"data/avatar.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Tabular data becomes especially important for when we talk about <a class="glossary" target="_blank" title="A format for data that maps the meaning onto the structure." href="https://psyteachr.github.io/glossary/t#tidy-data">tidy data</a> in <a href="08-tidy.html"><span>Chapter&nbsp;8</span></a>, which consists of a set of simple principles for structuring data.</p>
+<p>Tabular data becomes especially important for when we talk about <a href="https://psyteachr.github.io/glossary/t#tidy-data" target="_blank" class="glossary" title="A format for data that maps the meaning onto the structure.">tidy data</a> in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a>, which consists of a set of simple principles for structuring data.</p>
 <section id="table-info" class="level4" data-number="H.2.3.1"><h4 data-number="H.2.3.1" class="anchored" data-anchor-id="table-info">
 <span class="header-section-number">H.2.3.1</span> Table info</h4>
 <p>We can get information about the table using the following functions.</p>
@@ -860,11 +900,11 @@ Note
 <code>glimpse()</code>: the column types</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">nrow</span>(avatar)</span>
-<span id="cb52-2"><a href="#cb52-2"></a><span class="fu">ncol</span>(avatar)</span>
-<span id="cb52-3"><a href="#cb52-3"></a><span class="fu">dim</span>(avatar)</span>
-<span id="cb52-4"><a href="#cb52-4"></a><span class="fu">names</span>(avatar)</span>
-<span id="cb52-5"><a href="#cb52-5"></a><span class="fu">glimpse</span>(avatar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">nrow</span>(avatar)</span>
+<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">ncol</span>(avatar)</span>
+<span id="cb54-3"><a href="#cb54-3"></a><span class="fu">dim</span>(avatar)</span>
+<span id="cb54-4"><a href="#cb54-4"></a><span class="fu">names</span>(avatar)</span>
+<span id="cb54-5"><a href="#cb54-5"></a><span class="fu">glimpse</span>(avatar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3
 [1] 3
@@ -879,168 +919,28 @@ $ friendly &lt;lgl&gt; TRUE, TRUE, TRUE</code></pre>
 </div>
 </section><section id="sec-row-col-access" class="level4" data-number="H.2.3.2"><h4 data-number="H.2.3.2" class="anchored" data-anchor-id="sec-row-col-access">
 <span class="header-section-number">H.2.3.2</span> Accessing rows and columns</h4>
-<p>There are various ways of accessing specific columns or rows from a table. You’ll be learning more about this in <a href="08-tidy.html"><span>Chapter&nbsp;8</span></a> and <a href="09-wrangle.html"><span>Chapter&nbsp;9</span></a>.</p>
+<p>There are various ways of accessing specific columns or rows from a table. You’ll be learning more about this in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a> and <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>siblings   <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="co"># rows (by number)</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>bends      <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">pull</span>(<span class="dv">2</span>) <span class="co"># column vector (by number)</span></span>
-<span id="cb54-3"><a href="#cb54-3"></a>friendly   <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">pull</span>(friendly) <span class="co"># column vector (by name)</span></span>
-<span id="cb54-4"><a href="#cb54-4"></a>bends_name <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">select</span>(bends, name) <span class="co"># subset table (by name)</span></span>
-<span id="cb54-5"><a href="#cb54-5"></a>toph       <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">pull</span>(name) <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="dv">2</span>) <span class="co"># single cell</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>siblings   <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="co"># rows (by number)</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>bends      <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">pull</span>(<span class="dv">2</span>) <span class="co"># column vector (by number)</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>friendly   <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">pull</span>(friendly) <span class="co"># column vector (by name)</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>bends_name <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">select</span>(bends, name) <span class="co"># subset table (by name)</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>toph       <span class="ot">&lt;-</span> avatar <span class="sc">%&gt;%</span> <span class="fu">pull</span>(name) <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="dv">2</span>) <span class="co"># single cell</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The code below uses <a class="glossary" target="_blank" title="The set of R functions that come with a basic installation of R, before you add external packages." href="https://psyteachr.github.io/glossary/b#base-r">base R</a> to produce the same subsets as the functions above. This format is useful to know about, since you might see them in other people’s scripts.</p>
+<p>The code below uses <a href="https://psyteachr.github.io/glossary/b#base-r" target="_blank" class="glossary" title="The set of R functions that come with a basic installation of R, before you add external packages.">base R</a> to produce the same subsets as the functions above. This format is useful to know about, since you might see them in other people’s scripts.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># base R access</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a></span>
-<span id="cb55-3"><a href="#cb55-3"></a>siblings   <span class="ot">&lt;-</span> avatar[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), ] <span class="co"># rows (by number)</span></span>
-<span id="cb55-4"><a href="#cb55-4"></a>bends      <span class="ot">&lt;-</span> avatar[, <span class="dv">2</span>] <span class="co"># column vector (by number)</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a>friendly   <span class="ot">&lt;-</span> avatar<span class="sc">$</span>friendly  <span class="co"># column vector (by name)</span></span>
-<span id="cb55-6"><a href="#cb55-6"></a>bends_name <span class="ot">&lt;-</span> avatar[, <span class="fu">c</span>(<span class="st">"bends"</span>, <span class="st">"name"</span>)] <span class="co"># subset table (by name)</span></span>
-<span id="cb55-7"><a href="#cb55-7"></a>toph       <span class="ot">&lt;-</span> avatar[[<span class="dv">2</span>, <span class="dv">1</span>]] <span class="co"># single cell (row, col)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># base R access</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a></span>
+<span id="cb57-3"><a href="#cb57-3"></a>siblings   <span class="ot">&lt;-</span> avatar[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), ] <span class="co"># rows (by number)</span></span>
+<span id="cb57-4"><a href="#cb57-4"></a>bends      <span class="ot">&lt;-</span> avatar[, <span class="dv">2</span>] <span class="co"># column vector (by number)</span></span>
+<span id="cb57-5"><a href="#cb57-5"></a>friendly   <span class="ot">&lt;-</span> avatar<span class="sc">$</span>friendly  <span class="co"># column vector (by name)</span></span>
+<span id="cb57-6"><a href="#cb57-6"></a>bends_name <span class="ot">&lt;-</span> avatar[, <span class="fu">c</span>(<span class="st">"bends"</span>, <span class="st">"name"</span>)] <span class="co"># subset table (by name)</span></span>
+<span id="cb57-7"><a href="#cb57-7"></a>toph       <span class="ot">&lt;-</span> avatar[[<span class="dv">2</span>, <span class="dv">1</span>]] <span class="co"># single cell (row, col)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section></section><section id="sec-glossary-datatypes" class="level2" data-number="H.3"><h2 data-number="H.3" class="anchored" data-anchor-id="sec-glossary-datatypes">
 <span class="header-section-number">H.3</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
-
-<table>
-<thead><tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:left;">
-definition
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/b.html#base-r" class="glossary" target="_blank">base r</a>
-</td>
-<td style="text-align:left;">
-The set of R functions that come with a basic installation of R, before you add external packages.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/c.html#character" class="glossary" target="_blank">character</a>
-</td>
-<td style="text-align:left;">
-A data type representing strings of text.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/c.html#coercion" class="glossary" target="_blank">coercion</a>
-</td>
-<td style="text-align:left;">
-Changing the data type of values in a vector to a single compatible type.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/d.html#data-type" class="glossary" target="_blank">data type</a>
-</td>
-<td style="text-align:left;">
-The kind of data represented by an object.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/d.html#double" class="glossary" target="_blank">double</a>
-</td>
-<td style="text-align:left;">
-A data type representing a real decimal number
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/e.html#escape" class="glossary" target="_blank">escape</a>
-</td>
-<td style="text-align:left;">
-Include special characters like ” inside of a string by prefacing them with a backslash.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/e.html#extract-operator" class="glossary" target="_blank">extract operator</a>
-</td>
-<td style="text-align:left;">
-A symbol used to get values from a container object, such as [, [[, or $
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/f.html#factor" class="glossary" target="_blank">factor</a>
-</td>
-<td style="text-align:left;">
-A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/i.html#integer" class="glossary" target="_blank">integer</a>
-</td>
-<td style="text-align:left;">
-A data type representing whole numbers.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/l.html#list" class="glossary" target="_blank">list</a>
-</td>
-<td style="text-align:left;">
-A container data type that allows items with different data types to be grouped together.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/l.html#logical" class="glossary" target="_blank">logical</a>
-</td>
-<td style="text-align:left;">
-A data type representing TRUE or FALSE values.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/n.html#numeric" class="glossary" target="_blank">numeric</a>
-</td>
-<td style="text-align:left;">
-A data type representing a real decimal number or integer.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/o.html#operator" class="glossary" target="_blank">operator</a>
-</td>
-<td style="text-align:left;">
-A symbol that performs some mathematical or comparative process.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/t.html#tabular-data" class="glossary" target="_blank">tabular data</a>
-</td>
-<td style="text-align:left;">
-Data in a rectangular table format, where each row has an entry for each column.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/t.html#tidy-data" class="glossary" target="_blank">tidy data</a>
-</td>
-<td style="text-align:left;">
-A format for data that maps the meaning onto the structure.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://psyteachr.github.io/glossary/v.html#vector" class="glossary" target="_blank">vector</a>
-</td>
-<td style="text-align:left;">
-A type of data structure that collects values with the same data type, like T/F values, numbers, or strings.
-</td>
-</tr>
-</tbody>
-</table>
+<p>|term |definition | |:—————-|:————————————————————————————————————————–| |base R |The set of R functions that come with a basic installation of R, before you add external packages. | |character |A data type representing strings of text. | |coercion |Changing the data type of values in a vector to a single compatible type. | |data type |The kind of data represented by an object. | |double |A data type representing a real decimal number | |escape |Include special characters like ” inside of a string by prefacing them with a backslash. | |extract operator |A symbol used to get values from a container object, such as [, [[, or $ | |factor |A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter | |integer |A data type representing whole numbers. | |list |A container data type that allows items with different data types to be grouped together. | |logical |A data type representing TRUE or FALSE values. | |numeric |A data type representing a real decimal number or integer. | |operator |A symbol that performs some mathematical or comparative process. | |Tabular data |Data in a rectangular table format, where each row has an entry for each column. | |tidy data |A format for data that maps the meaning onto the structure. | |vector |A type of data structure that collects values with the same data type, like T/F values, numbers, or strings. |</p>
 </div>
 
 
@@ -1281,6 +1181,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -1347,13 +1274,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1432,10 +1361,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1445,8 +1391,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1458,7 +1413,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1502,6 +1580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1527,6 +1606,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1586,22 +1691,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./app-import.html" class="pagination-link">
+      <a href="./app-import.html" class="pagination-link" aria-label="Data Import">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Import</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./app-dates.html" class="pagination-link">
+      <a href="./app-dates.html" class="pagination-link" aria-label="Dates and Times">
         <span class="nav-page-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">Dates and Times</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">CC-BY 2024, psyTeachR</div>   
+    <div class="nav-footer-left">
+<p>CC-BY 2024, psyTeachR</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/psyteachr/ads-v3/edit/master/app-datatypes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/psyteachr/ads-v3/blob/master/app-datatypes.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">

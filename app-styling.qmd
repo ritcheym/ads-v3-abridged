@@ -6,6 +6,7 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE
 )
+library(tidyverse)
 library(ggthemes)
 ```
 
@@ -46,7 +47,8 @@ Hover over a colour to see its R name.
 name <- colours(TRUE)
 rgb <- col2rgb(name) 
 hsv <- rgb2hsv(rgb)
-hex <- as.hexmode(rgb) %>% as.character() %>% 
+hex <- as.hexmode(rgb) %>% 
+  as.character(keepStr = TRUE) %>%
   apply(2, paste, collapse = "")
 
 colors <- tibble(name = name,
@@ -123,7 +125,7 @@ palette_demo <- function(levels, seed = 8675309) {
   set.seed(seed)
   
   dat <- faux::sim_design(
-    within = list(level = 1:levels),
+    within = list(level = as.character(1:levels)),
     between = list(condition= c("control", "experimental")),
     n = 50, dv = "score",
     plot = FALSE, long = TRUE)
