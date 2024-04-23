@@ -5,7 +5,7 @@ project:
   resources: resources
 
 execute:
-  freeze: false
+  freeze: auto
 
 book:
   title: 'Applied Data Skills'

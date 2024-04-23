@@ -142,9 +142,11 @@ Delivery          | text | The method by which the baby was delivered
 Induced           | text | Was the delivery induced, that is, was it started artificially
 Livebirths        | numeric |Number of live births
 
+: Data Codebook {tbl-colwidths="[25,25,50]"}
+
 ### The $ operator
 
-We need to take a couple of brief detours to introduce some additional coding conventions. First, let's introduce the `$` notation. The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will return all the observations in that column.
+We need to take a couple of brief detours to introduce some additional coding conventions. First, let's introduce the `$` notation. The dollar sign allows you to select items from some objects, like lists or data frames.  The left-hand side is the object, and the right-hand side is the item. Here, we will select columns from a table. When you call a column like this, R will return all the observations in that column.
 
 ```{r}
 years <- births$financial_year
@@ -166,40 +168,42 @@ births$livebirths[c(20,30,40)] # select multiple with c()
 Let's say you want to filter the dataset down to just the emergency C-sections, and then sum up the total number of live births per year, and then arrange the data from largest to smallest (don't worry, we'll introduce these functions soon). You could do it by creating intermediate objects for each step:
 
 ```{r}
+# filter the table to just emergency c-sections
 c_sections <- filter(births, 
                      delivery == "Caesarean - Emergency")
 
+# calculate the total number of births per year
 c_per_year <- summarise(c_sections, 
                         n = sum(livebirths), 
                         .by = financial_year)
 
+# sort by n, descending
 c_sorted <- arrange(c_per_year, desc(n))
 
 head(c_sorted)
 ```
 
-Whilst the above code is functional, it adds three unnecessary objects to the environment, increasing the risk we'll use one of these objects by mistake. Enter... the pipe.
+Whilst the above code is functional, it adds three unnecessary objects to the environment, increasing cognitive load and the risk of mistakes. Enter... the `r glossary("pipe")`, that weird `%>%` you may have seen. 
 
-Let's formally introduce the `r glossary("pipe")`, that weird `%>%` you may have seen. Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before `%>%` to be the first argument of the function after `%>%`. It can be useful to translate the pipe as "**and then**". It's easier to show than tell, so let's look at an example.
+Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before `%>%` to be an argument in the function after `%>%`. By default, this is the first argument, but we'll show you ways to change that later.
+
+It can be useful to translate the pipe as "**and then**". It's easier to show than tell, so let's look at an example.
 
 ```{r}
-  # start with the births table       
+        
 c_per_year <- births %>% # and then
   
-  # filter the table to just emergency c-sections
   filter(delivery == "Caesarean - Emergency") %>% # and then
   
-  # calculate the total number of births per year
   summarise(n = sum(livebirths), 
             .by = financial_year) %>% # and then
   
-  # sort by n, descending
   arrange(desc(n))
 
 head(c_per_year)
 ```
 
-Notice that  `filter()`, `summarise()` and `arrange()` no longer need the first argument to be the data table, it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth. 
+Notice that  `filter()`, `summarise()` and `arrange()` no longer need the first argument to be the data table; it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth. 
 
 :::{.callout-note}
 Base R recently added a "native pipe" that looks like this: `|>`, while the tidyverse has traditionally used the "magrittr pipe" that looks like this `%>%`. They have a few small differences that you don't need to learn about yet. We'll be using the magrittr pipe, but you might see the base R pipe in other sources.
@@ -219,7 +223,7 @@ There are 7 types of deliveries, and the new column `n` tells you how many rows 
 
 You can add on a column with the numbers expressed in percent using the function `mutate()`. We'll go into more detail on how to use `mutate()` in @sec-wrangle, but for now, it can be used to add new columns or overwrite existing columns.
 
-The code below divides the value in the `n` column by the sum of the numbers in that column. The next step modifies the percent column by multiplying it by 100 and rounding the value. You could do this all in one step, like `round(100 * n / sum(n))`, but often it's clearer to break it into a few steps to avoid too many nested parentheses.
+The code below divides the value in the `n` column by the total sum of the numbers in that column, and adds it to a new column called `percent`. The next step modifies the percent column by multiplying it by 100 and rounding the value. You could do this all in one step, like `round(100 * n / sum(n))`, but often it's clearer to break it into a few steps to avoid too many nested parentheses.
 
 ```{r}
 count(births, delivery) %>%

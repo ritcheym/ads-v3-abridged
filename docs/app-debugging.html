@@ -381,7 +381,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <p>Create a new R Markdown file and delete everything below the setup chunk. Edit the YAML header to use a floating table of contents and add the outline of your report.</p>
 <pre><code>---
 title: "Report"
-date: "2024-04-22"
+date: "2024-04-23"
 output: 
   html_document:
     toc: true
@@ -410,7 +410,7 @@ output:
 <p>Delete the last dash below the header and knit.</p>
 <pre><code>---
 title: "Report"
-date: "2024-04-22"
+date: "2024-04-23"
 output: 
   html_document:
     toc: true
@@ -422,7 +422,7 @@ output:
 <p>Unlike R and markdown, YAML is extremely picky about spaces. Try removing the space after the colon after “toc”.</p>
 <pre><code>---
 title: "Report"
-date: "2024-04-22"
+date: "2024-04-23"
 output: 
   html_document:
     toc:true
@@ -439,7 +439,7 @@ Execution halted</code></pre>
 <p>YAML is also extremely picky about indenting. A common error is not putting <code>html_document:</code> on a separate line when adding options like a table of contents.</p>
 <pre><code>---
 title: "Report"
-date: "2024-04-22"
+date: "2024-04-23"
 output: html_document:
     toc: true
     toc_float: true
@@ -450,7 +450,7 @@ output: html_document:
 <p>Some indenting problems don’t cause an error, but result in an output that isn’t doing what you expect. Try removing the indent for the table of contents lines and knitting.</p>
 <pre><code>---
 title: "Report"
-date: "2024-04-22"
+date: "2024-04-23"
 output: 
   html_document:
   toc: true

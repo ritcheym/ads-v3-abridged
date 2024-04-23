@@ -642,10 +642,11 @@ Tip
 <span class="header-section-number">4.3.2</span> Exploring a Dataset</h3>
 <p>There are 97077 rows and 8 columns of data. The data dictionary on the NHS website includes the following, but doesn’t clearly state what the possible values are for each column. We’re going to practice figuring out more about how data is structured using data summaries in this exercise, since it’s a common task to get a mysteriously formatted data file and need to figure it out yourself. At the very least, this exercise should remind you to never do this to other people – always provide a clear codebook with all values!</p>
 <table class="table">
+<caption>Data Codebook</caption>
 <colgroup>
-<col style="width: 36%">
-<col style="width: 31%">
-<col style="width: 31%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 50%">
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: left;">Column</th>
@@ -701,7 +702,7 @@ Tip
 </tbody>
 </table></section><section id="the-operator" class="level3" data-number="4.3.3"><h3 data-number="4.3.3" class="anchored" data-anchor-id="the-operator">
 <span class="header-section-number">4.3.3</span> The $ operator</h3>
-<p>We need to take a couple of brief detours to introduce some additional coding conventions. First, let’s introduce the <code>$</code> notation. The dollar sign allows you to select items from an object, such as columns from a table. The left-hand side is the object, and the right-hand side is the item. When you call a column like this, R will return all the observations in that column.</p>
+<p>We need to take a couple of brief detours to introduce some additional coding conventions. First, let’s introduce the <code>$</code> notation. The dollar sign allows you to select items from some objects, like lists or data frames. The left-hand side is the object, and the right-hand side is the item. Here, we will select columns from a table. When you call a column like this, R will return all the observations in that column.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>years <span class="ot">&lt;-</span> births<span class="sc">$</span>financial_year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -721,16 +722,19 @@ Tip
 </div>
 <p>Let’s say you want to filter the dataset down to just the emergency C-sections, and then sum up the total number of live births per year, and then arrange the data from largest to smallest (don’t worry, we’ll introduce these functions soon). You could do it by creating intermediate objects for each step:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>c_sections <span class="ot">&lt;-</span> <span class="fu">filter</span>(births, </span>
-<span id="cb19-2"><a href="#cb19-2"></a>                     delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>)</span>
-<span id="cb19-3"><a href="#cb19-3"></a></span>
-<span id="cb19-4"><a href="#cb19-4"></a>c_per_year <span class="ot">&lt;-</span> <span class="fu">summarise</span>(c_sections, </span>
-<span id="cb19-5"><a href="#cb19-5"></a>                        <span class="at">n =</span> <span class="fu">sum</span>(livebirths), </span>
-<span id="cb19-6"><a href="#cb19-6"></a>                        <span class="at">.by =</span> financial_year)</span>
-<span id="cb19-7"><a href="#cb19-7"></a></span>
-<span id="cb19-8"><a href="#cb19-8"></a>c_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(c_per_year, <span class="fu">desc</span>(n))</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># filter the table to just emergency c-sections</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>c_sections <span class="ot">&lt;-</span> <span class="fu">filter</span>(births, </span>
+<span id="cb19-3"><a href="#cb19-3"></a>                     delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4"></a></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># calculate the total number of births per year</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>c_per_year <span class="ot">&lt;-</span> <span class="fu">summarise</span>(c_sections, </span>
+<span id="cb19-7"><a href="#cb19-7"></a>                        <span class="at">n =</span> <span class="fu">sum</span>(livebirths), </span>
+<span id="cb19-8"><a href="#cb19-8"></a>                        <span class="at">.by =</span> financial_year)</span>
 <span id="cb19-9"><a href="#cb19-9"></a></span>
-<span id="cb19-10"><a href="#cb19-10"></a><span class="fu">head</span>(c_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="co"># sort by n, descending</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a>c_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(c_per_year, <span class="fu">desc</span>(n))</span>
+<span id="cb19-12"><a href="#cb19-12"></a></span>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="fu">head</span>(c_sorted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -768,23 +772,20 @@ Tip
 </div>
 </div>
 </div>
-<p>Whilst the above code is functional, it adds three unnecessary objects to the environment, increasing the risk we’ll use one of these objects by mistake. Enter… the pipe.</p>
-<p>Let’s formally introduce the <a href="https://psyteachr.github.io/glossary/p#pipe" target="_blank" class="glossary" title="A way to order your code in a more readable format using the symbol %>%">pipe</a>, that weird <code>%&gt;%</code> you may have seen. Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before <code>%&gt;%</code> to be the first argument of the function after <code>%&gt;%</code>. It can be useful to translate the pipe as “<strong>and then</strong>”. It’s easier to show than tell, so let’s look at an example.</p>
+<p>Whilst the above code is functional, it adds three unnecessary objects to the environment, increasing cognitive load and the risk of mistakes. Enter… the <a href="https://psyteachr.github.io/glossary/p#pipe" target="_blank" class="glossary" title="A way to order your code in a more readable format using the symbol %>%">pipe</a>, that weird <code>%&gt;%</code> you may have seen.</p>
+<p>Pipes allow you to send the output from one function straight into another function. Specifically, they send the result of the function before <code>%&gt;%</code> to be an argument in the function after <code>%&gt;%</code>. By default, this is the first argument, but we’ll show you ways to change that later.</p>
+<p>It can be useful to translate the pipe as “<strong>and then</strong>”. It’s easier to show than tell, so let’s look at an example.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>  <span class="co"># start with the births table       </span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>c_per_year <span class="ot">&lt;-</span> births <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a>  </span>
-<span id="cb20-4"><a href="#cb20-4"></a>  <span class="co"># filter the table to just emergency c-sections</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">filter</span>(delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>  </span>
-<span id="cb20-7"><a href="#cb20-7"></a>  <span class="co"># calculate the total number of births per year</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths), </span>
-<span id="cb20-9"><a href="#cb20-9"></a>            <span class="at">.by =</span> financial_year) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>  </span>
-<span id="cb20-11"><a href="#cb20-11"></a>  <span class="co"># sort by n, descending</span></span>
-<span id="cb20-12"><a href="#cb20-12"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
-<span id="cb20-13"><a href="#cb20-13"></a></span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="fu">head</span>(c_per_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>c_per_year <span class="ot">&lt;-</span> births <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>  </span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">filter</span>(delivery <span class="sc">==</span> <span class="st">"Caesarean - Emergency"</span>) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>  </span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths), </span>
+<span id="cb20-6"><a href="#cb20-6"></a>            <span class="at">.by =</span> financial_year) <span class="sc">%&gt;%</span> <span class="co"># and then</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>  </span>
+<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
+<span id="cb20-9"><a href="#cb20-9"></a></span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="fu">head</span>(c_per_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -822,7 +823,7 @@ Tip
 </div>
 </div>
 </div>
-<p>Notice that <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>summarise()</code> and <code>arrange()</code> no longer need the first argument to be the data table, it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth.</p>
+<p>Notice that <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>summarise()</code> and <code>arrange()</code> no longer need the first argument to be the data table; it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -885,7 +886,7 @@ Note
 </div>
 <p>There are 7 types of deliveries, and the new column <code>n</code> tells you how many rows of the data table there are per type.</p>
 <p>You can add on a column with the numbers expressed in percent using the function <code>mutate()</code>. We’ll go into more detail on how to use <code>mutate()</code> in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a>, but for now, it can be used to add new columns or overwrite existing columns.</p>
-<p>The code below divides the value in the <code>n</code> column by the sum of the numbers in that column. The next step modifies the percent column by multiplying it by 100 and rounding the value. You could do this all in one step, like <code>round(100 * n / sum(n))</code>, but often it’s clearer to break it into a few steps to avoid too many nested parentheses.</p>
+<p>The code below divides the value in the <code>n</code> column by the total sum of the numbers in that column, and adds it to a new column called <code>percent</code>. The next step modifies the percent column by multiplying it by 100 and rounding the value. You could do this all in one step, like <code>round(100 * n / sum(n))</code>, but often it’s clearer to break it into a few steps to avoid too many nested parentheses.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">count</span>(births, delivery) <span class="sc">%&gt;%</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n),</span>
@@ -1048,8 +1049,8 @@ Note
 </div>
 </div>
 </div>
-<div id="radio_GETQEAWRXY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="x"><span><code>count(births, induced)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_GETQEAWRXY" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label>
+<div id="radio_YEQPAFBOFH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YEQPAFBOFH" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_YEQPAFBOFH" value="x"><span><code>count(births, induced)</code></span></label><label><input type="radio" autocomplete="off" name="radio_YEQPAFBOFH" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_YEQPAFBOFH" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label>
 </div>
 </div>
 </div>
@@ -2004,7 +2005,7 @@ Note
 <span id="cb37-8"><a href="#cb37-8"></a>       <span class="at">color =</span> <span class="st">"Age Group"</span>) <span class="sc">+</span></span>
 <span id="cb37-9"><a href="#cb37-9"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-birth-year-type-age" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" width="100%">
+<div id="fig-birth-year-type-age" class="quarto-figure quarto-figure-center quarto-float anchored" width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-birth-year-type-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-summary_files/figure-html/fig-birth-year-type-age-1.png" id="fig-birth-year-type-age" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:100.0%">
 </div>
