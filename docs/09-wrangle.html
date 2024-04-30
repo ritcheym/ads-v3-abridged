@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.553">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>Applied Data Skills - 9&nbsp; Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
@@ -53,6 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -73,7 +77,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -99,20 +104,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script type="text/javascript">
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
+
+<script type="text/javascript">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
-</script><link rel="stylesheet" href="include/psyteachr.css">
+</script>
+
+
+<link rel="stylesheet" href="include/psyteachr.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
+
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -123,9 +137,13 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Applied Data Skills</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -133,26 +151,26 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-<li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-</div>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -164,7 +182,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
@@ -250,8 +268,8 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./app-installing-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span></a>
@@ -318,54 +336,55 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
 <p><a href="https://doi.org/10.5281/zenodo.6365077"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg" alt="DOI"></a></p>
 </div></div>
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#sec-ilo-wrangle" id="toc-sec-ilo-wrangle" class="nav-link active" data-scroll-target="#sec-ilo-wrangle">Intended Learning Outcomes</a></li>
+  <li><a href="#sec-ilo-wrangle" id="toc-sec-ilo-wrangle" class="nav-link active" data-scroll-target="#sec-ilo-wrangle">Intended Learning Outcomes</a></li>
+  <li><a href="#functions-wrangle" id="toc-functions-wrangle" class="nav-link" data-scroll-target="#functions-wrangle"><span class="header-section-number">9.1</span> Functions used</a></li>
   <li><a href="#sec-walkthrough-wrangle" id="toc-sec-walkthrough-wrangle" class="nav-link" data-scroll-target="#sec-walkthrough-wrangle">Walkthrough video</a></li>
-  <li><a href="#sec-setup-wrangle" id="toc-sec-setup-wrangle" class="nav-link" data-scroll-target="#sec-setup-wrangle"><span class="header-section-number">9.1</span> Set-up</a></li>
-  <li>
-<a href="#wrangling-functions" id="toc-wrangling-functions" class="nav-link" data-scroll-target="#wrangling-functions"><span class="header-section-number">9.2</span> Wrangling functions</a>
+  <li><a href="#sec-setup-wrangle" id="toc-sec-setup-wrangle" class="nav-link" data-scroll-target="#sec-setup-wrangle"><span class="header-section-number">9.2</span> Set-up</a></li>
+  <li><a href="#wrangling-functions" id="toc-wrangling-functions" class="nav-link" data-scroll-target="#wrangling-functions"><span class="header-section-number">9.3</span> Wrangling functions</a>
   <ul class="collapse">
-<li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">9.2.1</span> Select</a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">9.2.2</span> Filter</a></li>
-  <li><a href="#sec-arrange" id="toc-sec-arrange" class="nav-link" data-scroll-target="#sec-arrange"><span class="header-section-number">9.2.3</span> Arrange</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">9.2.4</span> Mutate</a></li>
-  <li><a href="#sec-dplyr-summarise" id="toc-sec-dplyr-summarise" class="nav-link" data-scroll-target="#sec-dplyr-summarise"><span class="header-section-number">9.2.5</span> Summarise</a></li>
-  <li><a href="#sec-dplyr-groupby" id="toc-sec-dplyr-groupby" class="nav-link" data-scroll-target="#sec-dplyr-groupby"><span class="header-section-number">9.2.6</span> Group By</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#complications" id="toc-complications" class="nav-link" data-scroll-target="#complications"><span class="header-section-number">9.3</span> Complications</a>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">9.3.1</span> Select</a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">9.3.2</span> Filter</a></li>
+  <li><a href="#sec-arrange" id="toc-sec-arrange" class="nav-link" data-scroll-target="#sec-arrange"><span class="header-section-number">9.3.3</span> Arrange</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">9.3.4</span> Mutate</a></li>
+  <li><a href="#sec-dplyr-summarise" id="toc-sec-dplyr-summarise" class="nav-link" data-scroll-target="#sec-dplyr-summarise"><span class="header-section-number">9.3.5</span> Summarise</a></li>
+  <li><a href="#sec-dplyr-groupby" id="toc-sec-dplyr-groupby" class="nav-link" data-scroll-target="#sec-dplyr-groupby"><span class="header-section-number">9.3.6</span> Group By</a></li>
+  </ul></li>
+  <li><a href="#complications" id="toc-complications" class="nav-link" data-scroll-target="#complications"><span class="header-section-number">9.4</span> Complications</a>
   <ul class="collapse">
-<li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding"><span class="header-section-number">9.3.1</span> Rounding</a></li>
-  <li><a href="#sec-missing-values" id="toc-sec-missing-values" class="nav-link" data-scroll-target="#sec-missing-values"><span class="header-section-number">9.3.2</span> Missing values</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#sec-together-wrangle" id="toc-sec-together-wrangle" class="nav-link" data-scroll-target="#sec-together-wrangle"><span class="header-section-number">9.4</span> Exercises</a>
+  <li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding"><span class="header-section-number">9.4.1</span> Rounding</a></li>
+  <li><a href="#sec-missing-values" id="toc-sec-missing-values" class="nav-link" data-scroll-target="#sec-missing-values"><span class="header-section-number">9.4.2</span> Missing values</a></li>
+  </ul></li>
+  <li><a href="#sec-together-wrangle" id="toc-sec-together-wrangle" class="nav-link" data-scroll-target="#sec-together-wrangle"><span class="header-section-number">9.5</span> Exercises</a>
   <ul class="collapse">
-<li><a href="#creating-new-categories" id="toc-creating-new-categories" class="nav-link" data-scroll-target="#creating-new-categories"><span class="header-section-number">9.4.1</span> Creating new categories</a></li>
-  <li><a href="#filter-by-calculated-score" id="toc-filter-by-calculated-score" class="nav-link" data-scroll-target="#filter-by-calculated-score"><span class="header-section-number">9.4.2</span> Filter by calculated score</a></li>
-  <li><a href="#multiple-critera" id="toc-multiple-critera" class="nav-link" data-scroll-target="#multiple-critera"><span class="header-section-number">9.4.3</span> Multiple critera</a></li>
-  <li><a href="#original-insight" id="toc-original-insight" class="nav-link" data-scroll-target="#original-insight"><span class="header-section-number">9.4.4</span> Original insight</a></li>
-  <li><a href="#share-on-teams" id="toc-share-on-teams" class="nav-link" data-scroll-target="#share-on-teams"><span class="header-section-number">9.4.5</span> Share on Teams</a></li>
+  <li><a href="#creating-new-categories" id="toc-creating-new-categories" class="nav-link" data-scroll-target="#creating-new-categories"><span class="header-section-number">9.5.1</span> Creating new categories</a></li>
+  <li><a href="#filter-by-calculated-score" id="toc-filter-by-calculated-score" class="nav-link" data-scroll-target="#filter-by-calculated-score"><span class="header-section-number">9.5.2</span> Filter by calculated score</a></li>
+  <li><a href="#multiple-critera" id="toc-multiple-critera" class="nav-link" data-scroll-target="#multiple-critera"><span class="header-section-number">9.5.3</span> Multiple critera</a></li>
+  <li><a href="#original-insight" id="toc-original-insight" class="nav-link" data-scroll-target="#original-insight"><span class="header-section-number">9.5.4</span> Original insight</a></li>
+  <li><a href="#share-on-teams" id="toc-share-on-teams" class="nav-link" data-scroll-target="#share-on-teams"><span class="header-section-number">9.5.5</span> Share on Teams</a></li>
+  </ul></li>
+  <li><a href="#sec-glossary-wrangle" id="toc-sec-glossary-wrangle" class="nav-link" data-scroll-target="#sec-glossary-wrangle"><span class="header-section-number">9.6</span> Glossary</a></li>
+  <li><a href="#sec-resources-wrangle" id="toc-sec-resources-wrangle" class="nav-link" data-scroll-target="#sec-resources-wrangle"><span class="header-section-number">9.7</span> Further resources</a></li>
   </ul>
-</li>
-  <li><a href="#sec-glossary-wrangle" id="toc-sec-glossary-wrangle" class="nav-link" data-scroll-target="#sec-glossary-wrangle"><span class="header-section-number">9.5</span> Glossary</a></li>
-  <li><a href="#sec-resources-wrangle" id="toc-sec-resources-wrangle" class="nav-link" data-scroll-target="#sec-resources-wrangle"><span class="header-section-number">9.6</span> Further resources</a></li>
-  </ul><div class="toc-actions"><ul><li><a href="https://github.com/psyteachr/ads-v3/edit/master/09-wrangle.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/psyteachr/ads-v3/blob/master/09-wrangle.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/psyteachr/ads-v3/edit/master/09-wrangle.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/psyteachr/ads-v3/blob/master/09-wrangle.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title"><span id="sec-wrangle" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></h1>
 </div>
 
@@ -380,15 +399,44 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
   
 
 
-</header><section id="sec-ilo-wrangle" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-ilo-wrangle">Intended Learning Outcomes</h2>
+</header>
+
+
+<section id="sec-ilo-wrangle" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sec-ilo-wrangle">Intended Learning Outcomes</h2>
 <ul>
 <li>Be able to select and filter data for relevance</li>
 <li>Be able to create new columns and edit existing ones</li>
 <li>Be able to handle missing data</li>
-</ul></section><section id="sec-walkthrough-wrangle" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-wrangle">Walkthrough video</h2>
+</ul>
+</section>
+<section id="functions-wrangle" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="functions-wrangle"><span class="header-section-number">9.1</span> Functions used</h2>
+<ul>
+<li>built-in (you can always use these without loading any packages)
+<ul>
+<li>base:: <code>round()</code>, <code>mean()</code>, <code>min()</code>, <code>max()</code>, `<code>sum()</code>, <code>as.character()</code>, <code>as.numeric()</code></li>
+<li>utils:: <code>head()</code>, <code>packageVersion()</code></li>
+</ul></li>
+<li>tidyverse (you can use all these with <code>library(tidyverse)</code>)
+<ul>
+<li>readr:: <code>read_csv()</code></li>
+<li>dplyr:: <code>filter()</code>, <code>arrange()</code>, <code>mutate()</code>, <code>summarise()</code>, <code>group_by()</code>, <code>ungroup()</code>, <code>case_when()</code>, <code>na_if()</code></li>
+<li>tidyr:: <code>pivot_longer()</code>, <code>pivot_wider()</code></li>
+<li>tibble:: <code>tibble()</code></li>
+</ul></li>
+<li>other (you need to load each package to use these)
+<ul>
+<li>janitor:: <code>round_half_up()</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-walkthrough-wrangle" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-wrangle">Walkthrough video</h2>
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/dc1e2869-a6c2-45d8-ab40-cb85cdb67f43/public">Echo360</a>. Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
-</section><section id="sec-setup-wrangle" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="sec-setup-wrangle">
-<span class="header-section-number">9.1</span> Set-up</h2>
+</section>
+<section id="sec-setup-wrangle" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="sec-setup-wrangle"><span class="header-section-number">9.2</span> Set-up</h2>
 <p>First, create a new project for the work we’ll do in this chapter named <code class="path">09-wrangle</code>. Second, open and save and new R Markdown document named <code>wrangle.Rmd</code>, delete the welcome text and load the required packages for this chapter.</p>
 <div class="cell" data-layout-align="center">
 <div class="code-with-filename">
@@ -409,13 +457,14 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At this point in ADS it’s very likely you will have the most recent version of the <pkg>tidyverse</pkg> packages but just in case, be aware that the function <code>case_when()</code> that we will use in this chapter was updated in to introduce new arguments and ways of handling NA. The code we provide in this chapter will only work if you have v1.1.0 or above of <pkg>dplyr</pkg> installed. To check run <code>packageVersion("dplyr")</code> and if it’s below 1.1.0, install it again to update.</p>
+<p>At this point in ADS it’s very likely you will have the most recent version of the <pkg>tidyverse</pkg> packages but just in case, be aware that the function <code>case_when()</code> that we will use in this chapter was updated in to introduce new arguments and ways of handling <code>NA</code>. The code we provide in this chapter will only work if you have v1.1.0 or above of <pkg>dplyr</pkg> installed. To check run <code>packageVersion("dplyr")</code> and if it’s below 1.1.0, install it again to update.</p>
 </div>
 </div>
 <p>You’ll need to make a folder called “data” and download a data file into it: <a href="https://psyteachr.github.io/ads-v2/data/budget.csv" download="">budget.csv</a>.</p>
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation cheat sheet</a>.</p>
-</section><section id="wrangling-functions" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="wrangling-functions">
-<span class="header-section-number">9.2</span> Wrangling functions</h2>
+</section>
+<section id="wrangling-functions" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="wrangling-functions"><span class="header-section-number">9.3</span> Wrangling functions</h2>
 <p>Data wrangling refers to the process of cleaning, transforming, and restructuring your data to get it into the format you need for analysis and it’s something you will spend an awful lot of time doing. Most <a href="https://psyteachr.github.io/glossary/d#data-wrangling" target="_blank" class="glossary" title="The process of preparing data for visualisation and statistical analysis.">data wrangling</a> involves the reshaping functions you learned in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a> and six functions from the <pkg>dplyr</pkg> package that is loaded as part of the <pkg>tidyverse</pkg>: <code>select</code>, <code>filter</code>, <code>arrange</code>, <code>mutate</code>, <code>summarise</code>, and <code>group_by</code>. You’ll remember the last two from <a href="04-summary.html" class="quarto-xref"><span>Chapter 4</span></a>, so we’ll only cover them briefly.</p>
 <p>It’s worth highlighting that in this chapter we’re going to cover these common functions and common uses of said functions. However, <pkg>dplyr</pkg> (and packages beyond it) has a huge number of additional wrangling functions and each function has many different arguments. Essentially, if you think you should be able to wrangle your data in a particular way that we haven’t explicitly shown you, you almost certainly can, it might just take a bit of Googling to find out how.</p>
 <p>We’ll use a small example table with the sales, expenses, and satisfaction for two years from four regions over two products. After you load the data, use <code>glimpse(budget)</code> or <code>View(budget)</code> to get familiar with the data.</p>
@@ -436,7 +485,8 @@ Warning
 <col style="width: 17%">
 <col style="width: 17%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: right;">sales_2019</th>
@@ -445,7 +495,8 @@ Warning
 <th style="text-align: right;">expenses_2020</th>
 <th style="text-align: left;">satisfaction_2019</th>
 <th style="text-align: left;">satisfaction_2020</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">North</td>
@@ -532,11 +583,11 @@ Warning
 </div>
 </div>
 </div>
-<section id="select" class="level3" data-number="9.2.1"><h3 data-number="9.2.1" class="anchored" data-anchor-id="select">
-<span class="header-section-number">9.2.1</span> Select</h3>
+<section id="select" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="select"><span class="header-section-number">9.3.1</span> Select</h3>
 <p>You can select a subset of the columns (variables) in a table to make it easier to view or to prepare a table for display. You can also select columns in a new order.</p>
-<section id="by-name-or-index" class="level4" data-number="9.2.1.1"><h4 data-number="9.2.1.1" class="anchored" data-anchor-id="by-name-or-index">
-<span class="header-section-number">9.2.1.1</span> By name or index</h4>
+<section id="by-name-or-index" class="level4" data-number="9.3.1.1">
+<h4 data-number="9.3.1.1" class="anchored" data-anchor-id="by-name-or-index"><span class="header-section-number">9.3.1.1</span> By name or index</h4>
 <p>You can select columns by name or number (which is sometimes referred to as the column index). Selecting by number can be useful when the column names are long or complicated.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># select single column by name</span></span>
@@ -562,13 +613,15 @@ Warning
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">Sales Region</th>
 <th style="text-align: right;">sales_2019</th>
 <th style="text-align: right;">sales_2020</th>
 <th style="text-align: right;">expenses_2019</th>
 <th style="text-align: right;">expenses_2020</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">North</td>
@@ -589,8 +642,9 @@ Warning
 </div>
 </div>
 </div>
-</section><section id="un-selecting-columns" class="level4" data-number="9.2.1.2"><h4 data-number="9.2.1.2" class="anchored" data-anchor-id="un-selecting-columns">
-<span class="header-section-number">9.2.1.2</span> Un-selecting columns</h4>
+</section>
+<section id="un-selecting-columns" class="level4" data-number="9.3.1.2">
+<h4 data-number="9.3.1.2" class="anchored" data-anchor-id="un-selecting-columns"><span class="header-section-number">9.3.1.2</span> Un-selecting columns</h4>
 <p>You can select columns either by telling R which ones you want to keep as in the previous examples, or by specifying which ones you want to exclude by using a minus symbol to un-select columns. You can also use the colon notation to de-select columns, but to do so you need to put parentheses around the span first, e.g., <code>-(sales_2019:expenses_2020)</code>, not <code>-sales_2019:expenses_2020</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># de-select individual columns</span></span>
@@ -599,18 +653,21 @@ Warning
 <span id="cb6-4"><a href="#cb6-4"></a><span class="co"># de-select a range of columns</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>sales <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>(expenses_2019<span class="sc">:</span>expenses_2020))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="select-helpers" class="level4" data-number="9.2.1.3"><h4 data-number="9.2.1.3" class="anchored" data-anchor-id="select-helpers">
-<span class="header-section-number">9.2.1.3</span> Select helpers</h4>
+</section>
+<section id="select-helpers" class="level4" data-number="9.3.1.3">
+<h4 data-number="9.3.1.3" class="anchored" data-anchor-id="select-helpers"><span class="header-section-number">9.3.1.3</span> Select helpers</h4>
 <p>Finally, you can select columns based on criteria about the column names.</p>
 <table class="table">
 <colgroup>
 <col style="width: 45%">
 <col style="width: 54%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>function</th>
 <th>definition</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>starts_with()</code></td>
@@ -626,8 +683,7 @@ Warning
 </tr>
 <tr class="even">
 <td><code>num_range()</code></td>
-<td>select columns with a name that matches the pattern <code>prefix</code>
-</td>
+<td>select columns with a name that matches the pattern <code>prefix</code></td>
 </tr>
 </tbody>
 </table>
@@ -643,36 +699,30 @@ Note
 <div class="callout-body-container callout-body">
 <p>What are the resulting columns for these four examples?</p>
 <ul>
-<li>
-<code>budget %&gt;% select(contains("_"))</code>
-<div id="radio_OPUOMILYEB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OPUOMILYEB" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_OPUOMILYEB" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_OPUOMILYEB" value="answer"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_OPUOMILYEB" value="x"><span>expenses_2019, expenses_2020</span></label>
-</div>
-</li>
-<li>
-<code>budget %&gt;% select(num_range("expenses_", 2019:2020))</code>
-<div id="radio_SZIGYHXRIF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SZIGYHXRIF" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SZIGYHXRIF" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SZIGYHXRIF" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SZIGYHXRIF" value="answer"><span>expenses_2019, expenses_2020</span></label>
-</div>
-</li>
-<li>
-<code>budget %&gt;% select(starts_with("sales"))</code>
-<div id="radio_DOFLQSWJKB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DOFLQSWJKB" value="answer"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_DOFLQSWJKB" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_DOFLQSWJKB" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_DOFLQSWJKB" value="x"><span>expenses_2019, expenses_2020</span></label>
-</div>
-</li>
-<li>
-<code>budget %&gt;% select(ends_with("2020"))</code>
-<div id="radio_LNLJMDRMJT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LNLJMDRMJT" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_LNLJMDRMJT" value="answer"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_LNLJMDRMJT" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_LNLJMDRMJT" value="x"><span>expenses_2019, expenses_2020</span></label>
-</div>
-</li>
+<li><code>budget %&gt;% select(contains("_"))</code>
+<div id="radio_SYTFOAOBMQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="x"> <span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="x"> <span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="answer"> <span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="x"> <span>expenses_2019, expenses_2020</span></label>
+</div></li>
+<li><code>budget %&gt;% select(num_range("expenses_", 2019:2020))</code>
+<div id="radio_XDACZSBZDI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="x"> <span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="x"> <span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="x"> <span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="answer"> <span>expenses_2019, expenses_2020</span></label>
+</div></li>
+<li><code>budget %&gt;% select(starts_with("sales"))</code>
+<div id="radio_KEEUQFCTKR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="answer"> <span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="x"> <span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="x"> <span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="x"> <span>expenses_2019, expenses_2020</span></label>
+</div></li>
+<li><code>budget %&gt;% select(ends_with("2020"))</code>
+<div id="radio_YTYPBVGNME" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="x"> <span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="answer"> <span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="x"> <span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="x"> <span>expenses_2019, expenses_2020</span></label>
+</div></li>
 </ul>
 </div>
 </div>
-</section></section><section id="filter" class="level3" data-number="9.2.2"><h3 data-number="9.2.2" class="anchored" data-anchor-id="filter">
-<span class="header-section-number">9.2.2</span> Filter</h3>
-<p>Whilst <code>select()</code> chooses the columns you want to retain, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> chooses the rows to retain by matching row or column criteria.</p>
+</section>
+</section>
+<section id="filter" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="filter"><span class="header-section-number">9.3.2</span> Filter</h3>
+<p>Whilst <code>select()</code> chooses the columns you want to retain, <code>filter()</code> chooses the rows to retain by matching row or column criteria.</p>
 <p>You can filter by a single criterion. This criterion can be rows where a certain column’s value matches a character value (e.g., “North”) or a number (e.g., 9003). It can also be the result of a logical equation (e.g., keep all rows with a specific column value larger than a certain value). The criterion is checked for each row, and if the result is FALSE, the row is removed. You can reverse equations by specifying <code>!=</code> where <code>!</code> means “not”.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># select all rows where region equals North</span></span>
@@ -715,11 +765,13 @@ Note
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: right;">id</th>
 <th style="text-align: left;">grade</th>
 <th style="text-align: right;">score</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
@@ -747,34 +799,10 @@ Note
 </div>
 </div>
 <ul>
-<li>
-<code>demo %&gt;% filter(score &lt; 80)</code> <select class="webex-select"><option value="blank"></option>
-<option value="x">1, 2</option>
-<option value="x">2</option>
-<option value="answer">3</option>
-<option value="x">3, 4</option></select>
-</li>
-<li>
-<code>demo %&gt;% filter(grade == "A")</code> <select class="webex-select"><option value="blank"></option>
-<option value="answer">1, 2</option>
-<option value="x">2</option>
-<option value="x">3</option>
-<option value="x">3, 4</option></select>
-</li>
-<li>
-<code>demo %&gt;% filter(grade != "A")</code> <select class="webex-select"><option value="blank"></option>
-<option value="x">1, 2</option>
-<option value="x">2</option>
-<option value="x">3</option>
-<option value="answer">3, 4</option></select>
-</li>
-<li>
-<code>demo %&gt;% filter(score == 91)</code> <select class="webex-select"><option value="blank"></option>
-<option value="x">1, 2</option>
-<option value="answer">2</option>
-<option value="x">3</option>
-<option value="x">3, 4</option></select>
-</li>
+<li><code>demo %&gt;% filter(score &lt; 80)</code> <select class="webex-select"><option value="blank"></option><option value="x">1, 2</option><option value="x">2</option><option value="answer">3</option><option value="x">3, 4</option></select></li>
+<li><code>demo %&gt;% filter(grade == "A")</code> <select class="webex-select"><option value="blank"></option><option value="answer">1, 2</option><option value="x">2</option><option value="x">3</option><option value="x">3, 4</option></select></li>
+<li><code>demo %&gt;% filter(grade != "A")</code> <select class="webex-select"><option value="blank"></option><option value="x">1, 2</option><option value="x">2</option><option value="x">3</option><option value="answer">3, 4</option></select></li>
+<li><code>demo %&gt;% filter(score == 91)</code> <select class="webex-select"><option value="blank"></option><option value="x">1, 2</option><option value="answer">2</option><option value="x">3</option><option value="x">3, 4</option></select></li>
 </ul>
 </div>
 </div>
@@ -823,11 +851,13 @@ Note
 <col style="width: 33%">
 <col style="width: 50%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th><a href="https://psyteachr.github.io/glossary/o#operator" target="_blank" class="glossary" title="A symbol that performs some mathematical or comparative process.">Operator</a></th>
 <th>Name</th>
 <th>is TRUE if and only if</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>A &lt; B</code></td>
@@ -883,7 +913,8 @@ Note
 <col style="width: 17%">
 <col style="width: 17%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: right;">sales_2019</th>
@@ -892,7 +923,8 @@ Note
 <th style="text-align: right;">expenses_2020</th>
 <th style="text-align: left;">satisfaction_2019</th>
 <th style="text-align: left;">satisfaction_2020</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">North</td>
@@ -929,7 +961,7 @@ Note
 </div>
 </div>
 </div>
-<p>Note that <code>str_detect()</code> is case sensitive so it would not return values of “High” or “HIGH”. You can use the function <code><a href="https://rdrr.io/r/base/chartr.html">tolower()</a></code> or <code><a href="https://rdrr.io/r/base/chartr.html">toupper()</a></code> to convert a string to lowercase or uppercase before you search for substring if you need case-insensitive matching.</p>
+<p>Note that <code>str_detect()</code> is case sensitive so it would not return values of “High” or “HIGH”. You can use the function <code>tolower()</code> or <code>toupper()</code> to convert a string to lowercase or uppercase before you search for substring if you need case-insensitive matching.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -940,11 +972,12 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> is incredibly powerful and can allow you to select very specific subsets of data. But, it is also quite dangerous because when you start combining multiple criteria and operators, it’s very easy to accidentally specify something slightly different than what you intended. <strong>Always check your output</strong>. If you have a small dataset, then you can eyeball it to see if it looks right. With a larger dataset, you may wish to compute summary statistics or count the number of groups/observations in each variable to verify your filter is correct. There is no level of expertise in coding that can substitute knowing and checking your data.</p>
+<p><code>filter()</code> is incredibly powerful and can allow you to select very specific subsets of data. But, it is also quite dangerous because when you start combining multiple criteria and operators, it’s very easy to accidentally specify something slightly different than what you intended. <strong>Always check your output</strong>. If you have a small dataset, then you can eyeball it to see if it looks right. With a larger dataset, you may wish to compute summary statistics or count the number of groups/observations in each variable to verify your filter is correct. There is no level of expertise in coding that can substitute knowing and checking your data.</p>
 </div>
 </div>
-</section><section id="sec-arrange" class="level3" data-number="9.2.3"><h3 data-number="9.2.3" class="anchored" data-anchor-id="sec-arrange">
-<span class="header-section-number">9.2.3</span> Arrange</h3>
+</section>
+<section id="sec-arrange" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="sec-arrange"><span class="header-section-number">9.3.3</span> Arrange</h3>
 <p>You can sort your dataset using <code>arrange()</code>. You will find yourself needing to sort data in R much less than you do in Excel, since you don’t need to have rows next to each other in order to, for example, calculate group means. But <code>arrange()</code> can be useful when preparing data for display in tables. <code>arrange()</code> works on character data where it will sort alphabetically, as well as numeric data where the default is ascending order (smallest to largest). Reverse the order using <code>desc()</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># arranging the table </span></span>
@@ -965,7 +998,8 @@ Warning
 <col style="width: 17%">
 <col style="width: 17%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: right;">sales_2019</th>
@@ -974,7 +1008,8 @@ Warning
 <th style="text-align: right;">expenses_2020</th>
 <th style="text-align: left;">satisfaction_2019</th>
 <th style="text-align: left;">satisfaction_2020</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">West</td>
@@ -1090,7 +1125,8 @@ Note
 <col style="width: 17%">
 <col style="width: 17%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: right;">sales_2019</th>
@@ -1099,7 +1135,8 @@ Note
 <th style="text-align: right;">expenses_2020</th>
 <th style="text-align: left;">satisfaction_2019</th>
 <th style="text-align: left;">satisfaction_2020</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">North</td>
@@ -1148,8 +1185,9 @@ Note
 </div>
 </div>
 </div>
-</section><section id="mutate" class="level3" data-number="9.2.4"><h3 data-number="9.2.4" class="anchored" data-anchor-id="mutate">
-<span class="header-section-number">9.2.4</span> Mutate</h3>
+</section>
+<section id="mutate" class="level3" data-number="9.3.4">
+<h3 data-number="9.3.4" class="anchored" data-anchor-id="mutate"><span class="header-section-number">9.3.4</span> Mutate</h3>
 <p>The function <code>mutate()</code> allows you to add new columns or change existing ones by overwriting them by using the syntax <code>new_column = operation</code>. You can add more than one column in the same mutate function by separating the columns with a comma. Once you make a new column, you can use it in further column definitions. For example, the creation of <code>profit</code> below uses the column <code>expenses</code>, which is created above it.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>budget2 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span></span>
@@ -1217,9 +1255,10 @@ Tip
 <p>Be mindful that <code>.default</code> uses <code>=</code> whilst the others use <code>~</code>. Emily has lost quite a lot of her time and sanity to not realising this.</p>
 </div>
 </div>
-<p>Just like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>mutate()</code> is incredibly powerful and the scope of what you can create is far beyond what we can cover in this book.</p>
-</section><section id="sec-dplyr-summarise" class="level3" data-number="9.2.5"><h3 data-number="9.2.5" class="anchored" data-anchor-id="sec-dplyr-summarise">
-<span class="header-section-number">9.2.5</span> Summarise</h3>
+<p>Just like <code>filter()</code>, <code>mutate()</code> is incredibly powerful and the scope of what you can create is far beyond what we can cover in this book.</p>
+</section>
+<section id="sec-dplyr-summarise" class="level3" data-number="9.3.5">
+<h3 data-number="9.3.5" class="anchored" data-anchor-id="sec-dplyr-summarise"><span class="header-section-number">9.3.5</span> Summarise</h3>
 <p>You were introduced to the <code>summarise()</code> function in <a href="04-summary.html#sec-summary-summarise" class="quarto-xref"><span>Section 4.6</span></a>. This applies summary functions to an entire table (or groups, as you’ll see in the next section).</p>
 <p>Let’s say we want to determine the mean sales and expenses, plus the minimum and maximum profit, for any region, product and year. First, we need to reshape the data like we learned in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a>, so that there is a column for year and one column each for sales and expenses, instead of separate columns for each year. We’ll also drop the satisfaction data as we don’t need it for this analysis.</p>
 <div class="cell" data-layout-align="center">
@@ -1236,13 +1275,15 @@ Tip
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: left;">year</th>
 <th style="text-align: right;">sales</th>
 <th style="text-align: right;">expenses</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">North</td>
@@ -1303,24 +1344,29 @@ Tip
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: right;">mean_sales</th>
 <th style="text-align: right;">mean_expenses</th>
 <th style="text-align: right;">min_profit</th>
 <th style="text-align: right;">max_profit</th>
-</tr></thead>
-<tbody><tr class="odd">
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td style="text-align: right;">291.1875</td>
 <td style="text-align: right;">318.4375</td>
 <td style="text-align: right;">-2632</td>
 <td style="text-align: right;">2390</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
 </div>
-</section><section id="sec-dplyr-groupby" class="level3" data-number="9.2.6"><h3 data-number="9.2.6" class="anchored" data-anchor-id="sec-dplyr-groupby">
-<span class="header-section-number">9.2.6</span> Group By</h3>
+</section>
+<section id="sec-dplyr-groupby" class="level3" data-number="9.3.6">
+<h3 data-number="9.3.6" class="anchored" data-anchor-id="sec-dplyr-groupby"><span class="header-section-number">9.3.6</span> Group By</h3>
 <p>You were introduced to the <code>group_by()</code> function in <a href="04-summary.html#sec-grouping" class="quarto-xref"><span>Section 4.7</span></a>. For example, you can break down the summary statistics above by year and product.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>year_prod <span class="ot">&lt;-</span> budget4 <span class="sc">%&gt;%</span></span>
@@ -1340,14 +1386,16 @@ Tip
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">year</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: right;">mean_sales</th>
 <th style="text-align: right;">mean_expenses</th>
 <th style="text-align: right;">min_profit</th>
 <th style="text-align: right;">max_profit</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2019</td>
@@ -1408,20 +1456,20 @@ Note
 <div class="callout-body-container callout-body">
 <p>How would you find out the maximum sales for each region?</p>
 <div class="cell" data-layout-align="center">
-<div id="radio_BCEQOGEYPN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BCEQOGEYPN" value="x"><span>
-<pre>budget3 %&gt;%
-  group_by(sales) %&gt;%
-  summarise(max_sales = max(region)</pre>
-</span></label><label><input type="radio" autocomplete="off" name="radio_BCEQOGEYPN" value="x"><span>
-<pre>budget3 %&gt;%
-  group_by(sales) %&gt;%
-  summarise(max_sales = max(sales)</pre>
-</span></label><label><input type="radio" autocomplete="off" name="radio_BCEQOGEYPN" value="x"><span>
+<div id="radio_ZZAAHOYNSY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="x"> <span>
 <pre>budget3 %&gt;%
   group_by(region) %&gt;%
   summarise(max_sales = max(region)</pre>
-</span></label><label><input type="radio" autocomplete="off" name="radio_BCEQOGEYPN" value="answer"><span>
+</span></label><label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="x"> <span>
+<pre>budget3 %&gt;%
+  group_by(sales) %&gt;%
+  summarise(max_sales = max(region)</pre>
+</span></label><label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="x"> <span>
+<pre>budget3 %&gt;%
+  group_by(sales) %&gt;%
+  summarise(max_sales = max(sales)</pre>
+</span></label><label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="answer"> <span>
 <pre>budget3 %&gt;%
   group_by(region) %&gt;%
   summarise(max_sales = max(sales)</pre>
@@ -1438,13 +1486,15 @@ Note
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: left;">year</th>
 <th style="text-align: right;">sales</th>
 <th style="text-align: right;">expenses</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">North</td>
@@ -1481,13 +1531,15 @@ Note
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: left;">year</th>
 <th style="text-align: right;">sales</th>
 <th style="text-align: right;">expenses</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">East</td>
@@ -1522,11 +1574,13 @@ Note
 </div>
 </div>
 </div>
-</section></section><section id="complications" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="complications">
-<span class="header-section-number">9.3</span> Complications</h2>
-<section id="rounding" class="level3" data-number="9.3.1"><h3 data-number="9.3.1" class="anchored" data-anchor-id="rounding">
-<span class="header-section-number">9.3.1</span> Rounding</h3>
-<p>Let’s say we want to round all the values to the nearest pound. The pattern below uses the <code>across()</code> function to apply the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function to the columns from <code>mean_sales</code> to <code>max_profit</code>.</p>
+</section>
+</section>
+<section id="complications" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="complications"><span class="header-section-number">9.4</span> Complications</h2>
+<section id="rounding" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="rounding"><span class="header-section-number">9.4.1</span> Rounding</h3>
+<p>Let’s say we want to round all the values to the nearest pound. The pattern below uses the <code>across()</code> function to apply the <code>round()</code> function to the columns from <code>mean_sales</code> to <code>max_profit</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>year_prod <span class="sc">%&gt;%</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> mean_sales<span class="sc">:</span>max_profit, </span>
@@ -1534,14 +1588,16 @@ Note
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">year</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: right;">mean_sales</th>
 <th style="text-align: right;">mean_expenses</th>
 <th style="text-align: right;">min_profit</th>
 <th style="text-align: right;">max_profit</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2019</td>
@@ -1580,7 +1636,7 @@ Note
 </div>
 </div>
 </div>
-<p>If you compare this table to the one in <a href="#sec-dplyr-groupby" class="quarto-xref"><span>Section 9.2.6</span></a>, you’ll see that the 2019 gadgets mean sales rounded up from 881.5 to 882, while the mean expenses rounded down from 238.5 to 238. What’s going on!?</p>
+<p>If you compare this table to the one in <a href="#sec-dplyr-groupby" class="quarto-xref"><span>Section 9.3.6</span></a>, you’ll see that the 2019 gadgets mean sales rounded up from 881.5 to 882, while the mean expenses rounded down from 238.5 to 238. What’s going on!?</p>
 <p>This may seem like a mistake, but R rounds .5 to the nearest even number, rather than always up, like you were probably taught in school. This prevents overestimation biases, since x.5 is <em>exactly</em> halfway between x and x+1, so there is no reason it should always round up.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">round</span>(<span class="fl">0.5</span>)</span>
@@ -1601,12 +1657,13 @@ Note
 [1] 2</code></pre>
 </div>
 </div>
-</section><section id="sec-missing-values" class="level3" data-number="9.3.2"><h3 data-number="9.3.2" class="anchored" data-anchor-id="sec-missing-values">
-<span class="header-section-number">9.3.2</span> Missing values</h3>
+</section>
+<section id="sec-missing-values" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="sec-missing-values"><span class="header-section-number">9.4.2</span> Missing values</h3>
 <p>If you have control over your data, it is always best to keep missing values as empty cells rather than denoting missingness with a word or implausible number. If you used “missing” rather than leaving the cell empty, the entire variable would be read as character data, which means you wouldn’t be able to perform mathematical operations like calculating the mean. If you use an implausible number (0 or 999 are common), then you risk these values being included in any calculations as real numbers.</p>
 <p>However, we often don’t have control over how the data come to us, so let’s run through how to fix this.</p>
-<section id="bad-missing-values" class="level4" data-number="9.3.2.1"><h4 data-number="9.3.2.1" class="anchored" data-anchor-id="bad-missing-values">
-<span class="header-section-number">9.3.2.1</span> Bad missing values</h4>
+<section id="bad-missing-values" class="level4" data-number="9.4.2.1">
+<h4 data-number="9.4.2.1" class="anchored" data-anchor-id="bad-missing-values"><span class="header-section-number">9.4.2.1</span> Bad missing values</h4>
 <p>What if the South region hadn’t returned their expenses (entered as 0) and the North region hadn’t returned their sales data for 2020 yet, so someone entered it as “missing”?</p>
 <p>First, we’re going to recode the data to add in the missing values</p>
 <p>For the South data, we can use <code>case_when()</code> to set the value of expenses to 0 if the year is 2020 and region is “South”, otherwise use the value from the expenses column (i.e., don’t change).</p>
@@ -1641,11 +1698,13 @@ Using case_when() for multiple criteria
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: right;">x</th>
 <th style="text-align: right;">y</th>
 <th style="text-align: left;">label</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
@@ -1711,18 +1770,23 @@ Caused by warning in `mean.default()`:
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: right;">mean_sales</th>
-</tr></thead>
-<tbody><tr class="odd">
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td style="text-align: right;">NA</td>
-</tr></tbody>
+</tr>
+</tbody>
 </table>
 </div>
 </div>
 </div>
-</section><section id="convert-missing-values-to-na" class="level4" data-number="9.3.2.2"><h4 data-number="9.3.2.2" class="anchored" data-anchor-id="convert-missing-values-to-na">
-<span class="header-section-number">9.3.2.2</span> Convert missing values to NA</h4>
+</section>
+<section id="convert-missing-values-to-na" class="level4" data-number="9.4.2.2">
+<h4 data-number="9.4.2.2" class="anchored" data-anchor-id="convert-missing-values-to-na"><span class="header-section-number">9.4.2.2</span> Convert missing values to NA</h4>
 <p>To set the missing values to NA, we can use the handy function <code>na_if()</code>. We’ll also need to transform <code>sales</code> back to numeric.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>missing_data <span class="ot">&lt;-</span> missing_bad <span class="sc">%&gt;%</span></span>
@@ -1748,13 +1812,15 @@ Caused by warning in `mean.default()`:
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: right;">mean_sales</th>
 <th style="text-align: right;">mean_expenses</th>
 <th style="text-align: right;">min_profit</th>
 <th style="text-align: right;">max_profit</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">East</td>
@@ -1789,8 +1855,9 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="ignore-missing-values" class="level4" data-number="9.3.2.3"><h4 data-number="9.3.2.3" class="anchored" data-anchor-id="ignore-missing-values">
-<span class="header-section-number">9.3.2.3</span> Ignore missing values</h4>
+</section>
+<section id="ignore-missing-values" class="level4" data-number="9.4.2.3">
+<h4 data-number="9.4.2.3" class="anchored" data-anchor-id="ignore-missing-values"><span class="header-section-number">9.4.2.3</span> Ignore missing values</h4>
 <p>This is because <code>NA</code> basically means “I don’t know”, and the sum of 100 and “I don’t know” is “I don’t know”, not 100. However, when you’re calculating means, you often want to just ignore missing values. Set <code>na.rm = TRUE</code> in the summary function to remove missing values before calculating.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>missing_data <span class="sc">%&gt;%</span></span>
@@ -1805,13 +1872,15 @@ Caused by warning in `mean.default()`:
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">region</th>
 <th style="text-align: right;">mean_sales</th>
 <th style="text-align: right;">mean_expenses</th>
 <th style="text-align: right;">min_profit</th>
 <th style="text-align: right;">max_profit</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">East</td>
@@ -1846,9 +1915,10 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="count-missing-values" class="level4" data-number="9.3.2.4"><h4 data-number="9.3.2.4" class="anchored" data-anchor-id="count-missing-values">
-<span class="header-section-number">9.3.2.4</span> Count missing values</h4>
-<p>If you want to find out how many missing or non-missing values there are in a column, use the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function to get a <a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">logical</a> vector of whether or not each value is missing, and use <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> to count how many values are TRUE or <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to calculate the proportion of TRUE values.</p>
+</section>
+<section id="count-missing-values" class="level4" data-number="9.4.2.4">
+<h4 data-number="9.4.2.4" class="anchored" data-anchor-id="count-missing-values"><span class="header-section-number">9.4.2.4</span> Count missing values</h4>
+<p>If you want to find out how many missing or non-missing values there are in a column, use the <code>is.na()</code> function to get a <a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">logical</a> vector of whether or not each value is missing, and use <code>sum()</code> to count how many values are TRUE or <code>mean()</code> to calculate the proportion of TRUE values.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>missing_data <span class="sc">%&gt;%</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">group_by</span>(year, product) <span class="sc">%&gt;%</span></span>
@@ -1861,13 +1931,15 @@ Caused by warning in `mean.default()`:
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">year</th>
 <th style="text-align: left;">product</th>
 <th style="text-align: right;">n_valid</th>
 <th style="text-align: right;">n_missing</th>
 <th style="text-align: right;">prop_missing</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">2019</td>
@@ -1902,8 +1974,9 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="omit-missing-values" class="level4" data-number="9.3.2.5"><h4 data-number="9.3.2.5" class="anchored" data-anchor-id="omit-missing-values">
-<span class="header-section-number">9.3.2.5</span> Omit missing values</h4>
+</section>
+<section id="omit-missing-values" class="level4" data-number="9.4.2.5">
+<h4 data-number="9.4.2.5" class="anchored" data-anchor-id="omit-missing-values"><span class="header-section-number">9.4.2.5</span> Omit missing values</h4>
 <p>You may also want to remove rows that have missing values and only work from complete datasets. <code>drop_na()</code> will remove any row that has a missing observation. You can use <code>drop_na()</code> on the entire dataset which will remove any row that has <em>any</em> missing value, or you can specify to only remove rows that are missing a specific value.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># remove any rows with any missing values</span></span>
@@ -1915,8 +1988,11 @@ Caused by warning in `mean.default()`:
 <span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">drop_na</span>(sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Missing data can be quite difficult to deal with depending on how it is represented. As always, no amount of coding expertise can make up for not understanding the structure and idiosyncrasies of your data.</p>
-</section></section></section><section id="sec-together-wrangle" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="sec-together-wrangle">
-<span class="header-section-number">9.4</span> Exercises</h2>
+</section>
+</section>
+</section>
+<section id="sec-together-wrangle" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="sec-together-wrangle"><span class="header-section-number">9.5</span> Exercises</h2>
 <p>Let’s try some exercises using a dataset you already encountered in <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a> so that you can see how much more you’re able to do with the data now.</p>
 <ul>
 <li>Save your current Markdown, close it, and open a new Rmd named “survey_data_mad_skillz”.</li>
@@ -1954,8 +2030,8 @@ dttm (1): call_start
 </div>
 </div>
 </div>
-<section id="creating-new-categories" class="level3" data-number="9.4.1"><h3 data-number="9.4.1" class="anchored" data-anchor-id="creating-new-categories">
-<span class="header-section-number">9.4.1</span> Creating new categories</h3>
+<section id="creating-new-categories" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="creating-new-categories"><span class="header-section-number">9.5.1</span> Creating new categories</h3>
 <p>Employees 1-5 were trained by Michael and employees 6-10 were trained by Dwight.</p>
 <ul>
 <li>Create a new column named <code>trainer</code> that lists the trainer for each employee.</li>
@@ -1994,17 +2070,20 @@ Solution
 <span id="cb44-17"><a href="#cb44-17"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Satisfaction scores by employee trainer"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="09-wrangle_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<figure class="figure">
+<p><img src="09-wrangle_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th style="text-align: left;">trainer</th>
 <th style="text-align: right;">mean_satisfaction</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Dwight</td>
@@ -2022,8 +2101,9 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="filter-by-calculated-score" class="level3" data-number="9.4.2"><h3 data-number="9.4.2" class="anchored" data-anchor-id="filter-by-calculated-score">
-<span class="header-section-number">9.4.2</span> Filter by calculated score</h3>
+</section>
+<section id="filter-by-calculated-score" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="filter-by-calculated-score"><span class="header-section-number">9.5.2</span> Filter by calculated score</h3>
 <p>First, calculate the average wait time and store this in an object named <code>mean_wait</code>. This should be a single value rather than a table.</p>
 <div class="webex-solution">
 <button>
@@ -2094,7 +2174,8 @@ Solution
 <span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="09-wrangle_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<figure class="figure">
+<p><img src="09-wrangle_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -2102,14 +2183,13 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="multiple-critera" class="level3" data-number="9.4.3"><h3 data-number="9.4.3" class="anchored" data-anchor-id="multiple-critera">
-<span class="header-section-number">9.4.3</span> Multiple critera</h3>
+</section>
+<section id="multiple-critera" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="multiple-critera"><span class="header-section-number">9.5.3</span> Multiple critera</h3>
 <p>Now, add a column to <code>survey_data</code> named <code>follow_up</code> that flags whether a customer should be followed up with a courtesy phone call. Your company is short-staffed so only customers that meet all three of the following criteria should be followed-up:</p>
 <ul>
-<li>Their wait time should be above the average <strong>for all calls</strong>
-</li>
-<li>Their call time should be above the average <strong>for their category</strong>
-</li>
+<li>Their wait time should be above the average <strong>for all calls</strong></li>
+<li>Their call time should be above the average <strong>for their category</strong></li>
 <li>Their satisfaction should be less than three 3.</li>
 </ul>
 <p>This is quite complicated and there are multiple ways to achieve the desired outcome. Some approaches may need other functions that were covered in previous chapters and you may need to create intermediate objects.</p>
@@ -2151,14 +2231,10 @@ Solution
 <p>For all of the above, write code that stores the answer as a single value, so that you could easily use it in inline coding.</p>
 <p>How many customers need to be followed up:</p>
 <ul>
-<li>In total? <input class="webex-solveme nospaces" size="3" data-answer="[&quot;120&quot;]">
-</li>
-<li>From calls by employee 06? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;16&quot;]">
-</li>
-<li>From calls by employees trained by Michael <input class="webex-solveme nospaces" size="2" data-answer="[&quot;65&quot;]">
-</li>
-<li>From calls by employees trained by Dwight <input class="webex-solveme nospaces" size="2" data-answer="[&quot;55&quot;]">
-</li>
+<li>In total? <input class="webex-solveme nospaces" size="3" data-answer="[&quot;120&quot;]"></li>
+<li>From calls by employee 06? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;16&quot;]"></li>
+<li>From calls by employees trained by Michael <input class="webex-solveme nospaces" size="2" data-answer="[&quot;65&quot;]"></li>
+<li>From calls by employees trained by Dwight <input class="webex-solveme nospaces" size="2" data-answer="[&quot;55&quot;]"></li>
 </ul>
 <div class="webex-solution">
 <button>
@@ -2236,35 +2312,39 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="original-insight" class="level3" data-number="9.4.4"><h3 data-number="9.4.4" class="anchored" data-anchor-id="original-insight">
-<span class="header-section-number">9.4.4</span> Original insight</h3>
+</section>
+<section id="original-insight" class="level3" data-number="9.5.4">
+<h3 data-number="9.5.4" class="anchored" data-anchor-id="original-insight"><span class="header-section-number">9.5.4</span> Original insight</h3>
 <p>In preparation for the final summative assessment, explore the data to provide one original insight of your own.</p>
-</section><section id="share-on-teams" class="level3" data-number="9.4.5"><h3 data-number="9.4.5" class="anchored" data-anchor-id="share-on-teams">
-<span class="header-section-number">9.4.5</span> Share on Teams</h3>
+</section>
+<section id="share-on-teams" class="level3" data-number="9.5.5">
+<h3 data-number="9.5.5" class="anchored" data-anchor-id="share-on-teams"><span class="header-section-number">9.5.5</span> Share on Teams</h3>
 <p>Once you’re done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 09 channel.</p>
-</section></section><section id="sec-glossary-wrangle" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="sec-glossary-wrangle">
-<span class="header-section-number">9.5</span> Glossary</h2>
+</section>
+</section>
+<section id="sec-glossary-wrangle" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="sec-glossary-wrangle"><span class="header-section-number">9.6</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
 <p>|term |definition | |:——————|:————————————————————————————————————————–| |boolean expression |An expression that evaluates to TRUE or FALSE. | |data wrangling |The process of preparing data for visualisation and statistical analysis. | |factor |A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter | |logical |A data type representing TRUE or FALSE values. | |Operator |A symbol that performs some mathematical or comparative process. | |string |A piece of text inside of quotes. |</p>
 </div>
-</section><section id="sec-resources-wrangle" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="sec-resources-wrangle">
-<span class="header-section-number">9.6</span> Further resources</h2>
+</section>
+<section id="sec-resources-wrangle" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="sec-resources-wrangle"><span class="header-section-number">9.7</span> Further resources</h2>
 <ul>
 <li><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation cheat sheet</a></li>
-<li>
-<a href="https://r4ds.hadley.nz/missing-values">Chapter 18: Missing Data</a> in <em>R for Data Science</em>
-</li>
-<li>
-<a href="https://r4ds.hadley.nz/data-transform">Chapter 3: Data Transformation</a> in <em>R for Data Science</em>
-</li>
-<li>
-<a href="https://r4ds.hadley.nz/functions">Chapter 25: Functions</a> in <em>R for Data Science</em>
-</li>
+<li><a href="https://r4ds.hadley.nz/missing-values">Chapter 18: Missing Data</a> in <em>R for Data Science</em></li>
+<li><a href="https://r4ds.hadley.nz/data-transform">Chapter 3: Data Transformation</a> in <em>R for Data Science</em></li>
+<li><a href="https://r4ds.hadley.nz/functions">Chapter 25: Functions</a> in <em>R for Data Science</em></li>
 <li><a href="https://stringr.tidyverse.org/articles/stringr.html">Introduction to stringr</a></li>
 </ul>
 
 
-</section></main><!-- /main --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script><script>
+</section>
+
+</main> <!-- /main -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -2437,7 +2517,8 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script><script>
+</script>
+<script>
 $( document ).ready(function() {
   var cite = ' ';
   var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
@@ -2458,7 +2539,8 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><script id="quarto-html-after-body" type="application/javascript">
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -3010,7 +3092,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./08-tidy.html" class="pagination-link" aria-label="Data Tidying">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Tidying</span></span>
       </a>          
@@ -3022,7 +3106,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
 <p>CC-BY 2024, psyTeachR</p>
 </div>   
@@ -3031,7 +3116,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/psyteachr/ads-v3/edit/master/09-wrangle.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/psyteachr/ads-v3/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/psyteachr/ads-v3/blob/master/09-wrangle.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item compact">
+    <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/psyteachr/ads-v3">
       <i class="bi bi-github" role="img">
 </i> 
@@ -3050,9 +3135,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
 </ul>
-</div>
+    </div>
   </div>
 </footer>
+
+
 
 
 </body></html>

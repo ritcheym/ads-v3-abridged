@@ -351,7 +351,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
    
   <ul>
 <li><a href="#sec-ilo-reports" id="toc-sec-ilo-reports" class="nav-link active" data-scroll-target="#sec-ilo-reports">Intended Learning Outcomes</a></li>
-  <li><a href="#functions-ch02" id="toc-functions-ch02" class="nav-link" data-scroll-target="#functions-ch02"><span class="header-section-number">2.1</span> Functions used</a></li>
+  <li><a href="#functions-reports" id="toc-functions-reports" class="nav-link" data-scroll-target="#functions-reports"><span class="header-section-number">2.1</span> Functions used</a></li>
   <li><a href="#sec-walkthrough-reports" id="toc-sec-walkthrough-reports" class="nav-link" data-scroll-target="#sec-walkthrough-reports">Walkthrough video</a></li>
   <li><a href="#sec-setup-reports" id="toc-sec-setup-reports" class="nav-link" data-scroll-target="#sec-setup-reports"><span class="header-section-number">2.2</span> Setup</a></li>
   <li>
@@ -439,9 +439,38 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <li>Be able to structure a project</li>
 <li>Be able to knit a simple reproducible report with R Markdown</li>
 <li>Be able to create code chunks, tables, images, and inline R in an R Markdown document</li>
-</ul></section><section id="functions-ch02" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="functions-ch02">
+</ul></section><section id="functions-reports" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="functions-reports">
 <span class="header-section-number">2.1</span> Functions used</h2>
-<p><code>count()</code>, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>geom_bar()</code>, <code>geom_col()</code>, <code>ggplot()</code>, <code>include_graphics()</code>, <code>install_tinytex()</code>, <code>kable()</code>, <code>kable_classic()</code>, <code>labs()</code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code>, <code>read_csv()</code>, <code>row_spec()</code>, <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code>, <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>, <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code>.</p>
+<ul>
+<li>built-in (you can always use these without loading any packages)
+<ul>
+<li>base:: <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code>, <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code>, <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>
+</li>
+<li>utils:: <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code>
+</li>
+</ul>
+</li>
+<li>tidyverse (you can use all these with <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>)
+<ul>
+<li>readr:: <code>read_csv()</code>, <code>row_spec()</code>
+</li>
+<li>dplyr:: <code>count()</code>, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>
+</li>
+<li>ggplot2:: <code>geom_bar()</code>, <code>geom_col()</code>, <code>ggplot()</code>, <code>labs()</code>
+</li>
+</ul>
+</li>
+<li>other (you need to load each package to use these)
+<ul>
+<li>knitr:: <code>include_graphics()</code>, <code>kable()</code>
+</li>
+<li>kableExtra:: <code>kable_classic()</code>, <code>row_spec()</code>
+</li>
+<li>tinytex:: <code>install_tinytex()</code>
+</li>
+</ul>
+</li>
+</ul>
 <p>Download the <a href="https://www.rstudio.org/links/r_markdown_cheat_sheet" download="">R Markdown Cheat Sheet</a></p>
 </section><section id="sec-walkthrough-reports" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-reports">Walkthrough video</h2>
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/6b6c1c8f-c24f-44c1-9e43-988fe577ce5b/public">Echo360.</a> Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
@@ -737,7 +766,7 @@ Displaying Plots
 <p>R Markdown will create and display a new HTML document, but it will also automatically save this file in your working directory.</p>
 <p>As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.</p>
 <blockquote class="blockquote">
-<p>My name is Emily and I am 36 years old. It is 246 days until Christmas, which is my favourite holiday.</p>
+<p>My name is Emily and I am 36 years old. It is 239 days until Christmas, which is my favourite holiday.</p>
 </blockquote>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -1043,7 +1072,7 @@ Solution
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="02-reports_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="02-reports_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1651,12 +1680,12 @@ Alternative Solution
 </div>
 </section><section id="sec-exercises-reports-inline" class="level3" data-number="2.8.6"><h3 data-number="2.8.6" class="anchored" data-anchor-id="sec-exercises-reports-inline">
 <span class="header-section-number">2.8.6</span> Inline R</h3>
-<p>Use inline R to include the version of R you are using in the following sentence: “This report was created using R version 4.3.2 (2023-10-31).” You can get the version using the object <code>R.version.string</code> (<a href="#sec-rmd-inline-r" class="quarto-xref"><span>Section 2.4.4</span></a>).</p>
+<p>Use inline R to include the version of R you are using in the following sentence: “This report was created using R version 4.4.0 (2024-04-24).” You can get the version using the object <code>R.version.string</code> (<a href="#sec-rmd-inline-r" class="quarto-xref"><span>Section 2.4.4</span></a>).</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<p>This report was created using <code>R version 4.3.2 (2023-10-31)</code>.</p>
+<p>This report was created using <code>R version 4.4.0 (2024-04-24)</code>.</p>
 </div>
 </section><section id="sec-exercises-reports-knit" class="level3" data-number="2.8.7"><h3 data-number="2.8.7" class="anchored" data-anchor-id="sec-exercises-reports-knit">
 <span class="header-section-number">2.8.7</span> Knit</h3>

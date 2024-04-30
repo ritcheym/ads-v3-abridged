@@ -367,7 +367,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <section id="updating-rstudio" class="level2" data-number="B.1"><h2 data-number="B.1" class="anchored" data-anchor-id="updating-rstudio">
 <span class="header-section-number">B.1</span> Updating RStudio</h2>
 <p>RStudio is the easiest component to update. Typically, updates to RStudio won’t affect your code, instead they add in new features, like spell-check or upgrades to what RStudio can do. There’s usually very little downside to updating RStudio and it’s easy to do.</p>
-<p>Click <code>Help - Check for updates</code></p>
+<p>Click <if>Help &gt; Check for updates</if></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -382,7 +382,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <p>Finally, you may also wish to update R itself. The key thing to be aware of is that when you update R, if you just download the latest version from the website, you will lose all your packages.</p>
 <section id="windows" class="level3" data-number="B.2.1"><h3 data-number="B.2.1" class="anchored" data-anchor-id="windows">
 <span class="header-section-number">B.2.1</span> Windows</h3>
-<p>The easiest way to update R on Windows and not cause yourself a huge headache is to use the <code>installr</code> package. When you use the <code>updateR()</code> function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a <a href="https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/">full step-by-step guide available</a> for how to use <code>installr</code>, the important bit is to select “Yes” when it asked if you would like to copy your packages from the older version of R.</p>
+<p>The easiest way to update R on Windows and not cause yourself a huge headache is to use the <pkg>installr</pkg> package. When you use the <code>updateR()</code> function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a <a href="https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/">full step-by-step guide available</a> for how to use <code>installr</code>, the important bit is to select “Yes” when it asked if you would like to copy your packages from the older version of R.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Install the installr package</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">install.packages</span>(<span class="st">"installr"</span>)</span>
@@ -392,7 +392,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </div>
 </section><section id="mac" class="level3" data-number="B.2.2"><h3 data-number="B.2.2" class="anchored" data-anchor-id="mac">
 <span class="header-section-number">B.2.2</span> Mac</h3>
-<p>For a Mac, you can use the <pkg>updateR”, “https://github.com/AndreaCirilloAC/updateR”)` package. You’ll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.</pkg></p>
+<p>For a Mac, you can use the <a href="https://github.com/AndreaCirilloAC/updateR"><pkg>updateR</pkg></a> package. You’ll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install from github</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"AndreaCirilloAC/updateR"</span>)</span>
@@ -407,7 +407,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click <code>Tools - Check for Package Updates</code>. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.</p>
+<p>To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click <if>Tools &gt; Check for Package Updates</if>. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">

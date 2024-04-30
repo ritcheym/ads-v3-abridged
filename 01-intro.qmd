@@ -13,9 +13,21 @@ set.seed(12042016)
 * Be able to get help for packages and functions
 * Be able to create objects by writing and running code in the console
 
-## Functions used {#functions-ch01}
+## Functions used {#functions-intro}
 
-`.rs.restartR()`, `?`, `Sys.Date()`, `as.Date()`, `beep()`, `devtools::install_github()`, `install.packages()`, `library()`, `paste()`, `sample()`, `vignette()`.
+```{r, include = FALSE}
+# load tidyverse packages separately so auto-links work in `func()` notation
+library(beepr)
+library(devtools)
+```
+
+* built-in (you can always use these without loading any packages)
+    * base:: `.rs.restartR()`, `as.Date()`, `library()`, `paste()`, `sample()`, `Sys.Date()`
+    * utils:: `?`, `install.packages()`, `vignette()`
+* other (you need to load each package to use these)
+    * beepr:: `beep()`
+    * devtools:: `install_github()`
+
 
 ## Walkthrough video {#sec-walkthrough-intro .unnumbered}
 

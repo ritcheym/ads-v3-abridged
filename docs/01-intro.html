@@ -330,7 +330,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
    
   <ul>
 <li><a href="#sec-ilo-intro" id="toc-sec-ilo-intro" class="nav-link active" data-scroll-target="#sec-ilo-intro">Intended Learning Outcomes</a></li>
-  <li><a href="#functions-ch01" id="toc-functions-ch01" class="nav-link" data-scroll-target="#functions-ch01"><span class="header-section-number">1.1</span> Functions used</a></li>
+  <li><a href="#functions-intro" id="toc-functions-intro" class="nav-link" data-scroll-target="#functions-intro"><span class="header-section-number">1.1</span> Functions used</a></li>
   <li><a href="#sec-walkthrough-intro" id="toc-sec-walkthrough-intro" class="nav-link" data-scroll-target="#sec-walkthrough-intro">Walkthrough video</a></li>
   <li>
 <a href="#sec-intro-installing-r" id="toc-sec-intro-installing-r" class="nav-link" data-scroll-target="#sec-intro-installing-r"><span class="header-section-number">1.2</span> Installing R and RStudio</a>
@@ -390,10 +390,26 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <li>Be able to install add-on packages</li>
 <li>Be able to get help for packages and functions</li>
 <li>Be able to create objects by writing and running code in the console</li>
-</ul></section><section id="functions-ch01" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="functions-ch01">
+</ul></section><section id="functions-intro" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="functions-intro">
 <span class="header-section-number">1.1</span> Functions used</h2>
-<p><code>.rs.restartR()</code>, <code>?</code>, <code><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date()</a></code>, <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code>, <code>beep()</code>, <code><a href="https://remotes.r-lib.org/reference/install_github.html">devtools::install_github()</a></code>, <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>, <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code>, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, <code><a href="https://rdrr.io/r/utils/vignette.html">vignette()</a></code>.</p>
-</section><section id="sec-walkthrough-intro" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-intro">Walkthrough video</h2>
+<ul>
+<li>built-in (you can always use these without loading any packages)
+<ul>
+<li>base:: <code>.rs.restartR()</code>, <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code>, <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code>, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, <code><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date()</a></code>
+</li>
+<li>utils:: <code>?</code>, <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>, <code><a href="https://rdrr.io/r/utils/vignette.html">vignette()</a></code>
+</li>
+</ul>
+</li>
+<li>other (you need to load each package to use these)
+<ul>
+<li>beepr:: <code>beep()</code>
+</li>
+<li>devtools:: <code>install_github()</code>
+</li>
+</ul>
+</li>
+</ul></section><section id="sec-walkthrough-intro" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-intro">Walkthrough video</h2>
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/3861d902-df69-417d-8f27-259089f992b8/public">Echo360.</a> We recommend first trying to work through each section of the book on your own and then watching the video if you get stuck, or if you would like more information. This will feel slower than just starting with the video, but you will learn more in the long-run. Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf" download="">RStudio IDE Cheatsheet</a></p>
 </section><section id="sec-intro-installing-r" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="sec-intro-installing-r">
@@ -410,7 +426,7 @@ Book version
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This book was created using R version 4.3.2 (2023-10-31) (Eye Holes) and RStudio version 2022.12.0.353 (Elsbeth Geranium). Most of the content of this book will work fine in versions of R above 4.0 and earlier versions of RStudio, although there may be some small differences in the interface.</p>
+<p>This book was created using R version 4.4.0 (2024-04-24) (Puppy Cup) and RStudio version 2022.12.0.353 (Elsbeth Geranium). Most of the content of this book will work fine in versions of R above 4.0 and earlier versions of RStudio, although there may be some small differences in the interface.</p>
 </div>
 </div>
 <!-- TODO: render the book in earlier versions to find out the limits here -->

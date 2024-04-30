@@ -22,7 +22,7 @@ License: CC BY 4.0 + LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-    bookdown,
+    quarto,
     knitr,
     downlit,
     janitor,
@@ -54,7 +54,7 @@ Imports:
     DT,
     showtext
 Remotes: 
-    ropensci/rnaturalearthhires
+    ropensci/rnaturalearthhires,
     hrbrmstr/waffle
 Depends: 
     tidyverse

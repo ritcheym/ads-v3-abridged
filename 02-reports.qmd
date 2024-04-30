@@ -6,9 +6,32 @@
 -   Be able to knit a simple reproducible report with R Markdown
 -   Be able to create code chunks, tables, images, and inline R in an R Markdown document
 
-## Functions used {#functions-ch02}
+## Functions used {#functions-reports}
 
-`count()`, `filter()`, `geom_bar()`, `geom_col()`, `ggplot()`, `include_graphics()`, `install_tinytex()`, `kable()`, `kable_classic()`, `labs()`, `max()`, `min()`, `nrow()`, `read_csv()`, `row_spec()`, `str()`, `summary()`, `View()`.     
+```{r, include = FALSE}
+# load tidyverse packages separately so auto-links work in `func()` notation
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+library(tinytex)
+```
+
+* built-in (you can always use these without loading any packages)
+    * base:: `max()`, `min()`, `nrow()`, `str()`, `summary()`
+    * utils:: `View()`
+* tidyverse (you can use all these with `library(tidyverse)`)
+    * readr:: `read_csv()`, `row_spec()`
+    * dplyr:: `count()`, `filter()`
+    * ggplot2:: `geom_bar()`, `geom_col()`, `ggplot()`, `labs()`
+* other (you need to load each package to use these)
+    * knitr:: `include_graphics()`, `kable()`
+    * kableExtra:: `kable_classic()`, `row_spec()`
+    * tinytex:: `install_tinytex()`  
+    
+
+
 
 Download the [R Markdown Cheat Sheet](https://www.rstudio.org/links/r_markdown_cheat_sheet){download=""}
 

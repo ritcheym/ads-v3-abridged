@@ -6,6 +6,29 @@
 * Be able to create new columns and edit existing ones
 * Be able to handle missing data
 
+## Functions used {#functions-wrangle}
+
+```{r, include = FALSE}
+# load tidyverse packages separately so auto-links work in `func()` notation
+library(readr)
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(janitor)
+```
+
+* built-in (you can always use these without loading any packages)
+    * base:: `round()`, `mean()`, `min()`, `max()`, ``sum()`, `as.character()`, `as.numeric()`
+    * utils:: `head()`, `packageVersion()`
+* tidyverse (you can use all these with `library(tidyverse)`)
+    * readr:: `read_csv()`
+    * dplyr:: `filter()`, `arrange()`, `mutate()`, `summarise()`, `group_by()`, `ungroup()`, `case_when()`, `na_if()`
+    * tidyr:: `pivot_longer()`, `pivot_wider()`
+    * tibble:: `tibble()`
+* other (you need to load each package to use these)
+    * janitor:: `round_half_up()`
+
+
 ## Walkthrough video {#sec-walkthrough-wrangle .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360](https://echo360.org.uk/media/dc1e2869-a6c2-45d8-ab40-cb85cdb67f43/public). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
@@ -20,7 +43,7 @@ library(janitor)
 ```
 
 ::: {.callout-warning}
-At this point in ADS it's very likely you will have the most recent version of the <pkg>tidyverse</pkg> packages but just in case, be aware that the function `case_when()` that we will use in this chapter was updated in to introduce new arguments and ways of handling NA. The code we provide in this chapter will only work if you have v1.1.0 or above of <pkg>dplyr</pkg> installed. To check run `packageVersion("dplyr")` and if it's below 1.1.0, install it again to update.
+At this point in ADS it's very likely you will have the most recent version of the <pkg>tidyverse</pkg> packages but just in case, be aware that the function `case_when()` that we will use in this chapter was updated in to introduce new arguments and ways of handling `NA`. The code we provide in this chapter will only work if you have v1.1.0 or above of <pkg>dplyr</pkg> installed. To check run `packageVersion("dplyr")` and if it's below 1.1.0, install it again to update.
 :::
 
 You'll need to make a folder called "data" and download a data file into it: 
@@ -493,7 +516,7 @@ round(0.5)
 round(1.5)
 ```
 
-However, this might throw a monkey wrench into your own systems. For example, our school policy is to round up for course marks at x.5. The easiest solution is to use the `round_half_up()` function from the package `r pkg("janitor")`.
+However, this might throw a monkey wrench into your own systems. For example, our school policy is to round up for course marks at x.5. The easiest solution is to use the `round_half_up()` function from the package <pkg>janitor</pkg>.
 
 when you run this code, a new section will appear in the environment pane labelled "Functions". In addition to using functions from packages, you can also make your own. It's not something we are going to go into detail on in this course, but it's useful to know the functionality exists.
 

@@ -6,7 +6,7 @@ From time-to-time, updated version of R, RStudio, and the packages you use (e.g.
 
 RStudio is the easiest component to update. Typically, updates to RStudio won't affect your code, instead they add in new features, like spell-check or upgrades to what RStudio can do. There's usually very little downside to updating RStudio and it's easy to do.
 
-Click `Help - Check for updates`
+Click <if>Help > Check for updates</if>
 
 ```{r img-updaterstudio, echo=FALSE, fig.cap="Updating RStudio"}
 knitr::include_graphics("images/appx/update_rstudio.jpg")
@@ -20,7 +20,7 @@ Finally, you may also wish to update R itself. The key thing to be aware of is t
 
 ### Windows
 
-The easiest way to update R on Windows and not cause yourself a huge headache is to use the `installr` package. When you use the `updateR()` function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a [full step-by-step guide available](https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/) for how to use `installr`, the important bit is to select "Yes" when it asked if you would like to copy your packages from the older version of R.
+The easiest way to update R on Windows and not cause yourself a huge headache is to use the <pkg>installr</pkg> package. When you use the `updateR()` function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a [full step-by-step guide available](https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/) for how to use `installr`, the important bit is to select "Yes" when it asked if you would like to copy your packages from the older version of R.
 
 ```{r installr, eval = FALSE}
 # Install the installr package
@@ -32,7 +32,7 @@ installR::updateR()
 
 ### Mac
 
-For a Mac, you can use the <pkg>updateR", "https://github.com/AndreaCirilloAC/updateR")` package. You'll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.
+For a Mac, you can use the [<pkg>updateR</pkg>](https://github.com/AndreaCirilloAC/updateR) package. You'll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.
 
 ```{r, eval = FALSE}
 # install from github
@@ -54,7 +54,7 @@ To update an individual package, the easiest way is to use the `install.packages
 install.packages("tidyverse")
 ```
 
-To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click `Tools - Check for Package Updates`. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.
+To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click <if>Tools > Check for Package Updates</if>. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.
 
 ```{r img-updateall, echo=FALSE, fig.cap="Updating packages with RStudio"}
 knitr::include_graphics("images/appx/update_packages.png")

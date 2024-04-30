@@ -8,6 +8,7 @@ The final chapter of ADS moves beyond the core skills needed to complete the cou
 * Structure data in report, presentation, and dashboard formats
 * Include linked figures, tables, and references
 
+
 ## Walkthrough video {#sec-walkthrough-custom .unnumbered}
 
 There is no walkthrough video of this chapter because it is not core content.

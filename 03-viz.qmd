@@ -6,9 +6,29 @@
 * Be able to create plots in layers using ggplot
 * Be able to choose appropriate plots for data
 
-## Functions used {#functions-ch03}
+## Functions used {#functions-viz}
 
-`aes()`, `as.numeric()`, `c()`, `col_character()`, `col_datetime()`, `col_double()`, `col_factor()`, `col_integer()`, `cols()`, `coord_cartesian()`, `count()`, `element_blank()`, `facet_wrap()`, `factor()`, `geom_bar()`, `geom_boxplot()`, `geom_col()`, `geom_histogram()`, `geom_jitter()`, `geom_point()`, `geom_smooth()`, `ggplot()`, `ggtitle()`, `glimpse()`, `guides()`, `mean()`, `now()`, `plot_layout()`, `read_csv()`, `rgb()`, `scale_fill_manual()`, `scale_x_continuous()`, `scale_x_date()`, `scale_x_discrete()`, `scale_y_continuous()`, `seq()`, `spec()`, `stat_summary()`, `theme()`, `theme_bw()`, `theme_gdocs()`, `theme_set()`, `today()`
+```{r, include = FALSE}
+# load tidyverse packages separately so auto-links work in `func()` notation
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+```
+
+* built-in (you can always use these without loading any packages)
+    * base:: , `as.numeric()`, `c()`, `factor()`, `mean()`, `seq()`, 
+    * grDevices:: `rgb()`
+* tidyverse (you can use all these with `library(tidyverse)`)
+    * readr:: `col_character()`, `col_datetime()`, `col_double()`, `col_factor()`, `col_integer()`, `cols()`, `read_csv()`
+    * lubridate:: `now()`, `today()`
+    * dplyr:: `count()`, `glimpse()`, 
+    * ggplot2:: `aes()`, `coord_cartesian()`, `element_blank()`, `facet_wrap()`, `geom_bar()`, `geom_boxplot()`, `geom_col()`, `geom_histogram()`, `geom_jitter()`, `geom_point()`, `geom_smooth()`, `ggplot()`, `ggtitle()`, `guides()`, `scale_fill_manual()`, `scale_x_continuous()`, `scale_x_date()`, `scale_x_discrete()`, `scale_y_continuous()`, `spec()`, `stat_summary()`, `theme()`, `theme_bw()`, `theme_minimal()`, `theme_set()`
+* other (you need to load each package to use these)
+    * ggthemes:: `theme_gdocs()`
+    * patchwork:: `plot_layout()`
+
+
 
 ## Walkthrough video {#sec-walkthrough-viz .unnumbered}
 

@@ -35,6 +35,28 @@ write_csv(untidy_data, "data/untidy_data.csv")
 -   Separate, change, reorder, and rename columns
 -   Use pipes to chain together functions
 
+## Functions used {#functions-tidy}
+
+```{r, include = FALSE}
+# load tidyverse packages separately so auto-links work in `func()` notation
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+```
+
+* built-in (you can always use these without loading any packages)
+    * base:: `library()`, `c()`, `list()`
+* tidyverse (you can use all these with `library(tidyverse)`)
+    * readr:: `read_csv()`, `type_convert()`
+    * dplyr:: `filter()`, `group_by()`, `summarise()`, `select()`, `mutate()`, `glimpse()`
+    * tidyr:: `pivot_longer()`, `pivot_wider()`, `separate()`
+    * ggplot2:: `ggplot()`, `aes()`, `geom_histogram()`
+    * stringr:: `str_replace_all()`
+    
+
+
 ## Walkthrough video {#sec-walkthrough-tidy .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360](https://echo360.org.uk/media/3f9cbd60-622e-4128-95e7-d825e5fa922c/public). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.

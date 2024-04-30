@@ -4,6 +4,7 @@ This book will use the following conventions:
 
 * Code: `list(number = 1, letter = "A")`
 * File paths: `r path("data/sales.csv")`
+* Packages: <pkg>tidyverse</pkg>
 * Menu/interface options: <if>Tools > Global Options... > Pane Layout</if>
 * Glossary items: `r glossary("ordinal")`
 * Citations: @R-tidyverse

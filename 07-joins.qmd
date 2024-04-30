@@ -5,6 +5,28 @@
 -   Be able to match related data across multiple tables
 -   Be able to combine data from multiple files
 
+## Functions used {#functions-joins}
+
+```{r, include = FALSE}
+# load tidyverse packages separately so auto-links work in `func()` notation
+library(readr)
+library(dplyr)
+library(tibble)
+library(purrr)
+library(stringr)
+```
+
+* built-in (you can always use these without loading any packages)
+    * base:: `library()`, `dir.create()`, `list.files()`, `as.numeric()`, `as.factor()`, `as.character()`, `as.data.frame()`
+* tidyverse (you can use all these with `library(tidyverse)`)
+    * readr:: `write_csv()`, `read_csv()`
+    * dplyr:: `left_join()`, `right_join()`, `inner_join()`, `full_join()`, `semi_join()`, `anti_join()`, `bind_rows()`, `bind_cols()`, `intersect()`, `union()`, `setdiff()`, `mutate()`
+    * tibble:: `tibble()`, `as_tibble()`
+    * purrr:: `map_df()`
+    * stringr:: `str_replace_all()`
+
+
+
 ## Walkthrough video {#sec-walkthrough-joins .unnumbered}
 
 There is a walkthrough video of this chapter available via [Echo360.](https://echo360.org.uk/media/519bb538-58b3-4710-85df-d71c56001a5d/public) Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
@@ -312,11 +334,21 @@ The <pkg>purrr</pkg> package contains functions to help with iteration. `purrr::
 
 * `.x` is the list of file paths 
 * `.f` specifies the function to map to each of those file paths.
-* The resulting object `all_files` will be a data frame that combines all the files together, similar to if you had imported them separately and then used `bind_rows()`. Note that `map_df()` will only work in this way if the structure of all files is identical.
+* The resulting object `all_files` will be a data frame that combines all the files together, similar to if you had imported them separately and then used `bind_rows()`. 
 
 ```{r, message=FALSE}
 all_files <- purrr::map_df(.x = files, .f = read_csv)
 ```
+
+::: {.callout-note}
+If all of your data files have the _exact_ same structure (i.e., the same number of columns with the same names), you can just use `read_csv()` and set the `file` argument to a vector of the file names. However, the pattern above is safer if you might have a file with an extra or missing column.
+
+```{r, eval=FALSE}
+files <- c("data/customers1.csv", "data/customers1.csv")
+all_files <- read_csv(files)
+```
+:::
+
 
 ```{r, echo=FALSE, results='hide'}
 # clean up temporary files
@@ -427,7 +459,7 @@ As alternative method to change variable types from what we showed you in @sec-d
 * `as.numeric()` - convert a variable to `r glossary("numeric")`. Useful for when you have a variable of real numbers that have been encoded as character. Any values that can't be turned into numbers (e.g., if you have the word "missing" in cells that you have no data for), will be returned as `NA`.
 * `as.factor()` - convert a variable to a `r glossary("factor")`. You can set the factor levels and labels manually, or use the default order (alphabetical).
 * `as.character()` - convert a variable to `r glossary("character")` data.
-* `as.tibble()` and `as.data.frame()` - convert a list object (not a variable) to a tibble or a data frame (two different table formats). This isn't actually relevant to what we're discussing here, but it's a useful one to be aware of because sometimes you'll run into issues where you get an error that specifically requests your data is a tibble or data frame type and you can use this function to overwrite your object. 
+* `as_tibble()` and `as.data.frame()` - convert a list object (not a variable) to a tibble or a data frame (two different table formats). This isn't actually relevant to what we're discussing here, but it's a useful one to be aware of because sometimes you'll run into issues where you get an error that specifically requests your data is a tibble or data frame type and you can use this function to overwrite your object. 
 
 To use these functions on a variable we can use `mutate()` to overwrite the variable with that variable as the new data type:
 

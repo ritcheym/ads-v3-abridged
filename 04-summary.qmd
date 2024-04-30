@@ -6,10 +6,24 @@
 * Be able to summarise data by groups
 * Use pipes to chain together functions
 
-## Functions used {#functions-ch04}
+## Functions used {#functions-summary}
 
-`arrange()`, `clean_names()`, `col_factor()`, `col_skip()`, `cols()`, `count()`, `desc()`, `filter()`, `group_by()`, `head()`, `mean()`, `median()`, `mutate()`, `read_csv()`, `sum()`, `summarise()`, `ungroup()`
+```{r, include = FALSE}
+# load tidyverse packages separately so auto-links work in `func()` notation
+library(readr)
+library(dplyr)
+library(janitor)
+```
 
+* built-in (you can always use these without loading any packages)
+    * base:: `c()`, `dput()`, `library()`, `max()`, `mean()`, `min()`, `sum()`
+    * stats:: `quantile()`
+    * utils:: `head()`
+* tidyverse (you can use all these with `library(tidyverse)`)
+    * readr:: `cols()`, `col_factor()`, `col_skip()`, `read_csv()`, `spec()`
+    * dplyr:: `arrange()`, `count()`, `desc()`, `filter()`, `glimpse()`, `group_by()`, `median()`, `mutate()`, `n()`, `summarise()`, `ungroup()`
+* other (you need to load each package to use these)
+    * janitor:: `clean_names()`
 
 ## Walkthrough video {#sec-walkthrough-summary .unnumbered}
 

@@ -350,7 +350,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
    
   <ul>
 <li><a href="#sec-ilo-viz" id="toc-sec-ilo-viz" class="nav-link active" data-scroll-target="#sec-ilo-viz">Intended Learning Outcomes</a></li>
-  <li><a href="#functions-ch03" id="toc-functions-ch03" class="nav-link" data-scroll-target="#functions-ch03"><span class="header-section-number">3.1</span> Functions used</a></li>
+  <li><a href="#functions-viz" id="toc-functions-viz" class="nav-link" data-scroll-target="#functions-viz"><span class="header-section-number">3.1</span> Functions used</a></li>
   <li><a href="#sec-walkthrough-viz" id="toc-sec-walkthrough-viz" class="nav-link" data-scroll-target="#sec-walkthrough-viz">Walkthrough video</a></li>
   <li><a href="#sec-setup-viz" id="toc-sec-setup-viz" class="nav-link" data-scroll-target="#sec-setup-viz"><span class="header-section-number">3.2</span> Set-up</a></li>
   <li>
@@ -416,10 +416,36 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <li>Be able to identify categorical versus continuous data</li>
 <li>Be able to create plots in layers using ggplot</li>
 <li>Be able to choose appropriate plots for data</li>
-</ul></section><section id="functions-ch03" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="functions-ch03">
+</ul></section><section id="functions-viz" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="functions-viz">
 <span class="header-section-number">3.1</span> Functions used</h2>
-<p><code>aes()</code>, <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code>, <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, <code>col_character()</code>, <code>col_datetime()</code>, <code>col_double()</code>, <code>col_factor()</code>, <code>col_integer()</code>, <code>cols()</code>, <code>coord_cartesian()</code>, <code>count()</code>, <code>element_blank()</code>, <code>facet_wrap()</code>, <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code>, <code>geom_bar()</code>, <code>geom_boxplot()</code>, <code>geom_col()</code>, <code>geom_histogram()</code>, <code>geom_jitter()</code>, <code>geom_point()</code>, <code>geom_smooth()</code>, <code>ggplot()</code>, <code>ggtitle()</code>, <code>glimpse()</code>, <code>guides()</code>, <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code>now()</code>, <code>plot_layout()</code>, <code>read_csv()</code>, <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb()</a></code>, <code>scale_fill_manual()</code>, <code>scale_x_continuous()</code>, <code>scale_x_date()</code>, <code>scale_x_discrete()</code>, <code>scale_y_continuous()</code>, <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, <code>spec()</code>, <code>stat_summary()</code>, <code>theme()</code>, <code>theme_bw()</code>, <code>theme_gdocs()</code>, <code>theme_set()</code>, <code>today()</code></p>
-</section><section id="sec-walkthrough-viz" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-viz">Walkthrough video</h2>
+<ul>
+<li>built-in (you can always use these without loading any packages)
+<ul>
+<li>base:: , <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code>, <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code>, <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>,</li>
+<li>grDevices:: <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb()</a></code>
+</li>
+</ul>
+</li>
+<li>tidyverse (you can use all these with <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>)
+<ul>
+<li>readr:: <code>col_character()</code>, <code>col_datetime()</code>, <code>col_double()</code>, <code>col_factor()</code>, <code>col_integer()</code>, <code>cols()</code>, <code>read_csv()</code>
+</li>
+<li>lubridate:: <code>now()</code>, <code>today()</code>
+</li>
+<li>dplyr:: <code>count()</code>, <code>glimpse()</code>,</li>
+<li>ggplot2:: <code>aes()</code>, <code>coord_cartesian()</code>, <code>element_blank()</code>, <code>facet_wrap()</code>, <code>geom_bar()</code>, <code>geom_boxplot()</code>, <code>geom_col()</code>, <code>geom_histogram()</code>, <code>geom_jitter()</code>, <code>geom_point()</code>, <code>geom_smooth()</code>, <code>ggplot()</code>, <code>ggtitle()</code>, <code>guides()</code>, <code>scale_fill_manual()</code>, <code>scale_x_continuous()</code>, <code>scale_x_date()</code>, <code>scale_x_discrete()</code>, <code>scale_y_continuous()</code>, <code>spec()</code>, <code>stat_summary()</code>, <code>theme()</code>, <code>theme_bw()</code>, <code>theme_minimal()</code>, <code>theme_set()</code>
+</li>
+</ul>
+</li>
+<li>other (you need to load each package to use these)
+<ul>
+<li>ggthemes:: <code>theme_gdocs()</code>
+</li>
+<li>patchwork:: <code>plot_layout()</code>
+</li>
+</ul>
+</li>
+</ul></section><section id="sec-walkthrough-viz" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="sec-walkthrough-viz">Walkthrough video</h2>
 <p>There is a walkthrough video of this chapter available via <a href="https://echo360.org.uk/media/457312c7-ae4f-4506-8016-a29df4f47462/public">Echo360</a>. Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.</p>
 </section><section id="sec-setup-viz" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="sec-setup-viz">
 <span class="header-section-number">3.2</span> Set-up</h2>
@@ -560,14 +586,14 @@ Do not factor numbers
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># the current date</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>lubridate<span class="sc">::</span><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-04-23"</code></pre>
+<pre><code>[1] "2024-04-30"</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># the current date and time in the GMT timezone</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>lubridate<span class="sc">::</span><span class="fu">now</span>(<span class="at">tzone =</span> <span class="st">"GMT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-04-23 07:24:48 GMT"</code></pre>
+<pre><code>[1] "2024-04-30 10:53:45 GMT"</code></pre>
 </div>
 </div>
 <div class="try callout callout-style-default callout-note callout-titled">
@@ -892,7 +918,7 @@ Location of the +
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1406,8 +1432,8 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <ul>
 <li>What mapping would you use?
-<div id="radio_YXLCRGWBHJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YXLCRGWBHJ" value="answer"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_YXLCRGWBHJ" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_YXLCRGWBHJ" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_YXLCRGWBHJ" value="x"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_YXLCRGWBHJ" value="x"><span>aes(y = population)</span></label>
+<div id="radio_PMYAPWUEXC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PMYAPWUEXC" value="answer"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_PMYAPWUEXC" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_PMYAPWUEXC" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_PMYAPWUEXC" value="x"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_PMYAPWUEXC" value="x"><span>aes(y = population)</span></label>
 </div>
 </li>
 </ul>
@@ -1421,8 +1447,8 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <ul>
 <li>What mapping would you use?
-<div id="radio_CCKDFDMQAG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CCKDFDMQAG" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_CCKDFDMQAG" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_CCKDFDMQAG" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_CCKDFDMQAG" value="answer"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_CCKDFDMQAG" value="x"><span>aes(y = population)</span></label>
+<div id="radio_PBFKFSZPQK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PBFKFSZPQK" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_PBFKFSZPQK" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_PBFKFSZPQK" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_PBFKFSZPQK" value="answer"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_PBFKFSZPQK" value="x"><span>aes(y = population)</span></label>
 </div>
 </li>
 </ul>
@@ -1517,8 +1543,8 @@ Test your understanding
 <div class="cell" data-layout-align="center">
 <ul>
 <li>How would you set the mapping for this plot?
-<div id="radio_HDJTZBYFDS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HDJTZBYFDS" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_HDJTZBYFDS" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_HDJTZBYFDS" value="answer"><span>aes(x = population)</span></label><label><input type="radio" autocomplete="off" name="radio_HDJTZBYFDS" value="x"><span>aes(x = population, y = count)</span></label>
+<div id="radio_JXVTMBGSXD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JXVTMBGSXD" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_JXVTMBGSXD" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_JXVTMBGSXD" value="answer"><span>aes(x = population)</span></label><label><input type="radio" autocomplete="off" name="radio_JXVTMBGSXD" value="x"><span>aes(x = population, y = count)</span></label>
 </div>
 </li>
 </ul>
@@ -1567,7 +1593,7 @@ Axis label customisation
 <span id="cb48-4"><a href="#cb48-4"></a>                 <span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Histogram with categories represented by fill.</figcaption></figure>
 </div>
 </div>
@@ -1617,7 +1643,7 @@ Area plot alternative
 <span id="cb51-6"><a href="#cb51-6"></a>            <span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Stacked area plot.</figcaption></figure>
 </div>
 </div>
@@ -1846,8 +1872,8 @@ Test your understanding
 <option value="x">geom_violinplot()</option></select>
 </li>
 <li>What does the mapping look like for both plots?
-<div id="radio_RRMOQYWHPX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RRMOQYWHPX" value="x"><span>aes(x = employee_id, y = call_time, fill = call_time)</span></label><label><input type="radio" autocomplete="off" name="radio_RRMOQYWHPX" value="answer"><span>aes(x = employee_id, y = call_time, fill = employee_id)</span></label><label><input type="radio" autocomplete="off" name="radio_RRMOQYWHPX" value="x"><span>aes(x = employee_id, y = call_time, colour = employee_id)</span></label><label><input type="radio" autocomplete="off" name="radio_RRMOQYWHPX" value="x"><span>aes(x = employee_id, y = call_time, colour = call_time)</span></label>
+<div id="radio_UFPEWIYRCD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UFPEWIYRCD" value="x"><span>aes(x = employee_id, y = call_time, fill = call_time)</span></label><label><input type="radio" autocomplete="off" name="radio_UFPEWIYRCD" value="answer"><span>aes(x = employee_id, y = call_time, fill = employee_id)</span></label><label><input type="radio" autocomplete="off" name="radio_UFPEWIYRCD" value="x"><span>aes(x = employee_id, y = call_time, colour = call_time)</span></label><label><input type="radio" autocomplete="off" name="radio_UFPEWIYRCD" value="x"><span>aes(x = employee_id, y = call_time, colour = employee_id)</span></label>
 </div>
 </li>
 <li>Which employee has the longest median call time? <select class="webex-select"><option value="blank"></option>
@@ -2015,7 +2041,7 @@ Solution
 <span id="cb62-12"><a href="#cb62-12"></a>  <span class="fu">ggtitle</span>(<span class="st">"2020 Caller Satisfaction"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-viz_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
