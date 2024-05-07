@@ -27,7 +27,7 @@ library(janitor)
 
 ## Walkthrough video {#sec-walkthrough-summary .unnumbered}
 
-There is a walkthrough video of this chapter available via [Echo360](). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
+There is a walkthrough video of this chapter available via [Echo360](https://echo360.org.uk/media/7684e5ec-5ca7-44e4-9a22-f46f21da498c/public). Please note that there may have been minor edits to the book since the video was recorded. Where there are differences, the book should always take precedence.
 
 
 ## Set-up {#sec-setup-summary}
