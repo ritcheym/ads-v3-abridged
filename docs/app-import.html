@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Applied Data Skills - Appendix G — Data Import</title>
+<title>Appendix G — Data Import – Applied Data Skills</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -113,13 +113,13 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./app-installing-r.html">Appendices</a></li><li class="breadcrumb-item"><a href="./app-import.html"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Data Import</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,23 +131,23 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
 <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
-              <i class="bi bi-bi-linkedin pe-1"></i>
+              <i class="bi bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
@@ -244,9 +244,9 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -451,7 +451,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;">country</th>
 <th style="text-align: right;">year</th>
@@ -536,7 +536,7 @@ $ population &lt;dbl&gt; 19987071, 20595360, 172006362, 174504898, 1272915272, 1
 <p>Download this <a href="data/data.zip">directory of data files</a>, unzip the folder, and save the <code>data</code> directory in the <code>04-data</code> project directory.</p>
 <section id="rioimport" class="level3" data-number="G.4.1"><h3 data-number="G.4.1" class="anchored" data-anchor-id="rioimport">
 <span class="header-section-number">G.4.1</span> rio::import()</h3>
-<p>The type of data files you have to work with will likely depend on the software that you typically use in your workflow. The <pkg>rio</pkg> package has very straightforward functions for reading and saving data in most common formats: <code><a href="https://rdrr.io/pkg/rio/man/import.html">rio::import()</a></code> and <code><a href="https://rdrr.io/pkg/rio/man/export.html">rio::export()</a></code>.</p>
+<p>The type of data files you have to work with will likely depend on the software that you typically use in your workflow. The <pkg>rio</pkg> package has very straightforward functions for reading and saving data in most common formats: <code>rio::import()</code> and <code>rio::export()</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>demo_tsv  <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data/demo.tsv"</span>)  <span class="co"># tab-separated values</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>demo_csv  <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"data/demo.csv"</span>)  <span class="co"># comma-separated values</span></span>
@@ -706,7 +706,7 @@ Note
 </div>
 </div>
 <p>The functions from <pkg>readxl</pkg> for loading <code>.xlsx</code> sheets have a different, more limited way to specify the column types. You will have to convert factor columns and dates using <code>mutate()</code>, which you’ll learn about in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a>, so most people let <code>read_excel()</code> guess data types and don’t set the <code>col_types</code> argument.</p>
-<p>For SPSS data, whilst <code><a href="https://rdrr.io/pkg/rio/man/import.html">rio::import()</a></code> will just read the numeric values of factors and not their labels, the function <code>read_sav()</code> from <pkg>haven</pkg> reads both. However, you have to convert factors from a haven-specific “labelled double” to a factor (we have no idea why haven doesn’t do this for you).</p>
+<p>For SPSS data, whilst <code>rio::import()</code> will just read the numeric values of factors and not their labels, the function <code>read_sav()</code> from <pkg>haven</pkg> reads both. However, you have to convert factors from a haven-specific “labelled double” to a factor (we have no idea why haven doesn’t do this for you).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>demo_sav<span class="sc">$</span>factor <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(demo_sav<span class="sc">$</span>factor)</span>
 <span id="cb27-2"><a href="#cb27-2"></a></span>
@@ -751,7 +751,7 @@ Note
 <span id="cb29-8"><a href="#cb29-8"></a>avatar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;">name</th>
 <th style="text-align: left;">bends</th>
@@ -803,7 +803,7 @@ Note
 <p>You may not need to do this very often if you are primarily working with data that you import from spreadsheets, but it is useful to know how to do it anyway.</p>
 </section><section id="writing-data" class="level2" data-number="G.6"><h2 data-number="G.6" class="anchored" data-anchor-id="writing-data">
 <span class="header-section-number">G.6</span> Writing data</h2>
-<p>If you have data that you want to save, use <code><a href="https://rdrr.io/pkg/rio/man/export.html">rio::export()</a></code>, as follows.</p>
+<p>If you have data that you want to save, use <code>rio::export()</code>, as follows.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">export</span>(avatar, <span class="st">"data/avatar.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -911,7 +911,7 @@ comment.char=. First discarded non-empty line: &lt;&lt;junk,missing,0.72,b,1,2 -
 3,2020-01-2&gt;&gt;</code></pre>
 </div>
 </div>
-<p>When importing goes wrong, it’s often easier to fix it using the specific importing function for that file type (e.g., use <code>read_csv()</code> rather than <code><a href="https://rdrr.io/pkg/rio/man/import.html">rio::import()</a></code>. This is because the problems tend to be specific to the file format and you can look up the help for these functions more easily. For CSV files, the import function is <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code>.</p>
+<p>When importing goes wrong, it’s often easier to fix it using the specific importing function for that file type (e.g., use <code>read_csv()</code> rather than <code>rio::import()</code>. This is because the problems tend to be specific to the file format and you can look up the help for these functions more easily. For CSV files, the import function is <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># lazy = FALSE loads the data right away so you can see error messages</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="co"># this default changed in late 2021 and might change back soon</span></span>
@@ -934,7 +934,7 @@ chr (1): This is my messy dataset
 </div>
 <p>You’ll get a warning about parsing issues and the data table is just a single column. View the file <code>data/mess.csv</code> by clicking on it in the File pane, and choosing “View File”. Here are the first 10 lines. What went wrong?</p>
 <div class="kable-table">
-<table class="table">
+<table class="caption-top table">
 <thead><tr class="header">
 <th style="text-align: left;">This is my messy dataset</th>
 </tr></thead>
@@ -1004,7 +1004,7 @@ $ date    &lt;chr&gt; "2020-01-1", "2020-01-2", "2020-01-3", "2020-01-4", "2020-
 <code>date</code> should be a date column</li>
 </ul>
 <p>We’ll learn how to deal with this mess in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a> and <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a>, but we can fix a few things by setting the <code>col_types</code> argument in <code>read_csv()</code> to specify the column types for our two columns that were guessed wrong and skip the “junk” column. The argument <code>col_types</code> takes a list where the name of each item in the list is a column name and the value is from the table below. You can use the function, like <code>col_double()</code> or the abbreviation, like <code>"d"</code>; for consistency with earlier in this chapter we will use the function names. Omitted column names are guessed.</p>
-<table class="table">
+<table class="caption-top table">
 <thead><tr class="header">
 <th style="text-align: left;">function</th>
 <th style="text-align: left;"></th>
@@ -1096,7 +1096,7 @@ e.g.:
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: right;">row</th>
 <th style="text-align: right;">col</th>
@@ -1127,7 +1127,7 @@ e.g.:
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: right;">order</th>
 <th style="text-align: left;">score</th>
@@ -1366,7 +1366,7 @@ Solution
 </section></section><section id="sec-glossary-data" class="level2" data-number="G.10"><h2 data-number="G.10" class="anchored" data-anchor-id="sec-glossary-data">
 <span class="header-section-number">G.10</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;">term</th>
 <th style="text-align: left;">definition</th>
@@ -1827,18 +1827,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1870,7 +1859,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1878,7 +1889,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
