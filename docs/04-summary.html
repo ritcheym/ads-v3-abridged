@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>4&nbsp; Data Summaries – Applied Data Skills</title>
+<title>4&nbsp; Data Summaries – Applied Data Skills - Abridged</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Applied Data Skills</a> 
+      <a href="./">Applied Data Skills - Abridged</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -443,7 +443,9 @@ dbl (2): SIMDQuintile, Livebirths
 </div>
 </div>
 <p>When you load data with <code>read_csv()</code>, you get a quick summary that you should always check to see if the data were loaded correctly. One common problem is that data load with the the wrong type (see <a href="app-datatypes.html" class="quarto-xref"><span>Appendix H</span></a>), usually because a numeric column contains some unexpected text values. So the first thing to check is that each column has the expected data type. The abbreviation “chr” means this is a <a href="https://psyteachr.github.io/glossary/c#character" target="_blank" class="glossary" title="A data type representing strings of text.">character</a> column, which can contain any text. The abbreviation “dbl” is a <a href="https://psyteachr.github.io/glossary/d#double" target="_blank" class="glossary" title="A data type representing a real decimal number">double</a>, which is a number that can have decimal places.</p>
-<p>There are too many columns to show all of them in the summary, so it tells you to use the <code>spec()</code> function to check all the columns.</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>There are too many columns to show all of them in the summary, so it tells you to use the <code>spec()</code> function to check all the columns.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">spec</span>(births)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -650,7 +652,7 @@ Tip
 <span id="cb13-14"><a href="#cb13-14"></a></span>
 <span id="cb13-15"><a href="#cb13-15"></a>births <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/12.1_delivery.csv"</span>, <span class="at">col_types =</span> birth_cols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="clean-up-names" class="level3" data-number="4.3.1"><h3 data-number="4.3.1" class="anchored" data-anchor-id="clean-up-names">
+</details><section id="clean-up-names" class="level3" data-number="4.3.1"><h3 data-number="4.3.1" class="anchored" data-anchor-id="clean-up-names">
 <span class="header-section-number">4.3.1</span> Clean up names</h3>
 <p>Data sets often import with column names that are a little difficult to use in code. You can manually rename them, but the <pkg>janitor</pkg> package makes this incredibly easy. This dataset has pretty good names, with no spaces or special characters, but it does use uppercase letters to separate words, which can be hard to remember. the <code>clean_names()</code> function changes everything to lowercase and uses underscores to separate word parts. Using <code>clean_names</code> every time you import a dataset is a good habit to get into.</p>
 <div class="cell" data-layout-align="center">
@@ -848,7 +850,9 @@ Tip
 </div>
 </div>
 <p>Notice that <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>summarise()</code> and <code>arrange()</code> no longer need the first argument to be the data table; it is pulled in from the pipe above. The power of the pipe may not be obvious now, but it will soon prove its worth.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -861,7 +865,7 @@ Note
 <p>Base R recently added a “native pipe” that looks like this: <code>|&gt;</code>, while the tidyverse has traditionally used the “magrittr pipe” that looks like this <code>%&gt;%</code>. They have a few small differences that you don’t need to learn about yet. We’ll be using the magrittr pipe, but you might see the base R pipe in other sources.</p>
 </div>
 </div>
-</section><section id="counting" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="counting">
+</details></section><section id="counting" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="counting">
 <span class="header-section-number">4.5</span> Counting</h2>
 <p>You can count categorical data with the <code>count()</code> function. This will give you a new table with each combination of the counted columns and a column called <code>n</code> containing the number of rows from that group.</p>
 <p>Let’s figure out how many entries there were per delivery type. The first argument is the name of the data table object, and the second argument is the name of the column we want to count.</p>
@@ -909,7 +913,9 @@ Note
 </div>
 </div>
 <p>There are 7 types of deliveries, and the new column <code>n</code> tells you how many rows of the data table there are per type.</p>
-<p>You can add on a column with the numbers expressed in percent using the function <code>mutate()</code>. We’ll go into more detail on how to use <code>mutate()</code> in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a>, but for now, it can be used to add new columns or overwrite existing columns.</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>You can add on a column with the numbers expressed in percent using the function <code>mutate()</code>. We’ll go into more detail on how to use <code>mutate()</code> in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a>, but for now, it can be used to add new columns or overwrite existing columns.</p>
 <p>The code below divides the value in the <code>n</code> column by the total sum of the numbers in that column, and adds it to a new column called <code>percent</code>. The next step modifies the percent column by multiplying it by 100 and rounding the value. You could do this all in one step, like <code>round(100 * n / sum(n))</code>, but often it’s clearer to break it into a few steps to avoid too many nested parentheses.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">count</span>(births, delivery) <span class="sc">%&gt;%</span></span>
@@ -964,7 +970,7 @@ Note
 </div>
 </div>
 </div>
-<p>We can also count combinations of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. We won’t add on percent just yet as the additional variable requires another function that we’ll come back to later.</p>
+</details><p>We can also count combinations of columns by adding more arguments. The table below shows the number of rows per age group and induction status, sorted by the number of rows. We won’t add on percent just yet as the additional variable requires another function that we’ll come back to later.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">count</span>(births, age_group, induced, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1073,8 +1079,8 @@ Note
 </div>
 </div>
 </div>
-<div id="radio_ORQBNFLHJI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ORQBNFLHJI" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_ORQBNFLHJI" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_ORQBNFLHJI" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_ORQBNFLHJI" value="x"><span><code>count(births, induced)</code></span></label>
+<div id="radio_CZVMWWYOLN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CZVMWWYOLN" value="x"><span><code>count(induced, births, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_CZVMWWYOLN" value="x"><span><code>count(induced, births)</code></span></label><label><input type="radio" autocomplete="off" name="radio_CZVMWWYOLN" value="answer"><span><code>count(births, induced, sort = TRUE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_CZVMWWYOLN" value="x"><span><code>count(births, induced)</code></span></label>
 </div>
 </div>
 </div>
@@ -1360,7 +1366,9 @@ Warning
 <p>Make sure you call the <code>ungroup()</code> function when you are done with grouped functions. Failing to do this can cause all sorts of mysterious problems if you use that data table later assuming it isn’t grouped.</p>
 </div>
 </div>
-<p>You might have noticed that the order of the table above is different from the order when using the <code>.by</code> argument of <code>summarise()</code>. This is because <code>group_by()</code> always sorts the values in the grouping columns in ascending order, while <code>.by</code> leaves them in the order they are first encountered in your data frame. Use the function <code>arrange()</code> to manually change order (see <a href="09-wrangle.html#sec-arrange" class="quarto-xref"><span>Section 9.3.3</span></a>).</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>You might have noticed that the order of the table above is different from the order when using the <code>.by</code> argument of <code>summarise()</code>. This is because <code>group_by()</code> always sorts the values in the grouping columns in ascending order, while <code>.by</code> leaves them in the order they are first encountered in your data frame. Use the function <code>arrange()</code> to manually change order (see <a href="09-wrangle.html#sec-arrange" class="quarto-xref"><span>Section 9.3.3</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>births <span class="sc">%&gt;%</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">group_by</span>(delivery) <span class="sc">%&gt;%</span></span>
@@ -1408,7 +1416,7 @@ Warning
 </div>
 </div>
 </div>
-<section id="multiple-groupings" class="level3" data-number="4.7.1"><h3 data-number="4.7.1" class="anchored" data-anchor-id="multiple-groupings">
+</details><section id="multiple-groupings" class="level3" data-number="4.7.1"><h3 data-number="4.7.1" class="anchored" data-anchor-id="multiple-groupings">
 <span class="header-section-number">4.7.1</span> Multiple groupings</h3>
 <p>You can add multiple variables to <code>group_by()</code> to further break down your data. For example, the below gives us the number of births broken down by delivery type and year.</p>
 <ul>
@@ -1420,7 +1428,9 @@ Warning
 <span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(livebirths)) <span class="sc">%&gt;%</span></span>
 <span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1437,7 +1447,7 @@ Warning
 <p>Tidyverse recently added a message to remind you whether the <code>summarise()</code> function automatically ungroups grouped data or not (it may do different things depending on how it’s used). You can set the argument <code>.groups</code> to “drop”, “drop_last”, “keep”, or “rowwise” (see the help for <code>?summarise</code>), but it’s good practice to explicitly use <code>ungroup()</code> when you’re done working by groups, regardless.</p>
 </div>
 </div>
-</section><section id="percent-by-groups" class="level3" data-number="4.7.2"><h3 data-number="4.7.2" class="anchored" data-anchor-id="percent-by-groups">
+</details></section><section id="percent-by-groups" class="level3" data-number="4.7.2"><h3 data-number="4.7.2" class="anchored" data-anchor-id="percent-by-groups">
 <span class="header-section-number">4.7.2</span> Percent by groups</h3>
 <p>Calculating percent by groups is a great example of the flexibility of <code>group_by()</code> but also why you have to be very careful and always check the output of your code.</p>
 <p>When we just had one variable to count, adding percent was nice and easy:</p>
@@ -1748,7 +1758,9 @@ Warning
 </div>
 </div>
 </div>
-<p>If you have updated <pkg>dyplr</pkg> then you can also use the <code>.by</code> argument in <code>mutate()</code>:</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>If you have updated <pkg>dyplr</pkg> then you can also use the <code>.by</code> argument in <code>mutate()</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># group by age, percentages within each age group will sum to 100</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="fu">count</span>(births, age_group, induced)<span class="sc">%&gt;%</span> <span class="co">#age then induced</span></span>
@@ -1918,9 +1930,11 @@ Warning
 </div>
 </div>
 </div>
-</section></section><section id="additional-functions" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="additional-functions">
+</details></section></section><section id="additional-functions" class="level2" data-number="4.8"><h2 data-number="4.8" class="anchored" data-anchor-id="additional-functions">
 <span class="header-section-number">4.8</span> Additional Functions</h2>
-<p>You can also use additional functions like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> after <code>group_by</code> or with the <code>.by</code> argument. You’ll learn more about these in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a> but briefly:</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>You can also use additional functions like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> after <code>group_by</code> or with the <code>.by</code> argument. You’ll learn more about these in <a href="09-wrangle.html" class="quarto-xref"><span>Chapter 9</span></a> but briefly:</p>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> keeps observations (rows) according to specified criteria, e.g., all values above 5, or all induced births</li>
@@ -2029,7 +2043,7 @@ Note
 <span id="cb37-8"><a href="#cb37-8"></a>       <span class="at">color =</span> <span class="st">"Age Group"</span>) <span class="sc">+</span></span>
 <span id="cb37-9"><a href="#cb37-9"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-birth-year-type-age" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="100%">
+<div id="fig-birth-year-type-age" class="quarto-float quarto-figure quarto-figure-center anchored" width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-birth-year-type-age-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="04-summary_files/figure-html/fig-birth-year-type-age-1.png" id="fig-birth-year-type-age" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:100.0%">
 </div>
@@ -2039,7 +2053,7 @@ Figure&nbsp;4.1
 </div>
 </div>
 </div>
-</section><section id="exercises" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="exercises">
+</details></section><section id="exercises" class="level2" data-number="4.9"><h2 data-number="4.9" class="anchored" data-anchor-id="exercises">
 <span class="header-section-number">4.9</span> Exercises</h2>
 <p>Take a break and then try one (or more) of the following:</p>
 <ul>
@@ -2048,10 +2062,12 @@ Figure&nbsp;4.1
 <li>Download a different data set from <a href="https://www.opendata.nhs.scot/">Scottish Health and Social Care Open Data</a> and create summary tables and plots.</li>
 <li>If you have data of your own, practice summarising this in R.</li>
 </ul>
-<section id="share-on-teams" class="level3" data-number="4.9.1"><h3 data-number="4.9.1" class="anchored" data-anchor-id="share-on-teams">
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><section id="share-on-teams" class="level3" data-number="4.9.1"><h3 data-number="4.9.1" class="anchored" data-anchor-id="share-on-teams">
 <span class="header-section-number">4.9.1</span> Share on Teams</h3>
-<p>Once you’re done, share your knitted report and the Rmd file on Teams in the Week 04 channel.</p>
-</section></section><section id="sec-glossary-summary" class="level2" data-number="4.10"><h2 data-number="4.10" class="anchored" data-anchor-id="sec-glossary-summary">
+Once you’re done, share your knitted report and the Rmd file on Teams in the Week 04 channel.
+</section></details></section><section id="sec-glossary-summary" class="level2" data-number="4.10"><h2 data-number="4.10" class="anchored" data-anchor-id="sec-glossary-summary">
 <span class="header-section-number">4.10</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">

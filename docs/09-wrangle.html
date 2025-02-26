@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>9&nbsp; Data Wrangling – Applied Data Skills</title>
+<title>9&nbsp; Data Wrangling – Applied Data Skills - Abridged</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,7 +127,7 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Applied Data Skills</a> 
+      <a href="./">Applied Data Skills - Abridged</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/psyteachr/ads-v3/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -429,7 +429,9 @@ gtag('config', 'G-6NP3MF25W3', { 'anonymize_ip': true});
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -442,7 +444,7 @@ Warning
 <p>At this point in ADS it’s very likely you will have the most recent version of the <pkg>tidyverse</pkg> packages but just in case, be aware that the function <code>case_when()</code> that we will use in this chapter was updated in to introduce new arguments and ways of handling <code>NA</code>. The code we provide in this chapter will only work if you have v1.1.0 or above of <pkg>dplyr</pkg> installed. To check run <code>packageVersion("dplyr")</code> and if it’s below 1.1.0, install it again to update.</p>
 </div>
 </div>
-<p>You’ll need to make a folder called “data” and download a data file into it: <a href="https://psyteachr.github.io/ads-v2/data/budget.csv" download="">budget.csv</a>.</p>
+</details><p>You’ll need to make a folder called “data” and download a data file into it: <a href="https://psyteachr.github.io/ads-v2/data/budget.csv" download="">budget.csv</a>.</p>
 <p>Download the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">Data transformation cheat sheet</a>.</p>
 </section><section id="wrangling-functions" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="wrangling-functions">
 <span class="header-section-number">9.3</span> Wrangling functions</h2>
@@ -575,8 +577,10 @@ Warning
 <span id="cb3-4"><a href="#cb3-4"></a><span class="co"># select single column by number</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a>product_dat <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can select each column individually, separated by commas (e.g., <code>region, sales_2019</code>) but you can also select all columns from one to another by separating them with a colon (e.g., <code>sales_2019:expenses_2020</code>).</p>
-<p>The colon notation can be much faster because you don’t need to type out each individual variable name, but make sure that you know what order your columns are in and always check the output to make sure you have selected what you intended.</p>
+You can select each column individually, separated by commas (e.g., <code>region, sales_2019</code>) but you can also select all columns from one to another by separating them with a colon (e.g., <code>sales_2019:expenses_2020</code>).
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>The colon notation can be much faster because you don’t need to type out each individual variable name, but make sure that you know what order your columns are in and always check the output to make sure you have selected what you intended.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># select columns individually</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>sales2019 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span> <span class="fu">select</span>(region, product, sales_2019)</span>
@@ -619,7 +623,7 @@ Warning
 </div>
 </div>
 </div>
-</section><section id="un-selecting-columns" class="level4" data-number="9.3.1.2"><h4 data-number="9.3.1.2" class="anchored" data-anchor-id="un-selecting-columns">
+</details></section><section id="un-selecting-columns" class="level4" data-number="9.3.1.2"><h4 data-number="9.3.1.2" class="anchored" data-anchor-id="un-selecting-columns">
 <span class="header-section-number">9.3.1.2</span> Un-selecting columns</h4>
 <p>You can select columns either by telling R which ones you want to keep as in the previous examples, or by specifying which ones you want to exclude by using a minus symbol to un-select columns. You can also use the colon notation to de-select columns, but to do so you need to put parentheses around the span first, e.g., <code>-(sales_2019:expenses_2020)</code>, not <code>-sales_2019:expenses_2020</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -675,26 +679,26 @@ Note
 <ul>
 <li>
 <code>budget %&gt;% select(contains("_"))</code>
-<div id="radio_SYTFOAOBMQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="answer"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_SYTFOAOBMQ" value="x"><span>expenses_2019, expenses_2020</span></label>
+<div id="radio_MEIWOXTJBP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MEIWOXTJBP" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_MEIWOXTJBP" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_MEIWOXTJBP" value="answer"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_MEIWOXTJBP" value="x"><span>expenses_2019, expenses_2020</span></label>
 </div>
 </li>
 <li>
 <code>budget %&gt;% select(num_range("expenses_", 2019:2020))</code>
-<div id="radio_XDACZSBZDI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_XDACZSBZDI" value="answer"><span>expenses_2019, expenses_2020</span></label>
+<div id="radio_ZNDLBHDBLE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZNDLBHDBLE" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_ZNDLBHDBLE" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_ZNDLBHDBLE" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_ZNDLBHDBLE" value="answer"><span>expenses_2019, expenses_2020</span></label>
 </div>
 </li>
 <li>
 <code>budget %&gt;% select(starts_with("sales"))</code>
-<div id="radio_KEEUQFCTKR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="answer"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_KEEUQFCTKR" value="x"><span>expenses_2019, expenses_2020</span></label>
+<div id="radio_NTEWBRVUHE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NTEWBRVUHE" value="answer"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_NTEWBRVUHE" value="x"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_NTEWBRVUHE" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_NTEWBRVUHE" value="x"><span>expenses_2019, expenses_2020</span></label>
 </div>
 </li>
 <li>
 <code>budget %&gt;% select(ends_with("2020"))</code>
-<div id="radio_YTYPBVGNME" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="answer"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_YTYPBVGNME" value="x"><span>expenses_2019, expenses_2020</span></label>
+<div id="radio_MIBURBEAJV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MIBURBEAJV" value="x"><span>sales_2019, sales_2020</span></label><label><input type="radio" autocomplete="off" name="radio_MIBURBEAJV" value="answer"><span>sales_2020, expenses_2020, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_MIBURBEAJV" value="x"><span>sales_2019, sales_2020, expenses_2019, expenses_2020, satisfaction_2019, satisfaction_2020</span></label><label><input type="radio" autocomplete="off" name="radio_MIBURBEAJV" value="x"><span>expenses_2019, expenses_2020</span></label>
 </div>
 </li>
 </ul>
@@ -896,7 +900,9 @@ Note
 </tr>
 </tbody>
 </table>
-<p>Finally, you can also pass many other functions to filter. For example, the package <pkg>stringr</pkg> that is loaded as part of the <pkg>tidyverse</pkg> contains many different functions for working with <a href="https://psyteachr.github.io/glossary/s#string" target="_blank" class="glossary" title="A piece of text inside of quotes.">strings</a> (character data). For example, you you use <code>str_detect()</code> to only retain rows where the customer satisfaction rating includes the word “high”</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>Finally, you can also pass many other functions to filter. For example, the package <pkg>stringr</pkg> that is loaded as part of the <pkg>tidyverse</pkg> contains many different functions for working with <a href="https://psyteachr.github.io/glossary/s#string" target="_blank" class="glossary" title="A piece of text inside of quotes.">strings</a> (character data). For example, you you use <code>str_detect()</code> to only retain rows where the customer satisfaction rating includes the word “high”</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>budget <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(satisfaction_2019, <span class="st">"high"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -959,8 +965,8 @@ Note
 </div>
 </div>
 </div>
-<p>Note that <code>str_detect()</code> is case sensitive so it would not return values of “High” or “HIGH”. You can use the function <code><a href="https://rdrr.io/r/base/chartr.html">tolower()</a></code> or <code><a href="https://rdrr.io/r/base/chartr.html">toupper()</a></code> to convert a string to lowercase or uppercase before you search for substring if you need case-insensitive matching.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+Note that <code>str_detect()</code> is case sensitive so it would not return values of “High” or “HIGH”. You can use the function <code><a href="https://rdrr.io/r/base/chartr.html">tolower()</a></code> or <code><a href="https://rdrr.io/r/base/chartr.html">toupper()</a></code> to convert a string to lowercase or uppercase before you search for substring if you need case-insensitive matching.
+</details><div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1091,7 +1097,9 @@ Warning
 </div>
 </div>
 </div>
-<div class="try callout callout-style-default callout-note callout-titled">
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><div class="try callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1178,7 +1186,7 @@ Note
 </div>
 </div>
 </div>
-</section><section id="mutate" class="level3" data-number="9.3.4"><h3 data-number="9.3.4" class="anchored" data-anchor-id="mutate">
+</details></section><section id="mutate" class="level3" data-number="9.3.4"><h3 data-number="9.3.4" class="anchored" data-anchor-id="mutate">
 <span class="header-section-number">9.3.4</span> Mutate</h3>
 <p>The function <code>mutate()</code> allows you to add new columns or change existing ones by overwriting them by using the syntax <code>new_column = operation</code>. You can add more than one column in the same mutate function by separating the columns with a comma. Once you make a new column, you can use it in further column definitions. For example, the creation of <code>profit</code> below uses the column <code>expenses</code>, which is created above it.</p>
 <div class="cell" data-layout-align="center">
@@ -1190,13 +1198,15 @@ Note
 <span id="cb13-6"><a href="#cb13-6"></a>    <span class="at">region =</span> <span class="fu">paste</span>(region, <span class="st">"Office"</span>)</span>
 <span id="cb13-7"><a href="#cb13-7"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>mutate()</code> can also be used in conjunction with other functions and Boolean operators. For example, we can add another column to <code>budget2</code> that states whether a profit was returned that year or overwrite our <code>product</code> variable as a factor. Just like when we used <a href="https://psyteachr.github.io/glossary/b#boolean-expression" target="_blank" class="glossary" title="An expression that evaluates to TRUE or FALSE.">Boolean expressions</a> with filter, it will evaluate the equation and return TRUE or FALSE depending on whether the observation meets the criteria.</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p><code>mutate()</code> can also be used in conjunction with other functions and Boolean operators. For example, we can add another column to <code>budget2</code> that states whether a profit was returned that year or overwrite our <code>product</code> variable as a factor. Just like when we used <a href="https://psyteachr.github.io/glossary/b#boolean-expression" target="_blank" class="glossary" title="An expression that evaluates to TRUE or FALSE.">Boolean expressions</a> with filter, it will evaluate the equation and return TRUE or FALSE depending on whether the observation meets the criteria.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>budget2 <span class="ot">&lt;-</span> budget2 <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">mutate</span>(<span class="at">profit_category =</span> profit <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
 <span id="cb14-3"><a href="#cb14-3"></a>         <span class="at">product =</span> <span class="fu">as.factor</span>(product))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
+</details><div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1223,7 +1233,9 @@ Warning
 <span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">mutate</span>(<span class="at">bonus_2019 =</span> <span class="fu">case_when</span>(satisfaction_2019 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"very low"</span>, <span class="st">"low"</span>, <span class="st">"neutral"</span>) <span class="sc">~</span> <span class="st">"no bonus"</span>,</span>
 <span id="cb16-5"><a href="#cb16-5"></a>                                satisfaction_2019 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"high"</span>, <span class="st">"very high"</span>) <span class="sc">~</span> <span class="st">"bonus"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>And combine different criteria:</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>And combine different criteria:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># new management takes over - people only get a bonus if customer satisfaction was overall high or very high AND if a profit was returned</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a></span>
@@ -1247,10 +1259,12 @@ Tip
 <p>Be mindful that <code>.default</code> uses <code>=</code> whilst the others use <code>~</code>. Emily has lost quite a lot of her time and sanity to not realising this.</p>
 </div>
 </div>
-<p>Just like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>mutate()</code> is incredibly powerful and the scope of what you can create is far beyond what we can cover in this book.</p>
-</section><section id="sec-dplyr-summarise" class="level3" data-number="9.3.5"><h3 data-number="9.3.5" class="anchored" data-anchor-id="sec-dplyr-summarise">
+Just like <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, <code>mutate()</code> is incredibly powerful and the scope of what you can create is far beyond what we can cover in this book.
+</details></section><section id="sec-dplyr-summarise" class="level3" data-number="9.3.5"><h3 data-number="9.3.5" class="anchored" data-anchor-id="sec-dplyr-summarise">
 <span class="header-section-number">9.3.5</span> Summarise</h3>
-<p>You were introduced to the <code>summarise()</code> function in <a href="04-summary.html#sec-summary-summarise" class="quarto-xref"><span>Section 4.6</span></a>. This applies summary functions to an entire table (or groups, as you’ll see in the next section).</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>You were introduced to the <code>summarise()</code> function in <a href="04-summary.html#sec-summary-summarise" class="quarto-xref"><span>Section 4.6</span></a>. This applies summary functions to an entire table (or groups, as you’ll see in the next section).</p>
 <p>Let’s say we want to determine the mean sales and expenses, plus the minimum and maximum profit, for any region, product and year. First, we need to reshape the data like we learned in <a href="08-tidy.html" class="quarto-xref"><span>Chapter 8</span></a>, so that there is a column for year and one column each for sales and expenses, instead of separate columns for each year. We’ll also drop the satisfaction data as we don’t need it for this analysis.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>budget4 <span class="ot">&lt;-</span> budget <span class="sc">%&gt;%</span></span>
@@ -1349,9 +1363,11 @@ Tip
 </div>
 </div>
 </div>
-</section><section id="sec-dplyr-groupby" class="level3" data-number="9.3.6"><h3 data-number="9.3.6" class="anchored" data-anchor-id="sec-dplyr-groupby">
+</details></section><section id="sec-dplyr-groupby" class="level3" data-number="9.3.6"><h3 data-number="9.3.6" class="anchored" data-anchor-id="sec-dplyr-groupby">
 <span class="header-section-number">9.3.6</span> Group By</h3>
-<p>You were introduced to the <code>group_by()</code> function in <a href="04-summary.html#sec-grouping" class="quarto-xref"><span>Section 4.7</span></a>. For example, you can break down the summary statistics above by year and product.</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>You were introduced to the <code>group_by()</code> function in <a href="04-summary.html#sec-grouping" class="quarto-xref"><span>Section 4.7</span></a>. For example, you can break down the summary statistics above by year and product.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>year_prod <span class="ot">&lt;-</span> budget4 <span class="sc">%&gt;%</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">group_by</span>(year, product) <span class="sc">%&gt;%</span></span>
@@ -1438,20 +1454,20 @@ Note
 <div class="callout-body-container callout-body">
 <p>How would you find out the maximum sales for each region?</p>
 <div class="cell" data-layout-align="center">
-<div id="radio_ZZAAHOYNSY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="x"><span>
+<div id="radio_LYNKESRBWD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LYNKESRBWD" value="x"><span>
+<pre>budget3 %&gt;%
+  group_by(sales) %&gt;%
+  summarise(max_sales = max(region)</pre>
+</span></label><label><input type="radio" autocomplete="off" name="radio_LYNKESRBWD" value="x"><span>
 <pre>budget3 %&gt;%
   group_by(region) %&gt;%
   summarise(max_sales = max(region)</pre>
-</span></label><label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="x"><span>
-<pre>budget3 %&gt;%
-  group_by(sales) %&gt;%
-  summarise(max_sales = max(region)</pre>
-</span></label><label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="x"><span>
+</span></label><label><input type="radio" autocomplete="off" name="radio_LYNKESRBWD" value="x"><span>
 <pre>budget3 %&gt;%
   group_by(sales) %&gt;%
   summarise(max_sales = max(sales)</pre>
-</span></label><label><input type="radio" autocomplete="off" name="radio_ZZAAHOYNSY" value="answer"><span>
+</span></label><label><input type="radio" autocomplete="off" name="radio_LYNKESRBWD" value="answer"><span>
 <pre>budget3 %&gt;%
   group_by(region) %&gt;%
   summarise(max_sales = max(sales)</pre>
@@ -1552,9 +1568,11 @@ Note
 </div>
 </div>
 </div>
-</section></section><section id="complications" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="complications">
+</details></section></section><section id="complications" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="complications">
 <span class="header-section-number">9.4</span> Complications</h2>
-<section id="rounding" class="level3" data-number="9.4.1"><h3 data-number="9.4.1" class="anchored" data-anchor-id="rounding">
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><section id="rounding" class="level3" data-number="9.4.1"><h3 data-number="9.4.1" class="anchored" data-anchor-id="rounding">
 <span class="header-section-number">9.4.1</span> Rounding</h3>
 <p>Let’s say we want to round all the values to the nearest pound. The pattern below uses the <code>across()</code> function to apply the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function to the columns from <code>mean_sales</code> to <code>max_profit</code>.</p>
 <div class="cell" data-layout-align="center">
@@ -1631,13 +1649,15 @@ Note
 [1] 2</code></pre>
 </div>
 </div>
-</section><section id="sec-missing-values" class="level3" data-number="9.4.2"><h3 data-number="9.4.2" class="anchored" data-anchor-id="sec-missing-values">
+</section></details></section><section id="sec-missing-values" class="level3" data-number="9.4.2"><h3 data-number="9.4.2" class="anchored" data-anchor-id="sec-missing-values">
 <span class="header-section-number">9.4.2</span> Missing values</h3>
 <p>If you have control over your data, it is always best to keep missing values as empty cells rather than denoting missingness with a word or implausible number. If you used “missing” rather than leaving the cell empty, the entire variable would be read as character data, which means you wouldn’t be able to perform mathematical operations like calculating the mean. If you use an implausible number (0 or 999 are common), then you risk these values being included in any calculations as real numbers.</p>
 <p>However, we often don’t have control over how the data come to us, so let’s run through how to fix this.</p>
 <section id="bad-missing-values" class="level4" data-number="9.4.2.1"><h4 data-number="9.4.2.1" class="anchored" data-anchor-id="bad-missing-values">
 <span class="header-section-number">9.4.2.1</span> Bad missing values</h4>
-<p>What if the South region hadn’t returned their expenses (entered as 0) and the North region hadn’t returned their sales data for 2020 yet, so someone entered it as “missing”?</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>What if the South region hadn’t returned their expenses (entered as 0) and the North region hadn’t returned their sales data for 2020 yet, so someone entered it as “missing”?</p>
 <p>First, we’re going to recode the data to add in the missing values</p>
 <p>For the South data, we can use <code>case_when()</code> to set the value of expenses to 0 if the year is 2020 and region is “South”, otherwise use the value from the expenses column (i.e., don’t change).</p>
 <div class="cell" data-layout-align="center">
@@ -1751,7 +1771,7 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="convert-missing-values-to-na" class="level4" data-number="9.4.2.2"><h4 data-number="9.4.2.2" class="anchored" data-anchor-id="convert-missing-values-to-na">
+</details></section><section id="convert-missing-values-to-na" class="level4" data-number="9.4.2.2"><h4 data-number="9.4.2.2" class="anchored" data-anchor-id="convert-missing-values-to-na">
 <span class="header-section-number">9.4.2.2</span> Convert missing values to NA</h4>
 <p>To set the missing values to NA, we can use the handy function <code>na_if()</code>. We’ll also need to transform <code>sales</code> back to numeric.</p>
 <div class="cell" data-layout-align="center">
@@ -1876,7 +1896,9 @@ Caused by warning in `mean.default()`:
 </div>
 </div>
 </div>
-</section><section id="count-missing-values" class="level4" data-number="9.4.2.4"><h4 data-number="9.4.2.4" class="anchored" data-anchor-id="count-missing-values">
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary></details></section><section id="count-missing-values" class="level4" data-number="9.4.2.4"><h4 data-number="9.4.2.4" class="anchored" data-anchor-id="count-missing-values">
 <span class="header-section-number">9.4.2.4</span> Count missing values</h4>
 <p>If you want to find out how many missing or non-missing values there are in a column, use the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function to get a <a href="https://psyteachr.github.io/glossary/l#logical" target="_blank" class="glossary" title="A data type representing TRUE or FALSE values.">logical</a> vector of whether or not each value is missing, and use <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> to count how many values are TRUE or <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to calculate the proportion of TRUE values.</p>
 <div class="cell" data-layout-align="center">
@@ -1944,10 +1966,13 @@ Caused by warning in `mean.default()`:
 <span id="cb41-6"><a href="#cb41-6"></a>complete_sales <span class="ot">&lt;-</span> missing_data <span class="sc">%&gt;%</span></span>
 <span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">drop_na</span>(sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Missing data can be quite difficult to deal with depending on how it is represented. As always, no amount of coding expertise can make up for not understanding the structure and idiosyncrasies of your data.</p>
-</section></section></section><section id="sec-together-wrangle" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="sec-together-wrangle">
+Missing data can be quite difficult to deal with depending on how it is represented. As always, no amount of coding expertise can make up for not understanding the structure and idiosyncrasies of your data.
+
+</section></section><section id="sec-together-wrangle" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="sec-together-wrangle">
 <span class="header-section-number">9.5</span> Exercises</h2>
-<p>Let’s try some exercises using a dataset you already encountered in <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a> so that you can see how much more you’re able to do with the data now.</p>
+<details><summary>
+This is the abridged version! Click for additional context.
+</summary><p>Let’s try some exercises using a dataset you already encountered in <a href="03-viz.html" class="quarto-xref"><span>Chapter 3</span></a> so that you can see how much more you’re able to do with the data now.</p>
 <ul>
 <li>Save your current Markdown, close it, and open a new Rmd named “survey_data_mad_skillz”.</li>
 <li>In the set-up code chunk, load the tidyverse, then load the dataset from https://psyteachr.github.io/ads-v2/data/survey_data.csv into an object named <code>survey_data</code>.</li>
@@ -2271,11 +2296,44 @@ Solution
 <p>In preparation for the final summative assessment, explore the data to provide one original insight of your own.</p>
 </section><section id="share-on-teams" class="level3" data-number="9.5.5"><h3 data-number="9.5.5" class="anchored" data-anchor-id="share-on-teams">
 <span class="header-section-number">9.5.5</span> Share on Teams</h3>
-<p>Once you’re done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 09 channel.</p>
-</section></section><section id="sec-glossary-wrangle" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="sec-glossary-wrangle">
+Once you’re done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 09 channel.
+</section></details></section><section id="sec-glossary-wrangle" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="sec-glossary-wrangle">
 <span class="header-section-number">9.6</span> Glossary</h2>
 <div class="cell" data-layout-align="center">
-<p>|term |definition | |:——————|:————————————————————————————————————————–| |boolean expression |An expression that evaluates to TRUE or FALSE. | |data wrangling |The process of preparing data for visualisation and statistical analysis. | |factor |A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter | |logical |A data type representing TRUE or FALSE values. | |Operator |A symbol that performs some mathematical or comparative process. | |string |A piece of text inside of quotes. |</p>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: left;">definition</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/b#boolean-expression" class="glossary" target="_blank">boolean-expression</a></td>
+<td style="text-align: left;">An expression that evaluates to TRUE or FALSE.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/d#data-wrangling" class="glossary" target="_blank">data-wrangling</a></td>
+<td style="text-align: left;">The process of preparing data for visualisation and statistical analysis.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/f#factor" class="glossary" target="_blank">factor</a></td>
+<td style="text-align: left;">A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/l#logical" class="glossary" target="_blank">logical</a></td>
+<td style="text-align: left;">A data type representing TRUE or FALSE values.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/o#operator" class="glossary" target="_blank">operator</a></td>
+<td style="text-align: left;">A symbol that performs some mathematical or comparative process.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://psyteachr.github.io/glossary/s#string" class="glossary" target="_blank">string</a></td>
+<td style="text-align: left;">A piece of text inside of quotes.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </section><section id="sec-resources-wrangle" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="sec-resources-wrangle">
 <span class="header-section-number">9.7</span> Further resources</h2>

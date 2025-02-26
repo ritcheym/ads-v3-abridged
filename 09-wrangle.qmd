@@ -42,10 +42,12 @@ library(tidyverse)   # data wrangling functions
 library(janitor)
 ```
 
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 ::: {.callout-warning}
 At this point in ADS it's very likely you will have the most recent version of the <pkg>tidyverse</pkg> packages but just in case, be aware that the function `case_when()` that we will use in this chapter was updated in to introduce new arguments and ways of handling `NA`. The code we provide in this chapter will only work if you have v1.1.0 or above of <pkg>dplyr</pkg> installed. To check run `packageVersion("dplyr")` and if it's below 1.1.0, install it again to update.
 :::
-
+</details>
 You'll need to make a folder called "data" and download a data file into it: 
 <a href="https://psyteachr.github.io/ads-v2/data/budget.csv" download>budget.csv</a>.
 
@@ -109,7 +111,8 @@ product_dat <- budget %>% select(2)
 ```
 
 You can select each column individually, separated by commas (e.g., `region, sales_2019`) but you can also select all columns from one to another by separating them with a colon (e.g., `sales_2019:expenses_2020`).
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 The colon notation can be much faster because you don't need to type out each individual variable name, but make sure that you know what order your columns are in and always check the output to make sure you have selected what you intended.
 
 ```{r select-name}
@@ -127,7 +130,7 @@ regions <- budget %>% select(`Sales Region` = 1, 3:6)
 
 head(regions, 2)
 ```
-
+</details>
 #### Un-selecting columns
 
 You can select columns either by telling R which ones you want to keep as in the previous examples, or by specifying which ones you want to exclude by using a minus symbol to un-select columns. You can also use the colon notation to de-select columns, but to do so you need to put parentheses around the span first, e.g., `-(sales_2019:expenses_2020)`, not `-sales_2019:expenses_2020`.
@@ -299,6 +302,8 @@ budget %>%
 `A != B`   |not equal 	          |A does not exactly equal B
 `A %in% B` |in 	                  |A is an element of vector B
 
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 Finally, you can also pass many other functions to filter. For example, the package <pkg>stringr</pkg> that is loaded as part of the <pkg>tidyverse</pkg> contains many different functions for working with `r glossary("string", "strings")` (character data). For example, you you use `str_detect()` to only retain rows where the customer satisfaction rating includes the word "high"
 
 ```{r eval = TRUE}
@@ -307,7 +312,7 @@ budget %>%
 ```
 
 Note that `str_detect()` is case sensitive so it would not return values of "High" or "HIGH". You can use the function `tolower()` or `toupper()` to convert a string to lowercase or uppercase before you search for substring if you need case-insensitive matching.
-
+</details>
 ::: {.callout-warning}
 `filter()` is incredibly powerful and can allow you to select very specific subsets of data. But, it is also quite dangerous because when you start combining multiple criteria and operators, it's very easy to accidentally specify something slightly different than what you intended. **Always check your output**. If you have a small dataset, then you can eyeball it to see if it looks right. With a larger dataset, you may wish to compute summary statistics or count the number of groups/observations in each variable to verify your filter is correct. There is no level of expertise in coding that can substitute knowing and checking your data. 
 :::
@@ -324,7 +329,8 @@ budget %>%
   arrange(product, desc(region))
 ```
 
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 ::: {.callout-note .try}
 If you want to sort character data/categories in a specific order, turn the column into a `r glossary("factor")` and set the `levels` in the desired order.
 
@@ -336,7 +342,7 @@ budget %>%
 ```
 
 :::
-
+</details>
 ### Mutate
 
 The function `mutate()` allows you to add new columns or change existing ones by overwriting them by using the syntax `new_column = operation`.  You can add more than one column in the same mutate function by separating the columns with a comma. Once you make a new column, you can use it in further column definitions. For example, the creation of `profit` below uses the column `expenses`, which is created above it.
@@ -350,7 +356,8 @@ budget2 <- budget %>%
     region = paste(region, "Office")
   )
 ```
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 `mutate()` can also be used in conjunction with other functions and Boolean operators. For example, we can add another column to `budget2` that states whether a profit was returned that year or overwrite our `product` variable as a factor. Just like when we used `r glossary("boolean expression", "Boolean expressions")` with filter, it will evaluate the equation and return TRUE or FALSE depending on whether the observation meets the criteria.
 
 ```{r}
@@ -358,7 +365,7 @@ budget2 <- budget2 %>%
   mutate(profit_category = profit > 0,
          product = as.factor(product))
 ```
-
+</details>
 ::: {.callout-warning}
 You can overwrite a column by giving a new column the same name as the old column (see `region` or `product`) above. Make sure that you mean to do this and that you aren't trying to use the old column value after you redefine it.
 :::
@@ -380,7 +387,8 @@ bonus <- budget3 %>%
   mutate(bonus_2019 = case_when(satisfaction_2019 %in% c("very low", "low", "neutral") ~ "no bonus",
                                 satisfaction_2019 %in% c("high", "very high") ~ "bonus"))
 ```
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 And combine different criteria:
 
 ```{r}
@@ -400,9 +408,11 @@ Be mindful that `.default` uses `=` whilst the others use `~`. Emily has lost qu
 :::
 
 Just like `filter()`, `mutate()` is incredibly powerful and the scope of what you can create is far beyond what we can cover in this book. 
+</details>
 
 ### Summarise {#sec-dplyr-summarise}
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 You were introduced to the `summarise()` function in @sec-summary-summarise. This applies summary functions to an entire table (or groups, as you'll see in the next section).
 
 Let's say we want to determine the mean sales and expenses, plus the minimum and maximum profit, for any region, product and year. First, we need to reshape the data like we learned in @sec-tidy, so that there is a column for year and one column each for sales and expenses, instead of separate columns for each year. We'll also drop the satisfaction data as we don't need it for this analysis. 
@@ -431,9 +441,10 @@ budget4 %>%
     max_profit = max(expenses - sales)
   )
 ```
-
+</details>
 ### Group By {#sec-dplyr-groupby}
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 You were introduced to the `group_by()` function in @sec-grouping. For example, you can break down the summary statistics above by year and product.
 
 ```{r}
@@ -494,9 +505,10 @@ budget4 %>%
   group_by(region) %>%
   slice_max(n = 1, order_by = sales)
 ```
-
+</details>
 ## Complications
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 ### Rounding
 
 Let's say we want to round all the values to the nearest pound. The pattern below uses the `across()` function to apply the `round()` function to the columns from `mean_sales` to `max_profit`.
@@ -526,7 +538,7 @@ This should work as you'd expect.
 round_half_up(0.5)
 round_half_up(1.5)
 ```
-
+</details>
 ### Missing values {#sec-missing-values}
 
 If you have control over your data, it is always best to keep missing values as empty cells rather than denoting missingness with a word or implausible number. If you used "missing" rather than leaving the cell empty, the entire variable would be read as character data, which means you wouldn't be able to perform mathematical operations like calculating the mean. If you use an implausible number (0 or 999 are common), then you risk these values being included in any calculations as real numbers.
@@ -534,7 +546,8 @@ If you have control over your data, it is always best to keep missing values as 
 However, we often don't have control over how the data come to us, so let's run through how to fix this.
 
 #### Bad missing values
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 What if the South region hadn't returned their expenses (entered as 0) and the North region hadn't returned their sales data for 2020 yet, so someone entered it as "missing"?  
 
 First, we're going to recode the data to add in the missing values
@@ -596,7 +609,7 @@ Now, if you try to compute the mean sales, you will get an error message and the
 missing_bad %>%
   summarise(mean_sales = mean(sales))
 ```
-
+</details>
 #### Convert missing values to NA
 
 To set the missing values to NA, we can use the handy function `na_if()`. We'll also need to transform `sales` back to numeric.
@@ -641,7 +654,8 @@ missing_data %>%
     .groups = "drop"
   )
 ```
-
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 #### Count missing values
 
 If you want to find out how many missing or non-missing values there are in a column, use the `is.na()` function to get a `r glossary("logical")` vector of whether or not each value is missing, and use `sum()` to count how many values are TRUE or `mean()` to calculate the proportion of TRUE values.
@@ -673,8 +687,11 @@ complete_sales <- missing_data %>%
 ```
 
 Missing data can be quite difficult to deal with depending on how it is represented. As always, no amount of coding expertise can make up for not understanding the structure and idiosyncrasies of your data. 
+</details>
 
 ## Exercises {#sec-together-wrangle}
+<details>
+<summary>This is the abridged version! Click for additional context.</summary>
 
 Let's try some exercises using a dataset you already encountered in @sec-viz so that you can see how much more you're able to do with the data now.
 
@@ -857,14 +874,12 @@ In preparation for the final summative assessment, explore the data to provide o
 ### Share on Teams
 
 Once you're done, share your knitted html file and the Rmd file for the exercises on Teams in the Week 09 channel.
-
+</details>
 
 ## Glossary {#sec-glossary-wrangle}
 
-```{r, echo = FALSE, results='asis'}
-glossary_table(as_kable = FALSE) |> 
-  kableExtra::kable(row.names = FALSE, escape = FALSE) |>
-  unclass() |> cat()
+```{r, echo = FALSE}
+glossary_table()
 ```
 
 ## Further resources {#sec-resources-wrangle}

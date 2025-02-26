@@ -8,7 +8,7 @@ execute:
   freeze: auto
 
 book:
-  title: 'Applied Data Skills'
+  title: 'Applied Data Skills - Abridged'
   subtitle: "Processing & Presenting Data"
   author: "Emily Nordmann and Lisa DeBruine"
   cover-image: images/logos/logo.png
