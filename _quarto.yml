@@ -11,11 +11,11 @@ book:
   title: 'Applied Data Skills - Abridged'
   subtitle: "Processing & Presenting Data"
   author: "Emily Nordmann and Lisa DeBruine"
-  cover-image: images/logos/logo.png
-  image: images/logos/logo.png
+  # cover-image: images/logos/logo.png
+  # image: images/logos/logo.png
   favicon: images/logos/favicon.ico
   # cookie-consent: true
-  google-analytics: "G-6NP3MF25W3"
+  # google-analytics: "G-6NP3MF25W3"
   page-navigation: true
   search: true
   # comments:
@@ -33,7 +33,7 @@ book:
   # sidebar:
   #   style: docked
   #   background: light
-  margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
+  # margin-header: "<a href='https://doi.org/10.5281/zenodo.6365077'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.6365077.svg' alt='DOI'></a>"
   page-footer:
     left: "CC-BY 2024, psyTeachR"
     right:

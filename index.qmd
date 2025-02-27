@@ -1,3 +1,7 @@
+::: callout-warning
+This is a slightly abridged version of the original textbook, adapted by Maureen Ritchey for a particular class. You are strongly encouraged to visit the [official textbook site](https://psyteachr.github.io/ads-v3/) for the most complete and up-to-date content. All changes can be seen [here](https://github.com/PsyTeachR/ads-v3/compare/master...ritcheym:ads-v3-abridged:master).
+:::
+
 # Overview {.unnumbered}
 
 This book provides an overview of the basic skills needed to turn raw data into informative summaries and visualisations presented in professional reports and presentations. The book will introduce learners to R [@R-base], a programming language that can help automate working with data. The book will cover importing and processing data from spreadsheets, producing data summaries of descriptive statistics in tables, creating beautiful and informative visualisations, and constructing reports and presentations that automatically update when the underlying data changes.
@@ -10,26 +14,25 @@ By the end of this book, you will be able to use R to:
 -   create reusable report templates
 -   use AI to responsibly assist with coding
 
-
 ## Structure of the course
 
 This book accompanies a 10-week course, covering one chapter per week. Each chapter will introduce you to some new skills and concepts using concrete examples. At various points, there will be multiple-choice or fill-in-the-blank questions for you to check your understanding. Each chapter has accompanying walk-through videos, where an instructor demonstrates the skills covered in the chapter. Each chapter also has accompanying exercises that you should do to reinforce your learning.
 
 ## How to learn data skills
 
-::: {.small_right}
+::: small_right
 <img src="images/memes/gym_sleep.jpg" alt="top text: Me: gonna get to the gym early today, set myself on a regimen, get gains. Also me:; Photo: Man sleeping on gym equipment"/>
 :::
 
 Learning data skills is kind of like having a gym membership - you'll be given state-of-the-art equipment to use and instructions for how to use them, but your data skills won't get any stronger unless you practice.
 
-::: {.small_left}
+::: small_left
 <img src="images/memes/forgetting.jpg" alt="top text: Not sure if I have a bad memory; photo: Fry from Futurama squinting; bottom text: Or a bad memory"/>
 :::
 
 Data skills do not require you to memorise lots of code. You will be introduced to many different functions, but the main skill to learn is how to efficiently find the information you need. This will require getting used to the structure of help files and [cheat sheets](https://www.rstudio.com/resources/cheatsheets/){target="_blank"}, learning how to Goggle your problem and choose a helpful solution, and learning how to read error messages.
 
-::: {.small_right}
+::: small_right
 <img src="images/memes/typos.jpg" alt="Morpehus from The Matrix; top text: What if I told you; bottom text: Typos are accidents nd accidents happon"/>
 :::
 
@@ -41,12 +44,12 @@ This book contains the core coding materials for Applied Data Skills (ADS). Open
 
 In addition to this book, learners on ADS get:
 
-* Weekly lectures on the fundamentals of statistics, data visualization, and working with quantitative data
-* A curated reading list
-* Weekly quizzes
-* A formative assessment with a solution file and walkthrough video
-* A summative assessment that is individually graded. Successful completion of this assessment results in the award of a 10-credit SCQF Level 8 qualification.
-* Access to a friendly and inclusive learning community on Teams that provides on-demand technical and learning support by our two academic leads and a dedicated Teaching Assistant, as well as the opportunity to interact with and learn from peers. 
-* A supported schedule and syllabus that has been purposefully designed to be underpinned by the science of learning to maximize success.
+-   Weekly lectures on the fundamentals of statistics, data visualization, and working with quantitative data
+-   A curated reading list
+-   Weekly quizzes
+-   A formative assessment with a solution file and walkthrough video
+-   A summative assessment that is individually graded. Successful completion of this assessment results in the award of a 10-credit SCQF Level 8 qualification.
+-   Access to a friendly and inclusive learning community on Teams that provides on-demand technical and learning support by our two academic leads and a dedicated Teaching Assistant, as well as the opportunity to interact with and learn from peers.
+-   A supported schedule and syllabus that has been purposefully designed to be underpinned by the science of learning to maximize success.
 
 ADS currently runs in April each year and you can [subscribe to be notified](https://r1.dotdigital-pages.com/p/4S63-CAV) when applications open.
